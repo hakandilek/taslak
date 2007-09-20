@@ -3,17 +3,29 @@ package org.xmdl.taslak.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import org.xmdl.taslak.service.GenericManager;
 import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.Product;
 
 import java.util.List;
 
 public class OrderElementAction extends BaseAction implements Preparable {
     private GenericManager<OrderElement, Long> orderElementManager;
+    private GenericManager<Order, Long> orderManager;
+    private GenericManager<Product, Long> productManager;
     private List orderElements;
     private OrderElement orderElement;
     private Long  id;
 
     public void setOrderElementManager(GenericManager<OrderElement, Long> orderElementManager) {
         this.orderElementManager = orderElementManager;
+    }
+
+    public void setProductManager(GenericManager<Product, Long> productManager) {
+        this.productManager = productManager;
+    }
+
+    public void setOrderManager(GenericManager<Order, Long> orderManager) {
+        this.orderManager = orderManager;
     }
 
     public List getOrderElements() {
@@ -30,7 +42,21 @@ public class OrderElementAction extends BaseAction implements Preparable {
             if (orderElementId != null && !orderElementId.equals("")) {
                 orderElement = orderElementManager.get(new Long(orderElementId));
             }
+
+            String orderId = getRequest().getParameter("orderElement.order.id");
+            if (orderId != null && !orderId.equals("")) {
+                Order order = orderManager.get(new Long(orderId));
+                orderElement.setOrder(order);
+            }
+
+            String productId = getRequest().getParameter("orderElement.product.id");
+            if (productId != null && !productId.equals("")) {
+                Product product= productManager.get(new Long(productId));
+                orderElement.setProduct(product);
+            }
         }
+        orderList = orderManager.getAll();
+        productList = productManager.getAll();
     }
 
     public String list() {
@@ -88,5 +114,25 @@ public class OrderElementAction extends BaseAction implements Preparable {
         } else {
             return SUCCESS;
         }
+    }
+
+    private List orderList;
+
+    public List getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List orderList) {
+        this.orderList = orderList;
+    }
+
+    private List productList;
+
+    public List getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List productList) {
+        this.productList = productList;
     }
 }

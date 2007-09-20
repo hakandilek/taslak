@@ -22,6 +22,8 @@
         paramId="id" paramProperty="id" titleKey="orderElement.id"/>
     <display:column property="id" media="csv excel xml pdf" titleKey="orderElement.id"/>
     <display:column property="quantity" sortable="true" titleKey="orderElement.quantity"/>
+    <display:column property="order.id" sortable="true" titleKey="orderElement.order"/>
+    <display:column property="product.id" sortable="true" titleKey="orderElement.product"/>
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="orderElementList.orderElement"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="orderElementList.orderElements"/></display:setProperty>

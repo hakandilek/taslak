@@ -66,9 +66,6 @@ public class OrderElement extends BaseObject implements Serializable  {
     public int hashCode() {
         int result ;
         result = id.hashCode();
-        result = 31 * result + quantity.hashCode();
-        result = 31 * result + order.hashCode();
-        result = 31 * result + product.hashCode();
         return result;
     }
 }
