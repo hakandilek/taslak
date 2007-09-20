@@ -91,7 +91,7 @@
         </row>
     </table>
     <!--Product-START-->
-    <table name="product">
+    <table name="t_product">
         <column>id</column>
         <column>name</column>
         <column>price</column>
@@ -112,4 +112,56 @@
     </row>
     </table>
     <!--Product-END-->
+    <!--Order-START-->
+    <table name="t_order">
+        <column>id</column>
+        <column>name</column>
+        <column>pricetotals</column>
+        <column>createdate</column>
+    <row>
+        <value description="id">-1</value>
+        <value description="name">BqDaDtJzCf</value>
+        <value description="pricetotals">7.12799596099124E305</value>
+        <value description="createdate">2007-09-20</value>
+    </row>
+    <row>
+        <value description="id">-2</value>
+        <value description="name">VwTdCpEfKe</value>
+        <value description="pricetotals">1.4675645318760689E308</value>
+        <value description="createdate">2007-09-20</value>
+    </row>
+    <row>
+        <value description="id">-3</value>
+        <value description="name">GxPxUrDjLf</value>
+        <value description="pricetotals">9.189386567295768E307</value>
+        <value description="createdate">2007-09-20</value>
+    </row>
+    </table>
+    <!--Order-END-->
+    <!--OrderElement-START-->
+    <table name="t_orderElement">
+        <column>id</column>
+        <column>quantity</column>
+        <column>orderId</column>    
+        <column>productId</column>    
+    <row>
+        <value description="id">-1</value>
+        <value description="quantity">6024683510166235136</value>
+        <value description="orderId">-1</value>
+        <value description="productId">-1</value>
+    </row>
+    <row>
+        <value description="id">-2</value>
+        <value description="quantity">327295642793163776</value>
+        <value description="orderId">-2</value>
+        <value description="productId">-2</value>
+    </row>
+    <row>
+        <value description="id">-3</value>
+        <value description="quantity">1238727876737785856</value>
+        <value description="orderId">-3</value>
+        <value description="productId">-3</value>
+    </row>
+    </table>
+    <!--OrderElement-END-->
 </dataset>

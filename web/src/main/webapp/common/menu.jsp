@@ -11,5 +11,11 @@
     <!--Product-START-->
     <menu:displayMenu name="ProductMenu"/>
     <!--Product-END-->
+    <!--Order-START-->
+    <menu:displayMenu name="OrderMenu"/>
+    <!--Order-END-->
+    <!--OrderElement-START-->
+    <menu:displayMenu name="OrderElementMenu"/>
+    <!--OrderElement-END-->
 </ul>
 </menu:useMenuDisplayer>

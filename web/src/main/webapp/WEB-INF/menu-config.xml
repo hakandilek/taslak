@@ -9,7 +9,7 @@
         <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" width="120" page="/admin/users.html">
             <Item name="ViewUsers" title="menu.admin.users" page="/admin/users.html"/>
             <Item name="ActiveUsers" title="mainMenu.activeUsers" page="/admin/activeUsers.html"/>
-            <Item name="ReloadContext" title="menu.admin.reload" page="/admin/reload.html"/>
+            <Element name="ReloadContext" title="menu.admin.reload" page="/admin/reload.html"/>
             <Item name="FileUpload" title="menu.selectFile" page="/uploadFile.html"/>
             <Item name="FlushCache" title="menu.flushCache" page="/admin/flushCache.html"/>
             <Item name="Clickstream" title="menu.clickstream" page="/admin/clickstreams.jsp"/>
@@ -18,5 +18,11 @@
         <!--Product-START-->
         <Menu name="ProductMenu" title="productList.title" page="/products.html"/>
         <!--Product-END-->
+        <!--Order-START-->
+        <Menu name="OrderMenu" title="orderList.title" page="/orders.html"/>
+        <!--Order-END-->
+        <!--OrderElement-START-->
+        <Menu name="OrderElementMenu" title="orderElementList.title" page="/orderElements.html"/>
+        <!--OrderElement-END-->
     </Menus>
 </MenuConfig>

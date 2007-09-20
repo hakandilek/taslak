@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.text.MessageFormat;
 
-@Entity (name=("product"))
+@Entity (name=("t_product"))
 public class Product extends BaseObject implements Serializable  {
 
     private Long id;
