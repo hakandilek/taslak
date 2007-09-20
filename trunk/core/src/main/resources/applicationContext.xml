@@ -5,5 +5,16 @@
 
     <!-- Add new DAOs here -->
 
+    <!--ProductManager-START-->
+    <bean id="productManager" class="org.xmdl.taslak.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="org.xmdl.taslak.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="org.xmdl.taslak.model.Product"/>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--ProductManager-END-->
+
     <!-- Add new Managers here -->
 </beans>
