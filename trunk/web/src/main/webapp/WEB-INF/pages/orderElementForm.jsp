@@ -9,9 +9,9 @@
     <li style="display: none">
         <s:hidden key="orderElement.id"/>
     </li>
-    <s:textfield key="orderElement.quantity" required="true" cssClass="text medium"/>
-    <%--<s:select name="orderElement.order.id" list="orderList" listKey="id" listValue="id"></s:select>--%>
-    <%--<s:select name="orderElement.product.id" list="productList" listKey="id" listValue="id"></s:select>--%>
+    <s:textfield required="true" cssClass="text medium" key="orderElement.quantity"/>
+    <s:select name="orderElement.order.id" list="orderList" listKey="id" listValue="id" key="orderElement.order"/>
+    <s:select name="orderElement.product.id" list="productList" listKey="id" listValue="id" key="orderElement.product"/>
 
     <li class="buttonBar bottom">
         <s:submit cssClass="button" method="save" key="button.save" theme="simple"/>
