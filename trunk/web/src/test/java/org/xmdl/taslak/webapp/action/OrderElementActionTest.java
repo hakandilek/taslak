@@ -3,40 +3,45 @@ package org.xmdl.taslak.webapp.action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.xmdl.taslak.service.GenericManager;
+import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.Product;
-import org.xmdl.taslak.webapp.action.BaseActionTestCase;
 import org.springframework.mock.web.MockHttpServletRequest;
 
-public class ProductActionTest extends BaseActionTestCase {
-    private ProductAction action;
+public class OrderElementActionTest extends BaseActionTestCase {
+    private OrderElementAction action;
 
     @Override @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
-        action = new ProductAction();
+        action = new OrderElementAction();
+        GenericManager orderElementManager = (GenericManager) applicationContext.getBean("orderElementManager");
         GenericManager productManager = (GenericManager) applicationContext.getBean("productManager");
-        action.setProductManager(productManager);
-    
-        // add a test product to the database
-        Product product = new Product();
+        GenericManager orderManager = (GenericManager) applicationContext.getBean("orderManager");
+        action.setOrderElementManager(orderElementManager);
+
+        // add a test orderElement to the database
+        OrderElement orderElement = new OrderElement();
 
         // enter all required fields
-        product.setName("fdsslklcs");
+        orderElement.setQuantity(446232345652l);
+        orderElement.setProduct((Product) productManager.getAll().get(0));
+        orderElement.setOrder((Order) orderManager.getAll().get(0));
 
-        productManager.save(product);
+        orderElementManager.save(orderElement);
     }
 
     public void testSearch() throws Exception {
         assertEquals(action.list(), ActionSupport.SUCCESS);
-        assertTrue(action.getProducts().size() >= 1);
+        assertTrue(action.getOrderElements().size() >= 1);
     }
 
     public void testEdit() throws Exception {
         log.debug("testing edit...");
         action.setId(-1L);
-        assertNull(action.getProduct());
+        assertNull(action.getOrderElement());
         assertEquals("success", action.edit());
-        assertNotNull(action.getProduct());
+        assertNotNull(action.getOrderElement());
         assertFalse(action.hasActionErrors());
     }
 
@@ -45,12 +50,13 @@ public class ProductActionTest extends BaseActionTestCase {
         ServletActionContext.setRequest(request);
         action.setId(-1L);
         assertEquals("success", action.edit());
-        assertNotNull(action.getProduct());
+        assertNotNull(action.getOrderElement());
 
-        Product product = action.getProduct();
+        OrderElement orderElement = action.getOrderElement();
         // update required fields
+        orderElement.setQuantity(446232345652l);
 
-        action.setProduct(product);
+        action.setOrderElement(orderElement);
 
         assertEquals("input", action.save());
         assertFalse(action.hasActionErrors());
@@ -62,9 +68,9 @@ public class ProductActionTest extends BaseActionTestCase {
         MockHttpServletRequest request = new MockHttpServletRequest();
         ServletActionContext.setRequest(request);
         action.setDelete("");
-        Product product = new Product();
-        product.setId(-2L);
-        action.setProduct(product);
+        OrderElement orderElement = new OrderElement();
+        orderElement.setId(-2L);
+        action.setOrderElement(orderElement);
         assertEquals("success", action.delete());
         assertNotNull(request.getSession().getAttribute("messages"));
     }

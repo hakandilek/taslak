@@ -126,6 +126,42 @@
         </action>
         <!--ProductAction-END-->
 
+        <!--OrderAction-START-->
+        <action name="orders" class="org.xmdl.taslak.webapp.action.OrderAction" method="list">
+            <result>/WEB-INF/pages/orderList.jsp</result>
+        </action>
+
+        <action name="editOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="edit">
+            <result>/WEB-INF/pages/orderForm.jsp</result>
+            <result name="error">/WEB-INF/pages/orderList.jsp</result>
+        </action>
+
+        <action name="saveOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="save">
+            <result name="input">/WEB-INF/pages/orderForm.jsp</result>
+            <result name="cancel" type="redirect">orders.html</result>
+            <result name="delete" type="redirect">orders.html</result>
+            <result name="success" type="redirect">orders.html</result>
+        </action>
+        <!--OrderAction-END-->
+
+        <!--OrderElementAction-START-->
+        <action name="orderElements" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="list">
+            <result>/WEB-INF/pages/orderElementList.jsp</result>
+        </action>
+
+        <action name="editOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="edit">
+            <result>/WEB-INF/pages/orderElementForm.jsp</result>
+            <result name="error">/WEB-INF/pages/orderElementList.jsp</result>
+        </action>
+
+        <action name="saveOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="save">
+            <result name="input">/WEB-INF/pages/orderElementForm.jsp</result>
+            <result name="cancel" type="redirect">orderElements.html</result>
+            <result name="delete" type="redirect">orderElements.html</result>
+            <result name="success" type="redirect">orderElements.html</result>
+        </action>
+        <!--OrderElementAction-END-->
+
         <!-- Add additional actions here -->
     </package>
 

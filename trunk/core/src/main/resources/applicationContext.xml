@@ -16,5 +16,27 @@
     </bean>
     <!--ProductManager-END-->
 
+    <!--OrderManager-START-->
+    <bean id="orderManager" class="org.xmdl.taslak.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="org.xmdl.taslak.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="org.xmdl.taslak.model.Order"/>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--OrderManager-END-->
+
+    <!--OrderElementManager-START-->
+    <bean id="orderElementManager" class="org.xmdl.taslak.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="org.xmdl.taslak.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="org.xmdl.taslak.model.OrderElement"/>
+                <property name="sessionFactory" ref="sessionFactory"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--OrderElementManager-END-->
+
     <!-- Add new Managers here -->
 </beans>
