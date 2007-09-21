@@ -206,4 +206,17 @@ public class BaseAction extends ActionSupport {
     public void setSave(String save) {
         this.save = save;
     }
+
+    /**
+     * omer ekledi silme icin
+     */
+    List<String> deleteId;
+
+    public List<String> getDeleteId() {
+        return deleteId;
+    }
+
+    public void setDeleteId(List<String> deleteId) {
+        this.deleteId = deleteId;
+    }
 }

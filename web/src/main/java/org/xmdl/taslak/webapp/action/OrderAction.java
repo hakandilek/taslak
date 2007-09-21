@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.Preparable;
 import org.xmdl.taslak.service.GenericManager;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.webapp.action.BaseAction;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 
@@ -65,6 +66,28 @@ public class OrderAction extends BaseAction implements Preparable {
             order = new Order();
         }
 
+        return SUCCESS;
+    }
+
+
+    public String deleteMass() throws Exception {
+        boolean cannotDeleted = false;
+        boolean anyDeleted = false;
+        if (getDeleteId() != null) {
+            for (String idStr : getDeleteId()) {
+                try {
+                    orderManager.remove(new Long(idStr));
+                    anyDeleted = true;
+                } catch (DataIntegrityViolationException e) {
+                    e.printStackTrace();
+                    cannotDeleted = true;
+                }
+            }
+        }
+        if (cannotDeleted)      saveMessage(getText("Order.cannotBeDeleted"));
+        if (anyDeleted)         saveMessage(getText("Order.deleted"));
+
+        orders = orderManager.getAll();
         return SUCCESS;
     }
 

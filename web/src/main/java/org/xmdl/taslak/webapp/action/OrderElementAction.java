@@ -5,6 +5,7 @@ import org.xmdl.taslak.service.GenericManager;
 import org.xmdl.taslak.model.OrderElement;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.Product;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 
@@ -45,14 +46,20 @@ public class OrderElementAction extends BaseAction implements Preparable {
 
             String orderId = getRequest().getParameter("orderElement.order.id");
             if (orderId != null && !orderId.equals("")) {
-                Order order = orderManager.get(new Long(orderId));
-                orderElement.setOrder(order);
+                if(orderId.equals("-12345678")){
+                    orderElement.setOrder(null);
+                }else{
+                    orderElement.setOrder(orderManager.get(new Long(orderId)));
+                }
             }
 
             String productId = getRequest().getParameter("orderElement.product.id");
             if (productId != null && !productId.equals("")) {
-                Product product= productManager.get(new Long(productId));
-                orderElement.setProduct(product);
+                if(productId.equals("-12345678")){
+                    orderElement.setProduct(null);
+                }else{
+                    orderElement.setProduct(productManager.get(new Long(productId)));
+                }
             }
         }
         orderList = orderManager.getAll();
@@ -90,6 +97,28 @@ public class OrderElementAction extends BaseAction implements Preparable {
             orderElement = new OrderElement();
         }
 
+        return SUCCESS;
+    }
+
+
+    public String deleteMass() throws Exception {
+        boolean cannotDeleted = false;
+        boolean anyDeleted = false;
+        if (getDeleteId() != null) {
+            for (String idStr : getDeleteId()) {
+                try {
+                    orderElementManager.remove(new Long(idStr));
+                    anyDeleted = true;
+                } catch (DataIntegrityViolationException e) {
+                    e.printStackTrace();
+                    cannotDeleted = true;
+                }
+            }
+        }
+        if (cannotDeleted)      saveMessage(getText("OrderElement.cannotBeDeleted"));
+        if (anyDeleted)         saveMessage(getText("OrderElement.deleted"));
+
+        orderElements = orderElementManager.getAll();
         return SUCCESS;
     }
 

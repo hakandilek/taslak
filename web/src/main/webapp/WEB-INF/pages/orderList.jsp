@@ -16,8 +16,9 @@
 </c:set>
 
 <c:out value="${buttons}" escapeXml="false" />
-
-<display:table name="orders" class="table" requestURI="" id="orderList" export="true" pagesize="25">
+<s:form id="ordersForm" action="orders">
+<display:table name="orders" class="table" id="orderList" export="true" pagesize="25"
+        decorator="org.xmdl.taslak.webapp.decorator.DeleteIdDecorator">
     <display:column property="id" sortable="true" href="editOrder.html" media="html"
         paramId="id" paramProperty="id" titleKey="order.id"/>
     <display:column property="id" media="csv excel xml pdf" titleKey="order.id"/>
@@ -26,6 +27,11 @@
     <display:column sortProperty="createDate" sortable="true" titleKey="order.createDate">
          <fmt:formatDate value="${orderList.createDate}" pattern="${datePattern}"/>
     </display:column>
+
+    <display:column property="idCheckbox" media="html"
+            title="<input id='orders_button_' name='method:deleteMass' value='Sil' onclick=\"return confirmDelete('Order')\" type='submit' />
+            <input type=\"checkbox\" name=\"allbox\" onclick=\"checkAll(document.getElementById('ordersForm'),'deleteId')\" />"/>
+
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="orderList.order"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="orderList.orders"/></display:setProperty>
@@ -37,6 +43,7 @@
 
 <c:out value="${buttons}" escapeXml="false" />
 
-<script type="text/javascript">
-    highlightTableRows("orderList");
-</script>
+<!--<script type="text/javascript">-->
+    <!--highlightTableRows("orderList");-->
+<!--</script>-->
+</s:form>
