@@ -46,7 +46,7 @@ public class OrderElement extends BaseObject implements Serializable  {
     }
 
     @ManyToOne()
-    @JoinColumn(name = ("productId"), nullable = false)
+    @JoinColumn(name = ("productId"), nullable = true)
     public Product getProduct() {
         return product;
     }

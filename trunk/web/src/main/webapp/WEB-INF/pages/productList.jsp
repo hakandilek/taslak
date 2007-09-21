@@ -17,12 +17,18 @@
 
 <c:out value="${buttons}" escapeXml="false" />
 
-<display:table name="products" class="table" requestURI="" id="productList" export="true" pagesize="25">
+<s:form id="productsForm" action="products">
+<display:table name="products" class="table" id="productList" export="true" pagesize="25"
+        decorator="org.xmdl.taslak.webapp.decorator.DeleteIdDecorator">
     <display:column property="id" sortable="true" href="editProduct.html" media="html"
         paramId="id" paramProperty="id" titleKey="product.id"/>
     <display:column property="id" media="csv excel xml pdf" titleKey="product.id"/>
     <display:column property="name" sortable="true" titleKey="product.name"/>
     <display:column property="price" sortable="true" titleKey="product.price"/>
+    <display:column property="idCheckbox" media="html"
+        title="<input id='products_button_' name='method:deleteMass' value='Sil' onclick=\"return confirmDelete('Product')\" type='submit' />
+        <input type=\"checkbox\" name=\"allbox\" onclick=\"checkAll(document.getElementById('productsForm'),'deleteId')\" />"/>
+
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="productList.product"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="productList.products"/></display:setProperty>
@@ -34,6 +40,8 @@
 
 <c:out value="${buttons}" escapeXml="false" />
 
-<script type="text/javascript">
-    highlightTableRows("productList");
-</script>
+<!--<script type="text/javascript">-->
+    <!--highlightTableRows("productList");-->
+<!--</script>-->
+
+</s:form>
