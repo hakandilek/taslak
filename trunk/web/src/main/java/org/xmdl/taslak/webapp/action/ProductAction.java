@@ -60,6 +60,10 @@ public class ProductAction extends BaseAction implements Preparable {
     }
 
     public String copy() {
+        String idToCopy = getRequest().getParameter("idToCopy");
+        if(idToCopy !=null){
+            product = productManager.get(Long.parseLong(idToCopy));
+        }
         product.setId(null);
         return SUCCESS;
     }

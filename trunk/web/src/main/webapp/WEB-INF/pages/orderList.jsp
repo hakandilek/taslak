@@ -18,7 +18,7 @@
 <c:out value="${buttons}" escapeXml="false" />
 <s:form id="ordersForm" action="orders">
 <display:table name="orders" class="table" id="orderList" export="true" pagesize="25"
-        decorator="org.xmdl.taslak.webapp.decorator.DeleteIdDecorator">
+        decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
     <display:column property="id" sortable="true" href="editOrder.html" media="html"
         paramId="id" paramProperty="id" titleKey="order.id"/>
     <display:column property="id" media="csv excel xml pdf" titleKey="order.id"/>
@@ -27,8 +27,10 @@
     <display:column sortProperty="createDate" sortable="true" titleKey="order.createDate">
          <fmt:formatDate value="${orderList.createDate}" pattern="${datePattern}"/>
     </display:column>
-
-    <display:column property="idCheckbox" media="html"
+    <display:column titleKey="button.copy">
+        <a href="/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><img src="/images/common/save.gif"></a>
+    </display:column>
+    <display:column property="deleteCheckbox" media="html"
             title="<input id='orders_button_' name='method:deleteMass' value='Sil' onclick=\"return confirmDelete('Order')\" type='submit' />
             <input type=\"checkbox\" name=\"allbox\" onclick=\"checkAll(document.getElementById('ordersForm'),'deleteId')\" />"/>
 

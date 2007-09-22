@@ -18,17 +18,20 @@
 <c:out value="${buttons}" escapeXml="false" />
 <s:form id="orderElementsForm" action="orderElements">
 <display:table name="orderElements" class="table" requestURI="" id="orderElementList" export="true" pagesize="25"
-        decorator="org.xmdl.taslak.webapp.decorator.DeleteIdDecorator">
+        decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
     <display:column property="id" sortable="true" href="editOrderElement.html" media="html"
         paramId="id" paramProperty="id" titleKey="orderElement.id"/>
     <display:column property="id" media="csv excel xml pdf" titleKey="orderElement.id"/>
     <display:column property="quantity" sortable="true" titleKey="orderElement.quantity"/>
     <display:column property="order.id" sortable="true" titleKey="orderElement.order"/>
     <display:column property="product.id" sortable="true" titleKey="orderElement.product"/>
-    <display:column property="idCheckbox" media="html"
+    <display:column titleKey="button.copy" >
+        <a href="/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><img src="/images/common/save.gif"></a>
+    </display:column>
+
+    <display:column property="deleteCheckbox" media="html"
             title="<input id='orderElements_button_' name='method:deleteMass' value='Sil' onclick=\"return confirmDelete('OrderElement')\" type='submit' />
             <input type=\"checkbox\" name=\"allbox\" onclick=\"checkAll(document.getElementById('orderElementsForm'),'deleteId')\" />"/>
-
 
     <display:setProperty name="paging.banner.item_name"><fmt:message key="orderElementList.orderElement"/></display:setProperty>
     <display:setProperty name="paging.banner.items_name"><fmt:message key="orderElementList.orderElements"/></display:setProperty>

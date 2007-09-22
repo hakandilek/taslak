@@ -60,6 +60,10 @@ public class OrderAction extends BaseAction implements Preparable {
     }
 
     public String copy() {
+        String idToCopy = getRequest().getParameter("idToCopy");
+        if(idToCopy !=null){
+            order = orderManager.get(Long.parseLong(idToCopy));
+        }
         order.setId(null);
         return SUCCESS;
     }
