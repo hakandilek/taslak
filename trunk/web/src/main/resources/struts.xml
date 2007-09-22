@@ -124,6 +124,10 @@
             <result name="delete" type="redirect">products.html</result>
             <result name="success" type="redirect">products.html</result>
         </action>
+
+        <action name="copyProduct" class="org.xmdl.taslak.webapp.action.ProductAction" method="copy">
+            <result name="success">/WEB-INF/pages/productForm.jsp</result>
+        </action>
         <!--ProductAction-END-->
 
         <!--OrderAction-START-->
@@ -142,6 +146,10 @@
             <result name="delete" type="redirect">orders.html</result>
             <result name="success" type="redirect">orders.html</result>
         </action>
+
+        <action name="copyOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="copy">
+            <result name="success">/WEB-INF/pages/orderForm.jsp</result>
+        </action>
         <!--OrderAction-END-->
 
         <!--OrderElementAction-START-->
@@ -159,6 +167,10 @@
             <result name="cancel" type="redirect">orderElements.html</result>
             <result name="delete" type="redirect">orderElements.html</result>
             <result name="success" type="redirect">orderElements.html</result>
+        </action>
+
+        <action name="copyOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="copy">
+            <result name="success">/WEB-INF/pages/orderElementForm.jsp</result>
         </action>
         <!--OrderElementAction-END-->
 

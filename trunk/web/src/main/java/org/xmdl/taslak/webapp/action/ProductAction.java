@@ -59,6 +59,11 @@ public class ProductAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+    public String copy() {
+        product.setId(null);
+        return SUCCESS;
+    }
+
     public String edit() {
         if (id != null) {
             product = productManager.get(id);
@@ -83,8 +88,8 @@ public class ProductAction extends BaseAction implements Preparable {
                 }
             }
         }
-        if (cannotDeleted)      saveMessage(getText("Product.cannotBeDeleted"));
-        if (anyDeleted)         saveMessage(getText("Product.deleted"));
+        if (cannotDeleted) saveMessage(getText("Product.cannotBeDeleted"));
+        if (anyDeleted) saveMessage(getText("Product.deleted"));
 
         products = productManager.getAll();
         return SUCCESS;
@@ -92,6 +97,7 @@ public class ProductAction extends BaseAction implements Preparable {
 
 
     public String save() throws Exception {
+
         if (cancel != null) {
             return "cancel";
         }

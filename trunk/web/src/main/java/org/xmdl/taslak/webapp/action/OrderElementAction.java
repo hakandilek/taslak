@@ -15,7 +15,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
     private GenericManager<Product, Long> productManager;
     private List orderElements;
     private OrderElement orderElement;
-    private Long  id;
+    private Long id;
 
     public void setOrderElementManager(GenericManager<OrderElement, Long> orderElementManager) {
         this.orderElementManager = orderElementManager;
@@ -42,22 +42,24 @@ public class OrderElementAction extends BaseAction implements Preparable {
             String orderElementId = getRequest().getParameter("orderElement.id");
             if (orderElementId != null && !orderElementId.equals("")) {
                 orderElement = orderElementManager.get(new Long(orderElementId));
+            }else{
+                orderElement = new OrderElement();
             }
 
             String orderId = getRequest().getParameter("orderElement.order.id");
             if (orderId != null && !orderId.equals("")) {
-                if(orderId.equals("-12345678")){
+                if (orderId.equals("-12345678")) {
                     orderElement.setOrder(null);
-                }else{
+                } else {
                     orderElement.setOrder(orderManager.get(new Long(orderId)));
                 }
             }
 
             String productId = getRequest().getParameter("orderElement.product.id");
             if (productId != null && !productId.equals("")) {
-                if(productId.equals("-12345678")){
+                if (productId.equals("-12345678")) {
                     orderElement.setProduct(null);
-                }else{
+                } else {
                     orderElement.setProduct(productManager.get(new Long(productId)));
                 }
             }
@@ -71,8 +73,8 @@ public class OrderElementAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
-    public void setId(Long  id) {
-        this. id =  id;
+    public void setId(Long id) {
+        this. id = id;
     }
 
     public OrderElement getOrderElement() {
@@ -90,14 +92,19 @@ public class OrderElementAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+    public String copy() {
+        orderElement.setId(null);
+        return SUCCESS;
+    }
+
     public String edit() {
         if (id != null) {
             orderElement = orderElementManager.get(id);
         } else {
             orderElement = new OrderElement();
         }
-
         return SUCCESS;
+
     }
 
 
@@ -115,8 +122,8 @@ public class OrderElementAction extends BaseAction implements Preparable {
                 }
             }
         }
-        if (cannotDeleted)      saveMessage(getText("OrderElement.cannotBeDeleted"));
-        if (anyDeleted)         saveMessage(getText("OrderElement.deleted"));
+        if (cannotDeleted) saveMessage(getText("OrderElement.cannotBeDeleted"));
+        if (anyDeleted) saveMessage(getText("OrderElement.deleted"));
 
         orderElements = orderElementManager.getAll();
         return SUCCESS;
