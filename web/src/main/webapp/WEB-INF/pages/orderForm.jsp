@@ -1,4 +1,4 @@
-<%@ include file="/common/taglibs.jsp"%>
+<%@ include file="/common/taglibs.jsp" %>
 
 <head>
     <title><fmt:message key="orderDetail.title"/></title>
@@ -14,10 +14,14 @@
     <s:textfield key="order.createDate" required="true" cssClass="text" size="11" title="date"/>
 
     <li class="buttonBar bottom">
-        <s:submit cssClass="button" method="save" key="button.save" theme="simple"/>
+        <c:if test="${empty order.id}">
+            <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>
+        </c:if>
         <c:if test="${not empty order.id}">
+            <s:submit cssClass="button" method="save" key="button.update" theme="simple"/>
             <s:submit cssClass="button" method="delete" key="button.delete"
-                onclick="return confirmDelete('Order')" theme="simple"/>
+                      onclick="return confirmDelete('Order')" theme="simple"/>
+            <s:submit cssClass="button" method="copy" action="copyOrder" key="button.copy" theme="simple"/>
         </c:if>
         <s:submit cssClass="button" method="cancel" key="button.cancel" theme="simple"/>
     </li>

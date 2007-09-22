@@ -15,10 +15,14 @@
     <s:select name="orderElement.product.id" list="productList" listKey="id" listValue="id"
               key="orderElement.product" headerKey="-12345678" headerValue="Select.choose"/>
     <li class="buttonBar bottom">
-        <s:submit cssClass="button" method="save" key="button.save" theme="simple"/>
+        <c:if test="${empty orderElement.id}">
+            <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>
+        </c:if>
         <c:if test="${not empty orderElement.id}">
+            <s:submit cssClass="button" method="save" key="button.update" theme="simple"/>
             <s:submit cssClass="button" method="delete" key="button.delete"
                       onclick="return confirmDelete('OrderElement')" theme="simple"/>
+            <s:submit cssClass="button" method="copy" action="copyOrder" key="button.copy" theme="simple"/>
         </c:if>
         <s:submit cssClass="button" method="cancel" key="button.cancel" theme="simple"/>
     </li>

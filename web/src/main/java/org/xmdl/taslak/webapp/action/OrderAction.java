@@ -59,6 +59,11 @@ public class OrderAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+    public String copy() {
+        order.setId(null);
+        return SUCCESS;
+    }
+
     public String edit() {
         if (id != null) {
             order = orderManager.get(id);

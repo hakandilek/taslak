@@ -13,10 +13,14 @@
     <s:textfield key="product.price" required="false" cssClass="text medium"/>
 
     <li class="buttonBar bottom">
-        <s:submit cssClass="button" method="save" key="button.save" theme="simple"/>
+        <c:if test="${empty product.id}">
+            <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>
+        </c:if>
         <c:if test="${not empty product.id}">
+            <s:submit cssClass="button" method="save" key="button.update" theme="simple"/>
             <s:submit cssClass="button" method="delete" key="button.delete"
                 onclick="return confirmDelete('Product')" theme="simple"/>
+            <s:submit cssClass="button" method="copy" action="copyProduct" key="button.copy" theme="simple"/>
         </c:if>
         <s:submit cssClass="button" method="cancel" key="button.cancel" theme="simple"/>
     </li>
