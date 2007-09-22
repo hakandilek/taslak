@@ -42,7 +42,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
             String orderElementId = getRequest().getParameter("orderElement.id");
             if (orderElementId != null && !orderElementId.equals("")) {
                 orderElement = orderElementManager.get(new Long(orderElementId));
-            }else{
+            } else {
                 orderElement = new OrderElement();
             }
 
@@ -93,6 +93,10 @@ public class OrderElementAction extends BaseAction implements Preparable {
     }
 
     public String copy() {
+        String idToCopy = getRequest().getParameter("idToCopy");
+        if (idToCopy != null) {
+            orderElement = orderElementManager.get(Long.parseLong(idToCopy));
+        }
         orderElement.setId(null);
         return SUCCESS;
     }

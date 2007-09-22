@@ -5,13 +5,17 @@ import org.displaytag.decorator.TableDecorator;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class DeleteIdDecorator extends TableDecorator {
+public class BeanDecorator extends TableDecorator {
 
-    public DeleteIdDecorator() {
+    public BeanDecorator() {
         super();
     }
 
-    public String getIdCheckbox() {
+    public String getDeleteCheckbox() {
+        return "<input type=\"checkbox\" name=\"deleteId\" value=\"" + getId()+ "\"/>";
+    }
+
+    public String getId(){
         String id = "";
 
         Object obj = this.getCurrentRowObject();
@@ -30,8 +34,6 @@ public class DeleteIdDecorator extends TableDecorator {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-
-        return "<input type=\"checkbox\" name=\"deleteId\" value=\"" + id + "\"/>";
+        return id;
     }
-
 }
