@@ -23,7 +23,7 @@ This document describes how to run the *_taslak_* application from scratch.
 }}}
   * You can now browse to the http://localhost:8080/. 
     * User name : *admin* 
-	* Password  : *admin*
+    * Password  : *admin*
 
   * If you want to make jetty see the changes on the fly, you should follow these steps.
   
