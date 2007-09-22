@@ -8,9 +8,26 @@ Add your content here.
 = Details =
 
 Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * svn checkout https://taslak.googlecode.com/svn/trunk/ taslak --username <your-user-name>
+  * cd taslak
+  * in the file "taslak/pom.xml" change the username and password. It default uses mysql.
+{{{
+        <jdbc.username>root</jdbc.username>
+        <jdbc.password>test1</jdbc.password>
+}}}
+  * mvn
+  
+  Here the database is created and sample data is added.
+  
+  * We can now deploy our project by using maven-jetty-plugin.In the /taslak/web/ directory run the command:
+{{{
+	mvn jetty:run-war
+}}}
+  * You can now browse to the http://localhost:8080/. The password of the admin is "admin".
 
- 
- 
+  * If you want to make jetty see the changes on the fly, you should follow these steps.
+  
+    * in the directory /taslak/ run the command *mvn* *war:inplace*
+	* delete the directory */taslak/web/src/main/webapp/WEB-INF/lib*
+	* remove the *struts.xml* file in */taslak/web/src/main/webapp/WEB-INF/classes/*
+	* now you can deploy your application by the command *mvn jetty:run* in the */taslak/web/* directory.
