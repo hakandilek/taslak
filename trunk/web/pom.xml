@@ -107,7 +107,8 @@
                                 ApplicationResources_ko.properties,
                                 ApplicationResources_no.properties,
                                 ApplicationResources_tr.properties,
-                                ApplicationResources_zh*.properties
+                                ApplicationResources_zh*.properties,
+                                errors_tr.properties
                             </includes>
                         </configuration>
                     </execution>
@@ -140,6 +141,7 @@
                     <exclude>ApplicationResources_no.properties</exclude>
                     <exclude>ApplicationResources_pt*.properties</exclude>
                     <exclude>ApplicationResources_tr.properties</exclude>
+                    <exclude>errors_tr.properties</exclude>
                     <exclude>ApplicationResources_zh*.properties</exclude>
                     <exclude>applicationContext-resources.xml</exclude>
                     <exclude>struts.xml</exclude>
