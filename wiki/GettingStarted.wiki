@@ -15,11 +15,11 @@ This document describes how to run the *_taslak_* application from scratch.
 }}}
   * run the command to create the database and insert sample data. 
 {{{  
-mvn
+mvn -Dmaven.test.skip=true
 }}}
   * We can now deploy our project by using maven-jetty-plugin.In the /taslak/web/ directory run the command:
 {{{
-mvn jetty:run-war
+mvn jetty:run-war -Dmaven.test.skip=true
 }}}
   * You can now browse to the http://localhost:8080/. 
     * User name : *admin* 
@@ -36,8 +36,13 @@ mvn jetty:run-war
 
   * If you alter anything in the /taslak/core/ directory, you should run the command under */taslak/core/* directory.
 {{{
-mvn install
+mvn install -Dmaven.test.skip=true
 }}}
   * Now on the *web* module you can see the changes.
+
+== Running Tests ==
+
+If you would like to run the command above, you can simply remove the "-Dmaven.test.skip=true" parameter
+ 
  
  
