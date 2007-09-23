@@ -17,7 +17,7 @@
 
 <c:out value="${buttons}" escapeXml="false" />
 <s:form id="ordersForm" action="orders">
-<display:table name="orders" class="table" id="orderList" export="true" pagesize="25"
+<display:table name="orders" class="table" requestURI="" id="orderList" export="true" pagesize="25"
         decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
     <display:column property="id" sortable="true" href="editOrder.html" media="html"
         paramId="id" paramProperty="id" titleKey="order.id"/>
