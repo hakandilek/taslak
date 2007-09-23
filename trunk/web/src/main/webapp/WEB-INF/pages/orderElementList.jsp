@@ -19,12 +19,14 @@
 <s:form id="orderElementsForm" action="orderElements">
 <display:table name="orderElements" class="table" requestURI="" id="orderElementList" export="true" pagesize="25"
         decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
-    <display:column property="id" sortable="true" href="editOrderElement.html" media="html"
-        paramId="id" paramProperty="id" titleKey="orderElement.id"/>
+    <display:column property="id" sortable="true" titleKey="orderElement.id"
+                    href="editOrderElement.html" media="html" paramId="id" paramProperty="id"/>
     <display:column property="id" media="csv excel xml pdf" titleKey="orderElement.id"/>
     <display:column property="quantity" sortable="true" titleKey="orderElement.quantity"/>
-    <display:column property="order.id" sortable="true" titleKey="orderElement.order"/>
-    <display:column property="product.id" sortable="true" titleKey="orderElement.product"/>
+    <display:column property="order.id" sortable="true" titleKey="orderElement.order"
+                    href="editOrder.html?" paramId="order.id" paramProperty="order.id"/>
+    <display:column property="product.id" sortable="true" titleKey="orderElement.product"
+                    href="editProduct.html?" paramId="product.id" paramProperty="product.id"/>
     <display:column titleKey="button.copy" >
         <a href="/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><img src="/images/common/save.gif"></a>
     </display:column>
