@@ -27,7 +27,7 @@
     <display:column sortProperty="createDate" sortable="true" titleKey="order.createDate">
          <fmt:formatDate value="${orderList.createDate}" pattern="${datePattern}"/>
     </display:column>
-    <display:column titleKey="button.copy">
+    <display:column titleKey="button.copy" media="html">
         <a href="/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><img src="/images/common/save.gif"></a>
     </display:column>
     <display:column property="deleteCheckbox" media="html"

@@ -22,10 +22,10 @@
                    decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
         <display:column property="id" sortable="true" href="editProduct.html" media="html"
                         paramId="id" paramProperty="id" titleKey="product.id"/>
-        <display:column property="id" media="csv excel xml pdf" titleKey="product.id"/>
+        <display:column property="id" titleKey="product.id"/>
         <display:column property="name" sortable="true" titleKey="product.name"/>
         <display:column property="price" sortable="true" titleKey="product.price"/>
-        <display:column titleKey="button.copy" >
+        <display:column titleKey="button.copy" media="html">
             <a href="/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html"
