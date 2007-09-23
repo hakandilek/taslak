@@ -6,7 +6,7 @@ This document describes how to run the *_taslak_* application from scratch.
 
 = Steps =
 
-  * svn checkout https://taslak.googlecode.com/svn/trunk/ taslak --username <your-user-name>
+  * Checkout the project from SVN folowing the [http://code.google.com/p/taslak/source instructions].
   * *cd taslak*
   * in the file *"/taslak/pom.xml"* change the username and password. It default uses mysql.
 {{{
@@ -39,4 +39,5 @@ mvn jetty:run-war
 mvn install
 }}}
   * Now on the *web* module you can see the changes.
+ 
  
