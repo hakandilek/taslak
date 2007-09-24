@@ -2,22 +2,24 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.search.OrderSearch;
 import org.xmdl.taslak.service.OrderManager;
 import org.springframework.dao.DataIntegrityViolationException;
 
-import java.util.List;
+import java.util.Collection;
 
 public class OrderAction extends BaseAction implements Preparable {
     private OrderManager orderManager;
-    private List orders;
+    private Collection<Order> orders;
     private Order order;
     private Long  id;
+    private OrderSearch orderSearch;
 
     public void setOrderManager(OrderManager orderManager) {
         this.orderManager = orderManager;
     }
 
-    public List getOrders() {
+    public Collection<Order> getOrders() {
         return orders;
     }
 
@@ -35,7 +37,7 @@ public class OrderAction extends BaseAction implements Preparable {
     }
 
     public String list() {
-        orders = orderManager.getAll();
+        orders = orderManager.search(orderSearch);
         return SUCCESS;
     }
 
@@ -120,5 +122,13 @@ public class OrderAction extends BaseAction implements Preparable {
         } else {
             return SUCCESS;
         }
+    }
+
+    public OrderSearch getOrderSearch() {
+        return orderSearch;
+    }
+
+    public void setOrderSearch(OrderSearch orderSearch) {
+        this.orderSearch = orderSearch;
     }
 }

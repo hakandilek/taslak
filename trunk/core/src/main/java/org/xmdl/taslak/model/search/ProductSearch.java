@@ -3,25 +3,35 @@ package org.xmdl.taslak.model.search;
 import org.xmdl.taslak.model.Product;
 
 public class ProductSearch {
-    Product fromProduct;
-    Product toProduct;
+    private String name;
+    private Double fromPrice;
+    private Double toPrice;
 
     public ProductSearch() {
     }
 
-    public Product getFromProduct() {
-        return fromProduct;
+    public String getName() {
+        return name;
     }
 
-    public void setFromProduct(Product fromProduct) {
-        this.fromProduct = fromProduct;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Product getToProduct() {
-        return toProduct;
+    public Double getFromPrice() {
+        return fromPrice;
     }
 
-    public void setToProduct(Product toProduct) {
-        this.toProduct = toProduct;
+    public void setFromPrice(Double fromPrice) {
+        this.fromPrice = fromPrice;
     }
+
+    public Double getToPrice() {
+        return toPrice;
+    }
+
+    public void setToPrice(Double toPrice) {
+        this.toPrice = toPrice;
+    }
+
 }

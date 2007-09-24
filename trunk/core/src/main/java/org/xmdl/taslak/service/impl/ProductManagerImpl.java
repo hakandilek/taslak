@@ -13,6 +13,7 @@ public class ProductManagerImpl extends GenericManagerImpl<Product, Long> implem
 
     public ProductManagerImpl(ProductDao productDao) {
         super(productDao);
+        this.productDao = productDao;
     }
 
     public Collection<Product> search(ProductSearch productSearch) {

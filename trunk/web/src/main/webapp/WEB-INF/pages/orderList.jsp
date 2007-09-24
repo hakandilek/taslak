@@ -17,6 +17,14 @@
 
 <c:out value="${buttons}" escapeXml="false" />
 <s:form id="ordersForm" action="orders">
+
+    <s:textfield key="orderSearch.name" cssClass="text medium"/>
+    <s:textfield key="orderSearch.fromPriceTotals" cssClass="text medium"/>
+    <s:textfield key="orderSearch.toPriceTotals" cssClass="text medium"/>
+    <s:textfield key="orderSearch.fromCreateDate" cssClass="text" title="date" size="11"/>
+    <s:textfield key="orderSearch.toCreateDate" cssClass="text" title="date" size="11"/>
+    <s:submit key="button.search"/>
+
 <display:table name="orders" class="table" requestURI="" id="orderList" export="true" pagesize="25"
         decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
     <display:column property="id" sortable="true" href="editOrder.html" media="html"
@@ -49,3 +57,11 @@
     <!--highlightTableRows("orderList");-->
 <!--</script>-->
 </s:form>
+
+<script type="text/javascript" src="<c:url value='/scripts/calendar/calendar.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/scripts/calendar/calendar-setup.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/scripts/calendar/lang/calendar-en.js'/>"></script>
+<script type="text/javascript">
+    Calendar.setup({inputField: "ordersForm_orderSearch_fromCreateDate", ifFormat: "%d/%m/%Y", button: "orderSearch.fromCreateDateDatePicker"});
+    Calendar.setup({inputField: "ordersForm_orderSearch_toCreateDate", ifFormat: "%d/%m/%Y", button: "orderSearch.toCreateDateDatePicker"});
+</script>

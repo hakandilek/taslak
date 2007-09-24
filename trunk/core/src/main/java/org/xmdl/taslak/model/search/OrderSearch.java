@@ -2,26 +2,56 @@ package org.xmdl.taslak.model.search;
 
 import org.xmdl.taslak.model.Order;
 
+import java.util.Date;
+
 public class OrderSearch {
-    Order fromOrder;
-    Order toOrder;
+    private String name;
+    private Double fromPriceTotals;
+    private Double toPriceTotals;
+    private Date fromCreateDate;
+    private Date toCreateDate;
+
 
     public OrderSearch() {
     }
 
-    public Order getFromOrder() {
-        return fromOrder;
+    public String getName() {
+        return name;
     }
 
-    public void setFromOrder(Order fromOrder) {
-        this.fromOrder = fromOrder;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Order getToOrder() {
-        return toOrder;
+    public Double getFromPriceTotals() {
+        return fromPriceTotals;
     }
 
-    public void setToOrder(Order toOrder) {
-        this.toOrder = toOrder;
+    public void setFromPriceTotals(Double fromPriceTotals) {
+        this.fromPriceTotals = fromPriceTotals;
+    }
+
+    public Double getToPriceTotals() {
+        return toPriceTotals;
+    }
+
+    public void setToPriceTotals(Double toPriceTotals) {
+        this.toPriceTotals = toPriceTotals;
+    }
+
+    public Date getFromCreateDate() {
+        return fromCreateDate;
+    }
+
+    public void setFromCreateDate(Date fromCreateDate) {
+        this.fromCreateDate = fromCreateDate;
+    }
+
+    public Date getToCreateDate() {
+        return toCreateDate;
+    }
+
+    public void setToCreateDate(Date toCreateDate) {
+        this.toCreateDate = toCreateDate;
     }
 }
