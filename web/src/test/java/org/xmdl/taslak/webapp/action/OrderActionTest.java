@@ -2,7 +2,7 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import org.xmdl.taslak.service.GenericManager;
+import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.model.Order;
 import org.springframework.mock.web.MockHttpServletRequest;
 
@@ -13,7 +13,7 @@ public class OrderActionTest extends BaseActionTestCase {
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new OrderAction();
-        GenericManager orderManager = (GenericManager) applicationContext.getBean("orderManager");
+        OrderManager orderManager = (OrderManager) applicationContext.getBean("orderManager");
         action.setOrderManager(orderManager);
     
         // add a test order to the database

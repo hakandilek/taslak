@@ -1,20 +1,19 @@
 package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
-import org.xmdl.taslak.service.GenericManager;
+import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.Product;
-import org.xmdl.taslak.webapp.action.BaseAction;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 
 public class ProductAction extends BaseAction implements Preparable {
-    private GenericManager<Product, Long> productManager;
+    private ProductManager productManager;
     private List products;
     private Product product;
     private Long id;
 
-    public void setProductManager(GenericManager<Product, Long> productManager) {
+    public void setProductManager(ProductManager productManager) {
         this.productManager = productManager;
     }
 

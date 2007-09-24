@@ -2,9 +2,8 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import org.xmdl.taslak.service.GenericManager;
+import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.Product;
-import org.xmdl.taslak.webapp.action.BaseActionTestCase;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class ProductActionTest extends BaseActionTestCase {
@@ -14,7 +13,7 @@ public class ProductActionTest extends BaseActionTestCase {
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new ProductAction();
-        GenericManager productManager = (GenericManager) applicationContext.getBean("productManager");
+        ProductManager productManager = (ProductManager) applicationContext.getBean("productManager");
         action.setProductManager(productManager);
     
         // add a test product to the database
