@@ -15,9 +15,7 @@
         value="<fmt:message key="button.done"/>"/>
 </c:set>
 
-<c:out value="${buttons}" escapeXml="false" />
 <s:form id="orderElementsForm" action="orderElements">
-
     <s:textfield key="orderElementSearch.fromQuantity" cssClass="text medium"/>
     <s:textfield key="orderElementSearch.toQuantity" cssClass="text medium"/>
     <s:select name="orderElementSearch.order.id" list="orderList" listKey="id" listValue="id"
@@ -25,7 +23,6 @@
     <s:select name="orderElementSearch.product.id" list="productList" listKey="id" listValue="id"
         key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="*"/>
     <s:submit  key="button.search"/>
-
 
 <display:table name="orderElements" class="table" requestURI="" id="orderElementList" export="true" pagesize="25"
         decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">

@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class ProductActionTest extends BaseActionTestCase {
@@ -21,6 +22,9 @@ public class ProductActionTest extends BaseActionTestCase {
 
         // enter all required fields
         product.setName("fdsslklcs");
+
+        ProductSearch search = new ProductSearch();
+        action.setProductSearch(search);
 
         productManager.save(product);
     }

@@ -130,28 +130,6 @@
         </action>
         <!--ProductAction-END-->
 
-        <!--OrderAction-START-->
-        <action name="orders" class="org.xmdl.taslak.webapp.action.OrderAction" method="list">
-            <result>/WEB-INF/pages/orderList.jsp</result>
-        </action>
-
-        <action name="editOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="edit">
-            <result>/WEB-INF/pages/orderForm.jsp</result>
-            <result name="error">/WEB-INF/pages/orderList.jsp</result>
-        </action>
-
-        <action name="saveOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="save">
-            <result name="input">/WEB-INF/pages/orderForm.jsp</result>
-            <result name="cancel" type="redirect">orders.html</result>
-            <result name="delete" type="redirect">orders.html</result>
-            <result name="success" type="redirect">orders.html</result>
-        </action>
-
-        <action name="copyOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="copy">
-            <result name="success">/WEB-INF/pages/orderForm.jsp</result>
-        </action>
-        <!--OrderAction-END-->
-
         <!--OrderElementAction-START-->
         <action name="orderElements" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="list">
             <result>/WEB-INF/pages/orderElementList.jsp</result>
@@ -173,6 +151,28 @@
             <result name="success">/WEB-INF/pages/orderElementForm.jsp</result>
         </action>
         <!--OrderElementAction-END-->
+
+        <!--OrderAction-START-->
+        <action name="orders" class="org.xmdl.taslak.webapp.action.OrderAction" method="list">
+            <result>/WEB-INF/pages/orderList.jsp</result>
+        </action>
+
+        <action name="editOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="edit">
+            <result>/WEB-INF/pages/orderForm.jsp</result>
+            <result name="error">/WEB-INF/pages/orderList.jsp</result>
+        </action>
+
+        <action name="saveOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="save">
+            <result name="input">/WEB-INF/pages/orderForm.jsp</result>
+            <result name="cancel" type="redirect">orders.html</result>
+            <result name="delete" type="redirect">orders.html</result>
+            <result name="success" type="redirect">orders.html</result>
+        </action>
+
+        <action name="copyOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="copy">
+            <result name="success">/WEB-INF/pages/orderForm.jsp</result>
+        </action>
+        <!--OrderAction-END-->
 
         <!-- Add additional actions here -->
     </package>

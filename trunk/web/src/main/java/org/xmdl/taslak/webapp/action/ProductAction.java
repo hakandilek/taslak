@@ -14,6 +14,8 @@ public class ProductAction extends BaseAction implements Preparable {
     private Product product;
     private Long id;
 
+    private Long idToCopy;
+
     private ProductSearch productSearch;
 
     public void setProductManager(ProductManager productManager) {
@@ -27,9 +29,8 @@ public class ProductAction extends BaseAction implements Preparable {
     public void prepare() {
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
-            String productId = getRequest().getParameter("product.id");
-            if (productId != null && !productId.equals("")) {
-                product = productManager.get(new Long(productId));
+            if (id != null) {
+                product = productManager.get((long) id);
             }
         }
     }
@@ -59,9 +60,8 @@ public class ProductAction extends BaseAction implements Preparable {
     }
 
     public String copy() {
-        String idToCopy = getRequest().getParameter("idToCopy");
         if(idToCopy !=null){
-            product = productManager.get(Long.parseLong(idToCopy));
+            product = productManager.get(idToCopy);
         }
         product.setId(null);
         return SUCCESS;
@@ -129,5 +129,13 @@ public class ProductAction extends BaseAction implements Preparable {
 
     public void setProductSearch(ProductSearch productSearch) {
         this.productSearch = productSearch;
+    }
+
+    public Long getIdToCopy() {
+        return idToCopy;
+    }
+
+    public void setIdToCopy(Long idToCopy) {
+        this.idToCopy = idToCopy;
     }
 }

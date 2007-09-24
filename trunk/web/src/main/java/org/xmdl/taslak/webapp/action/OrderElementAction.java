@@ -18,6 +18,9 @@ public class OrderElementAction extends BaseAction implements Preparable {
     private Collection<OrderElement> orderElements;
     private OrderElement orderElement;
     private Long id;
+    private Long idToCopy;
+    private Long orderId;
+    private Long productId;
 
     private OrderElementSearch orderElementSearch;
 
@@ -43,29 +46,10 @@ public class OrderElementAction extends BaseAction implements Preparable {
     public void prepare() {
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
-            String orderElementId = getRequest().getParameter("orderElement.id");
-            if (orderElementId != null && !orderElementId.equals("")) {
-                orderElement = orderElementManager.get(new Long(orderElementId));
+            if (id != null ) {
+                orderElement = orderElementManager.get(id);
             } else {
                 orderElement = new OrderElement();
-            }
-
-            String orderId = getRequest().getParameter("orderElement.order.id");
-            if (orderId != null && !orderId.equals("")) {
-                if (orderId.equals("-12345678")) {
-                    orderElement.setOrder(null);
-                } else {
-                    orderElement.setOrder(orderManager.get(new Long(orderId)));
-                }
-            }
-
-            String productId = getRequest().getParameter("orderElement.product.id");
-            if (productId != null && !productId.equals("")) {
-                if (productId.equals("-12345678")) {
-                    orderElement.setProduct(null);
-                } else {
-                    orderElement.setProduct(productManager.get(new Long(productId)));
-                }
             }
         }
         orderList = orderManager.getAll();
@@ -97,9 +81,8 @@ public class OrderElementAction extends BaseAction implements Preparable {
     }
 
     public String copy() {
-        String idToCopy = getRequest().getParameter("idToCopy");
         if (idToCopy != null) {
-            orderElement = orderElementManager.get(Long.parseLong(idToCopy));
+            orderElement = orderElementManager.get(idToCopy);
         }
         orderElement.setId(null);
         return SUCCESS;
@@ -186,5 +169,29 @@ public class OrderElementAction extends BaseAction implements Preparable {
 
     public void setOrderElementSearch(OrderElementSearch orderElementSearch) {
         this.orderElementSearch = orderElementSearch;
+    }
+
+    public Long getIdToCopy() {
+        return idToCopy;
+    }
+
+    public void setIdToCopy(Long idToCopy) {
+        this.idToCopy = idToCopy;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 }

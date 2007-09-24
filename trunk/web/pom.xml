@@ -306,6 +306,18 @@
                     <artifactId>xml-apis</artifactId>
                     <groupId>xml-apis</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>commons-beanutils</artifactId>
+                    <groupId>commons-beanutils</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-collections</artifactId>
+                    <groupId>commons-collections</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-lang</artifactId>
+                    <groupId>commons-lang</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>

@@ -4,18 +4,20 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.search.OrderSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class OrderActionTest extends BaseActionTestCase {
     private OrderAction action;
 
-    @Override @SuppressWarnings("unchecked")
+    @Override
+    @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new OrderAction();
         OrderManager orderManager = (OrderManager) applicationContext.getBean("orderManager");
         action.setOrderManager(orderManager);
-    
+
         // add a test order to the database
         Order order = new Order();
 
@@ -23,6 +25,9 @@ public class OrderActionTest extends BaseActionTestCase {
         order.setName("DkHxYeWmSc");
         order.setPriceTotals(7.267920169061941E307);
         order.setCreateDate(new java.util.Date());
+
+        OrderSearch search = new OrderSearch();
+        action.setOrderSearch(search);
 
         orderManager.save(order);
     }
