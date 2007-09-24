@@ -21,9 +21,9 @@
     <s:textfield key="orderElementSearch.fromQuantity" cssClass="text medium"/>
     <s:textfield key="orderElementSearch.toQuantity" cssClass="text medium"/>
     <s:select name="orderElementSearch.order.id" list="orderList" listKey="id" listValue="id"
-        key="orderElement.order" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.all"/>
+        key="orderElement.order" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="*"/>
     <s:select name="orderElementSearch.product.id" list="productList" listKey="id" listValue="id"
-        key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.all"/>
+        key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="*"/>
     <s:submit  key="button.search"/>
 
 
