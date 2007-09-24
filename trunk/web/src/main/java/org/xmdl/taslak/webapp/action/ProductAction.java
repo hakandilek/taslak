@@ -138,4 +138,8 @@ public class ProductAction extends BaseAction implements Preparable {
     public void setIdToCopy(Long idToCopy) {
         this.idToCopy = idToCopy;
     }
+
+    public ProductManager getProductManager() {
+        return productManager;
+    }
 }
