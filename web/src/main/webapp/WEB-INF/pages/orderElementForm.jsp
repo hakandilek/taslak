@@ -11,9 +11,9 @@
     </li>
     <s:textfield required="true" cssClass="text medium" key="orderElement.quantity"/>
     <s:select name="orderElement.order.id" list="orderList" listKey="id" listValue="id"
-              key="orderElement.order" headerKey="-12345678" headerValue="Select.choose"/>
+              key="orderElement.order" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.choose"/>
     <s:select name="orderElement.product.id" list="productList" listKey="id" listValue="id"
-              key="orderElement.product" headerKey="-12345678" headerValue="Select.choose"/>
+              key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.choose"/>
     <li class="buttonBar bottom">
         <c:if test="${empty orderElement.id}">
             <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>
@@ -22,7 +22,7 @@
             <s:submit cssClass="button" method="save" key="button.update" theme="simple"/>
             <s:submit cssClass="button" method="delete" key="button.delete"
                       onclick="return confirmDelete('OrderElement')" theme="simple"/>
-            <s:submit cssClass="button" method="copy" action="copyOrder" key="button.copy" theme="simple"/>
+            <s:submit cssClass="button" method="copy" action="copyOrderElement" key="button.copy" theme="simple"/>
         </c:if>
         <s:submit cssClass="button" method="cancel" key="button.cancel" theme="simple"/>
     </li>

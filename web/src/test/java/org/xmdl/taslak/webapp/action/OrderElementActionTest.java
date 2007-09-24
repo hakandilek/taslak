@@ -6,6 +6,7 @@ import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.service.OrderElementManager;
 import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.search.OrderElementSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class OrderElementActionTest extends BaseActionTestCase {
@@ -27,6 +28,9 @@ public class OrderElementActionTest extends BaseActionTestCase {
         orderElement.setQuantity(446232345652l);
         orderElement.setProduct(productManager.getAll().get(0));
         orderElement.setOrder(orderManager.getAll().get(0));
+
+        OrderElementSearch search = new OrderElementSearch();
+        action.setOrderElementSearch(search);
 
         orderElementManager.save(orderElement);
     }

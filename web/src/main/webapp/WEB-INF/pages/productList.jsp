@@ -15,10 +15,7 @@
            value="<fmt:message key="button.done"/>"/>
 </c:set>
 
-<c:out value="${buttons}" escapeXml="false"/>
-
 <s:form id="productsForm" action="products">
-
     <s:textfield key="productSearch.name" cssClass="text medium"/>
     <s:textfield key="productSearch.fromPrice" cssClass="text medium"/>
     <s:textfield key="productSearch.toPrice" cssClass="text medium"/>

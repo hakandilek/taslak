@@ -14,6 +14,7 @@ public class OrderAction extends BaseAction implements Preparable {
     private Order order;
     private Long  id;
     private OrderSearch orderSearch;
+    private Long idToCopy;
 
     public void setOrderManager(OrderManager orderManager) {
         this.orderManager = orderManager;
@@ -29,9 +30,8 @@ public class OrderAction extends BaseAction implements Preparable {
     public void prepare() {
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
-            String orderId = getRequest().getParameter("order.id");
-            if (orderId != null && !orderId.equals("")) {
-                order = orderManager.get(new Long(orderId));
+            if (id != null ) {
+                order = orderManager.get(id);
             }
         }
     }
@@ -61,9 +61,8 @@ public class OrderAction extends BaseAction implements Preparable {
     }
 
     public String copy() {
-        String idToCopy = getRequest().getParameter("idToCopy");
         if(idToCopy !=null){
-            order = orderManager.get(Long.parseLong(idToCopy));
+            order = orderManager.get(idToCopy);
         }
         order.setId(null);
         return SUCCESS;
@@ -130,5 +129,13 @@ public class OrderAction extends BaseAction implements Preparable {
 
     public void setOrderSearch(OrderSearch orderSearch) {
         this.orderSearch = orderSearch;
+    }
+
+    public Long getIdToCopy() {
+        return idToCopy;
+    }
+
+    public void setIdToCopy(Long idToCopy) {
+        this.idToCopy = idToCopy;
     }
 }
