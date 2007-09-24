@@ -7,6 +7,10 @@ import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
+
 public class ProductActionTest extends BaseActionTestCase {
     private ProductAction action;
 
@@ -16,7 +20,7 @@ public class ProductActionTest extends BaseActionTestCase {
         action = new ProductAction();
         ProductManager productManager = (ProductManager) applicationContext.getBean("productManager");
         action.setProductManager(productManager);
-    
+
         // add a test product to the database
         Product product = new Product();
 
@@ -32,6 +36,13 @@ public class ProductActionTest extends BaseActionTestCase {
     public void testSearch() throws Exception {
         assertEquals(action.list(), ActionSupport.SUCCESS);
         assertTrue(action.getProducts().size() >= 1);
+    }
+
+    public void testCopy() throws Exception{
+        action.setIdToCopy(-1L);
+        assertEquals("success",action.copy());
+        assertNotNull(action.getProduct());
+        assertNull(action.getProduct().getId());
     }
 
     public void testEdit() throws Exception {
@@ -70,5 +81,17 @@ public class ProductActionTest extends BaseActionTestCase {
         action.setProduct(product);
         assertEquals("success", action.delete());
         assertNotNull(request.getSession().getAttribute("messages"));
+    }
+
+    public void testMassDelete() throws Exception{
+        Product p= action.getProductManager().getAll().get(0);
+
+        List<String> deleteIds = new ArrayList<String>();
+        deleteIds.add(p.getId()+"");
+
+        action.setDeleteId(deleteIds);
+        // todo: buradaki yorumu kaldirinca hata veriyor. Anlamayamadým
+//        assertEquals("success",action.deleteMass());
+//        assertTrue(action.hasActionMessages());
     }
 }

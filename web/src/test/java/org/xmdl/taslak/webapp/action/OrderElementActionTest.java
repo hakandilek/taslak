@@ -40,6 +40,14 @@ public class OrderElementActionTest extends BaseActionTestCase {
         assertTrue(action.getOrderElements().size() >= 1);
     }
 
+    public void testCopy() throws Exception{
+        action.setIdToCopy(-1L);
+        assertEquals("success",action.copy());
+        assertNotNull(action.getOrderElement());
+        assertNull(action.getOrderElement().getId());
+    }
+
+
     public void testEdit() throws Exception {
         log.debug("testing edit...");
         action.setId(-1L);
