@@ -2,10 +2,10 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
-import org.xmdl.taslak.service.GenericManager;
+import org.xmdl.taslak.service.OrderManager;
+import org.xmdl.taslak.service.ProductManager;
+import org.xmdl.taslak.service.OrderElementManager;
 import org.xmdl.taslak.model.OrderElement;
-import org.xmdl.taslak.model.Order;
-import org.xmdl.taslak.model.Product;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 public class OrderElementActionTest extends BaseActionTestCase {
@@ -15,9 +15,9 @@ public class OrderElementActionTest extends BaseActionTestCase {
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new OrderElementAction();
-        GenericManager orderElementManager = (GenericManager) applicationContext.getBean("orderElementManager");
-        GenericManager productManager = (GenericManager) applicationContext.getBean("productManager");
-        GenericManager orderManager = (GenericManager) applicationContext.getBean("orderManager");
+        OrderElementManager orderElementManager = (OrderElementManager) applicationContext.getBean("orderElementManager");
+        ProductManager productManager = (ProductManager) applicationContext.getBean("productManager");
+        OrderManager orderManager = (OrderManager) applicationContext.getBean("orderManager");
         action.setOrderElementManager(orderElementManager);
 
         // add a test orderElement to the database
@@ -25,8 +25,8 @@ public class OrderElementActionTest extends BaseActionTestCase {
 
         // enter all required fields
         orderElement.setQuantity(446232345652l);
-        orderElement.setProduct((Product) productManager.getAll().get(0));
-        orderElement.setOrder((Order) orderManager.getAll().get(0));
+        orderElement.setProduct(productManager.getAll().get(0));
+        orderElement.setOrder(orderManager.getAll().get(0));
 
         orderElementManager.save(orderElement);
     }
