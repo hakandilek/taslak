@@ -5,17 +5,21 @@ import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.service.OrderElementManager;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.search.OrderElementSearch;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
+import java.util.Collection;
 
 public class OrderElementAction extends BaseAction implements Preparable {
     private OrderElementManager orderElementManager;
     private OrderManager orderManager;
     private ProductManager productManager;
-    private List orderElements;
+    private Collection<OrderElement> orderElements;
     private OrderElement orderElement;
     private Long id;
+
+    private OrderElementSearch orderElementSearch;
 
     public void setOrderElementManager(OrderElementManager orderElementManager) {
         this.orderElementManager = orderElementManager;
@@ -29,7 +33,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
         this.orderManager = orderManager;
     }
 
-    public List getOrderElements() {
+    public Collection<OrderElement> getOrderElements() {
         return orderElements;
     }
 
@@ -69,7 +73,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
     }
 
     public String list() {
-        orderElements = orderElementManager.getAll();
+        orderElements = orderElementManager.search(orderElementSearch);
         return SUCCESS;
     }
 
@@ -174,5 +178,13 @@ public class OrderElementAction extends BaseAction implements Preparable {
 
     public void setProductList(List productList) {
         this.productList = productList;
+    }
+
+    public OrderElementSearch getOrderElementSearch() {
+        return orderElementSearch;
+    }
+
+    public void setOrderElementSearch(OrderElementSearch orderElementSearch) {
+        this.orderElementSearch = orderElementSearch;
     }
 }

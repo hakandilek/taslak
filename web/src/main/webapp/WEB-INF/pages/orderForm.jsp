@@ -32,5 +32,5 @@
 <script type="text/javascript" src="<c:url value='/scripts/calendar/lang/calendar-en.js'/>"></script>
 <script type="text/javascript">
     Form.focusFirstElement($("orderForm"));
-    Calendar.setup({inputField: "orderForm_order_createDate", ifFormat: "%m/%d/%Y", button: "order.createDateDatePicker"});
+    Calendar.setup({inputField: "orderForm_order_createDate", ifFormat: "%d/%m/%Y", button: "order.createDateDatePicker"});
 </script>

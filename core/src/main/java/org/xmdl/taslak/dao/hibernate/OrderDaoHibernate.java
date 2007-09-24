@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class OrderDaoHibernate extends GenericDaoHibernate<Order, Long> implements OrderDao {
 
-    public OrderDaoHibernate(){
+    public OrderDaoHibernate() {
         super(Order.class);
     }
 
@@ -27,17 +27,17 @@ public class OrderDaoHibernate extends GenericDaoHibernate<Order, Long> implemen
         if (toPriceTotals != null)
             criteria.add(Restrictions.le("priceTotals", toPriceTotals));
         if (fromCreateDate != null)
-            criteria.add(Restrictions.ge("date", fromCreateDate));
+            criteria.add(Restrictions.ge("createDate", fromCreateDate));
         if (toCreateDate != null)
-            criteria.add(Restrictions.le("date", toCreateDate));
+            criteria.add(Restrictions.le("createDate", toCreateDate));
 
         return criteria.list();
     }
 
     public Collection<Order> search(OrderSearch orderSearch) {
-        if(orderSearch == null) return new ArrayList<Order>();
-        Order fromOrder = orderSearch.getFromOrder();
-        Order toOrder = orderSearch.getToOrder();
-        return search(fromOrder.getName(),fromOrder.getPriceTotals(),toOrder.getPriceTotals(),fromOrder.getCreateDate(), toOrder.getCreateDate());
+        if (orderSearch == null)
+            return new ArrayList<Order>();
+
+        return search(orderSearch.getName(), orderSearch.getFromPriceTotals(), orderSearch.getToPriceTotals(), orderSearch.getFromCreateDate(), orderSearch.getToCreateDate());
     }
 }

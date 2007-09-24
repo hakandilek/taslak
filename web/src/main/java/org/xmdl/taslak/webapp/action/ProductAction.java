@@ -3,27 +3,27 @@ package org.xmdl.taslak.webapp.action;
 import com.opensymphony.xwork2.Preparable;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.dao.DataIntegrityViolationException;
 
-import java.util.List;
+import java.util.Collection;
 
 public class ProductAction extends BaseAction implements Preparable {
     private ProductManager productManager;
-    private List products;
+    private Collection<Product> products;
     private Product product;
     private Long id;
+
+    private ProductSearch productSearch;
 
     public void setProductManager(ProductManager productManager) {
         this.productManager = productManager;
     }
 
-    public List getProducts() {
+    public Collection getProducts() {
         return products;
     }
 
-    /**
-     * Grab the entity from the database before populating with request parameters
-     */
     public void prepare() {
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
@@ -35,7 +35,7 @@ public class ProductAction extends BaseAction implements Preparable {
     }
 
     public String list() {
-        products = productManager.getAll();
+        products = productManager.search(productSearch);
         return SUCCESS;
     }
 
@@ -121,5 +121,13 @@ public class ProductAction extends BaseAction implements Preparable {
         } else {
             return SUCCESS;
         }
+    }
+
+    public ProductSearch getProductSearch() {
+        return productSearch;
+    }
+
+    public void setProductSearch(ProductSearch productSearch) {
+        this.productSearch = productSearch;
     }
 }

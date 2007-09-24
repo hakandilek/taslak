@@ -18,11 +18,11 @@ public class OrderElementDaoHibernate extends GenericDaoHibernate<OrderElement, 
     }
 
     public Collection<OrderElement> search(OrderElementSearch orderElementSearch) {
-        if(orderElementSearch==null) return new ArrayList<OrderElement>();
+        if(orderElementSearch == null){
+            return new ArrayList<OrderElement>();
+        }
 
-        OrderElement fromOrderElement = orderElementSearch.getFromOrderElement();
-        OrderElement toOrderElement = orderElementSearch.getToOrderElement();
-        return search(fromOrderElement.getQuantity(), toOrderElement.getQuantity(), fromOrderElement.getOrder(), fromOrderElement.getProduct());
+        return search(orderElementSearch.getFromQuantity(), orderElementSearch.getToQuantity(), orderElementSearch.getOrder(), orderElementSearch.getProduct());
     }
 
     public Collection<OrderElement> search(Long fromQuantity, Long toQuantity, Order order, Product product) {
@@ -33,9 +33,9 @@ public class OrderElementDaoHibernate extends GenericDaoHibernate<OrderElement, 
             criteria.add(Restrictions.ge("quantity", fromQuantity));
         if (toQuantity != null)
             criteria.add(Restrictions.le("quantity", toQuantity));
-        if (order != null && order.getId() != -1)
+        if (order != null && order.getId() != Integer.MIN_VALUE)
             criteria.add(Restrictions.eq("order.id", order.getId()));
-        if (product != null && product.getId() != -1)
+        if (product != null && product.getId() != Integer.MIN_VALUE)
             criteria.add(Restrictions.eq("product.id", product.getId()));
 
         return criteria.list();

@@ -1,27 +1,47 @@
 package org.xmdl.taslak.model.search;
 
-import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.Product;
 
 public class OrderElementSearch {
-    OrderElement fromOrderElement;
-    OrderElement toOrderElement;
+
+    private Long fromQuantity;
+    private Long toQuantity;
+    private Order order;
+    private Product product;
 
     public OrderElementSearch() {
     }
 
-    public OrderElement getFromOrderElement() {
-        return fromOrderElement;
+    public Long getFromQuantity() {
+        return fromQuantity;
     }
 
-    public void setFromOrderElement(OrderElement fromOrderElement) {
-        this.fromOrderElement = fromOrderElement;
+    public void setFromQuantity(Long fromQuantity) {
+        this.fromQuantity = fromQuantity;
     }
 
-    public OrderElement getToOrderElement() {
-        return toOrderElement;
+    public Long getToQuantity() {
+        return toQuantity;
     }
 
-    public void setToOrderElement(OrderElement toOrderElement) {
-        this.toOrderElement = toOrderElement;
+    public void setToQuantity(Long toQuantity) {
+        this.toQuantity = toQuantity;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

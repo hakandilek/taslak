@@ -18,11 +18,16 @@
 <c:out value="${buttons}" escapeXml="false"/>
 
 <s:form id="productsForm" action="products">
+
+    <s:textfield key="productSearch.name" cssClass="text medium"/>
+    <s:textfield key="productSearch.fromPrice" cssClass="text medium"/>
+    <s:textfield key="productSearch.toPrice" cssClass="text medium"/>
+    <s:submit key="button.search"/>
+
     <display:table name="products" class="table" requestURI="" id="productList" export="true" pagesize="25"
                    decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
         <display:column property="id" sortable="true" href="editProduct.html" media="html"
                         paramId="id" paramProperty="id" titleKey="product.id"/>
-        <display:column property="id" titleKey="product.id"/>
         <display:column property="name" sortable="true" titleKey="product.name"/>
         <display:column property="price" sortable="true" titleKey="product.price"/>
         <display:column titleKey="button.copy" media="html">

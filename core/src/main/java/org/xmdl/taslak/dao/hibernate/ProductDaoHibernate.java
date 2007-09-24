@@ -36,10 +36,10 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
     }
 
     public Collection<Product> search(ProductSearch productSearch) {
-        if(productSearch == null) return new ArrayList<Product>();
-        Product fromProduct = productSearch.getFromProduct();
-        Product toProduct = productSearch.getToProduct();
-        return search(fromProduct.getName(), fromProduct.getPrice(), toProduct.getPrice());
+        if (productSearch == null)
+            return new ArrayList<Product>();
+
+        return search(productSearch.getName(), productSearch.getFromPrice(), productSearch.getToPrice());
     }
 
     public Collection<Product> search(String name, Double fromPrice, Double toPrice) {
