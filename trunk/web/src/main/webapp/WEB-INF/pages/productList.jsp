@@ -15,12 +15,23 @@
            value="<fmt:message key="button.done"/>"/>
 </c:set>
 
+<c:set var="deleteButtons">
+	<input id="products_button_" name="method:deleteMass" 
+		   value="<fmt:message key="button.delete"/>" 
+		   onclick="return confirmDelete("Product")" type="submit" />
+	
+	<input type="checkbox" name="allbox" 
+		   onclick="checkAll(document.getElementById("productsList"), "deleteId")" />
+</c:set>
+
 <s:form id="productsForm" action="products">
     <s:textfield key="productSearch.name" cssClass="text medium"/>
     <s:textfield key="productSearch.fromPrice" cssClass="text medium"/>
     <s:textfield key="productSearch.toPrice" cssClass="text medium"/>
-    <s:submit key="button.search"/>
+    <s:submit key="button.search" align="left"/>
+</s:form>
 
+<s:form id="productsList" action="products">
     <display:table name="products" class="table" requestURI="" id="productList" export="true" pagesize="25"
                    decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
         <display:column property="id" sortable="true" href="editProduct.html" media="html"
@@ -30,9 +41,7 @@
         <display:column titleKey="button.copy" media="html">
             <a href="/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
-        <display:column property="deleteCheckbox" media="html"
-                        title="<input id='products_button_' name='method:deleteMass' value='Sil' onclick=\"return confirmDelete('Product')\" type='submit' />
-                               <input type=\"checkbox\" name=\"allbox\" onclick=\"checkAll(document.getElementById('productsForm'),'deleteId')\" />"/>
+        <display:column property="deleteCheckbox" media="html" title="${deleteButtons}"/>
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="productList.product"/>
         </display:setProperty>
