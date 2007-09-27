@@ -10,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import java.util.Collection;
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> implements ProductDao {
 
@@ -43,7 +44,12 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
     }
 
     public Collection<Product> search(String name, Double fromPrice, Double toPrice) {
-
+    	if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice) <-");
+    	
+    	if (log.isDebugEnabled()) log.debug("name      : " + name);
+    	if (log.isDebugEnabled()) log.debug("fromPrice : " + fromPrice);
+    	if (log.isDebugEnabled()) log.debug("toPrice   : " + toPrice);
+    	
         Criteria criteria = getSession().createCriteria(Product.class);
 
         if (name != null && !name.equals(""))
@@ -53,6 +59,9 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
         if (toPrice != null)
             criteria.add(Restrictions.le("price", toPrice));
 
-        return criteria.list();
+        List list = criteria.list();
+        
+        if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice) <-");
+		return list;
     }
 }
