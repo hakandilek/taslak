@@ -15,11 +15,7 @@
            value="<fmt:message key="button.done"/>"/>
 </c:set>
 
-<c:set var="deleteButtons">
-	<input id="products_button_" name="method:deleteMass" 
-		   value="<fmt:message key="button.delete"/>" 
-		   onclick="return confirmDelete("Product")" type="submit" />
-	
+<c:set var="deleteChecks">
 	<input type="checkbox" name="allbox" 
 		   onclick="checkAll(document.getElementById('productsList'), 'deleteId')" />
 </c:set>
@@ -41,7 +37,18 @@
         <display:column titleKey="button.copy" media="html">
             <a href="/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
-        <display:column property="deleteCheckbox" media="html" title="${deleteButtons}"/>
+        <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
+
+		<display:footer>
+			<tr class="footer">
+				<td colspan="4">&nbsp;</td>
+				<td>
+					<input id="products_button_" name="method:deleteMass" 
+						   value="<fmt:message key="button.delete"/>" 
+						   onclick="return confirmDelete('Product')" type="submit" />
+				</td>
+			</tr>
+		</display:footer>
 
         <display:setProperty name="paging.banner.item_name"><fmt:message key="productList.product"/>
         </display:setProperty>
