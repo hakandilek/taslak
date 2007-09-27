@@ -13,7 +13,7 @@ public class OrderAction extends BaseAction implements Preparable {
     private Collection<Order> orders;
     private Order order;
     private Long  id;
-    private OrderSearch orderSearch;
+    private OrderSearch orderSearch = new OrderSearch();
     private Long idToCopy;
 
     public void setOrderManager(OrderManager orderManager) {
@@ -37,7 +37,12 @@ public class OrderAction extends BaseAction implements Preparable {
     }
 
     public String list() {
+    	if (log.isDebugEnabled()) log.debug("list() <-");
+
         orders = orderManager.search(orderSearch);
+
+        if (log.isDebugEnabled()) log.debug("listing items:" + orders.size());
+    	if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }
 

@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.util.Collection;
 
 public class ProductAction extends BaseAction implements Preparable {
+	
     private ProductManager productManager;
     private Collection<Product> products;
     private Product product;
@@ -16,7 +17,7 @@ public class ProductAction extends BaseAction implements Preparable {
 
     private Long idToCopy;
 
-    private ProductSearch productSearch;
+    private ProductSearch productSearch = new ProductSearch();
 
     public void setProductManager(ProductManager productManager) {
         this.productManager = productManager;
@@ -36,7 +37,12 @@ public class ProductAction extends BaseAction implements Preparable {
     }
 
     public String list() {
+    	if (log.isDebugEnabled()) log.debug("list() <-");
+    	
         products = productManager.search(productSearch);
+        
+    	if (log.isDebugEnabled()) log.debug("listing items:" + products.size());
+    	if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }
 
