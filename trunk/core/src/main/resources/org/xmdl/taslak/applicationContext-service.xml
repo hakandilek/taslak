@@ -102,5 +102,19 @@
         <property name="roleDao" ref="roleDao"/>
     </bean>
 
+    <bean id="productManager" class="org.xmdl.taslak.service.impl.ProductManagerImpl">
+        <constructor-arg ref="productDao"/>
+    </bean>
+
+    <bean id="orderManager" class="org.xmdl.taslak.service.impl.OrderManagerImpl">
+        <constructor-arg ref="orderDao"/>
+    </bean>
+    
+    <bean id="orderElementManager" class="org.xmdl.taslak.service.impl.OrderElementManagerImpl">
+        <constructor-arg ref="orderElementDao"/>
+    </bean>
+
     <!-- Add new Managers here -->
+    
+    
 </beans>
