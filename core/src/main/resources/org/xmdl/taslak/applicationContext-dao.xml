@@ -6,7 +6,15 @@
     <!-- Hibernate SessionFactory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+        <property name="annotatedClasses">
+            <list>
+				<value>org.xmdl.taslak.model.User</value>
+				<value>org.xmdl.taslak.model.Role</value>
+				<value>org.xmdl.taslak.model.Product</value>
+				<value>org.xmdl.taslak.model.Order</value>
+				<value>org.xmdl.taslak.model.OrderElement</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <value>
                 hibernate.dialect=${hibernate.dialect}
@@ -43,6 +51,18 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     
+    <bean id="productDao" class="org.xmdl.taslak.dao.hibernate.ProductDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="orderDao" class="org.xmdl.taslak.dao.hibernate.OrderDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="orderElementDao" class="org.xmdl.taslak.dao.hibernate.OrderElementDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
     <!-- If you want to be able to do simple CRUD for new domain objects without 
         having to cast, you don't have create a Dao interface and implementation 
         for that domain object, you simply have to do the following.  
