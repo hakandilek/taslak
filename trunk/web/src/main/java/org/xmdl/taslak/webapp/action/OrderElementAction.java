@@ -22,7 +22,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
     private Long orderId;
     private Long productId;
 
-    private OrderElementSearch orderElementSearch;
+    private OrderElementSearch orderElementSearch = new OrderElementSearch();
 
     public void setOrderElementManager(OrderElementManager orderElementManager) {
         this.orderElementManager = orderElementManager;
@@ -57,7 +57,12 @@ public class OrderElementAction extends BaseAction implements Preparable {
     }
 
     public String list() {
+    	if (log.isDebugEnabled()) log.debug("list() <-");
+
         orderElements = orderElementManager.search(orderElementSearch);
+
+        if (log.isDebugEnabled()) log.debug("listing items:" + orderElements.size());
+    	if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }
 
