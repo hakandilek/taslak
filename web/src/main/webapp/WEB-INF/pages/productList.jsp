@@ -21,7 +21,7 @@
 		   onclick="return confirmDelete("Product")" type="submit" />
 	
 	<input type="checkbox" name="allbox" 
-		   onclick="checkAll(document.getElementById("productsList"), "deleteId")" />
+		   onclick="checkAll(document.getElementById('productsList'), 'deleteId')" />
 </c:set>
 
 <s:form id="productsForm" action="products">
