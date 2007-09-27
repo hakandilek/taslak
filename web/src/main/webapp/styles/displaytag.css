@@ -108,3 +108,9 @@ div#main .tableHeaderImage { /* Tapestry */
 .detail th {
     text-align: right;
 }
+
+.tfoot tr.footer {
+    background: #fff;
+    border-top: 1px solid #c0c0c0;
+    color: #000000;
+}
