@@ -103,7 +103,7 @@ public class UserDaoTest extends BaseDaoTestCase {
         address.setCountry("USA");
         address.setPostalCode("80210");
         user.setAddress(address);
-        user.setEmail("testuser@appfuse.org");
+        user.setEmail("testuser@xmdl.org");
         user.setWebsite("http://raibledesigns.com");
         
         Role role = rdao.getRoleByName(Constants.USER_ROLE);
