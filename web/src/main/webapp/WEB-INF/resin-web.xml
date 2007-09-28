@@ -2,7 +2,7 @@
     <jsp fast-jstl="false"/>
 
     <!--database>
-        <jndi-name>jdbc/appfuse</jndi-name>
+        <jndi-name>jdbc/taslak</jndi-name>
         <driver type="${jdbc.driverClassName}">
             <url>${jdbc.url}</url>
             <user>${jdbc.username}</user>

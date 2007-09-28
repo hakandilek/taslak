@@ -5,8 +5,8 @@
 <taglib>
     <tlib-version>1.0</tlib-version>
     <jsp-version>1.2</jsp-version>
-    <short-name>appfuse-struts</short-name>
-    <uri>http://www.appfuse.org/tags/struts</uri>
+    <short-name>taslak</short-name>
+    <uri>http://taslak.googlecode.com/tags</uri>
     <tag>
         <name>constants</name>
         <tag-class>org.xmdl.taslak.webapp.taglib.ConstantsTag</tag-class>

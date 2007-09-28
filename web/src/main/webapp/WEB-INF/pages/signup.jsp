@@ -75,7 +75,7 @@
             </div>
             <div>
                 <s:set name="country" value="user.address.country" scope="page"/>
-                <appfuse:country name="user.address.country" prompt="" default="${country}"/>
+                <taslak:country name="user.address.country" prompt="" default="${country}"/>
                 <p>
                     <label for="user.address.country">
                         <fmt:message key="user.address.country"/> <span class="req">*</span>

@@ -2,8 +2,8 @@
 <project name="taslak">
   <bannerLeft>
     <name>taslak</name>
-    <src>https://appfuse.dev.java.net/images/appfuse-title.gif</src>
-    <href>http://appfuse.org</href>
+    <src></src>
+    <href>http://code.google.com/p/taslak/</href>
   </bannerLeft>
   <publishDate format="dd MMM yyyy" />
   <skin>
