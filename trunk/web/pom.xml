@@ -13,7 +13,7 @@
     
     <artifactId>taslak-webapp</artifactId>
     <packaging>war</packaging>
-    <name>AppFuse Modular Application - Web (Struts 2)</name>
+    <name>Taslak - Web (Struts 2)</name>
     
     <build>
         <plugins>
@@ -172,7 +172,7 @@
         </testResources>
     </build>
 
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
+    <!-- Dependencies calculated when running full-source plugin -->
     <dependencies>
         <dependency>
             <groupId>${jdbc.groupId}</groupId>
