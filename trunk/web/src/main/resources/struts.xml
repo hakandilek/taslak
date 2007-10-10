@@ -142,9 +142,9 @@
 
         <action name="saveOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="save">
             <result name="input">/WEB-INF/pages/orderElementForm.jsp</result>
-            <result name="cancel" type="redirect">orderElements.html</result>
-            <result name="delete" type="redirect">orderElements.html</result>
-            <result name="success" type="redirect">orderElements.html</result>
+            <result name="cancel">/WEB-INF/pages/orderElementForm.jsp</result>
+            <result name="delete">/WEB-INF/pages/orderElementForm.jsp</result>
+            <result name="success">/WEB-INF/pages/orderElementForm.jsp</result>
         </action>
 
         <action name="copyOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="copy">

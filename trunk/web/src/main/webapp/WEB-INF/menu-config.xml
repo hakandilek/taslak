@@ -22,7 +22,7 @@
         <Menu name="OrderMenu" title="orderList.title" page="/orders.html"/>
         <!--Order-END-->
         <!--OrderElement-START-->
-        <Menu name="OrderElementMenu" title="orderElementList.title" page="/orderElements.html"/>
+        <!--<Menu name="OrderElementMenu" title="orderElementList.title" page="/orderElements.html"/>-->
         <!--OrderElement-END-->
     </Menus>
 </MenuConfig>

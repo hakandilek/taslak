@@ -5,15 +5,37 @@
     <meta name="heading" content="<fmt:message key='orderElementDetail.heading'/>"/>
 </head>
 
+<c:set var="deleteChecks">
+    <input type="checkbox" name="allbox"
+           onclick="checkAll(document.getElementById('orderElementsList'), 'deleteId')" />
+</c:set>
+
+<s:if test="%{order.id!=null}">
+    <s:url id="url" action="editOrder.html" includeParams="false">
+        <s:param name="id">
+            <s:property value="orderElement.order.id"/>
+        </s:param>
+    </s:url>
+    <s:a href="%{url}"><fmt:message key="Order.master.link"/></s:a>
+    <br>
+</s:if>
+
+<!--copy URL-->
+<s:url id="copyUrl" action="copyOrderElement.html" includeParams="false">
+    <s:param name="idToCopy">
+        <s:property value="orderElement.id"/>
+    </s:param>
+</s:url>
+
 <s:form id="orderElementForm" action="saveOrderElement" method="post" validate="true">
     <li style="display: none">
         <s:hidden key="orderElement.id"/>
+        <s:hidden key="orderElement.order.id"/>
     </li>
-    <s:textfield required="true" cssClass="text medium" key="orderElement.quantity"/>
-    <s:select name="orderElement.order.id" list="orderList" listKey="id" listValue="id"
-              key="orderElement.order" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.choose"/>
+    <s:textfield required="true" cssClass="text medium" key="orderElement.quantity" labelposition="left"/>
     <s:select name="orderElement.product.id" list="productList" listKey="id" listValue="id"
-              key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.choose"/>
+              key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.choose"
+              labelposition="left"/>
     <li class="buttonBar bottom">
         <c:if test="${empty orderElement.id}">
             <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>
@@ -22,10 +44,47 @@
             <s:submit cssClass="button" method="save" key="button.update" theme="simple"/>
             <s:submit cssClass="button" method="delete" key="button.delete"
                       onclick="return confirmDelete('OrderElement')" theme="simple"/>
-            <s:submit cssClass="button" method="copy" action="copyOrderElement" key="button.copy" theme="simple"/>
+            <s:a href="%{copyUrl}"><fmt:message key="button.copy"/></s:a>
         </c:if>
-        <s:submit cssClass="button" method="cancel" key="button.cancel" theme="simple"/>
     </li>
+</s:form>
+<s:form id="orderElementsList" action="orderElements">
+
+    <display:table name="orderElements" class="table" requestURI="" id="orderElementList" export="true" pagesize="25"
+            decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
+
+        <display:column property="id" media="csv excel xml pdf" titleKey="orderElement.id"/>
+        <display:column property="quantity" sortable="true" titleKey="orderElement.quantity"/>
+        <display:column media="html" titleKey="orderElement.editProduct">
+            <a href="/editProduct.html?id=<c:out value="${orderElementList.product.id}"/>"><img src="/images/common/edit_up.gif"></a>
+        </display:column>
+
+        <display:column media="html" titleKey="List.Edit">
+            <a href="/editOrderElement.html?id=<c:out value="${orderElementList.id}"/>"><img src="/images/common/edit.gif"></a>
+        </display:column>
+        <display:column titleKey="button.copy" >
+            <a href="/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><img src="/images/common/save.gif"></a>
+        </display:column>
+        <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
+
+        <display:footer>
+            <tr class="footer">
+                <!-- change the "colspan" value below according to the number of columns -->
+                <td colspan="4">&nbsp;</td>
+                <td>
+                    <input id="orderElementDeleteButton" name="method:deleteMass"
+                           value="<fmt:message key="button.delete"/>"
+                           onclick="return confirmDelete('OrderElement')" type="submit" />
+                </td>
+            </tr>
+        </display:footer>
+
+        <display:setProperty name="paging.banner.item_name"><fmt:message key="orderElementList.orderElement"/></display:setProperty>
+        <display:setProperty name="paging.banner.items_name"><fmt:message key="orderElementList.orderElements"/></display:setProperty>
+        <display:setProperty name="export.excel.filename"><fmt:message key="orderElementList.title"/>.xls</display:setProperty>
+        <display:setProperty name="export.csv.filename"><fmt:message key="orderElementList.title"/>.csv</display:setProperty>
+        <display:setProperty name="export.pdf.filename"><fmt:message key="orderElementList.title"/>.pdf</display:setProperty>
+    </display:table>
 </s:form>
 
 <script type="text/javascript">
