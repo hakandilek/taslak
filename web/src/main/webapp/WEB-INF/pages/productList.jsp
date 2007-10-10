@@ -21,9 +21,9 @@
 </c:set>
 
 <s:form id="productsForm" action="products">
-    <s:textfield key="productSearch.name" cssClass="text medium"/>
-    <s:textfield key="productSearch.fromPrice" cssClass="text medium"/>
-    <s:textfield key="productSearch.toPrice" cssClass="text medium"/>
+    <s:textfield key="productSearch.name" cssClass="text medium" labelposition="left"/>
+    <s:textfield key="productSearch.fromPrice" cssClass="text medium" labelposition="left"/>
+    <s:textfield key="productSearch.toPrice" cssClass="text medium" labelposition="left"/>
     <s:submit key="button.search" align="left"/>
 </s:form>
 

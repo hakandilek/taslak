@@ -17,15 +17,15 @@
 
 <c:set var="deleteChecks">
     <input type="checkbox" name="allbox" 
-           onclick="checkAll(document.getElementById('productsList'), 'deleteId')" />
+           onclick="checkAll(document.getElementById('ordersList'), 'deleteId')" />
 </c:set>
 
 <s:form id="ordersForm" action="orders">
-    <s:textfield key="orderSearch.name" cssClass="text medium"/>
-    <s:textfield key="orderSearch.fromPriceTotals" cssClass="text medium"/>
-    <s:textfield key="orderSearch.toPriceTotals" cssClass="text medium"/>
-    <s:textfield key="orderSearch.fromCreateDate" cssClass="text" title="date" size="11"/>
-    <s:textfield key="orderSearch.toCreateDate" cssClass="text" title="date" size="11"/>
+    <s:textfield key="orderSearch.name" cssClass="text medium" labelposition="left"/>
+    <s:textfield key="orderSearch.fromPriceTotals" cssClass="text medium" labelposition="left"/>
+    <s:textfield key="orderSearch.toPriceTotals" cssClass="text medium" labelposition="left"/>
+    <s:textfield key="orderSearch.fromCreateDate" cssClass="text" title="date" size="11" labelposition="left"/>
+    <s:textfield key="orderSearch.toCreateDate" cssClass="text" title="date" size="11" labelposition="left"/>
     <s:submit key="button.search" align="left"/>
 </s:form>
 

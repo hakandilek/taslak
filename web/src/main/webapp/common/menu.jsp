@@ -15,7 +15,7 @@
     <menu:displayMenu name="OrderMenu"/>
     <!--Order-END-->
     <!--OrderElement-START-->
-    <menu:displayMenu name="OrderElementMenu"/>
+    <%--<menu:displayMenu name="OrderElementMenu"/>--%>
     <!--OrderElement-END-->
 </ul>
 </menu:useMenuDisplayer>
