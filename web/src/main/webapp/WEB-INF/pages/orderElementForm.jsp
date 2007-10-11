@@ -11,7 +11,7 @@
 </c:set>
 
 <s:if test="%{order.id!=null}">
-    <s:url id="url" action="editOrder.html" includeParams="false">
+    <s:url id="url" namespace="/Order" action="editOrder.html" includeParams="false">
         <s:param name="id">
             <s:property value="orderElement.order.id"/>
         </s:param>
@@ -21,13 +21,13 @@
 </s:if>
 
 <!--copy URL-->
-<s:url id="copyUrl" action="copyOrderElement.html" includeParams="false">
+<s:url id="copyUrl" namespace="/OrderElement" action="copyOrderElement.html" includeParams="false">
     <s:param name="idToCopy">
         <s:property value="orderElement.id"/>
     </s:param>
 </s:url>
 
-<s:form id="orderElementForm" action="saveOrderElement" method="post" validate="true">
+<s:form id="orderElementForm" namespace="/OrderElement" action="saveOrderElement" method="post" validate="true">
     <li style="display: none">
         <s:hidden key="orderElement.id"/>
         <s:hidden key="orderElement.order.id"/>
@@ -48,7 +48,10 @@
         </c:if>
     </li>
 </s:form>
-<s:form id="orderElementsList" action="orderElements">
+<s:form id="orderElementsList" namespace="/OrderElement" action="orderElements" validate="false">
+    <li style="display: none">
+        <s:hidden key="orderElement.order.id"/>
+    </li>
 
     <display:table name="orderElements" class="table" requestURI="" id="orderElementList" export="true" pagesize="25"
             decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
@@ -56,14 +59,14 @@
         <display:column property="id" media="csv excel xml pdf" titleKey="orderElement.id"/>
         <display:column property="quantity" sortable="true" titleKey="orderElement.quantity"/>
         <display:column media="html" titleKey="orderElement.editProduct">
-            <a href="/editProduct.html?id=<c:out value="${orderElementList.product.id}"/>"><img src="/images/common/edit_up.gif"></a>
+            <a href="/Product/editProduct.html?id=<c:out value="${orderElementList.product.id}"/>"><img src="/images/common/edit_up.gif"></a>
         </display:column>
 
         <display:column media="html" titleKey="List.Edit">
-            <a href="/editOrderElement.html?id=<c:out value="${orderElementList.id}"/>"><img src="/images/common/edit.gif"></a>
+            <a href="/OrderElement/editOrderElement.html?id=<c:out value="${orderElementList.id}"/>"><img src="/images/common/edit.gif"></a>
         </display:column>
         <display:column titleKey="button.copy" >
-            <a href="/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><img src="/images/common/save.gif"></a>
+            <a href="/OrderElement/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
 

@@ -6,13 +6,13 @@
 </head>
 
 <!--copy URL-->
-<s:url id="copyUrl" action="copyProduct.html" includeParams="false">
+<s:url id="copyUrl" namespace="/Product" action="copyProduct.html" includeParams="false">
     <s:param name="idToCopy">
         <s:property value="product.id"/>
     </s:param>
 </s:url>
 
-<s:form id="productForm" action="saveProduct" method="post" validate="true">
+<s:form id="productForm" namespace="/Product" action="saveProduct" method="post" validate="true">
     <li style="display: none">
         <s:hidden key="product.id"/>
     </li>

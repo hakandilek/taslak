@@ -8,7 +8,7 @@
 
 <c:set var="buttons">
     <input type="button" style="margin-right: 5px" class="button"
-           onclick="location.href='<c:url value="/editProduct.html"/>'"
+           onclick="location.href='<c:url value="/Product/editProduct.html"/>'"
            value="<fmt:message key="button.add"/>"/>
 
     <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
@@ -20,14 +20,14 @@
 		   onclick="checkAll(document.getElementById('productsList'), 'deleteId')" />
 </c:set>
 
-<s:form id="productsForm" action="products">
+<s:form id="productsForm" namespace="/Product" action="products">
     <s:textfield key="productSearch.name" cssClass="text medium" labelposition="left"/>
     <s:textfield key="productSearch.fromPrice" cssClass="text medium" labelposition="left"/>
     <s:textfield key="productSearch.toPrice" cssClass="text medium" labelposition="left"/>
     <s:submit key="button.search" align="left"/>
 </s:form>
 
-<s:form id="productsList" action="products">
+<s:form id="productsList" namespace="/Product" action="products">
     <display:table name="products" class="table" requestURI="" id="productList" export="true" pagesize="25"
                    decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
 
@@ -36,10 +36,10 @@
         <display:column property="price" sortable="true" titleKey="product.price"/>
 
         <display:column media="html" titleKey="List.Edit" >
-            <a href="/editProduct.html?id=<c:out value="${productList.id}"/>"><img src="/images/common/edit.gif"></a>
+            <a href="/Product/editProduct.html?id=<c:out value="${productList.id}"/>"><img src="/images/common/edit.gif"></a>
         </display:column>
         <display:column media="html" titleKey="button.copy">
-            <a href="/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><img src="/images/common/save.gif"></a>
+            <a href="/Product/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
 

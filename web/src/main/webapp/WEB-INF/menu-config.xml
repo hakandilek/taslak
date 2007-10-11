@@ -15,14 +15,8 @@
             <Item name="Clickstream" title="menu.clickstream" page="/admin/clickstreams.jsp"/>
         </Menu>
         <Menu name="Logout" title="user.logout" page="/logout.jsp" roles="ROLE_ADMIN,ROLE_USER"/>
-        <!--Product-START-->
-        <Menu name="ProductMenu" title="productList.title" page="/products.html"/>
-        <!--Product-END-->
-        <!--Order-START-->
-        <Menu name="OrderMenu" title="orderList.title" page="/orders.html"/>
-        <!--Order-END-->
-        <!--OrderElement-START-->
-        <!--<Menu name="OrderElementMenu" title="orderElementList.title" page="/orderElements.html"/>-->
-        <!--OrderElement-END-->
+
+        <Menu name="ProductMenu" title="productList.title" page="/Product/products.html"/>
+        <Menu name="OrderMenu" title="orderList.title" page="/Order/orders.html"/>
     </Menus>
 </MenuConfig>

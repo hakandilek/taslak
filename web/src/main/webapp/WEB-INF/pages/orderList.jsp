@@ -8,7 +8,7 @@
 
 <c:set var="buttons">
     <input type="button" style="margin-right: 5px" class="button"
-        onclick="location.href='<c:url value="/editOrder.html"/>'"
+        onclick="location.href='<c:url value="/Order/editOrder.html"/>'"
         value="<fmt:message key="button.add"/>"/>
 
     <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
@@ -20,7 +20,7 @@
            onclick="checkAll(document.getElementById('ordersList'), 'deleteId')" />
 </c:set>
 
-<s:form id="ordersForm" action="orders">
+<s:form id="ordersForm" namespace="/Order" action="orders" >
     <s:textfield key="orderSearch.name" cssClass="text medium" labelposition="left"/>
     <s:textfield key="orderSearch.fromPriceTotals" cssClass="text medium" labelposition="left"/>
     <s:textfield key="orderSearch.toPriceTotals" cssClass="text medium" labelposition="left"/>
@@ -29,7 +29,7 @@
     <s:submit key="button.search" align="left"/>
 </s:form>
 
-<s:form id="ordersList" action="orders">
+<s:form id="ordersList" namespace="/Order" action="orders">
     <display:table name="orders" class="table" requestURI="" id="orderList" export="true" pagesize="25"
             decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
 
@@ -41,10 +41,10 @@
         </display:column>
 
         <display:column media="html" titleKey="List.Edit">
-            <a href="/editOrder.html?id=<c:out value="${orderList.id}"/>"><img src="/images/common/edit.gif"></a>
+            <a href="/Order/editOrder.html?id=<c:out value="${orderList.id}"/>"><img src="/images/common/edit.gif"></a>
         </display:column>
         <display:column titleKey="button.copy" media="html">
-            <a href="/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><img src="/images/common/save.gif"></a>
+            <a href="/Order/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
 
