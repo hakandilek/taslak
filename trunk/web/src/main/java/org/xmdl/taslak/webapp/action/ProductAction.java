@@ -59,31 +59,51 @@ public class ProductAction extends BaseAction implements Preparable {
     }
 
     public String delete() {
+        if (log.isDebugEnabled()) log.debug("delete() <-");
+
         productManager.remove(product.getId());
         saveMessage(getText("product.deleted"));
+
+        if (log.isDebugEnabled()) log.debug("deleting product: " + product);
+        if (log.isDebugEnabled()) log.debug("delete() ->");
 
         return SUCCESS;
     }
 
     public String copy() {
+        if (log.isDebugEnabled()) log.debug("copy() <-");
+
         if(idToCopy !=null){
             product = productManager.get(idToCopy);
         }
+
+        if (log.isDebugEnabled()) log.debug("copying product: " + product);
+
         product.setId(null);
+
+        if (log.isDebugEnabled()) log.debug("copy() ->");
+
         return SUCCESS;
     }
 
     public String edit() {
+        if (log.isDebugEnabled()) log.debug("edit() <-");
+
         if (id != null) {
             product = productManager.get(id);
         } else {
             product = new Product();
         }
 
+        if (log.isDebugEnabled()) log.debug("editing product: " + product);
+        if (log.isDebugEnabled()) log.debug("edit() ->");
+
         return SUCCESS;
     }
 
     public String deleteMass() throws Exception {
+        if (log.isDebugEnabled()) log.debug("deleteMass() <-");
+
         boolean cannotDeleted = false;
         boolean anyDeleted = false;
         if (getDeleteId() != null) {
@@ -91,9 +111,13 @@ public class ProductAction extends BaseAction implements Preparable {
                 try {
                     productManager.remove(new Long(idStr));
                     anyDeleted = true;
+
+                    if (log.isDebugEnabled()) log.debug("deleting product with id: " + idStr);
                 } catch (DataIntegrityViolationException e) {
                     e.printStackTrace();
                     cannotDeleted = true;
+
+                    if (log.isDebugEnabled()) log.debug("could not delete product with id: " + idStr);
                 }
             }
         }
@@ -101,17 +125,23 @@ public class ProductAction extends BaseAction implements Preparable {
         if (anyDeleted) saveMessage(getText("Product.deleted"));
 
         products = productManager.getAll();
+
+        if (log.isDebugEnabled()) log.debug("deleteMass() ->");
+
         return SUCCESS;
     }
 
 
     public String save() throws Exception {
+        if (log.isDebugEnabled()) log.debug("save() <-");
 
         if (cancel != null) {
+            if (log.isDebugEnabled()) log.debug("save() ->");
             return "cancel";
         }
 
         if (delete != null) {
+            if (log.isDebugEnabled()) log.debug("save() ->");
             return delete();
         }
 
@@ -121,6 +151,10 @@ public class ProductAction extends BaseAction implements Preparable {
 
         String key = (isNew) ? "product.added" : "product.updated";
         saveMessage(getText(key));
+
+        String logMessage = (isNew) ? "adding product: "+ product : "updating product: " + product;
+        if (log.isDebugEnabled()) log.debug(logMessage);
+        if (log.isDebugEnabled()) log.debug("save() ->");
 
         if (!isNew) {
             return INPUT;
