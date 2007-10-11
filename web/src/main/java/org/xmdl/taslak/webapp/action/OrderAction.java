@@ -28,12 +28,14 @@ public class OrderAction extends BaseAction implements Preparable {
      * Grab the entity from the database before populating with request parameters
      */
     public void prepare() {
+        if (log.isDebugEnabled()) log.debug("prepare() <-");
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
             if (id != null ) {
                 order = orderManager.get(id);
             }
         }
+        if (log.isDebugEnabled()) log.debug("prepare() ->");
     }
 
     public String list() {
@@ -59,32 +61,52 @@ public class OrderAction extends BaseAction implements Preparable {
     }
 
     public String delete() {
+        if (log.isDebugEnabled()) log.debug("delete() <-");
+
         orderManager.remove(order.getId());
         saveMessage(getText("order.deleted"));
+
+        if (log.isDebugEnabled()) log.debug("deleting order: " + order);
+        if (log.isDebugEnabled()) log.debug("delete() ->");
 
         return SUCCESS;
     }
 
     public String copy() {
+        if (log.isDebugEnabled()) log.debug("copy() <-");
+
         if(idToCopy !=null){
             order = orderManager.get(idToCopy);
         }
+
+        if (log.isDebugEnabled()) log.debug("copying order: " + order);
+
         order.setId(null);
+
+        if (log.isDebugEnabled()) log.debug("copy() ->");
+
         return SUCCESS;
     }
 
     public String edit() {
+        if (log.isDebugEnabled()) log.debug("edit() <-");
+
         if (id != null) {
             order = orderManager.get(id);
         } else {
             order = new Order();
         }
 
+        if (log.isDebugEnabled()) log.debug("editing order: " + order);
+        if (log.isDebugEnabled()) log.debug("edit() ->");
+
         return SUCCESS;
     }
 
 
     public String deleteMass() throws Exception {
+        if (log.isDebugEnabled()) log.debug("deleteMass() <-");
+
         boolean cannotDeleted = false;
         boolean anyDeleted = false;
         if (getDeleteId() != null) {
@@ -92,9 +114,13 @@ public class OrderAction extends BaseAction implements Preparable {
                 try {
                     orderManager.remove(new Long(idStr));
                     anyDeleted = true;
+
+                    if (log.isDebugEnabled()) log.debug("deleting order with id: " + idStr);
                 } catch (DataIntegrityViolationException e) {
                     e.printStackTrace();
                     cannotDeleted = true;
+
+                     if (log.isDebugEnabled()) log.debug("could not delete order with id: " + idStr);
                 }
             }
         }
@@ -102,15 +128,22 @@ public class OrderAction extends BaseAction implements Preparable {
         if (anyDeleted)         saveMessage(getText("Order.deleted"));
 
         orders = orderManager.getAll();
+
+        if (log.isDebugEnabled()) log.debug("deleteMass() ->");
+
         return SUCCESS;
     }
 
     public String save() throws Exception {
+        if (log.isDebugEnabled()) log.debug("save() <-");
+
         if (cancel != null) {
+            if (log.isDebugEnabled()) log.debug("save() ->");
             return "cancel";
         }
 
         if (delete != null) {
+            if (log.isDebugEnabled()) log.debug("save() ->");
             return delete();
         }
 
@@ -120,6 +153,10 @@ public class OrderAction extends BaseAction implements Preparable {
 
         String key = (isNew) ? "order.added" : "order.updated";
         saveMessage(getText(key));
+
+        String logMessage = (isNew) ? "adding order: "+ order : "updating order: " + order;
+        if (log.isDebugEnabled()) log.debug(logMessage);
+        if (log.isDebugEnabled()) log.debug("save() ->");
 
         if (!isNew) {
             return INPUT;
