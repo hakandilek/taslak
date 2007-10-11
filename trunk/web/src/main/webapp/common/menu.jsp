@@ -8,14 +8,8 @@
     <menu:displayMenu name="UserMenu"/>
     <menu:displayMenu name="AdminMenu"/>
     <menu:displayMenu name="Logout"/>
-    <!--Product-START-->
+
     <menu:displayMenu name="ProductMenu"/>
-    <!--Product-END-->
-    <!--Order-START-->
     <menu:displayMenu name="OrderMenu"/>
-    <!--Order-END-->
-    <!--OrderElement-START-->
-    <%--<menu:displayMenu name="OrderElementMenu"/>--%>
-    <!--OrderElement-END-->
 </ul>
 </menu:useMenuDisplayer>

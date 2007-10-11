@@ -5,19 +5,19 @@
     <meta name="heading" content="<fmt:message key='orderDetail.heading'/>"/>
 </head>
 
-<s:form id="orderForm" action="saveOrder" method="post" validate="true">
+<s:form id="orderForm" namespace="/Order" action="saveOrder" method="post" validate="true">
     <li style="display: none">
         <s:hidden key="order.id"/>
     </li>
     <s:if test="%{order.id!=null}">
     <!--order element list URL-->
-    <s:url id="url" action="editOrderElement.html" includeParams="false">
+    <s:url id="url" namespace="/OrderElement" action="editOrderElement.html" includeParams="false">
         <s:param name="orderId">
             <s:property value="order.id"/>
         </s:param>
     </s:url>
     <!--copy URL-->
-    <s:url id="copyUrl" action="copyOrder.html" includeParams="false">
+    <s:url id="copyUrl" namespace="/Order" action="copyOrder.html" includeParams="false">
         <s:param name="idToCopy">
             <s:property value="order.id"/>
         </s:param>
@@ -25,11 +25,11 @@
 
     <s:a href="%{url}"><fmt:message key="OrderElement.child.link"/></s:a>
     </s:if>
+    <li class="pad">&nbsp;</li>
 
     <s:textfield key="order.name" required="true" cssClass="text medium" labelposition="left" />
     <s:textfield key="order.priceTotals" required="true" cssClass="text medium" labelposition="left" />
     <s:textfield key="order.createDate" required="true" cssClass="text" size="11" title="date" labelposition="left" />
-    <hr/>
     <li class="buttonBar bottom">
         <c:if test="${empty order.id}">
             <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>

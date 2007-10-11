@@ -60,8 +60,12 @@ public class OrderElementAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+    @org.apache.struts2.interceptor.validation.SkipValidation
     public String delete() {
         if (log.isDebugEnabled()) log.debug("delete() <-");
+
+        orderElementSearch.setOrder(orderElement.getOrder());
+        orderElements = orderElementManager.search(orderElementSearch);
 
         orderElementManager.remove(orderElement.getId());
         saveMessage(getText("orderElement.deleted"));
@@ -80,6 +84,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
         if (log.isDebugEnabled()) log.debug("copying orderElement: " + orderElement);
 
         orderElement.setId(null);
+        order = orderElement.getOrder();
 
         orderElementSearch.setOrder(orderElement.getOrder());
         orderElements = orderElementManager.search(orderElementSearch);
@@ -94,6 +99,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
 
         if (id != null) {
             orderElement = orderElementManager.get(id);
+            order = orderElement.getOrder();
         } else {
             orderElement = new OrderElement();
             order = orderManager.get(orderId);
@@ -110,6 +116,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+    @org.apache.struts2.interceptor.validation.SkipValidation
     public String deleteMass() throws Exception {
         if (log.isDebugEnabled()) log.debug("deleteMass() <-");
 
@@ -134,7 +141,9 @@ public class OrderElementAction extends BaseAction implements Preparable {
         if (cannotDeleted) saveMessage(getText("OrderElement.cannotBeDeleted"));
         if (anyDeleted) saveMessage(getText("OrderElement.deleted"));
 
-        orderElements = orderElementManager.getAll();
+        order = orderElement.getOrder();
+        orderElementSearch.setOrder(order);
+        orderElements = orderElementManager.search(orderElementSearch);
 
         if (log.isDebugEnabled()) log.debug("deleteMass() ->");
 
