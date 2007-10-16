@@ -9,22 +9,25 @@
     <li style="display: none">
         <s:hidden key="order.id"/>
     </li>
-    <s:if test="%{order.id!=null}">
-    <!--order element list URL-->
-    <s:url id="url" namespace="/OrderElement" action="editOrderElement.html" includeParams="false">
-        <s:param name="orderId">
-            <s:property value="order.id"/>
-        </s:param>
-    </s:url>
-    <!--copy URL-->
-    <s:url id="copyUrl" namespace="/Order" action="copyOrder.html" includeParams="false">
-        <s:param name="idToCopy">
-            <s:property value="order.id"/>
-        </s:param>
-    </s:url>
 
-    <s:a href="%{url}"><fmt:message key="OrderElement.child.link"/></s:a>
-    </s:if>
+    <c:if test="${not empty order.id}">
+
+        <!--order element list URL-->
+        <s:url id="url" namespace="/OrderElement" action="editOrderElement.html" includeParams="false">
+            <s:param name="orderId">
+                <s:property value="order.id"/>
+            </s:param>
+        </s:url>
+
+        <!--copy URL-->
+        <s:url id="copyUrl" namespace="/Order" action="copyOrder.html" includeParams="false">
+            <s:param name="idToCopy">
+                <s:property value="order.id"/>
+            </s:param>
+        </s:url>
+    
+        <s:a href="%{url}"><fmt:message key="OrderElement.child.link"/></s:a>
+    </c:if>
     <li class="pad">&nbsp;</li>
 
     <s:textfield key="order.name" required="true" cssClass="text medium" labelposition="left" />
