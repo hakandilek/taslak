@@ -43,10 +43,13 @@
         <display:column media="html" titleKey="List.Edit">
             <a href="/Order/editOrder.html?id=<c:out value="${orderList.id}"/>"><img src="/images/common/edit.gif"></a>
         </display:column>
-        <display:column titleKey="button.copy" media="html">
+        <display:column media="html" titleKey="button.copy">
             <a href="/Order/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
+        <display:column media="html" titleKey="orderList.orderElements">
+            <a href="/OrderElement/editOrderElement.html?orderId=<c:out value="${orderList.id}"/>"><img src="/images/common/edit_down.gif"></a>
+        </display:column>
 
 		<display:footer>
 			<tr class="footer">

@@ -10,7 +10,7 @@
            onclick="checkAll(document.getElementById('orderElementsList'), 'deleteId')" />
 </c:set>
 
-<s:if test="%{order.id!=null}">
+<c:if test="${not empty orderElement.id}">
     <s:url id="url" namespace="/Order" action="editOrder.html" includeParams="false">
         <s:param name="id">
             <s:property value="orderElement.order.id"/>
@@ -18,7 +18,7 @@
     </s:url>
     <s:a href="%{url}"><fmt:message key="Order.master.link"/></s:a>
     <br>
-</s:if>
+</c:if>
 
 <!--copy URL-->
 <s:url id="copyUrl" namespace="/OrderElement" action="copyOrderElement.html" includeParams="false">
