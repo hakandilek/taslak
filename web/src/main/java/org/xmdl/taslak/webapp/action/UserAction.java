@@ -8,12 +8,13 @@ import org.acegisecurity.AccessDeniedException;
 import org.acegisecurity.context.SecurityContext;
 import org.acegisecurity.context.SecurityContextHolder;
 import org.apache.struts2.ServletActionContext;
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.util.StringUtil;
+import org.xmdl.ida.lib.web.action.BaseAction;
+import org.xmdl.ida.lib.web.util.RequestUtil;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.Role;
 import org.xmdl.taslak.model.User;
 import org.xmdl.taslak.service.UserExistsException;
-import org.xmdl.taslak.util.StringUtil;
-import org.xmdl.taslak.webapp.util.RequestUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * Action for facilitating User Management feature.
  */
-public class UserAction extends BaseAction implements Preparable {
+public class UserAction extends AppBaseAction implements Preparable {
     private static final long serialVersionUID = 6776558938712115191L;
     private List users;
     private User user;
@@ -107,7 +108,7 @@ public class UserAction extends BaseAction implements Preparable {
             user = userManager.getUserByUsername(request.getRemoteUser());
         } else {
             user = new User();
-            user.addRole(new Role(Constants.USER_ROLE));
+            user.addRole(new Role(TaslakConstants.USER_ROLE));
         }
 
         if (user.getUsername() != null) {
@@ -157,10 +158,10 @@ public class UserAction extends BaseAction implements Preparable {
      * @throws IOException when setting "access denied" fails on response
      */
     public String save() throws IOException {
-        Boolean encrypt = (Boolean) getConfiguration().get(Constants.ENCRYPT_PASSWORD);
+        Boolean encrypt = (Boolean) getConfiguration().get(TaslakConstants.ENCRYPT_PASSWORD);
 
         if ("true".equals(getRequest().getParameter("encryptPass")) && (encrypt != null && encrypt)) {
-            String algorithm = (String) getConfiguration().get(Constants.ENC_ALGORITHM);
+            String algorithm = (String) getConfiguration().get(TaslakConstants.ENC_ALGORITHM);
 
             if (algorithm == null) { // should only happen for test case
                 log.debug("assuming testcase, setting algorithm to 'SHA'");
@@ -175,7 +176,7 @@ public class UserAction extends BaseAction implements Preparable {
         boolean isNew = ("".equals(getRequest().getParameter("user.version")));
         // only attempt to change roles if user is admin
         // for other users, prepare() method will handle populating
-        if (getRequest().isUserInRole(Constants.ADMIN_ROLE)) {
+        if (getRequest().isUserInRole(TaslakConstants.ADMIN_ROLE)) {
             user.getRoles().clear(); // APF-788: Removing roles from user doesn't work
             String[] userRoles = getRequest().getParameterValues("userRoles");
 

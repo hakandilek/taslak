@@ -1,6 +1,8 @@
 package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
+
+import org.xmdl.ida.lib.web.action.BaseAction;
 import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.service.OrderElementManager;
 import org.xmdl.taslak.service.ProductManager;
@@ -12,7 +14,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.util.List;
 import java.util.Collection;
 
-public class OrderElementAction extends BaseAction implements Preparable {
+public class OrderElementAction extends AppBaseAction implements Preparable {
     private OrderElementManager orderElementManager;
     private OrderManager orderManager;
     private ProductManager productManager;

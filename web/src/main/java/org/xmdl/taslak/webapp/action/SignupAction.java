@@ -5,20 +5,22 @@ import org.acegisecurity.AccessDeniedException;
 import org.acegisecurity.context.SecurityContextHolder;
 import org.acegisecurity.providers.UsernamePasswordAuthenticationToken;
 import org.apache.struts2.ServletActionContext;
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.util.StringUtil;
+import org.xmdl.ida.lib.web.util.RequestUtil;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.User;
 import org.xmdl.taslak.service.UserExistsException;
-import org.xmdl.taslak.util.StringUtil;
-import org.xmdl.taslak.webapp.util.RequestUtil;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Action to allow new users to sign up.
  */
-public class SignupAction extends BaseAction {
+public class SignupAction extends AppBaseAction {
     private static final long serialVersionUID = 6558317334878272308L;
     private User user;
     private String cancel;
@@ -38,6 +40,11 @@ public class SignupAction extends BaseAction {
     public User getUser() {
         return user;
     }
+
+    @Override
+	public HttpSession getSession() {
+		return super.getSession();
+	}
 
     /**
      * When method=GET, "input" is returned. Otherwise, "success" is returned.
@@ -67,10 +74,10 @@ public class SignupAction extends BaseAction {
      * @throws Exception when bad things happen
      */
     public String save() throws Exception {
-        Boolean encrypt = (Boolean) getConfiguration().get(Constants.ENCRYPT_PASSWORD);
+        Boolean encrypt = (Boolean) getConfiguration().get(TaslakConstants.ENCRYPT_PASSWORD);
 
         if (encrypt != null && encrypt) {
-            String algorithm = (String) getConfiguration().get(Constants.ENC_ALGORITHM);
+            String algorithm = (String) getConfiguration().get(TaslakConstants.ENC_ALGORITHM);
 
             if (algorithm == null) { // should only happen for test case
                 if (log.isDebugEnabled()) {
@@ -85,7 +92,7 @@ public class SignupAction extends BaseAction {
         user.setEnabled(true);
 
         // Set the default user role on this new user
-        user.addRole(roleManager.getRole(Constants.USER_ROLE));
+        user.addRole(roleManager.getRole(TaslakConstants.USER_ROLE));
 
         try {
             user = userManager.saveUser(user);
@@ -107,7 +114,7 @@ public class SignupAction extends BaseAction {
         }
 
         saveMessage(getText("user.registered"));
-        getSession().setAttribute(Constants.REGISTERED, Boolean.TRUE);
+        getSession().setAttribute(TaslakConstants.REGISTERED, Boolean.TRUE);
 
         // log user in automatically
         UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(

@@ -1,6 +1,7 @@
 package org.xmdl.taslak.webapp.action;
 
 import org.subethamail.wiser.Wiser;
+import org.xmdl.ida.lib.web.test.BaseActionTestCase;
 
 public class PasswordHintActionTest extends BaseActionTestCase {
     private PasswordHintAction action;

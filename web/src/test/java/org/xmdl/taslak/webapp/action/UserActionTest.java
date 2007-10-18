@@ -1,5 +1,6 @@
 package org.xmdl.taslak.webapp.action;
 
+import org.xmdl.ida.lib.web.test.BaseActionTestCase;
 import org.xmdl.taslak.model.User;
 import org.xmdl.taslak.service.UserManager;
 import org.springframework.mock.web.MockHttpServletRequest;

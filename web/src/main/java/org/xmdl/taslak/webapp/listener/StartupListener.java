@@ -6,7 +6,8 @@ import org.acegisecurity.providers.encoding.Md5PasswordEncoder;
 import org.acegisecurity.providers.rememberme.RememberMeAuthenticationProvider;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.BaseConstants;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.service.LookupManager;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
@@ -40,14 +41,14 @@ public class StartupListener implements ServletContextListener {
 
         // Orion starts Servlets before Listeners, so check if the config
         // object already exists
-        Map<String, Object> config = (HashMap<String, Object>) context.getAttribute(Constants.CONFIG);
+        Map<String, Object> config = (HashMap<String, Object>) context.getAttribute(BaseConstants.CONFIG);
 
         if (config == null) {
             config = new HashMap<String, Object>();
         }
         
-        if (context.getInitParameter(Constants.CSS_THEME) != null) {
-            config.put(Constants.CSS_THEME, context.getInitParameter(Constants.CSS_THEME));
+        if (context.getInitParameter(BaseConstants.CSS_THEME) != null) {
+            config.put(BaseConstants.CSS_THEME, context.getInitParameter(BaseConstants.CSS_THEME));
         }
 
         ApplicationContext ctx =
@@ -65,26 +66,26 @@ public class StartupListener implements ServletContextListener {
 
             if (ctx.containsBean("passwordEncoder")) {
                 encryptPassword = true;
-                config.put(Constants.ENCRYPT_PASSWORD, Boolean.TRUE);
+                config.put(TaslakConstants.ENCRYPT_PASSWORD, Boolean.TRUE);
                 String algorithm = "SHA";
                 if (ctx.getBean("passwordEncoder") instanceof Md5PasswordEncoder) {
                     algorithm = "MD5";
                 }
-                config.put(Constants.ENC_ALGORITHM, algorithm);
+                config.put(TaslakConstants.ENC_ALGORITHM, algorithm);
             }
         } catch (NoSuchBeanDefinitionException n) {
             log.debug("authenticationManager bean not found, assuming test and ignoring...");
             // ignore, should only happen when testing
         }
 
-        context.setAttribute(Constants.CONFIG, config);
+        context.setAttribute(BaseConstants.CONFIG, config);
 
         // output the retrieved values for the Init and Context Parameters
         if (log.isDebugEnabled()) {
             log.debug("Remember Me Enabled? " + config.get("rememberMeEnabled"));
             log.debug("Encrypt Passwords? " + encryptPassword);
             if (encryptPassword) {
-                log.debug("Encryption Algorithm: " + config.get(Constants.ENC_ALGORITHM));
+                log.debug("Encryption Algorithm: " + config.get(TaslakConstants.ENC_ALGORITHM));
             }
             log.debug("Populating drop-downs...");
         }
@@ -101,7 +102,7 @@ public class StartupListener implements ServletContextListener {
         LookupManager mgr = (LookupManager) ctx.getBean("lookupManager");
 
         // get list of possible roles
-        context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());
+        context.setAttribute(TaslakConstants.AVAILABLE_ROLES, mgr.getAllRoles());
         log.debug("Drop-down initialization complete [OK]");
     }
 

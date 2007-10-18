@@ -23,7 +23,7 @@
     </tag>
     <tag>
         <name>country</name>
-        <tag-class>org.xmdl.taslak.webapp.taglib.CountryTag</tag-class>
+        <tag-class>org.xmdl.ida.lib.web.taglib.CountryTag</tag-class>
         <attribute>
             <name>name</name>
             <required>false</required>

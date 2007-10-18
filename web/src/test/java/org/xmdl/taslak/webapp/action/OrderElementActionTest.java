@@ -2,6 +2,7 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import org.xmdl.ida.lib.web.test.BaseActionTestCase;
 import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.service.OrderElementManager;

@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.xmdl.taslak</groupId>
         <artifactId>taslak</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     
@@ -178,6 +178,16 @@
             <groupId>${jdbc.groupId}</groupId>
             <artifactId>${jdbc.artifactId}</artifactId>
             <version>${jdbc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${pom.parent.groupId}</groupId>
+            <artifactId>ida-corelib</artifactId>
+            <version>${pom.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${pom.parent.groupId}</groupId>
+            <artifactId>ida-weblib</artifactId>
+            <version>${pom.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>${pom.parent.groupId}</groupId>

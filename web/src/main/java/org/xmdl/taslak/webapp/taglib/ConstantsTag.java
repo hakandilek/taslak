@@ -11,7 +11,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.xmdl.taslak.Constants;
+import org.xmdl.taslak.TaslakConstants;
 
 
 /**
@@ -38,7 +38,7 @@ public class ConstantsTag extends TagSupport {
     /**
      * The class to expose the variables from.
      */
-    private String clazz = Constants.class.getName();
+    private String clazz = TaslakConstants.class.getName();
 
     /**
      * The scope to be put the variable in.
@@ -130,7 +130,7 @@ public class ConstantsTag extends TagSupport {
     public void release() {
         super.release();
         clazz = null;
-        scope = Constants.class.getName();
+        scope = TaslakConstants.class.getName();
     }
 
     /**
