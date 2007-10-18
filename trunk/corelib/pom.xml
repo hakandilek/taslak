@@ -13,7 +13,7 @@
     
     <artifactId>ida-corelib</artifactId>
     <packaging>jar</packaging>
-    <name>Taslak - Core Library</name>
+    <name>IDA - Core Library</name>
     
     <build>
         <plugins>
