@@ -24,8 +24,10 @@ public class MailEngineTest extends AbstractDependencyInjectionSpringContextTest
 
     protected String[] getConfigLocations() {
         setAutowireMode(AUTOWIRE_BY_NAME);
-        return new String[] {"/applicationContext-resources.xml", "classpath:/applicationContext-dao.xml",
-                             "/applicationContext-service.xml", "classpath*:/**/applicationContext.xml"};
+        return new String[] {
+        		"classpath*:/**/applicationContext*.xml",
+        		"classpath*:**/applicationContext*.xml",
+    		};
         // classpath*:/**/applicationContext.xml has to be used since this file does not
         // exist in AppFuse, but may exist in projects that depend on it
     }
