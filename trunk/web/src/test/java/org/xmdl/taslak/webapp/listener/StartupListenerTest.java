@@ -1,7 +1,7 @@
 package org.xmdl.taslak.webapp.listener;
 
 import junit.framework.TestCase;
-import org.xmdl.taslak.Constants;
+import org.xmdl.taslak.TaslakConstants;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
@@ -27,13 +27,14 @@ public class StartupListenerTest extends TestCase {
         super.setUp();
         sc = new MockServletContext("");
         sc.addInitParameter("daoType", "hibernate");
-        sc.addInitParameter(Constants.CSS_THEME, "simplicity");
+        sc.addInitParameter(TaslakConstants.CSS_THEME, "simplicity");
         
         // initialize Spring
         sc.addInitParameter(ContextLoader.CONFIG_LOCATION_PARAM,
-                "classpath:/applicationContext-dao.xml, " +
-                "classpath:/applicationContext-service.xml, " + 
-                "classpath:/applicationContext-resources.xml");
+        		"classpath*:/**/applicationContext*.xml, " +
+        		"classpath*:**/applicationContext*.xml, " +
+                "/WEB-INF/applicationContext*.xml"
+                );
 
         springListener = new ContextLoaderListener();
         springListener.contextInitialized(new ServletContextEvent(sc));
@@ -50,12 +51,12 @@ public class StartupListenerTest extends TestCase {
     public void testContextInitialized() {
         listener.contextInitialized(new ServletContextEvent(sc));
 
-        assertTrue(sc.getAttribute(Constants.CONFIG) != null);
-        Map config = (Map) sc.getAttribute(Constants.CONFIG);
-        assertEquals(config.get(Constants.CSS_THEME), "simplicity");
+        assertTrue(sc.getAttribute(TaslakConstants.CONFIG) != null);
+        Map config = (Map) sc.getAttribute(TaslakConstants.CONFIG);
+        assertEquals(config.get(TaslakConstants.CSS_THEME), "simplicity");
         
         assertTrue(sc.getAttribute(WebApplicationContext
                 .ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE) != null);
-        assertTrue(sc.getAttribute(Constants.AVAILABLE_ROLES) != null);
+        assertTrue(sc.getAttribute(TaslakConstants.AVAILABLE_ROLES) != null);
     }
 }

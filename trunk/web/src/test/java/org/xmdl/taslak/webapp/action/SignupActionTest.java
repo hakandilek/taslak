@@ -1,6 +1,7 @@
 package org.xmdl.taslak.webapp.action;
 
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.web.test.BaseActionTestCase;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.Address;
 import org.xmdl.taslak.model.User;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -59,7 +60,7 @@ public class SignupActionTest extends BaseActionTestCase {
         assertTrue(wiser.getMessages().size() == 1);
 
         // verify that success messages are in the session
-        assertNotNull(action.getSession().getAttribute(Constants.REGISTERED));
+        assertNotNull(action.getSession().getAttribute(TaslakConstants.REGISTERED));
 
         SecurityContextHolder.getContext().setAuthentication(null);
     }

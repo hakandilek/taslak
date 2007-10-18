@@ -96,7 +96,7 @@
             <result name="success" type="redirect">admin/users.html</result>
         </action>
 
-        <action name="uploadFile" class="org.xmdl.taslak.webapp.action.FileUploadAction">
+        <action name="uploadFile" class="org.xmdl.ida.lib.web.action.FileUploadAction">
             <interceptor-ref name="fileUploadStack"/>
             <result name="input">/WEB-INF/pages/uploadForm.jsp</result>
             <result name="success">/WEB-INF/pages/uploadDisplay.jsp</result>

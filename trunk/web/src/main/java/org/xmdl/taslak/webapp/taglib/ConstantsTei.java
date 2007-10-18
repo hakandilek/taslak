@@ -11,7 +11,7 @@ import javax.servlet.jsp.tagext.VariableInfo;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.xmdl.taslak.Constants;
+import org.xmdl.taslak.TaslakConstants;
 
 
 /**
@@ -36,7 +36,7 @@ public class ConstantsTei extends TagExtraInfo {
             String clazz = data.getAttributeString("className");
 
             if (clazz == null) {
-                clazz = Constants.class.getName();
+                clazz = TaslakConstants.class.getName();
             }
 
             Class c = Class.forName(clazz);

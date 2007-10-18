@@ -3,15 +3,18 @@ package org.xmdl.taslak.webapp.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.xmdl.ida.lib.web.action.BaseAction;
+import org.xmdl.ida.lib.web.util.RequestUtil;
 import org.xmdl.taslak.model.User;
-import org.xmdl.taslak.webapp.util.RequestUtil;
 
 /**
  * Action class to send password hints to registered users.
  *
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
-public class PasswordHintAction extends BaseAction {
+public class PasswordHintAction extends AppBaseAction {
     private static final long serialVersionUID = -4037514607101222025L;
     private String username;
 
@@ -22,7 +25,12 @@ public class PasswordHintAction extends BaseAction {
         this.username = username;
     }
 
-    /**
+    @Override
+	public HttpSession getSession() {
+		return super.getSession();
+	}
+
+	/**
      * Execute sending the password hint via e-mail.
      *
      * @return success if username works, input if not
