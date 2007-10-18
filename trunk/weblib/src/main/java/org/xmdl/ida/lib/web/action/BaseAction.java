@@ -40,16 +40,6 @@ public class BaseAction extends ActionSupport {
      */
     protected transient final Log log = LogFactory.getLog(getClass());
 
-//    /**
-//     * The UserManager
-//     */
-//    protected UserManager userManager;
-
-//    /**
-//     * The RoleManager
-//     */
-//    protected RoleManager roleManager;
-
     /**
      * Indicator if the user clicked cancel
      */
@@ -145,36 +135,6 @@ public class BaseAction extends ActionSupport {
     protected HttpSession getSession() {
         return getRequest().getSession();
     }
-
-//    /**
-//     * Convenience method to send e-mail to users
-//     * @param user the user to send to
-//     * @param msg the message to send
-//     * @param url the URL to the application (or where ever you'd like to send them)
-//     */
-//    protected void sendUserMessage(User user, String msg, String url) {
-//        if (log.isDebugEnabled()) {
-//            log.debug("sending e-mail to user [" + user.getEmail() + "]...");
-//        }
-//
-//        mailMessage.setTo(user.getFullName() + "<" + user.getEmail() + ">");
-//
-//        Map<String, Object> model = new HashMap<String, Object>();
-//        model.put("user", user);
-//        // TODO: figure out how to get bundle specified in struts.xml
-//        // model.put("bundle", getTexts());
-//        model.put("message", msg);
-//        model.put("applicationURL", url);
-//        mailEngine.sendMessage(mailMessage, templateName, model);
-//    }
-//
-//    public void setUserManager(UserManager userManager) {
-//        this.userManager = userManager;
-//    }
-//
-//    public void setRoleManager(RoleManager roleManager) {
-//        this.roleManager = roleManager;
-//    }
 
     public void setMailEngine(MailEngine mailEngine) {
         this.mailEngine = mailEngine;
