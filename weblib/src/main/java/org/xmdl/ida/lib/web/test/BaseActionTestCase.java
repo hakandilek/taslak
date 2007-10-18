@@ -21,10 +21,8 @@ public abstract class BaseActionTestCase extends AbstractTransactionalDataSource
     protected String[] getConfigLocations() {
         super.setAutowireMode(AUTOWIRE_BY_NAME);
         return new String[] {
-                "classpath:/applicationContext-resources.xml",
-                "classpath:/applicationContext-dao.xml",
-                "classpath:/applicationContext-service.xml",
-                "classpath*:/applicationContext.xml", // for modular archetypes
+        		"classpath*:/**/applicationContext*.xml",
+        		"classpath*:**/applicationContext*.xml",
                 "/WEB-INF/applicationContext*.xml"
             };
     }
