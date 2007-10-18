@@ -2,6 +2,7 @@ package org.xmdl.taslak.dao.hibernate;
 
 import java.util.List;
 
+import org.xmdl.ida.lib.dao.hibernate.UniversalDaoHibernate;
 import org.xmdl.taslak.dao.LookupDao;
 import org.xmdl.taslak.model.Role;
 

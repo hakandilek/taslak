@@ -1,5 +1,6 @@
 package org.xmdl.taslak.dao.hibernate;
 
+import org.xmdl.ida.lib.dao.hibernate.GenericDaoHibernate;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.ProductSearch;

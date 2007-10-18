@@ -1,6 +1,7 @@
 package org.xmdl.taslak.service.impl;
 
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.test.BaseManagerMockTestCase;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.dao.RoleDao;
 import org.xmdl.taslak.dao.UserDao;
 import org.xmdl.taslak.model.Role;
@@ -66,7 +67,7 @@ public class UserManagerImplTest extends BaseManagerMockTestCase {
         roleDao.expects(once()).method("getRoleByName")
                .with(eq("ROLE_USER")).will(returnValue(new Role("ROLE_USER")));
         
-        Role role = roleManager.getRole(Constants.USER_ROLE);
+        Role role = roleManager.getRole(TaslakConstants.USER_ROLE);
         user.addRole(role);
 
         // set expected behavior on user dao

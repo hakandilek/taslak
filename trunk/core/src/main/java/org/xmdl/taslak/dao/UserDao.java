@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.acegisecurity.userdetails.UserDetails;
 import org.acegisecurity.userdetails.UsernameNotFoundException;
+import org.xmdl.ida.lib.dao.GenericDao;
 import org.xmdl.taslak.model.User;
 import org.springframework.transaction.annotation.Transactional;
 

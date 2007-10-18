@@ -2,7 +2,8 @@ package org.xmdl.taslak.service;
 
 import java.util.List;
 
-import org.xmdl.taslak.model.LabelValue;
+import org.xmdl.ida.lib.model.LabelValue;
+import org.xmdl.ida.lib.service.UniversalManager;
 
 /**
  * Business Service Interface to talk to persistence layer and

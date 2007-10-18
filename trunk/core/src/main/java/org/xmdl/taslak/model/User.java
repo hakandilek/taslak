@@ -4,6 +4,8 @@ import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.userdetails.UserDetails;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.xmdl.ida.lib.model.BaseObject;
+import org.xmdl.ida.lib.model.LabelValue;
 
 import javax.persistence.*;
 import java.io.Serializable;

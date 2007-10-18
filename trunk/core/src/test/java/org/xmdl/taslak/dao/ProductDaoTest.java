@@ -3,6 +3,7 @@ package org.xmdl.taslak.dao;
 import java.util.Collection;
 
 import org.springframework.dao.DataAccessException;
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.taslak.model.Product;
 
 public class ProductDaoTest extends BaseDaoTestCase {

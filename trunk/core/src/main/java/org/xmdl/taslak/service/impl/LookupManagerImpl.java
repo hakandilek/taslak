@@ -1,7 +1,8 @@
 package org.xmdl.taslak.service.impl;
 
+import org.xmdl.ida.lib.model.LabelValue;
+import org.xmdl.ida.lib.service.impl.UniversalManagerImpl;
 import org.xmdl.taslak.dao.LookupDao;
-import org.xmdl.taslak.model.LabelValue;
 import org.xmdl.taslak.model.Role;
 import org.xmdl.taslak.service.LookupManager;
 

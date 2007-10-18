@@ -1,5 +1,6 @@
 package org.xmdl.taslak.dao;
 
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.OrderElement;
 import org.springframework.dao.DataAccessException;

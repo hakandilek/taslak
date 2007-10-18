@@ -1,5 +1,6 @@
 package org.xmdl.taslak.dao;
 
+import org.xmdl.ida.lib.dao.GenericDao;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.ProductSearch;
 

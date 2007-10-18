@@ -1,5 +1,6 @@
 package org.xmdl.taslak.dao;
 
+import org.xmdl.ida.lib.dao.UniversalDao;
 import org.xmdl.taslak.model.Role;
 
 import java.util.List;

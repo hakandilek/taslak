@@ -1,5 +1,6 @@
 package org.xmdl.taslak.service;
 
+import org.xmdl.ida.lib.service.GenericManager;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.ProductSearch;
 

@@ -2,6 +2,7 @@ package org.xmdl.taslak.service.impl;
 
 import java.util.List;
 
+import org.xmdl.ida.lib.service.impl.UniversalManagerImpl;
 import org.xmdl.taslak.dao.RoleDao;
 import org.xmdl.taslak.model.Role;
 import org.xmdl.taslak.service.RoleManager;
