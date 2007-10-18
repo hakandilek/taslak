@@ -6,9 +6,9 @@
     <groupId>org.xmdl.taslak</groupId>
     <artifactId>taslak</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>AppFuse Modular Application</name>
-    <url>http://www.mycompany.com</url>
+    <version>0.1-SNAPSHOT</version>
+    <name>Taslak Application</name>
+    <url>http://taslak.googlecode.com/</url>
 
     <prerequisites>
         <maven>2.0.6</maven>
@@ -214,7 +214,9 @@
     
     <modules>
         <module>core</module>
+        <module>corelib</module>
         <module>web</module>
+        <module>weblib</module>
     </modules>
 
     <reporting>
