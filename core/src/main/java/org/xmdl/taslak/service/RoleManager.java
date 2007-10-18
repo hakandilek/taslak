@@ -1,5 +1,6 @@
 package org.xmdl.taslak.service;
 
+import org.xmdl.ida.lib.service.UniversalManager;
 import org.xmdl.taslak.model.Role;
 
 import java.util.List;

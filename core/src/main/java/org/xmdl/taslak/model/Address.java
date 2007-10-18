@@ -7,6 +7,7 @@ import javax.persistence.Embeddable;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.xmdl.ida.lib.model.BaseObject;
 
 /**
  * This class is used to represent an address with address,

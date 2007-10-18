@@ -1,6 +1,7 @@
 package org.xmdl.taslak.dao;
 
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.Role;
 
 public class RoleDaoTest extends BaseDaoTestCase {
@@ -16,7 +17,7 @@ public class RoleDaoTest extends BaseDaoTestCase {
     }
 
     public void testGetRole() throws Exception {
-        Role role = dao.getRoleByName(Constants.USER_ROLE);
+        Role role = dao.getRoleByName(TaslakConstants.USER_ROLE);
         assertNotNull(role);
     }
 

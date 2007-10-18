@@ -1,5 +1,7 @@
 package org.xmdl.taslak.dao;
 
+import org.xmdl.ida.lib.dao.UniversalDao;
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.taslak.model.User;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.orm.ObjectRetrievalFailureException;

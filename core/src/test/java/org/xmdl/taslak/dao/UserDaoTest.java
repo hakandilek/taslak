@@ -1,6 +1,7 @@
 package org.xmdl.taslak.dao;
 
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.Address;
 import org.xmdl.taslak.model.Role;
 import org.xmdl.taslak.model.User;
@@ -68,7 +69,7 @@ public class UserDaoTest extends BaseDaoTestCase {
         User user = dao.get(-1L);
         assertEquals(1, user.getRoles().size());
 
-        Role role = rdao.getRoleByName(Constants.ADMIN_ROLE);
+        Role role = rdao.getRoleByName(TaslakConstants.ADMIN_ROLE);
         user.addRole(role);
         user = dao.saveUser(user);
         flush();
@@ -106,7 +107,7 @@ public class UserDaoTest extends BaseDaoTestCase {
         user.setEmail("testuser@xmdl.org");
         user.setWebsite("http://raibledesigns.com");
         
-        Role role = rdao.getRoleByName(Constants.USER_ROLE);
+        Role role = rdao.getRoleByName(TaslakConstants.USER_ROLE);
         assertNotNull(role.getId());
         user.addRole(role);
 

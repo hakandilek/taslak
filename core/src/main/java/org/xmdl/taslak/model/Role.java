@@ -13,6 +13,7 @@ import javax.persistence.Transient;
 import org.acegisecurity.GrantedAuthority;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.xmdl.ida.lib.model.BaseObject;
 
 /**
  * This class is used to represent available roles in the database.

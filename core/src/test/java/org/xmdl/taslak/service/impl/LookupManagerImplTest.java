@@ -1,9 +1,10 @@
 package org.xmdl.taslak.service.impl;
 
+import org.xmdl.ida.lib.model.LabelValue;
+import org.xmdl.ida.lib.test.BaseManagerMockTestCase;
 import org.xmdl.taslak.dao.LookupDao;
 import org.xmdl.taslak.model.Role;
-import org.xmdl.taslak.model.LabelValue;
-import org.xmdl.taslak.Constants;
+import org.xmdl.taslak.TaslakConstants;
 import org.jmock.Mock;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class LookupManagerImplTest extends BaseManagerMockTestCase {
         log.debug("entered 'testGetAllRoles' method");
 
         // set expected behavior on dao
-        Role role = new Role(Constants.ADMIN_ROLE);
+        Role role = new Role(TaslakConstants.ADMIN_ROLE);
         List<Role> testData = new ArrayList<Role>();
         testData.add(role);
         lookupDao.expects(once()).method("getRoles").withNoArguments().will(returnValue(testData));

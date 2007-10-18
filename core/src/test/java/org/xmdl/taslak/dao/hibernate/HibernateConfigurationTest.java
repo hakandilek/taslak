@@ -1,6 +1,6 @@
 package org.xmdl.taslak.dao.hibernate;
 
-import org.xmdl.taslak.dao.BaseDaoTestCase;
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.hibernate.SessionFactory;
 import org.hibernate.Query;
 import org.hibernate.Session;

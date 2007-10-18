@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Collection;
 
 import org.jmock.Mock;
-import org.xmdl.taslak.service.impl.BaseManagerMockTestCase;
+import org.xmdl.ida.lib.test.BaseManagerMockTestCase;
 import org.xmdl.taslak.service.impl.ProductManagerImpl;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.ProductSearch;

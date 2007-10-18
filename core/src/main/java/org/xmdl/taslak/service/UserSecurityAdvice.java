@@ -12,7 +12,7 @@ import org.acegisecurity.userdetails.UserDetails;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.xmdl.taslak.Constants;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.Role;
 import org.xmdl.taslak.model.User;
 import org.springframework.aop.AfterReturningAdvice;
@@ -52,7 +52,7 @@ public class UserSecurityAdvice implements MethodBeforeAdvice, AfterReturningAdv
             boolean administrator = false;
             GrantedAuthority[] roles = auth.getAuthorities();
             for (GrantedAuthority role1 : roles) {
-                if (role1.getAuthority().equals(Constants.ADMIN_ROLE)) {
+                if (role1.getAuthority().equals(TaslakConstants.ADMIN_ROLE)) {
                     administrator = true;
                     break;
                 }

@@ -1,6 +1,7 @@
 package org.xmdl.taslak.service.impl;
 
 import org.jmock.Mock;
+import org.xmdl.ida.lib.test.BaseManagerMockTestCase;
 import org.xmdl.taslak.model.OrderElement;
 import org.xmdl.taslak.model.search.OrderElementSearch;
 import org.xmdl.taslak.dao.OrderElementDao;

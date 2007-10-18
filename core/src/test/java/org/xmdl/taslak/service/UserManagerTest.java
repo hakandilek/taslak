@@ -2,7 +2,8 @@ package org.xmdl.taslak.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.xmdl.taslak.Constants;
+import org.xmdl.ida.lib.test.BaseManagerTestCase;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.model.User;
 
 public class UserManagerTest extends BaseManagerTestCase {
@@ -47,7 +48,7 @@ public class UserManagerTest extends BaseManagerTestCase {
         // from a properties file matching this class name
         user = (User) populate(user);
 
-        user.addRole(roleManager.getRole(Constants.USER_ROLE));
+        user.addRole(roleManager.getRole(TaslakConstants.USER_ROLE));
 
         user = mgr.saveUser(user);
         assertEquals("john", user.getUsername());

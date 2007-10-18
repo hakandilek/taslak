@@ -1,6 +1,9 @@
 package org.xmdl.taslak.model;
 
 import javax.persistence.*;
+
+import org.xmdl.ida.lib.model.BaseObject;
+
 import java.io.Serializable;
 import java.text.MessageFormat;
 

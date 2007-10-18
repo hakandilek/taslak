@@ -1,5 +1,6 @@
 package org.xmdl.taslak.service.impl;
 
+import org.xmdl.ida.lib.service.impl.GenericManagerImpl;
 import org.xmdl.taslak.model.OrderElement;
 import org.xmdl.taslak.model.search.OrderElementSearch;
 import org.xmdl.taslak.service.OrderElementManager;

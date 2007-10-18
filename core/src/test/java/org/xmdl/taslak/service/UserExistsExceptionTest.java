@@ -1,5 +1,6 @@
 package org.xmdl.taslak.service;
 
+import org.xmdl.ida.lib.test.BaseManagerTestCase;
 import org.xmdl.taslak.model.User;
 import org.springframework.beans.BeanUtils;
 
@@ -12,9 +13,9 @@ public class UserExistsExceptionTest extends BaseManagerTestCase {
     
     protected String[] getConfigLocations() {
         setAutowireMode(AUTOWIRE_BY_NAME);
-        return new String[] {"/applicationContext-service.xml",
-                             "/applicationContext-resources.xml",
-                             "classpath:/applicationContext-dao.xml"};
+        return new String[] {
+        		"classpath*:**/applicationContext*.xml",
+        };
     }
 
     public void testAddExistingUser() throws Exception {

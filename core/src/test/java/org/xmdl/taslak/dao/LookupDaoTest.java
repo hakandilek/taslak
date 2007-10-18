@@ -2,6 +2,8 @@ package org.xmdl.taslak.dao;
 
 import java.util.List;
 
+import org.xmdl.ida.lib.test.BaseDaoTestCase;
+
 /**
  * This class tests the current LookupDao implementation class
  * @author mraible

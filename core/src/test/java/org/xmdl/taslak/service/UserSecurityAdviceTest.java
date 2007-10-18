@@ -6,7 +6,7 @@ import org.acegisecurity.context.SecurityContext;
 import org.acegisecurity.context.SecurityContextHolder;
 import org.acegisecurity.context.SecurityContextImpl;
 import org.acegisecurity.providers.UsernamePasswordAuthenticationToken;
-import org.xmdl.taslak.Constants;
+import org.xmdl.taslak.TaslakConstants;
 import org.xmdl.taslak.dao.UserDao;
 import org.xmdl.taslak.model.Role;
 import org.xmdl.taslak.model.User;
@@ -30,7 +30,7 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         User user = new User("user");
         user.setId(1L);
         user.setPassword("password");
-        user.addRole(new Role(Constants.USER_ROLE));
+        user.addRole(new Role(TaslakConstants.USER_ROLE));
 
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), user.getAuthorities());
@@ -64,7 +64,7 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         User user = new User("admin");
         user.setId(2L);
         user.setPassword("password");
-        user.addRole(new Role(Constants.ADMIN_ROLE));
+        user.addRole(new Role(TaslakConstants.ADMIN_ROLE));
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), user.getAuthorities());
         token.setDetails(user);
@@ -83,7 +83,7 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         UserManager userManager = makeInterceptedTarget();
         User user = new User("user");
         user.setId(1L);
-        user.getRoles().add(new Role(Constants.USER_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.USER_ROLE));
 
         userDao.expects(once()).method("saveUser");
         userManager.saveUser(user);
@@ -94,7 +94,7 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         UserManager userManager = makeInterceptedTarget();
         User user = new User("user");
         user.setId(1L);
-        user.getRoles().add(new Role(Constants.ADMIN_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.ADMIN_ROLE));
 
         try {
             userManager.saveUser(user);
@@ -110,8 +110,8 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         UserManager userManager = makeInterceptedTarget();
         User user = new User("user");
         user.setId(1L);
-        user.getRoles().add(new Role(Constants.ADMIN_ROLE));
-        user.getRoles().add(new Role(Constants.USER_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.ADMIN_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.USER_ROLE));
 
         try {
             userManager.saveUser(user);
@@ -128,7 +128,7 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         User user1 = new User("user");
         user1.setId(1L);
         user1.setPassword("password");
-        user1.addRole(new Role(Constants.ADMIN_ROLE));
+        user1.addRole(new Role(TaslakConstants.ADMIN_ROLE));
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(user1.getUsername(), user1.getPassword(), user1.getAuthorities());
         token.setDetails(user1);
@@ -138,8 +138,8 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         UserManager userManager = makeInterceptedTarget();
         User user = new User("user");
         user.setId(1L);
-        user.getRoles().add(new Role(Constants.ADMIN_ROLE));
-        user.getRoles().add(new Role(Constants.USER_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.ADMIN_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.USER_ROLE));
 
         userDao.expects(once()).method("saveUser");
         userManager.saveUser(user);
@@ -150,7 +150,7 @@ public class UserSecurityAdviceTest extends MockObjectTestCase {
         UserManager userManager = makeInterceptedTarget();
         User user = new User("user");
         user.setId(1L);
-        user.getRoles().add(new Role(Constants.USER_ROLE));
+        user.getRoles().add(new Role(TaslakConstants.USER_ROLE));
 
         userDao.expects(once()).method("saveUser");
         userManager.saveUser(user);

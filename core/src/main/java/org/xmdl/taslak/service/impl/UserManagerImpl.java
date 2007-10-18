@@ -1,6 +1,7 @@
 package org.xmdl.taslak.service.impl;
 
 import org.acegisecurity.userdetails.UsernameNotFoundException;
+import org.xmdl.ida.lib.service.impl.UniversalManagerImpl;
 import org.xmdl.taslak.dao.UserDao;
 import org.xmdl.taslak.model.User;
 import org.xmdl.taslak.service.UserExistsException;

@@ -1,6 +1,8 @@
 package org.xmdl.taslak.service.impl;
 
-import org.xmdl.taslak.dao.UniversalDao;
+import org.xmdl.ida.lib.dao.UniversalDao;
+import org.xmdl.ida.lib.service.impl.UniversalManagerImpl;
+import org.xmdl.ida.lib.test.BaseManagerMockTestCase;
 import org.xmdl.taslak.model.User;
 import org.jmock.Mock;
 import org.springframework.orm.ObjectRetrievalFailureException;
