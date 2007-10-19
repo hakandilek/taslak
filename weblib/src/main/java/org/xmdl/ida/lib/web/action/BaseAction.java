@@ -103,11 +103,11 @@ public class BaseAction extends ActionSupport {
      *
      * @return the user's populated form from the session
      */
-    protected Map getConfiguration() {
-        Map config = (HashMap) getSession().getServletContext().getAttribute(BaseConstants.CONFIG);
+    protected Map<?, ?> getConfiguration() {
+        Map<?, ?> config = (HashMap<?, ?>) getSession().getServletContext().getAttribute(BaseConstants.CONFIG);
         // so unit tests don't puke when nothing's been set
         if (config == null) {
-            return new HashMap();
+            return new HashMap<Object, Object>();
         }
         return config;
     }
