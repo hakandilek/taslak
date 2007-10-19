@@ -24,6 +24,8 @@
     <s:textfield key="productSearch.name" cssClass="text medium" labelposition="left"/>
     <s:textfield key="productSearch.fromPrice" cssClass="text medium" labelposition="left"/>
     <s:textfield key="productSearch.toPrice" cssClass="text medium" labelposition="left"/>
+    <s:select name="productTypeIds" value="productSearch.productType.value" listKey="value" key="product.productType"
+              list="productTypes" labelposition="left" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="*"/>
     <s:submit key="button.search" align="left"/>
 </s:form>
 
@@ -34,6 +36,7 @@
         <display:column property="id" media="csv excel xml pdf" titleKey="product.id"/>
         <display:column property="name" sortable="true" titleKey="product.name"/>
         <display:column property="price" sortable="true" titleKey="product.price"/>
+        <display:column property="productType" sortable="true" titleKey="product.productType"/>
 
         <display:column media="html" titleKey="List.Edit" >
             <a href="/Product/editProduct.html?id=<c:out value="${productList.id}"/>"><img src="/images/common/edit.gif"></a>
@@ -46,7 +49,7 @@
 		<display:footer>
 			<tr class="footer">
                 <!-- change the "colspan" value below according to the number of columns -->
-				<td colspan="4">&nbsp;</td>
+				<td colspan="5">&nbsp;</td>
 				<td>
 					<input id="productDeleteButton" name="method:deleteMass" 
 						   value="<fmt:message key="button.delete"/>" 

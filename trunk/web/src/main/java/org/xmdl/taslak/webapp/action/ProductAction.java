@@ -2,22 +2,25 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 
-import org.xmdl.ida.lib.web.action.BaseAction;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.ProductType;
 import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import java.util.Collection;
 
 public class ProductAction extends AppBaseAction implements Preparable {
-	
+
     private ProductManager productManager;
     private Collection<Product> products;
     private Product product;
     private Long id;
+    private ProductType[] productTypes;
 
     private Long idToCopy;
+    private Integer[] productTypeIds;
 
     private ProductSearch productSearch = new ProductSearch();
 
@@ -34,17 +37,25 @@ public class ProductAction extends AppBaseAction implements Preparable {
             // prevent failures on new
             if (id != null) {
                 product = productManager.get((long) id);
+            }else{
+                product = new Product();
             }
         }
+
+        productTypes = ProductType.values();
     }
 
+    @SkipValidation
     public String list() {
-    	if (log.isDebugEnabled()) log.debug("list() <-");
-    	
+        if (log.isDebugEnabled()) log.debug("list() <-");
+
+        if(productTypeIds!=null){
+            productSearch.setProductType(ProductType.fromInt(productTypeIds[0]));
+        }
         products = productManager.search(productSearch);
-        
-    	if (log.isDebugEnabled()) log.debug("listing items:" + products.size());
-    	if (log.isDebugEnabled()) log.debug("list() ->");
+
+        if (log.isDebugEnabled()) log.debug("listing items:" + products.size());
+        if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }
 
@@ -60,6 +71,7 @@ public class ProductAction extends AppBaseAction implements Preparable {
         this.product = product;
     }
 
+    @SkipValidation
     public String delete() {
         if (log.isDebugEnabled()) log.debug("delete() <-");
 
@@ -75,7 +87,7 @@ public class ProductAction extends AppBaseAction implements Preparable {
     public String copy() {
         if (log.isDebugEnabled()) log.debug("copy() <-");
 
-        if(idToCopy !=null){
+        if (idToCopy != null) {
             product = productManager.get(idToCopy);
         }
 
@@ -103,6 +115,7 @@ public class ProductAction extends AppBaseAction implements Preparable {
         return SUCCESS;
     }
 
+    @SkipValidation
     public String deleteMass() throws Exception {
         if (log.isDebugEnabled()) log.debug("deleteMass() <-");
 
@@ -149,12 +162,14 @@ public class ProductAction extends AppBaseAction implements Preparable {
 
         boolean isNew = (product.getId() == null);
 
+        product.setProductType(ProductType.fromInt(Integer.valueOf(productTypeIds[0])));
+
         productManager.save(product);
 
         String key = (isNew) ? "product.added" : "product.updated";
         saveMessage(getText(key));
 
-        String logMessage = (isNew) ? "adding product: "+ product : "updating product: " + product;
+        String logMessage = (isNew) ? "adding product: " + product : "updating product: " + product;
         if (log.isDebugEnabled()) log.debug(logMessage);
         if (log.isDebugEnabled()) log.debug("save() ->");
 
@@ -183,5 +198,21 @@ public class ProductAction extends AppBaseAction implements Preparable {
 
     public ProductManager getProductManager() {
         return productManager;
+    }
+
+    public ProductType[] getProductTypes() {
+        return productTypes;
+    }
+
+    public void setProductTypes(ProductType[] productTypes) {
+        this.productTypes = productTypes;
+    }
+
+    public Integer[] getProductTypeIds() {
+        return productTypeIds;
+    }
+
+    public void setProductTypeIds(Integer[] productTypeIds) {
+        this.productTypeIds = productTypeIds;
     }
 }

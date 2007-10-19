@@ -1,11 +1,13 @@
 package org.xmdl.taslak.model.search;
 
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.ProductType;
 
 public class ProductSearch {
     private String name;
     private Double fromPrice;
     private Double toPrice;
+    private ProductType productType;
 
     public ProductSearch() {
     }
@@ -34,4 +36,11 @@ public class ProductSearch {
         this.toPrice = toPrice;
     }
 
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
 }
