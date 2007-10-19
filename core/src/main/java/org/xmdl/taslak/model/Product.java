@@ -3,12 +3,14 @@ package org.xmdl.taslak.model;
 import javax.persistence.*;
 
 import org.xmdl.ida.lib.model.BaseObject;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.Parameter;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
 
-@Entity (name=("t_product"))
-public class Product extends BaseObject implements Serializable  {
+@Entity(name = ("t_product"))
+public class Product extends BaseObject implements Serializable {
 
     private Long id;
     private String name;
@@ -19,7 +21,7 @@ public class Product extends BaseObject implements Serializable  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name=("id"))
+    @Column(name = ("id"))
     public Long getId() {
         return id;
     }
@@ -47,7 +49,7 @@ public class Product extends BaseObject implements Serializable  {
     }
 
     public String toString() {
-        return MessageFormat.format("Product [id={0}][name={1}][price={2}]",id,name,price);
+        return MessageFormat.format("Product [id={0}][name={1}][price={2}]", id, name, price);
     }
 
     public boolean equals(Object o) {
@@ -55,10 +57,35 @@ public class Product extends BaseObject implements Serializable  {
     }
 
     public int hashCode() {
-        int result ;
+        int result;
         result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + price.hashCode();
         return result;
+    }
+
+    @Column(name = "productType", columnDefinition = "integer", nullable = false)
+    @Type(
+            type = "org.xmdl.ida.lib.dao.hibernate.GenericEnumUserType",
+            parameters = {
+            @Parameter(
+                    name = "enumClass",
+                    value = "org.xmdl.taslak.model.Product$ProductType"),
+            @Parameter(
+                    name = "identifierMethod",
+                    value = "toInt"),
+            @Parameter(
+                    name = "valueOfMethod",
+                    value = "fromInt")
+                    }
+    )
+    private ProductType productType;
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 }

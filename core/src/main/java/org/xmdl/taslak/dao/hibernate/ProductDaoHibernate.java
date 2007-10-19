@@ -3,6 +3,7 @@ package org.xmdl.taslak.dao.hibernate;
 import org.xmdl.ida.lib.dao.hibernate.GenericDaoHibernate;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.ProductType;
 import org.xmdl.taslak.model.search.ProductSearch;
 import org.xmdl.taslak.dao.ProductDao;
 import org.hibernate.Criteria;
@@ -41,15 +42,16 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
         if (productSearch == null)
             return new ArrayList<Product>();
 
-        return search(productSearch.getName(), productSearch.getFromPrice(), productSearch.getToPrice());
+        return search(productSearch.getName(), productSearch.getFromPrice(), productSearch.getToPrice(),productSearch.getProductType());
     }
 
-    public Collection<Product> search(String name, Double fromPrice, Double toPrice) {
+    public Collection<Product> search(String name, Double fromPrice, Double toPrice, ProductType productType) {
     	if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice) <-");
     	
-    	if (log.isDebugEnabled()) log.debug("name      : " + name);
-    	if (log.isDebugEnabled()) log.debug("fromPrice : " + fromPrice);
-    	if (log.isDebugEnabled()) log.debug("toPrice   : " + toPrice);
+    	if (log.isDebugEnabled()) log.debug("name       : " + name);
+    	if (log.isDebugEnabled()) log.debug("fromPrice  : " + fromPrice);
+    	if (log.isDebugEnabled()) log.debug("toPrice    : " + toPrice);
+        if (log.isDebugEnabled()) log.debug("productType: " + productType);
     	
         Criteria criteria = getSession().createCriteria(Product.class);
 
@@ -59,10 +61,13 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
             criteria.add(Restrictions.ge("price", fromPrice));
         if (toPrice != null)
             criteria.add(Restrictions.le("price", toPrice));
+        if (productType != null){
+            criteria.add(Restrictions.eq("productType", productType));
+        }
 
         List list = criteria.list();
         
-        if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice) <-");
+        if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice, ProductType productType) <-");
 		return list;
     }
 }

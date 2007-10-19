@@ -95,20 +95,24 @@
         <column>id</column>
         <column>name</column>
         <column>price</column>
+        <column>productType</column>
     <row>
         <value description="id">-1</value>
         <value description="name">FjKvDlNpDw</value>
         <value description="price">2.649290877779204E307</value>
+        <value description="productType">1</value>
     </row>
     <row>
         <value description="id">-2</value>
         <value description="name">MxLwBxUfKd</value>
         <value description="price">1.0745203194212699E308</value>
+        <value description="productType">2</value>
     </row>
     <row>
         <value description="id">-3</value>
         <value description="name">WuLfBwKnWa</value>
         <value description="price">4.973004246698897E307</value>
+        <value description="productType">3</value>
     </row>
     </table>
     <!--Product-END-->

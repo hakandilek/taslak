@@ -7,6 +7,7 @@ import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.search.OrderSearch;
 import org.xmdl.taslak.service.OrderManager;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import java.util.Collection;
 
@@ -62,6 +63,7 @@ public class OrderAction extends AppBaseAction implements Preparable {
         this.order = order;
     }
 
+    @SkipValidation
     public String delete() {
         if (log.isDebugEnabled()) log.debug("delete() <-");
 
@@ -105,7 +107,7 @@ public class OrderAction extends AppBaseAction implements Preparable {
         return SUCCESS;
     }
 
-
+    @SkipValidation
     public String deleteMass() throws Exception {
         if (log.isDebugEnabled()) log.debug("deleteMass() <-");
 
