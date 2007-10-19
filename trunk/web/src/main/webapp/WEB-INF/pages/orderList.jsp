@@ -31,7 +31,7 @@
 
 <s:form id="ordersList" namespace="/Order" action="orders">
     <display:table name="orders" class="table" requestURI="" id="orderList" export="true" pagesize="25"
-            decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
+            decorator="org.xmdl.ida.lib.web.decorator.BeanDecorator">
 
         <display:column property="id" media="csv excel xml pdf" titleKey="order.id"/>
         <display:column property="name" sortable="true" titleKey="order.name"/>
