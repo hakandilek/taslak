@@ -29,7 +29,7 @@
 
 <s:form id="productsList" namespace="/Product" action="products">
     <display:table name="products" class="table" requestURI="" id="productList" export="true" pagesize="25"
-                   decorator="org.xmdl.taslak.webapp.decorator.BeanDecorator">
+            decorator="org.xmdl.ida.lib.web.decorator.BeanDecorator">
 
         <display:column property="id" media="csv excel xml pdf" titleKey="product.id"/>
         <display:column property="name" sortable="true" titleKey="product.name"/>
