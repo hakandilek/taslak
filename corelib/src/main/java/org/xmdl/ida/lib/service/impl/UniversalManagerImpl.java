@@ -32,21 +32,21 @@ public class UniversalManagerImpl implements UniversalManager {
     /**
      * {@inheritDoc}
      */
-    public Object get(Class clazz, Serializable id) {
+    public Object get(Class<?> clazz, Serializable id) {
         return dao.get(clazz, id);
     }
 
     /**
      * {@inheritDoc}
      */
-    public List getAll(Class clazz) {
+    public List<?> getAll(Class<?> clazz) {
         return dao.getAll(clazz);
     }
 
     /**
      * {@inheritDoc}
      */
-    public void remove(Class clazz, Serializable id) {
+    public void remove(Class<?> clazz, Serializable id) {
         dao.remove(clazz, id);
     }
 
