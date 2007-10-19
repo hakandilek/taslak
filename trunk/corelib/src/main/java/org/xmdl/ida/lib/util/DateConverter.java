@@ -25,6 +25,7 @@ public class DateConverter implements Converter {
      * @param value value to convert
      * @return Converted value for property population
      */
+    @SuppressWarnings("unchecked")
     public Object convert(Class type, Object value) {
         if (value == null) {
             return null;
@@ -47,7 +48,7 @@ public class DateConverter implements Converter {
      * @param pattern date pattern to parse with
      * @return Converted value for property population
      */
-    protected Object convertToDate(Class type, Object value, String pattern) {
+    protected Object convertToDate(Class<?> type, Object value, String pattern) {
         DateFormat df = new SimpleDateFormat(pattern);
         if (value instanceof String) {
             try {
@@ -76,7 +77,7 @@ public class DateConverter implements Converter {
      * @param value value to convert
      * @return Converted value for property population
      */
-    protected Object convertToString(Class type, Object value) {
+    protected Object convertToString(Class<?> type, Object value) {
 
         if (value instanceof Date) {
             DateFormat df = new SimpleDateFormat(DateUtil.getDatePattern());
