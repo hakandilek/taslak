@@ -159,8 +159,10 @@ public class OrderAction extends AppBaseAction implements Preparable {
 
         /* copy children begin */
         if(idToCopy!=null){
+
             Order orderToBeCopied = orderManager.get(idToCopy);
             orderElementManager.copyOrderElementsFrom(orderToBeCopied, order);
+            if(log.isDebugEnabled())    log.debug("copyOrderElements from "+ orderToBeCopied + " to " + order);
         }
         /* copy children end */
 
