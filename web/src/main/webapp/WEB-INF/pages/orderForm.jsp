@@ -8,6 +8,7 @@
 <s:form id="orderForm" namespace="/Order" action="saveOrder" method="post" validate="true">
     <li style="display: none">
         <s:hidden key="order.id"/>
+        <s:hidden key="idToCopy"/>
     </li>
 
     <c:if test="${not empty order.id}">

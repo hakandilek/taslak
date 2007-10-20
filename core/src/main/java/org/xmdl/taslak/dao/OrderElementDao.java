@@ -11,4 +11,6 @@ import java.util.Collection;
 public interface OrderElementDao extends GenericDao<OrderElement, Long> {
     Collection<OrderElement> search(Long fromQuantity, Long toQuantity, Order order, Product product);
     Collection<OrderElement> search(OrderElementSearch orderElementSearch);
+
+    OrderElement copyFrom(OrderElement orderElement);
 }
