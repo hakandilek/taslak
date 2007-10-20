@@ -10,7 +10,7 @@
            onclick="checkAll(document.getElementById('orderElementsList'), 'deleteId')" />
 </c:set>
 
-<c:if test="${not empty orderElement.id}">
+<c:if test="${not empty orderElement.order.id}">
     <s:url id="url" namespace="/Order" action="editOrder.html" includeParams="false">
         <s:param name="id">
             <s:property value="orderElement.order.id"/>

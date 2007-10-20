@@ -1,7 +1,6 @@
 package org.xmdl.taslak.dao;
 
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
-import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.OrderElement;
 import org.springframework.dao.DataAccessException;
 
@@ -24,7 +23,7 @@ public class OrderElementDaoTest extends BaseDaoTestCase {
         this.orderDao = orderDao;
     }
 
-    public void testAddAndRemoveProduct() throws Exception {
+    public void testAddAndRemoveOrderElement() throws Exception {
         OrderElement orderElement = new OrderElement();
         orderElement.setQuantity(15L);
         orderElement.setProduct(productDao.getAll().get(0));

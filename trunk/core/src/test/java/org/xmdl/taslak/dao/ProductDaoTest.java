@@ -41,7 +41,7 @@ public class ProductDaoTest extends BaseDaoTestCase {
     }
 
     public void testSearch() throws Exception {
-        Collection<Product> products = productDao.search("abcd",9d,11d);
+        Collection<Product> products = productDao.search("abcd",9d,11d,null);
         assertTrue(products.size() > 0);
     }
 

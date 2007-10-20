@@ -41,4 +41,13 @@ public class OrderElementDaoHibernate extends GenericDaoHibernate<OrderElement, 
 
         return criteria.list();
     }
+
+    public OrderElement copyFrom(OrderElement orderElement) {
+        OrderElement o = new OrderElement();
+        o.setId(-1L);
+        o.setOrder(orderElement.getOrder());
+        o.setProduct(orderElement.getProduct());
+        o.setQuantity(orderElement.getQuantity());
+        return o;
+    }
 }

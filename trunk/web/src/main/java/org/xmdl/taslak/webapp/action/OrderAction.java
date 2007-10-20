@@ -2,10 +2,10 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 
-import org.xmdl.ida.lib.web.action.BaseAction;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.search.OrderSearch;
 import org.xmdl.taslak.service.OrderManager;
+import org.xmdl.taslak.service.OrderElementManager;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
@@ -18,6 +18,7 @@ public class OrderAction extends AppBaseAction implements Preparable {
     private Long  id;
     private OrderSearch orderSearch = new OrderSearch();
     private Long idToCopy;
+    private OrderElementManager orderElementManager;
 
     public void setOrderManager(OrderManager orderManager) {
         this.orderManager = orderManager;
@@ -42,12 +43,12 @@ public class OrderAction extends AppBaseAction implements Preparable {
     }
 
     public String list() {
-    	if (log.isDebugEnabled()) log.debug("list() <-");
+        if (log.isDebugEnabled()) log.debug("list() <-");
 
         orders = orderManager.search(orderSearch);
 
         if (log.isDebugEnabled()) log.debug("listing items:" + orders.size());
-    	if (log.isDebugEnabled()) log.debug("list() ->");
+        if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }
 
@@ -153,7 +154,15 @@ public class OrderAction extends AppBaseAction implements Preparable {
 
         boolean isNew = (order.getId() == null);
 
-        orderManager.save(order);
+        order=orderManager.save(order);
+
+
+        /* copy children begin */
+        if(idToCopy!=null){
+            Order orderToBeCopied = orderManager.get(idToCopy);
+            orderElementManager.copyOrderElementsFrom(orderToBeCopied, order);
+        }
+        /* copy children end */
 
         String key = (isNew) ? "order.added" : "order.updated";
         saveMessage(getText(key));
@@ -183,5 +192,13 @@ public class OrderAction extends AppBaseAction implements Preparable {
 
     public void setIdToCopy(Long idToCopy) {
         this.idToCopy = idToCopy;
+    }
+
+    public OrderElementManager getOrderElementManager() {
+        return orderElementManager;
+    }
+
+    public void setOrderElementManager(OrderElementManager orderElementManager) {
+        this.orderElementManager = orderElementManager;
     }
 }
