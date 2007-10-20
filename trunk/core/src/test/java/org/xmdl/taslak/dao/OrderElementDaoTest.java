@@ -56,6 +56,16 @@ public class OrderElementDaoTest extends BaseDaoTestCase {
         assertTrue(orderElements.size() > 0);
     }
 
+    public void testCopyFrom() throws Exception{
+        OrderElement orderElement =orderElementDao.getAll().get(0);
+        OrderElement o = orderElementDao.copyFrom(orderElement);
+
+        assertEquals(null,o.getId());
+        assertEquals(orderElement.getOrder(),o.getOrder());
+        assertEquals(orderElement.getProduct(),o.getProduct());
+        assertEquals(orderElement.getQuantity(), o.getQuantity());
+    }
+
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
 

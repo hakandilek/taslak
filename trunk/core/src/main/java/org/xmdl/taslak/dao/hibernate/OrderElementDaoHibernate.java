@@ -44,7 +44,7 @@ public class OrderElementDaoHibernate extends GenericDaoHibernate<OrderElement, 
 
     public OrderElement copyFrom(OrderElement orderElement) {
         OrderElement o = new OrderElement();
-        o.setId(-1L);
+        o.setId(null);
         o.setOrder(orderElement.getOrder());
         o.setProduct(orderElement.getProduct());
         o.setQuantity(orderElement.getQuantity());
