@@ -47,7 +47,7 @@
         <display:column media="html" titleKey="List.Edit">
             <a href="/editOrderElement.html?id=<c:out value="${orderElementList.id}"/>"><img src="/images/common/edit.gif"></a>
         </display:column>
-        <display:column titleKey="button.copy" >
+        <display:column media="html" titleKey="button.copy" >
             <a href="/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><img src="/images/common/save.gif"></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
