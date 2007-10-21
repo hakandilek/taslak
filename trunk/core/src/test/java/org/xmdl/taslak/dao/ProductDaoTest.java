@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.dao.DataAccessException;
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.ProductType;
 
 public class ProductDaoTest extends BaseDaoTestCase {
     private ProductDao productDao = null;
@@ -17,6 +18,7 @@ public class ProductDaoTest extends BaseDaoTestCase {
         Product product = new Product();
         product.setName("abcd");
         product.setPrice(10d);
+        product.setProductType(ProductType.PRODUCT);
 
         product = productDao.save(product);
         flush();
@@ -24,6 +26,7 @@ public class ProductDaoTest extends BaseDaoTestCase {
         product = productDao.get(product.getId());
 
         assertEquals("abcd", product.getName());
+        assertEquals(ProductType.PRODUCT, product.getProductType());
         assertNotNull(product.getId());
 
         log.debug("removing product...");
