@@ -36,7 +36,8 @@ public class UniversalDaoTest extends BaseDaoTestCase {
         bean.setName("foo");
         bean.setValue(42.0);
         Date now = new Date();
-		bean.setDate(now );
+        long time = (now.getTime()/1000)*1000;//neglect milliseconds
+		bean.setDate(new Date(time));
 
         // create
         bean = (Dummy)universalDao.save(bean);
@@ -48,7 +49,7 @@ public class UniversalDaoTest extends BaseDaoTestCase {
         assertNotNull(bean);
         assertEquals("foo", bean.getName());
         assertEquals(42.0, bean.getValue());
-        assertEquals(now, bean.getDate());
+        assertEquals(time, bean.getDate().getTime());
 
         // update
         bean.setValue(42.42);
