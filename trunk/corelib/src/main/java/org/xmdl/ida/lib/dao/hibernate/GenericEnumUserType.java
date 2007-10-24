@@ -17,7 +17,8 @@ public class GenericEnumUserType implements UserType, ParameterizedType {
     private static final String DEFAULT_IDENTIFIER_METHOD_NAME = "name";
     private static final String DEFAULT_VALUE_OF_METHOD_NAME = "valueOf";
 
-    private Class<? extends Enum> enumClass;
+    @SuppressWarnings("unchecked")
+	private Class<? extends Enum> enumClass;
     private Class<?> identifierType;
     private Method identifierMethod;
     private Method valueOfMethod;
@@ -57,7 +58,7 @@ public class GenericEnumUserType implements UserType, ParameterizedType {
         }
     }
 
-    public Class returnedClass() {
+    public Class<?> returnedClass() {
         return enumClass;
     }
 
