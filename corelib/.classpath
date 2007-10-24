@@ -46,4 +46,5 @@
             <attribute name="javadoc_location" value="jar:file://home/hakan/.m2/repository/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2-javadoc.jar!/"/>
         </attributes>
     </classpathentry>
+    <classpathentry kind="var" path="M2_REPO/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" sourcepath="M2_REPO/javax/persistence/persistence-api/1.0/persistence-api-1.0-sources.jar"/>
 </classpath>
