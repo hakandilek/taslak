@@ -27,5 +27,12 @@ public interface BaseConstants {
      * The name of the CSS Theme setting.
      */
     final String CSS_THEME = "csstheme";
+    
+    /**
+     * User home from System properties
+     */
+    final String USER_HOME = System.getProperty("user.home") + FILE_SEP;
+
+
 
 }
