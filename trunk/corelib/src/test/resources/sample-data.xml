@@ -1,3 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+    <table name="t_dummy">
+        <column>f_id</column>
+        <column>f_name</column>
+        <column>f_date</column>
+        <column>f_value</column>
+        <row>
+            <value description="f_id">-1</value>
+            <value description="f_name">name</value>
+            <value description="f_date">2007-09-20</value>
+            <value description="f_value">42.24</value>
+        </row>
+    </table>
 </dataset>

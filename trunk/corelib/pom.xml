@@ -55,6 +55,7 @@
                     <componentProperties>
                         <drop>true</drop>
                         <jdk5>true</jdk5>
+                        <configurationfile>src/test/resources/hibernate.cfg.xml</configurationfile>
                         <propertyfile>target/test-classes/jdbc.properties</propertyfile>
                         <skip>${maven.test.skip}</skip>
                     </componentProperties>
