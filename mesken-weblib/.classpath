@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ida-corelib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ida-weblib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mesken-core"/>
+	<classpathentry kind="output" path="bin"/>
+
+    <classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar" sourcepath="M2_REPO/javax/servlet/servlet-api/2.4/servlet-api-2.4-sources.jar"/>
+    <classpathentry kind="var" path="M2_REPO/org/acegisecurity/acegi-security/1.0.5/acegi-security-1.0.5.jar" sourcepath="M2_REPO/org/acegisecurity/acegi-security/1.0.5/acegi-security-1.0.5-sources.jar"/>
+    <classpathentry kind="var" path="M2_REPO/com/opensymphony/xwork/2.0.4/xwork-2.0.4.jar" sourcepath="M2_REPO/com/opensymphony/xwork/2.0.4/xwork-2.0.4-sources.jar">
+        <attributes>
+            <attribute name="javadoc_location" value="jar:file://home/hakan/.m2/repository/com/opensymphony/xwork/2.0.4/xwork-2.0.4-javadoc.jar!/"/>
+        </attributes>
+    </classpathentry>
+    <classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.0.9/struts2-core-2.0.9.jar"/>
+    <classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-spring-plugin/2.0.9/struts2-spring-plugin-2.0.9.jar"/>
+    <classpathentry kind="var" path="M2_REPO/org/springframework/spring/2.0.6/spring-2.0.6.jar" sourcepath="M2_REPO/org/springframework/spring/2.0.6/spring-2.0.6-sources.jar"/>
+    <classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" sourcepath="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4-sources.jar">
+        <attributes>
+            <attribute name="javadoc_location" value="jar:file://home/hakan/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4-javadoc.jar!/"/>
+        </attributes>
+    </classpathentry>
+    <classpathentry kind="var" path="M2_REPO/org/springframework/spring-mock/2.0.6/spring-mock-2.0.6.jar"/>
+    <classpathentry kind="var" path="M2_REPO/junit/junit/4.4/junit-4.4.jar" sourcepath="M2_REPO/junit/junit/4.4/junit-4.4-sources.jar">
+        <attributes>
+            <attribute name="javadoc_location" value="jar:file://home/hakan/.m2/repository/junit/junit/4.4/junit-4.4-javadoc.jar!/"/>
+        </attributes>
+    </classpathentry>
+    <classpathentry kind="var" path="M2_REPO/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2.jar" sourcepath="M2_REPO/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2-sources.jar">
+        <attributes>
+            <attribute name="javadoc_location" value="jar:file://home/hakan/.m2/repository/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2-javadoc.jar!/"/>
+        </attributes>
+    </classpathentry>
+</classpath>
