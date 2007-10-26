@@ -16,7 +16,7 @@ import java.util.List;
  *
  * <p>To register this class in your Spring context file, use the following XML.
  * <pre>
- *      &lt;bean id="fooDao" class="org.xmdl.taslak.dao.hibernate.GenericDaoHibernate"&gt;
+ *      &lt;bean id="fooDao" class="org.xmdl.ida.lib.dao.hibernate.GenericDaoHibernate"&gt;
  *          &lt;constructor-arg value="org.xmdl.taslak.model.Foo"/&gt;
  *          &lt;property name="sessionFactory" ref="sessionFactory"/&gt;
  *      &lt;/bean&gt;
