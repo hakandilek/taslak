@@ -18,7 +18,7 @@ public class HibernateConfigurationTest extends BaseDaoTestCase {
     public void testColumnMapping() throws Exception {
         Session session = sessionFactory.openSession();
         try {
-            Map metadata = sessionFactory.getAllClassMetadata();
+            Map<?, ?> metadata = sessionFactory.getAllClassMetadata();
             for (Object o : metadata.values()) {
                 EntityPersister persister = (EntityPersister) o;
                 String className = persister.getEntityName();

@@ -42,29 +42,29 @@ public class OrderManagerImplTest extends BaseManagerMockTestCase {
     public void testGetOrders() {
         log.debug("testing getOrders");
 
-        List orders = new ArrayList();
+        List<Order> orders = new ArrayList<Order>();
 
         // set expected behavior on dao
         dao.expects(once()).method("getAll")
                 .will(returnValue(orders));
 
-        List result = manager.getAll();
+        List<Order> result = manager.getAll();
         assertSame(orders, result);
     }
 
     public void testSearch() {
         log.debug("testing search");
 
-        List people = new ArrayList();
+        List<Order> orders = new ArrayList<Order>();
         OrderSearch orderSearch=new OrderSearch();
 
         // set expected behavior on dao
         dao.expects(once()).method("search")
                 .with(eq(orderSearch))
-                .will(returnValue(people));
+                .will(returnValue(orders));
 
-        Collection result = manager.search(orderSearch);
-        assertSame(people, result);
+        Collection<Order> result = manager.search(orderSearch);
+        assertSame(orders, result);
     }
 
     public void testSaveOrder() {
