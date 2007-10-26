@@ -126,7 +126,7 @@
 
     <!-- Apply method-level interceptor to userManager bean -->
     <aop:config>
-        <aop:advisor id="managerSecurity" advice-ref="methodSecurityInterceptor" pointcut="execution(* org.xmdl.taslak.service.UserManager.*(..))"/>
+        <aop:advisor id="managerSecurity" advice-ref="methodSecurityInterceptor" pointcut="execution(* org.xmdl.mesken.service.UserManager.*(..))"/>
     </aop:config>
 
     <bean id="methodSecurityInterceptor" class="org.acegisecurity.intercept.method.aopalliance.MethodSecurityInterceptor">
@@ -134,8 +134,8 @@
         <property name="accessDecisionManager" ref="accessDecisionManager"/>
         <property name="objectDefinitionSource">
              <value>
-                 org.xmdl.taslak.service.UserManager.getUsers=ROLE_ADMIN
-                 org.xmdl.taslak.service.UserManager.removeUser=ROLE_ADMIN
+                 org.xmdl.mesken.service.UserManager.getUsers=ROLE_ADMIN
+                 org.xmdl.mesken.service.UserManager.removeUser=ROLE_ADMIN
              </value>
         </property>
     </bean>

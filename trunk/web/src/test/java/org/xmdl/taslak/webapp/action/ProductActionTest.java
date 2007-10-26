@@ -8,7 +8,6 @@ import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
 

@@ -4,10 +4,10 @@
 <dwr>
     <allow>
         <!--create creator="spring" javascript="UserManager">
-            <param name="class" value="org.xmdl.taslak.service.UserManager"/>
+            <param name="class" value="org.xmdl.mesken.service.UserManager"/>
             <param name="beanName" value="userManager"/>
             <include method="getUsers"/>
         </create>
-        <convert converter="bean" match="org.xmdl.taslak.model.User"/-->
+        <convert converter="bean" match="org.xmdl.mesken.model.User"/-->
     </allow>
 </dwr>
