@@ -11,5 +11,7 @@ Taslak project has several sub-modules, located in different sub folders.
  * *web* (taslak-web) : Web application Taslak.
  
 Here is the dependency diagram for the modules:
+
 [http://taslak.googlecode.com/svn/wiki/Modules/Dependency.png]
+
 _Note: The dependency from the *web* module to *mesken-weblib* module is marked red, because there is no source code (Java) level dependency between those modules. This dependency is on integration (Struts) level. _  
