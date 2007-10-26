@@ -3,8 +3,8 @@
 
     <persistence-unit name="ApplicationEntityManager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>org.xmdl.taslak.model.User</class>
-        <class>org.xmdl.taslak.model.Role</class>
+        <class>org.xmdl.mesken.model.User</class>
+        <class>org.xmdl.mesken.model.Role</class>
     </persistence-unit>
 
 </persistence>

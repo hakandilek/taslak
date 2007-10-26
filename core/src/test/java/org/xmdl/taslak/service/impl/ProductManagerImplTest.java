@@ -43,29 +43,29 @@ public class ProductManagerImplTest extends BaseManagerMockTestCase {
     public void testGetProducts() {
         log.debug("testing getProducts");
 
-        List products = new ArrayList();
+        List<Product> products = new ArrayList<Product>();
 
         // set expected behavior on dao
         dao.expects(once()).method("getAll")
                 .will(returnValue(products));
 
-        List result = manager.getAll();
+        List<Product> result = manager.getAll();
         assertSame(products, result);
     }
 
     public void testSearch() {
         log.debug("testing search");
 
-        List people = new ArrayList();
+        List<Product> products = new ArrayList<Product>();
         ProductSearch productSearch=new ProductSearch();
 
         // set expected behavior on dao
         dao.expects(once()).method("search")
                 .with(eq(productSearch))
-                .will(returnValue(people));
+                .will(returnValue(products));
 
-        Collection result = manager.search(productSearch);
-        assertSame(people, result);
+        Collection<Product> result = manager.search(productSearch);
+        assertSame(products, result);
     }
 
     public void testSaveProduct() {

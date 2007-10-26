@@ -8,8 +8,6 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-				<value>org.xmdl.taslak.model.User</value>
-				<value>org.xmdl.taslak.model.Role</value>
 				<value>org.xmdl.taslak.model.Product</value>
 				<value>org.xmdl.taslak.model.Order</value>
 				<value>org.xmdl.taslak.model.OrderElement</value>
@@ -39,18 +37,6 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="lookupDao" class="org.xmdl.taslak.dao.hibernate.LookupDaoHibernate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="userDao" class="org.xmdl.taslak.dao.hibernate.UserDaoHibernate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="roleDao" class="org.xmdl.taslak.dao.hibernate.RoleDaoHibernate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    
     <bean id="productDao" class="org.xmdl.taslak.dao.hibernate.ProductDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>

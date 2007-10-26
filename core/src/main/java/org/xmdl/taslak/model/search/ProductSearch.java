@@ -1,6 +1,5 @@
 package org.xmdl.taslak.model.search;
 
-import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.ProductType;
 
 public class ProductSearch {

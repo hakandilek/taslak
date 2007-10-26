@@ -1,7 +1,5 @@
 package org.xmdl.taslak.model.search;
 
-import org.xmdl.taslak.model.Order;
-
 import java.util.Date;
 
 public class OrderSearch {
