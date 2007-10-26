@@ -52,7 +52,7 @@ public class StartupListenerTest extends TestCase {
         listener.contextInitialized(new ServletContextEvent(sc));
 
         assertTrue(sc.getAttribute(TaslakConstants.CONFIG) != null);
-        Map config = (Map) sc.getAttribute(TaslakConstants.CONFIG);
+        Map<?, ?> config = (Map<?, ?>) sc.getAttribute(TaslakConstants.CONFIG);
         assertEquals(config.get(TaslakConstants.CSS_THEME), "simplicity");
         
         assertTrue(sc.getAttribute(WebApplicationContext
