@@ -15,9 +15,9 @@ import org.xmdl.ida.lib.service.GenericManager;
  *
  * <p>To register this class in your Spring context file, use the following XML.
  * <pre>
- *     &lt;bean id="userManager" class="org.xmdl.taslak.service.impl.GenericManagerImpl"&gt;
+ *     &lt;bean id="userManager" class="org.xmdl.ida.lib.service.impl.GenericManagerImpl"&gt;
  *         &lt;constructor-arg&gt;
- *             &lt;bean class="org.xmdl.taslak.dao.hibernate.GenericDaoHibernate"&gt;
+ *             &lt;bean class="org.xmdl.ida.lib.dao.hibernate.GenericDaoHibernate"&gt;
  *                 &lt;constructor-arg value="org.xmdl.taslak.model.User"/&gt;
  *                 &lt;property name="sessionFactory" ref="sessionFactory"/&gt;
  *             &lt;/bean&gt;
@@ -27,9 +27,9 @@ import org.xmdl.ida.lib.service.GenericManager;
  *
  * <p>If you're using iBATIS instead of Hibernate, use:
  * <pre>
- *     &lt;bean id="userManager" class="org.xmdl.taslak.service.impl.GenericManagerImpl"&gt;
+ *     &lt;bean id="userManager" class="org.xmdl.ida.lib.service.impl.GenericManagerImpl"&gt;
  *         &lt;constructor-arg&gt;
- *             &lt;bean class="org.xmdl.taslak.dao.ibatis.GenericDaoiBatis"&gt;
+ *             &lt;bean class="org.xmdl.ida.lib.dao.ibatis.GenericDaoiBatis"&gt;
  *                 &lt;constructor-arg value="org.xmdl.taslak.model.User"/&gt;
  *                 &lt;property name="dataSource" ref="dataSource"/&gt;
  *                 &lt;property name="sqlMapClient" ref="sqlMapClient"/&gt;

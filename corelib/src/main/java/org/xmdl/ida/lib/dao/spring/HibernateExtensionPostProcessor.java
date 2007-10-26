@@ -20,7 +20,7 @@ import java.util.Properties;
  * <p>As an example consider the following Spring bean configuration:
  * 
  * <pre>
- * &lt;bean class=&quot;org.xmdl.taslak.dao.spring.HibernateExtensionPostProcessor&quot;&gt;
+ * &lt;bean class=&quot;org.xmdl.ida.lib.dao.spring.HibernateExtensionPostProcessor&quot;&gt;
  *     &lt;property name=&quot;mappingResources&quot;&gt;
  *         &lt;list&gt;
  *             &lt;value&gt;org/xmdl/taslak/model/Foo.hbm.xml&lt;/value&gt;
