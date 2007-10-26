@@ -213,10 +213,13 @@
     </dependencies>
     
     <modules>
-        <module>core</module>
         <module>corelib</module>
-        <module>web</module>
         <module>weblib</module>
+        <module>mesken-core</module>
+        <module>mesken-weblib</module>
+        <module>mesken-webapp</module>
+        <module>core</module>
+        <module>web</module>
     </modules>
 
     <reporting>
@@ -380,7 +383,7 @@
         
         <!-- Framework dependency versions -->
         <appfuse.version>2.0</appfuse.version>
-        <spring.version>2.0.6</spring.version>
+        <spring.version>2.0.7</spring.version>
 
         <!-- Testing dependency versions -->
         <jmock.version>1.1.0</jmock.version>
