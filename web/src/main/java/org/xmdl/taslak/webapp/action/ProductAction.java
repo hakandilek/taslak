@@ -1,17 +1,18 @@
 package org.xmdl.taslak.webapp.action;
 
-import com.opensymphony.xwork2.Preparable;
+import java.util.Collection;
 
-import org.xmdl.taslak.service.ProductManager;
+import org.apache.struts2.interceptor.validation.SkipValidation;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.xmdl.ida.lib.web.action.BaseAction;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.ProductType;
 import org.xmdl.taslak.model.search.ProductSearch;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.apache.struts2.interceptor.validation.SkipValidation;
+import org.xmdl.taslak.service.ProductManager;
 
-import java.util.Collection;
+import com.opensymphony.xwork2.Preparable;
 
-public class ProductAction extends AppBaseAction implements Preparable {
+public class ProductAction extends BaseAction implements Preparable {
 
     private ProductManager productManager;
     private Collection<Product> products;

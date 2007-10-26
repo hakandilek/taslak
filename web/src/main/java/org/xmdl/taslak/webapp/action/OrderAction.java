@@ -2,6 +2,7 @@ package org.xmdl.taslak.webapp.action;
 
 import com.opensymphony.xwork2.Preparable;
 
+import org.xmdl.ida.lib.web.action.BaseAction;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.search.OrderSearch;
 import org.xmdl.taslak.service.OrderManager;
@@ -11,7 +12,7 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import java.util.Collection;
 
-public class OrderAction extends AppBaseAction implements Preparable {
+public class OrderAction extends BaseAction implements Preparable {
     private OrderManager orderManager;
     private Collection<Order> orders;
     private Order order;

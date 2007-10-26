@@ -195,6 +195,16 @@
             <version>${pom.parent.version}</version>
         </dependency>
         <dependency>
+            <groupId>${pom.parent.groupId}</groupId>
+            <artifactId>mesken-core</artifactId>
+            <version>${pom.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${pom.parent.groupId}</groupId>
+            <artifactId>mesken-weblib</artifactId>
+            <version>${pom.parent.version}</version>
+        </dependency>
+        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>${commons.dbcp.version}</version>

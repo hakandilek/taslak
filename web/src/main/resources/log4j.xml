@@ -44,7 +44,7 @@
         <level value="DEBUG"/>
     </logger>
 
-    <logger name="org.xmdl.taslak.webapp.filter.StaticFilter">
+    <logger name="org.xmdl.ida.lib.web.filter.StaticFilter">
         <level value="INFO"/>
     </logger>
 

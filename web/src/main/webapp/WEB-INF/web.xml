@@ -30,6 +30,7 @@
         	classpath*:applicationContext*.xml
             classpath*:org/xmdl/ida/lib/applicationContext*.xml
         	classpath*:org/xmdl/taslak/applicationContext*.xml
+            classpath*:org/xmdl/mesken/applicationContext*.xml
             /WEB-INF/applicationContext*.xml
             /WEB-INF/xfire-servlet.xml
             /WEB-INF/security.xml
@@ -192,7 +193,7 @@
         <listener-class>org.xmdl.taslak.webapp.listener.StartupListener</listener-class>
     </listener>
     <listener>
-        <listener-class>org.xmdl.taslak.webapp.listener.UserCounterListener</listener-class>
+        <listener-class>org.xmdl.mesken.webapp.listener.UserCounterListener</listener-class>
     </listener>
     <listener>
         <listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
