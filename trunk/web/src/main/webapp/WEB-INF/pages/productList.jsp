@@ -39,10 +39,10 @@
         <display:column property="productType" sortable="true" titleKey="product.productType"/>
 
         <display:column media="html" titleKey="List.Edit" >
-            <a href="/Product/editProduct.html?id=<c:out value="${productList.id}"/>"><img src="/images/common/edit.gif"></a>
+            <a href="/Product/editProduct.html?id=<c:out value="${productList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
         </display:column>
         <display:column media="html" titleKey="button.copy">
-            <a href="/Product/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><img src="/images/common/save.gif"></a>
+            <a href="/Product/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
 
