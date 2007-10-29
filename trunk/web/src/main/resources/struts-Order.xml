@@ -5,6 +5,7 @@
 <struts>
     <package name="Order" namespace="/Order" extends="struts-default">
         <action name="orders" class="org.xmdl.taslak.webapp.action.OrderAction" method="list">
+            <result name="input">/WEB-INF/pages/orderList.jsp</result>
             <result>/WEB-INF/pages/orderList.jsp</result>
         </action>
         <action name="editOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="edit">

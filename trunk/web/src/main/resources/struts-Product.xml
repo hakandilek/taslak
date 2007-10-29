@@ -5,6 +5,7 @@
 <struts>
     <package name="Product" namespace="/Product" extends="struts-default">
         <action name="products" class="org.xmdl.taslak.webapp.action.ProductAction" method="list">
+            <result name="input">/WEB-INF/pages/productList.jsp</result>
             <result>/WEB-INF/pages/productList.jsp</result>
         </action>
         <action name="editProduct" class="org.xmdl.taslak.webapp.action.ProductAction" method="edit">
