@@ -196,6 +196,11 @@
         </dependency>
         <dependency>
             <groupId>${pom.parent.groupId}</groupId>
+            <artifactId>mesken-weblib</artifactId>
+            <version>${pom.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${pom.parent.groupId}</groupId>
             <artifactId>${pom.parent.artifactId}-core</artifactId>
             <version>${pom.parent.version}</version>
         </dependency>
@@ -364,6 +369,12 @@
                                 <zipUrlInstaller>
                                     <url>${cargo.container.url}</url>
                                     <installDir>${installDir}</installDir>
+                                    <!--
+                                    <proxy>
+                                        <host>proxy.erlm.siemens.de</host>
+                                        <port>81</port>
+                                    </proxy>
+                                    -->
                                 </zipUrlInstaller>
                             </container>
                             <configuration>
