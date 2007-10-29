@@ -18,10 +18,7 @@ public class ProductActionTest extends BaseActionTestCase {
     private ProductAction action;
 
     private Integer[] productTypeIds = new Integer[]{
-            ProductType.RAWMATERIAL.getValue(),
-            ProductType.INTERMEDIATEPRODUCT.getValue(),
-            ProductType.PRODUCT.getValue(),
-            ProductType.SERVICE.getValue()
+            ProductType.PRODUCT.getValue()
     };
 
     @Override
