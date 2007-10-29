@@ -5,6 +5,7 @@
 <struts>
     <package name="OrderElement" namespace="/OrderElement" extends="struts-default">
         <action name="orderElements" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="list">
+            <result name="input">/WEB-INF/pages/orderElementForm.jsp</result>
             <result name="success">/WEB-INF/pages/orderElementForm.jsp</result>
         </action>
         <action name="editOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="edit">
