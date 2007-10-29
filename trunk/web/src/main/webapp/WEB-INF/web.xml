@@ -7,6 +7,12 @@
 
     <!-- precompiled jsp mappings -->
 
+    <!-- Define the default directorys  -->
+    <context-param>
+        <param-name>PATH_icon</param-name>
+        <param-value>/images/common/</param-value>
+    </context-param>
+
     <!-- Define the default CSS Theme -->
     <context-param>
         <param-name>csstheme</param-name>

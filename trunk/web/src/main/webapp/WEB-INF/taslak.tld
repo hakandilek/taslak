@@ -45,4 +45,18 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <tag>
+        <name>base-url</name>
+        <tag-class>org.xmdl.ida.lib.web.taglib.BaseUrlTag</tag-class>
+        <attribute>
+            <name>context</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>path</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
 </taglib>
