@@ -85,7 +85,6 @@ public class OrderElementAction extends BaseAction implements Preparable {
         }
         if (log.isDebugEnabled()) log.debug("copying orderElement: " + orderElement);
 
-        orderElement.setId(null);
         order = orderElement.getOrder();
 
         orderElementSearch.setOrder(orderElement.getOrder());
@@ -93,6 +92,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
 
         if (log.isDebugEnabled()) log.debug("copy() ->");
 
+        orderElement.setId(null);
         return SUCCESS;
     }
 
@@ -270,4 +270,5 @@ public class OrderElementAction extends BaseAction implements Preparable {
     public void setOrderElement(OrderElement orderElement) {
         this.orderElement = orderElement;
     }
+    
 }

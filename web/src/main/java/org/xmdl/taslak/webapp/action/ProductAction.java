@@ -94,10 +94,9 @@ public class ProductAction extends BaseAction implements Preparable {
 
         if (log.isDebugEnabled()) log.debug("copying product: " + product);
 
-        product.setId(null);
-
         if (log.isDebugEnabled()) log.debug("copy() ->");
 
+        product.setId(null);
         return SUCCESS;
     }
 
@@ -137,10 +136,11 @@ public class ProductAction extends BaseAction implements Preparable {
                 }
             }
         }
-        if (cannotDeleted) saveMessage(getText("Product.cannotBeDeleted"));
-        if (anyDeleted) saveMessage(getText("Product.deleted"));
+        if (cannotDeleted) addActionError(getText("Product.cannotBeDeleted"));
+        if (anyDeleted) addActionMessage(getText("Product.deleted"));
 
-        products = productManager.getAll();
+
+        products = productManager.search(productSearch);
 
         if (log.isDebugEnabled()) log.debug("deleteMass() ->");
 

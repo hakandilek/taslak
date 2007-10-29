@@ -8,6 +8,8 @@ import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.ProductType;
 import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -15,7 +17,15 @@ import java.util.ArrayList;
 public class ProductActionTest extends BaseActionTestCase {
     private ProductAction action;
 
-    @Override @SuppressWarnings("unchecked")
+    private Integer[] productTypeIds = new Integer[]{
+            ProductType.RAWMATERIAL.getValue(),
+            ProductType.INTERMEDIATEPRODUCT.getValue(),
+            ProductType.PRODUCT.getValue(),
+            ProductType.SERVICE.getValue()
+    };
+
+    @Override
+    @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new ProductAction();
@@ -32,26 +42,21 @@ public class ProductActionTest extends BaseActionTestCase {
         ProductSearch search = new ProductSearch();
         action.setProductSearch(search);
 
-        Integer[] productTypeIds = new Integer[]{
-                ProductType.RAWMATERIAL.getValue(),
-                ProductType.INTERMEDIATEPRODUCT.getValue(),
-                ProductType.PRODUCT.getValue(),
-                ProductType.SERVICE.getValue()
-        };
-
         action.setProductTypeIds(productTypeIds);
 
         productManager.save(product);
     }
 
     public void testSearch() throws Exception {
+        action.setProductTypeIds(null);
         assertEquals(action.list(), ActionSupport.SUCCESS);
         assertTrue(action.getProducts().size() >= 1);
+        action.setProductTypeIds(productTypeIds);
     }
 
-    public void testCopy() throws Exception{
+    public void testCopy() throws Exception {
         action.setIdToCopy(-1L);
-        assertEquals("success",action.copy());
+        assertEquals("success", action.copy());
         assertNotNull(action.getProduct());
         assertNull(action.getProduct().getId());
     }
@@ -94,15 +99,21 @@ public class ProductActionTest extends BaseActionTestCase {
         assertNotNull(request.getSession().getAttribute("messages"));
     }
 
-    public void testMassDelete() throws Exception{
-        Product p= action.getProductManager().getAll().get(0);
+    public void testMassDelete() throws Exception {
+        Product p = action.getProductManager().getAll().get(0);
 
         List<String> deleteIds = new ArrayList<String>();
-        deleteIds.add(p.getId()+"");
+        deleteIds.add(p.getId() + "");
 
         action.setDeleteId(deleteIds);
-        // todo: buradaki yorumu kaldirinca hata veriyor. Anlamayamadým
-//        assertEquals("success",action.deleteMass());
-//        assertTrue(action.hasActionMessages());
+        try {
+            assertEquals("success", action.deleteMass());
+            assertTrue(action.hasActionMessages());
+        } catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+            assertTrue(action.hasErrors());
+        } catch (ConstraintViolationException e) {
+            e.printStackTrace();
+        }
     }
 }

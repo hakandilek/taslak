@@ -87,10 +87,9 @@ public class OrderAction extends BaseAction implements Preparable {
 
         if (log.isDebugEnabled()) log.debug("copying order: " + order);
 
-        order.setId(null);
-
         if (log.isDebugEnabled()) log.debug("copy() ->");
 
+        order.setId(null);
         return SUCCESS;
     }
 
@@ -130,8 +129,8 @@ public class OrderAction extends BaseAction implements Preparable {
                 }
             }
         }
-        if (cannotDeleted)      saveMessage(getText("Order.cannotBeDeleted"));
-        if (anyDeleted)         saveMessage(getText("Order.deleted"));
+        if (cannotDeleted)      addActionError(getText("Order.cannotBeDeleted"));
+        if (anyDeleted)         addActionMessage(getText("Order.deleted"));
 
         orders = orderManager.getAll();
 
@@ -203,5 +202,9 @@ public class OrderAction extends BaseAction implements Preparable {
 
     public void setOrderElementManager(OrderElementManager orderElementManager) {
         this.orderElementManager = orderElementManager;
+    }
+
+    public OrderManager getOrderManager() {
+        return orderManager;
     }
 }
