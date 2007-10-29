@@ -9,6 +9,7 @@
 <%@ taglib uri="http://www.opensymphony.com/oscache" prefix="cache" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page"%>
+<%@ taglib uri="http://xmdl.googlecode.com/tags/ida" prefix="ida"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
