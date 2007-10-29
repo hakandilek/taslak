@@ -41,7 +41,7 @@
         </display:column>
 
         <display:column media="html" titleKey="List.Edit">
-            <a href="/Order/editOrder.html?id=<c:out value="${orderList.id}"/>"><img src="/images/common/edit.gif"></a>
+            <a href="/Order/editOrder.html?id=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="edit.gif" /> <%-- <img src="/images/common/edit.gif">--%></a>
         </display:column>
         <display:column media="html" titleKey="button.copy">
             <a href="/Order/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><img src="/images/common/save.gif"></a>
