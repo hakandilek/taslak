@@ -21,6 +21,8 @@ public class OrderElementActionTest extends BaseActionTestCase {
         ProductManager productManager = (ProductManager) applicationContext.getBean("productManager");
         OrderManager orderManager = (OrderManager) applicationContext.getBean("orderManager");
         action.setOrderElementManager(orderElementManager);
+        action.setOrderManager(orderManager);
+        action.setProductManager(productManager);
 
         // add a test orderElement to the database
         OrderElement orderElement = new OrderElement();

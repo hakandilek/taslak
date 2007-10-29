@@ -5,8 +5,14 @@ import org.apache.struts2.ServletActionContext;
 import org.xmdl.ida.lib.web.test.BaseActionTestCase;
 import org.xmdl.taslak.service.OrderManager;
 import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.OrderSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.hibernate.exception.ConstraintViolationException;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class OrderActionTest extends BaseActionTestCase {
     private OrderAction action;
@@ -85,5 +91,23 @@ public class OrderActionTest extends BaseActionTestCase {
         action.setOrder(order);
         assertEquals("success", action.delete());
         assertNotNull(request.getSession().getAttribute("messages"));
+    }
+
+    public void testMassDelete() throws Exception{
+        Order o= action.getOrderManager().getAll().get(0);
+
+        List<String> deleteIds = new ArrayList<String>();
+        deleteIds.add(o.getId()+"");
+
+        action.setDeleteId(deleteIds);
+        try {
+            assertEquals("success",action.deleteMass());
+            assertTrue(action.hasActionMessages());
+        } catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+            assertTrue(action.hasActionMessages());
+        } catch(ConstraintViolationException e){
+            e.printStackTrace();
+        }
     }
 }
