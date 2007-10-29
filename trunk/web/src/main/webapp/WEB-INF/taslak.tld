@@ -21,42 +21,4 @@
             <name>var</name>
         </attribute>
     </tag>
-    <tag>
-        <name>country</name>
-        <tag-class>org.xmdl.ida.lib.web.taglib.CountryTag</tag-class>
-        <attribute>
-            <name>name</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>prompt</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>default</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>toScope</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-    
-    <tag>
-        <name>base-url</name>
-        <tag-class>org.xmdl.ida.lib.web.taglib.BaseUrlTag</tag-class>
-        <attribute>
-            <name>context</name>
-            <required>false</required>
-        </attribute>
-        <attribute>
-            <name>path</name>
-            <required>true</required>
-        </attribute>
-    </tag>
-
 </taglib>
