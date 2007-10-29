@@ -5,6 +5,7 @@ import org.apache.struts2.ServletActionContext;
 import org.xmdl.ida.lib.web.test.BaseActionTestCase;
 import org.xmdl.taslak.service.ProductManager;
 import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.ProductType;
 import org.xmdl.taslak.model.search.ProductSearch;
 import org.springframework.mock.web.MockHttpServletRequest;
 
@@ -26,9 +27,19 @@ public class ProductActionTest extends BaseActionTestCase {
 
         // enter all required fields
         product.setName("fdsslklcs");
+        product.setProductType(ProductType.PRODUCT);
 
         ProductSearch search = new ProductSearch();
         action.setProductSearch(search);
+
+        Integer[] productTypeIds = new Integer[]{
+                ProductType.RAWMATERIAL.getValue(),
+                ProductType.INTERMEDIATEPRODUCT.getValue(),
+                ProductType.PRODUCT.getValue(),
+                ProductType.SERVICE.getValue()
+        };
+
+        action.setProductTypeIds(productTypeIds);
 
         productManager.save(product);
     }
