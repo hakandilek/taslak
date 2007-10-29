@@ -2,37 +2,37 @@ package org.xmdl.ida.lib.web.taglib;
 
 import java.io.IOException;
 
-import java.text.Collator;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
-import javax.naming.NamingException;
-
-import org.xmdl.ida.lib.model.LabelValue;
-
-import org.displaytag.tags.el.ExpressionEvaluator;
 
 /**
- * Tag for creating multiple &lt;select&gt; options for displaying a list of
- * country names.
- * <p/>
- * <p/>
- * <b>NOTE</b> - This tag requires a Java2 (JDK 1.2 or later) platform.
- * </p>
+ * to define static urls with taglibary.
+ * usage:
+ * define static params in web.xlm
+ * <context-param>
+ * <param-name>PATH_icon</param-name>
+ * <param-value>/images/common/icon/</param-value>
+ * </context-param>
+ * OR
+ * <context-param>
+ * <param-name>PATH_images</param-name>
+ * <param-value>/static/images//</param-value>
+ * </context-param>
  *
- * @author Jens Fischer, Matt Raible
- * @version $Revision: 1.4.2.1 $ $Date: 2006-06-10 08:00:48 -0600 (Sat, 10 Jun 2006) $
+ * in jsp.
+ * <ida:base-url context="icon" path="edit.gif" />
+ * OR
+ * <ida:base-url context="images" path="picture1.jpeg" />
+ *
+ * @author Kemal Dogan
+ * @version $Revision: 0.1 $ $Date: 2007-10-29 17:44:48 $
  */
+
+
 public class BaseUrlTag extends TagSupport {
 
-//    private static final long serialVersionUID = 3905528206810167095L;
-    public final static String PATH_icon= "PATH_icon";
+    private static final long serialVersionUID = 2007102900010167095L;
+    public final static String PATH = "PATH_";
     private String context;
     private String path;
 
@@ -61,17 +61,14 @@ public class BaseUrlTag extends TagSupport {
      * @see javax.servlet.jsp.tagext.Tag#doStartTag()
      */
     public int doStartTag() throws JspException {
-        ExpressionEvaluator eval = new ExpressionEvaluator(this, pageContext);
+        String staticPath = "";
         if (context != null) {
-            context = pageContext.getServletContext().getInitParameter(PATH_icon);
-//            context = "http://localhost/static/" + context;
-        } else
-            context = "";
-
+            staticPath = pageContext.getServletContext().getInitParameter(PATH + context);
+        }
 
         StringBuffer sb = new StringBuffer();
         sb.append("<img src=\"");
-        sb.append(context);
+        sb.append(staticPath);
         sb.append(path);
         sb.append("\">");
 
@@ -93,68 +90,4 @@ public class BaseUrlTag extends TagSupport {
         super.release();
     }
 
-    /**
-     * Build a List of LabelValues for all the available countries. Uses
-     * the two letter uppercase ISO name of the country as the value and the
-     * localized country name as the label.
-     *
-     * @param locale The Locale used to localize the country names.
-     * @return List of LabelValues for all available countries.
-     */
-    @SuppressWarnings("unchecked")
-            protected List<LabelValue> buildCountryList(Locale locale) {
-        final Locale[] available = Locale.getAvailableLocales();
-
-        List<LabelValue> countries = new ArrayList<LabelValue>();
-
-        for (Locale anAvailable : available) {
-            final String iso = anAvailable.getCountry();
-            final String name = anAvailable.getDisplayCountry(locale);
-
-            if (!"".equals(iso) && !"".equals(name)) {
-                LabelValue country = new LabelValue(name, iso);
-
-                if (!countries.contains(country)) {
-                    countries.add(new LabelValue(name, iso));
-                }
-            }
-        }
-
-        Collections.sort(countries, new LabelValueComparator(locale));
-
-        return countries;
-    }
-
-    /**
-     * Class to compare LabelValues using their labels with
-     * locale-sensitive behaviour.
-     */
-    @SuppressWarnings("unchecked")
-            public class LabelValueComparator implements Comparator {
-        private Comparator c;
-
-        /**
-         * Creates a new LabelValueComparator object.
-         *
-         * @param locale The Locale used for localized String comparison.
-         */
-        public LabelValueComparator(final Locale locale) {
-            c = Collator.getInstance(locale);
-        }
-
-        /**
-         * Compares the localized labels of two LabelValues.
-         *
-         * @param o1 The first LabelValue to compare.
-         * @param o2 The second LabelValue to compare.
-         * @return The value returned by comparing the localized labels.
-         */
-        @SuppressWarnings("unchecked")
-                public final int compare(Object o1, Object o2) {
-            LabelValue lhs = (LabelValue) o1;
-            LabelValue rhs = (LabelValue) o2;
-
-            return c.compare(lhs.getLabel(), rhs.getLabel());
-        }
-    }
 }

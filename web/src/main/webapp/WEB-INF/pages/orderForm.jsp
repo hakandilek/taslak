@@ -30,9 +30,6 @@
         <s:a href="%{url}"><fmt:message key="OrderElement.child.link"/></s:a>
     </c:if>
     <li class="pad">&nbsp;</li>
-    <!-- _kd test -->
-    <ida:base-url context="icon" path="edit.gif" />
-    <!-- _kd test -->  
 
     <s:textfield key="order.name" required="true" cssClass="text medium" labelposition="left" />
     <s:textfield key="order.priceTotals" required="true" cssClass="text medium" labelposition="left" />
