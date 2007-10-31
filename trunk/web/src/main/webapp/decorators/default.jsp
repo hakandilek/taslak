@@ -42,7 +42,9 @@
             <div id="nav">
                 <div class="wrapper">
                     <h2 class="accessibility">Navigation</h2>
+                    <hr>
                     <jsp:include page="/common/menu.jsp"/>
+                    <hr>
                 </div>
                 <hr/>
             </div><!-- end nav -->
