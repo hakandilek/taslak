@@ -36,4 +36,5 @@
             <attribute name="javadoc_location" value="jar:file://home/hakan/.m2/repository/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2-javadoc.jar!/"/>
         </attributes>
     </classpathentry>
+    <classpathentry kind="var" path="M2_REPO/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar"/>
 </classpath>
