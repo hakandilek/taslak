@@ -6,7 +6,7 @@
     <tlib-version>1.0</tlib-version>
     <jsp-version>1.2</jsp-version>
     <short-name>ida</short-name>
-    <uri>http://xmdl.googlecode.com/tags/ida</uri>
+    <uri>http://xmdl.org/tags/ida</uri>
     <tag>
         <name>country</name>
         <tag-class>org.xmdl.ida.lib.web.taglib.CountryTag</tag-class>
