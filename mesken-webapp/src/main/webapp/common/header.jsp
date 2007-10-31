@@ -11,4 +11,4 @@
 <hr />
 
 <%-- Put constants into request scope --%>
-<taslak:constants scope="request"/>
+<mesken:constants scope="request"/>
