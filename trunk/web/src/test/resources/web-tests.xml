@@ -9,10 +9,22 @@
 
     <!-- runs all targets -->
     <target name="run-all-tests" 
-        depends="Login,Logout,PasswordHint,Signup,StaticPages,UserTests,FlushCache,FileUpload,OrderElementTests,OrderTests,ProductTests"
+        depends="BaseTests, ApplicationTests"
         description="Call and executes all test cases (targets)"/>
     
-    <!-- runs user-related tests -->
+	<target name="BaseTests"
+        depends="Logout,PasswordHint,Signup,StaticPages,UserTests,FlushCache,FileUpload"
+        description="Calls all base library, and mesken (user management) related tests">
+	</target>
+	
+	<target name="ApplicationTests"
+        depends="OrderElementTests,
+                 OrderTests,
+		         ProductTests"
+		description="Calls all mesken (user management) related tests">
+	</target>
+
+			<!-- runs user-related tests -->
     <target name="UserTests" depends="EditUser,SearchUser,SaveUser,AddUser,ActiveUsers"
         description="Call and executes all user test cases (targets)">
         <echo>Successfully ran all User UI tests!</echo>
