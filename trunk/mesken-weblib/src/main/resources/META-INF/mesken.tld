@@ -6,7 +6,7 @@
     <tlib-version>1.0</tlib-version>
     <jsp-version>1.2</jsp-version>
     <short-name>mesken</short-name>
-    <uri>http://xmdl.googlecode.com/tags/mesken</uri>
+    <uri>http://xmdl.org/tags/mesken</uri>
     <tag>
         <name>constants</name>
         <tag-class>org.xmdl.mesken.webapp.taglib.ConstantsTag</tag-class>
