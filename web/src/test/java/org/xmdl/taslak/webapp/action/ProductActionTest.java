@@ -52,7 +52,7 @@ public class ProductActionTest extends BaseActionTestCase {
     }
 
     public void testCopy() throws Exception {
-        action.setIdToCopy(-1L);
+        action.setIdToCopy(1L);
         assertEquals("success", action.copy());
         assertNotNull(action.getProduct());
         assertNull(action.getProduct().getId());
@@ -60,7 +60,7 @@ public class ProductActionTest extends BaseActionTestCase {
 
     public void testEdit() throws Exception {
         log.debug("testing edit...");
-        action.setId(-1L);
+        action.setId(1L);
         assertNull(action.getProduct());
         assertEquals("success", action.edit());
         assertNotNull(action.getProduct());
@@ -70,7 +70,7 @@ public class ProductActionTest extends BaseActionTestCase {
     public void testSave() throws Exception {
         MockHttpServletRequest request = new MockHttpServletRequest();
         ServletActionContext.setRequest(request);
-        action.setId(-1L);
+        action.setId(1L);
         assertEquals("success", action.edit());
         assertNotNull(action.getProduct());
 
@@ -90,7 +90,7 @@ public class ProductActionTest extends BaseActionTestCase {
         ServletActionContext.setRequest(request);
         action.setDelete("");
         Product product = new Product();
-        product.setId(-2L);
+        product.setId(2L);
         action.setProduct(product);
         assertEquals("success", action.delete());
         assertNotNull(request.getSession().getAttribute("messages"));

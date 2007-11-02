@@ -42,6 +42,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
                 orderElement = new OrderElement();
                 if (orderId != null) {
                     order = orderManager.get(orderId);
+                    orderElements = order.getOrderElements();
                 } else {
                     order = new Order();
                 }

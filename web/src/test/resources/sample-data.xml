@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <!--Product-START-->
+        <!--Product-START-->
     <table name="t_product">
         <column>id</column>
         <column>name</column>
         <column>price</column>
         <column>productType</column>
     <row>
-        <value description="id">-1</value>
-        <value description="name">TkWjZyVfWc</value>
-        <value description="price">1.5883275309763093E308</value>
-        <value>1</value>
+        <value description="id">1</value>
+        <value description="name">FjKvDlNpDw</value>
+        <value description="price">10</value>
+        <value description="productType">1</value>
     </row>
     <row>
-        <value description="id">-2</value>
-        <value description="name">PeEuLbFdLm</value>
-        <value description="price">1.368957988485345E308</value>
-        <value>2</value>
+        <value description="id">2</value>
+        <value description="name">MxLwBxUfKd</value>
+        <value description="price">20</value>
+        <value description="productType">2</value>
     </row>
     <row>
-        <value description="id">-3</value>
-        <value description="name">RiAqHdHpHh</value>
-        <value description="price">1.103392255027399E308</value>
-        <value>3</value>
+        <value description="id">3</value>
+        <value description="name">WuLfBwKnWa</value>
+        <value description="price">30</value>
+        <value description="productType">3</value>
     </row>
     </table>
     <!--Product-END-->
-    
-    
     <!--Order-START-->
     <table name="t_order">
         <column>id</column>
@@ -35,21 +33,21 @@
         <column>pricetotals</column>
         <column>createdate</column>
     <row>
-        <value description="id">-1</value>
-        <value description="name">OoLoVjVxSi</value>
-        <value description="pricetotals">3.0324079017302807E307</value>
+        <value description="id">1</value>
+        <value description="name">BqDaDtJzCf</value>
+        <value description="pricetotals">100</value>
         <value description="createdate">2007-09-20</value>
     </row>
     <row>
-        <value description="id">-2</value>
-        <value description="name">WbQcDoGrMj</value>
-        <value description="pricetotals">1.369104276265264E308</value>
+        <value description="id">2</value>
+        <value description="name">VwTdCpEfKe</value>
+        <value description="pricetotals">200</value>
         <value description="createdate">2007-09-20</value>
     </row>
     <row>
-        <value description="id">-3</value>
-        <value description="name">IuHkXeMlMk</value>
-        <value description="pricetotals">1.7534117962503012E308</value>
+        <value description="id">3</value>
+        <value description="name">GxPxUrDjLf</value>
+        <value description="pricetotals">300</value>
         <value description="createdate">2007-09-20</value>
     </row>
     </table>
@@ -58,25 +56,25 @@
     <table name="t_orderElement">
         <column>id</column>
         <column>quantity</column>
-        <column>orderId</column>    
-        <column>productId</column>    
+        <column>orderId</column>
+        <column>productId</column>
     <row>
-        <value description="id">-1</value>
-        <value description="quantity">4456951202444978176</value>
-        <value description="orderId">-1</value>
-        <value description="productId">-1</value>
+        <value description="id">1</value>
+        <value description="quantity">6024683510166235136</value>
+        <value description="orderId">1</value>
+        <value description="productId">1</value>
     </row>
     <row>
-        <value description="id">-2</value>
-        <value description="quantity">8286851512707523584</value>
-        <value description="orderId">-2</value>
-        <value description="productId">-2</value>
+        <value description="id">2</value>
+        <value description="quantity">10</value>
+        <value description="orderId">2</value>
+        <value description="productId">2</value>
     </row>
     <row>
-        <value description="id">-3</value>
-        <value description="quantity">6743197833752669184</value>
-        <value description="orderId">-3</value>
-        <value description="productId">-3</value>
+        <value description="id">3</value>
+        <value description="quantity">20</value>
+        <value description="orderId">3</value>
+        <value description="productId">3</value>
     </row>
     </table>
     <!--OrderElement-END-->

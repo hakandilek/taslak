@@ -45,7 +45,7 @@ public class OrderActionTest extends BaseActionTestCase {
     }
 
     public void testCopy() throws Exception{
-        action.setIdToCopy(-1L);
+        action.setIdToCopy(1L);
         assertEquals("success",action.copy());
         assertNotNull(action.getOrder());
         assertNull(action.getOrder().getId());
@@ -54,7 +54,7 @@ public class OrderActionTest extends BaseActionTestCase {
 
     public void testEdit() throws Exception {
         log.debug("testing edit...");
-        action.setId(-1L);
+        action.setId(1L);
         assertNull(action.getOrder());
         assertEquals("success", action.edit());
         assertNotNull(action.getOrder());
@@ -64,7 +64,7 @@ public class OrderActionTest extends BaseActionTestCase {
     public void testSave() throws Exception {
         MockHttpServletRequest request = new MockHttpServletRequest();
         ServletActionContext.setRequest(request);
-        action.setId(-1L);
+        action.setId(1L);
         assertEquals("success", action.edit());
         assertNotNull(action.getOrder());
 
@@ -87,7 +87,7 @@ public class OrderActionTest extends BaseActionTestCase {
         ServletActionContext.setRequest(request);
         action.setDelete("");
         Order order = new Order();
-        order.setId(-2L);
+        order.setId(2L);
         action.setOrder(order);
         assertEquals("success", action.delete());
         assertNotNull(request.getSession().getAttribute("messages"));

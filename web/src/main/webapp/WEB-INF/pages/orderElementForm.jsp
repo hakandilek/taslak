@@ -11,7 +11,7 @@
 </c:set>
 
 <c:if test="${not empty orderElement.order.id}">
-    <s:url id="url" namespace="/Order" action="editOrder.html" includeParams="false">
+    <s:url id="url" namespace="/Order" action="editOrder.html" includeParams="none">
         <s:param name="id">
             <s:property value="orderElement.order.id"/>
         </s:param>
@@ -34,7 +34,7 @@
     </li>
     <s:textfield required="true" cssClass="text medium" key="orderElement.quantity" labelposition="left"/>
     <s:select name="orderElement.product.id" list="productList" listKey="id" listValue="id"
-              key="orderElement.product" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="Select.choose"
+              key="orderElement.product" headerKey="-1" headerValue="Select.choose"
               labelposition="left"/>
     <li class="buttonBar bottom">
         <c:if test="${empty orderElement.id}">

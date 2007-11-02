@@ -414,17 +414,16 @@
         <jdbc.url><![CDATA[jdbc:mysql://localhost/taslak?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
         <jdbc.username>root</jdbc.username>
         <jdbc.password>test1</jdbc.password>
-<!---->
-		<!--<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>-->
-		<!--<dbunit.operation.type>NONE</dbunit.operation.type>-->
+
+        <!--<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>-->
         <!--<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>-->
-		<!--<jdbc.groupId>hsqldb</jdbc.groupId>-->
-		<!--<jdbc.artifactId>hsqldb</jdbc.artifactId>-->
-		<!--<jdbc.version>1.8.0.7</jdbc.version>-->
-		<!--<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>-->
-		<!--<jdbc.url><![CDATA[jdbc:hsqldb:taslak;shutdown=true]]></jdbc.url>-->
-		<!--<jdbc.username>sa</jdbc.username>-->
-		<!--<jdbc.password></jdbc.password>-->
+        <!--<jdbc.groupId>hsqldb</jdbc.groupId>-->
+        <!--<jdbc.artifactId>hsqldb</jdbc.artifactId>-->
+        <!--<jdbc.version>1.8.0.7</jdbc.version>-->
+        <!--<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>-->
+        <!--<jdbc.url><![CDATA[jdbc:hsqldb:hsql://localhost/taslak]]></jdbc.url>-->
+        <!--<jdbc.username>sa</jdbc.username>-->
+        <!--<jdbc.password></jdbc.password>-->
 
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <acegi.version>1.0.5</acegi.version>
@@ -448,7 +447,7 @@
         <oscache.version>2.3</oscache.version>
         <sitemesh.version>2.2.1</sitemesh.version>
         <struts.menu.version>2.4.3</struts.menu.version>
-        <struts.version>2.0.9</struts.version>
+        <struts.version>2.0.11</struts.version>
         <urlrewrite.version>3.0.4</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>

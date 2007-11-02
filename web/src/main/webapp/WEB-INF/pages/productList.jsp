@@ -25,7 +25,7 @@
     <s:textfield key="productSearch.fromPrice" cssClass="text medium" labelposition="left"/>
     <s:textfield key="productSearch.toPrice" cssClass="text medium" labelposition="left"/>
     <s:select name="productTypeIds" value="productSearch.productType.value" listKey="value" key="product.productType"
-              list="productTypes" labelposition="left" headerKey="<%=""+Integer.MIN_VALUE%>" headerValue="*"/>
+              list="productTypes" labelposition="left" headerKey="-1" headerValue="*"/>
     <s:submit key="button.search" align="left"/>
 </s:form>
 
