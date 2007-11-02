@@ -34,9 +34,9 @@ public class OrderElementDaoHibernate extends GenericDaoHibernate<OrderElement, 
             criteria.add(Restrictions.ge("quantity", fromQuantity));
         if (toQuantity != null)
             criteria.add(Restrictions.le("quantity", toQuantity));
-        if (order != null && order.getId() != Integer.MIN_VALUE)
+        if (order != null && order.getId() != -1)
             criteria.add(Restrictions.eq("order.id", order.getId()));
-        if (product != null && product.getId() != Integer.MIN_VALUE)
+        if (product != null && product.getId() != -1)
             criteria.add(Restrictions.eq("product.id", product.getId()));
 
         return criteria.list();

@@ -24,7 +24,7 @@ public class UserExistsExceptionTest extends BaseManagerTestCase {
         logger.debug("entered 'testAddExistingUser' method");
         assertNotNull(manager);
 
-        User user = manager.getUser("-1");
+        User user = manager.getUser("1");
         
         // create new object with null id - Hibernate doesn't like setId(null)
         User user2 = new User();
