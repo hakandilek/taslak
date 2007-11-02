@@ -1,5 +1,4 @@
 #summary A Quick overview how to get started.
-#labels Featured
 
 = Introduction =
 
@@ -9,11 +8,13 @@ This document describes how to run the *_taslak_* application from scratch.
 
   * Checkout the project from SVN folowing the [http://code.google.com/p/taslak/source instructions].
   * *cd taslak*
-  * in the file *"/taslak/pom.xml"* change the username and password. It default uses mysql.
+  * type "mvn", this will download library files. A Build failure message will appear.
+  * Run the HSQL database server using the following command
 {{{
-	<jdbc.username>root</jdbc.username>
-	<jdbc.password>*test1*</jdbc.password>
+java -cp <MAVEN_REPOSITORY>/hsqldb/hsqldb/1.8.0.7/hsqldb-1.8.0.7.jar org.hsqldb.Server -database.0 file:taslak -dbname.0 taslak 
 }}}
+where, *<MAVEN_REPOSITORY>* is *{{{~/.m2/repository}}}* in Linux, and *{{{TODO}}}* in Windows systems.
+
   * run the command to create the database and insert sample data. 
 {{{  
 mvn -Dmaven.test.skip=true
@@ -45,5 +46,4 @@ mvn install -Dmaven.test.skip=true
 
 If you would like to run the command above, you can simply remove the "-Dmaven.test.skip=true" parameter
  
- 
- 
+
