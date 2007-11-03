@@ -13,7 +13,7 @@ This document describes how to run the *_taslak_* application from scratch.
 {{{
 java -cp <MAVEN_REPOSITORY>/hsqldb/hsqldb/1.8.0.7/hsqldb-1.8.0.7.jar org.hsqldb.Server -database.0 file:taslak -dbname.0 taslak 
 }}}
-where, *<MAVEN_REPOSITORY>* is *{{{~/.m2/repository}}}* in Linux, and *{{{TODO}}}* in Windows systems.
+where, *<MAVEN_REPOSITORY>* is *{{{~/.m2/repository}}}* in Linux, and *{{{C:/Documents and Settings/<your_user_name>/.m2/repository}}}* in Windows systems.
 
   * run the command to create the database and insert sample data. 
 {{{  
@@ -46,4 +46,3 @@ mvn install -Dmaven.test.skip=true
 
 If you would like to run the command above, you can simply remove the "-Dmaven.test.skip=true" parameter
  
-
