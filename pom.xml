@@ -95,6 +95,15 @@
                     <useFullNames>false</useFullNames>
                 </configuration>
             </plugin>
+	    <plugin>
+		    <groupId>org.javagen.revgen</groupId>
+		    <artifactId>maven-hsql-plugin</artifactId>
+		    <version>1.0-beta3-SNAPSHOT</version>
+		    <configuration>
+			    <database>${hsql.dbfile}</database>
+			    <dbname>${hsql.dbname}</dbname>
+		    </configuration>
+	    </plugin>
         </plugins>
     </build>
 
@@ -114,6 +123,11 @@
             <id>appfuse</id>
             <url>http://static.appfuse.org/repository</url>
         </pluginRepository>
+	<pluginRepository>
+		<id>javagen</id>
+		<url>http://www.javagen.com/maven</url>
+	</pluginRepository>
+	
     </pluginRepositories>
 
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
@@ -405,6 +419,8 @@
                 
         <!-- Database settings -->
         
+	<hsql.dbname>taslak</hsql.dbname>
+	<hsql.dbfile>${user.home}/taslakdb</hsql.dbfile>
 	<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
 	<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>
 	<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
@@ -412,7 +428,7 @@
 	<jdbc.artifactId>hsqldb</jdbc.artifactId>
 	<jdbc.version>1.8.0.7</jdbc.version>
 	<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
-	<jdbc.url><![CDATA[jdbc:hsqldb:hsql://localhost/taslak]]></jdbc.url>
+	<jdbc.url><![CDATA[jdbc:hsqldb:hsql://localhost/${hsql.dbname}]]></jdbc.url>
 	<jdbc.username>sa</jdbc.username>
 	<jdbc.password></jdbc.password>
 	
