@@ -8,6 +8,8 @@ import org.hibernate.annotations.Parameter;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = ("t_product"))
 public class Product extends BaseObject implements Serializable {
@@ -15,6 +17,7 @@ public class Product extends BaseObject implements Serializable {
     private Long id;
     private String name;
     private Double price;
+	private Set<OrderElement> orderElements = new HashSet<OrderElement>();
 
     public Product() {
     }
@@ -46,6 +49,15 @@ public class Product extends BaseObject implements Serializable {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = ("product"))
+    public Set<OrderElement> getOrderElements() {
+		return orderElements;
+    }
+
+    public void setOrderElements(Set<OrderElement> orderElements) {
+        this.orderElements = orderElements;
     }
 
     public String toString() {
