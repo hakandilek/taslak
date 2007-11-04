@@ -10,7 +10,7 @@ This document describes how to run the *_taslak_* application from scratch.
   * *cd taslak*
   * run the command to create the database and insert sample data. 
 {{{  
-mvn -Dmaven.test.skip=true
+mvn hsql:start test
 }}}
   * We can now deploy our project by using maven-jetty-plugin.In the /taslak/web/ directory run the command:
 {{{
