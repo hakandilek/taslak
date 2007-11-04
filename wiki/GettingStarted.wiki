@@ -14,7 +14,7 @@ mvn -Dmaven.test.skip=true
 }}}
   * We can now deploy our project by using maven-jetty-plugin.In the /taslak/web/ directory run the command:
 {{{
-mvn jetty:run-war -Dmaven.test.skip=true
+mvn hsql:start jetty:run-war -Dmaven.test.skip=true
 }}}
   * You can now browse to the http://localhost:8080/. 
     * User name : *admin* 
