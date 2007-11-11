@@ -39,19 +39,36 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
     }
 
     public Collection<Product> search(ProductSearch productSearch) {
-        if (productSearch == null)
-            return new ArrayList<Product>();
+    	if (log.isDebugEnabled()) {
+    		log.debug("search(ProductSearch productSearch) <-");
+        	log.debug("productSearch: " + productSearch);
+    	}
+    	
+		Collection<Product> list = null;
+		if (productSearch == null) {
+			list = new ArrayList<Product>();
+		} else {
+			String name = productSearch.getName();
+			Double fromPrice = productSearch.getFromPrice();
+			Double toPrice = productSearch.getToPrice();
+			ProductType productType = productSearch.getProductType();
 
-        return search(productSearch.getName(), productSearch.getFromPrice(), productSearch.getToPrice(),productSearch.getProductType());
+			list = search(name, fromPrice, toPrice, productType);
+		}
+
+		if (log.isDebugEnabled())
+			log.debug("search(ProductSearch productSearch) ->");
+    	return list;
     }
 
     public Collection<Product> search(String name, Double fromPrice, Double toPrice, ProductType productType) {
-    	if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice) <-");
-    	
-    	if (log.isDebugEnabled()) log.debug("name       : " + name);
-    	if (log.isDebugEnabled()) log.debug("fromPrice  : " + fromPrice);
-    	if (log.isDebugEnabled()) log.debug("toPrice    : " + toPrice);
-        if (log.isDebugEnabled()) log.debug("productType: " + productType);
+    	if (log.isDebugEnabled()) {
+    		log.debug("search(String name, Double fromPrice, Double toPrice) <-");
+        	log.debug("name       : " + name);
+        	log.debug("fromPrice  : " + fromPrice);
+        	log.debug("toPrice    : " + toPrice);
+            log.debug("productType: " + productType);
+    	}
     	
         Criteria criteria = getSession().createCriteria(Product.class);
 
@@ -65,7 +82,7 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
             criteria.add(Restrictions.eq("productType", productType));
         }
 
-        List list = criteria.list();
+        List<Product> list = criteria.list();
         
         if (log.isDebugEnabled()) log.debug("search(String name, Double fromPrice, Double toPrice, ProductType productType) <-");
 		return list;
