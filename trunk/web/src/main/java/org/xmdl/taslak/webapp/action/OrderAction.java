@@ -129,8 +129,8 @@ public class OrderAction extends BaseAction implements Preparable {
                 }
             }
         }
-        if (cannotDeleted)      addActionError(getText("Order.cannotBeDeleted"));
-        if (anyDeleted)         addActionMessage(getText("Order.deleted"));
+        if (cannotDeleted)      saveMessage(getText("Order.cannotBeDeleted"));
+        if (anyDeleted)         saveMessage(getText("Order.deleted"));
 
         orders = orderManager.getAll();
 

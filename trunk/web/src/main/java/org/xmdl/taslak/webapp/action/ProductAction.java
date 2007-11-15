@@ -136,8 +136,8 @@ public class ProductAction extends BaseAction implements Preparable {
                 }
             }
         }
-        if (cannotDeleted) addActionError(getText("Product.cannotBeDeleted"));
-        if (anyDeleted) addActionMessage(getText("Product.deleted"));
+        if (cannotDeleted) saveMessage(getText("Product.cannotBeDeleted"));
+        if (anyDeleted) saveMessage(getText("Product.deleted"));
 
 
         products = productManager.search(productSearch);
