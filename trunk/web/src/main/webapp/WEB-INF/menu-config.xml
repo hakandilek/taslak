@@ -16,13 +16,13 @@
             <Item name="Clickstream" title="menu.clickstream" page="/admin/clickstreams.jsp"/>
         </Menu>
 
-        <Menu name="SalesMenu" title="Sales.menu.title" description="Sales" roles="ROLE_ADMIN,ROLE_USER"  page="/Sales/Sales.html">
+        <Menu name="SalesMenu" title="Sales.menu.title" description="Sales" roles="ROLE_ADMIN,ROLE_USER"  page="/Order/orders.html">
             <Item name="OrderMenu" title="Order.menu.title" page="/Order/editOrder.html">
                 <Item name="OrderEdit" title="Order.menu.edit" page="/Order/editOrder.html"/>
                 <Item name="OrderSearch"  title="Order.menu.search" page="/Order/orders.html"/>
             </Item>
         </Menu>
-        <Menu name="WarehouseMenu" title="Warehouse.menu.title" description="Warehouse Data" roles="ROLE_ADMIN,ROLE_USER"  page="/Warehouse/Warehouse.html">
+        <Menu name="WarehouseMenu" title="Warehouse.menu.title" description="Warehouse Data" roles="ROLE_ADMIN,ROLE_USER"  page="/Product/products.html">
             <Item name="ProductMenu"  title="Product.menu.title" page="/Product/products.html">
 <!--                
             <Item name="Edit" width="60"  title="Product.menu.edit" page="/Product/editProduct.html"/>
