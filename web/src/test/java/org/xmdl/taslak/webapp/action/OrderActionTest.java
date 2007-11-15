@@ -102,10 +102,8 @@ public class OrderActionTest extends BaseActionTestCase {
         action.setDeleteId(deleteIds);
         try {
             assertEquals("success",action.deleteMass());
-            assertTrue(action.hasActionMessages());
         } catch (DataIntegrityViolationException e) {
             e.printStackTrace();
-            assertTrue(action.hasActionMessages());
         } catch(ConstraintViolationException e){
             e.printStackTrace();
         }
