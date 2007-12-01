@@ -25,7 +25,7 @@ public class ProductManagerImplTest extends BaseManagerMockTestCase {
         manager = null;
     }
 
-    public void testGetProduct() {
+    public void testGet() {
         log.debug("testing getProduct");
 
         Long id = 7L;
@@ -40,35 +40,35 @@ public class ProductManagerImplTest extends BaseManagerMockTestCase {
         assertSame(product, result);
     }
 
-    public void testGetProducts() {
+    public void testGetAll() {
         log.debug("testing getProducts");
 
-        List<Product> products = new ArrayList<Product>();
+        List<Product> list = new ArrayList<Product>();
 
         // set expected behavior on dao
         dao.expects(once()).method("getAll")
-                .will(returnValue(products));
+                .will(returnValue(list));
 
         List<Product> result = manager.getAll();
-        assertSame(products, result);
+        assertSame(list, result);
     }
 
     public void testSearch() {
         log.debug("testing search");
 
-        List<Product> products = new ArrayList<Product>();
-        ProductSearch productSearch=new ProductSearch();
+        List<Product> list = new ArrayList<Product>();
+        ProductSearch searchBean=new ProductSearch();
 
         // set expected behavior on dao
         dao.expects(once()).method("search")
-                .with(eq(productSearch))
-                .will(returnValue(products));
+                .with(eq(searchBean))
+                .will(returnValue(list));
 
-        Collection<Product> result = manager.search(productSearch);
-        assertSame(products, result);
+        Collection<Product> result = manager.search(searchBean);
+        assertSame(list, result);
     }
 
-    public void testSaveProduct() {
+    public void testSave() {
         log.debug("testing saveProduct");
 
         product = new Product();
@@ -81,7 +81,7 @@ public class ProductManagerImplTest extends BaseManagerMockTestCase {
         manager.save(product);
     }
 
-    public void testRemoveProduct() {
+    public void testRemove() {
         log.debug("testing removeProduct");
 
         Long id = 11L;
