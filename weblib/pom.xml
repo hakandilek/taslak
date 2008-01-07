@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.xmdl.taslak</groupId>
-        <artifactId>taslak</artifactId>
+        <groupId>org.xmdl.ida</groupId>
+        <artifactId>ida</artifactId>
         <version>0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

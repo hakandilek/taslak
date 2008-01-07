@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.xmdl.taslak</groupId>
-    <artifactId>taslak</artifactId>
+    <groupId>org.xmdl.ida</groupId>
+    <artifactId>ida</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
     <name>Taslak Application</name>
@@ -229,11 +229,7 @@
     <modules>
         <module>corelib</module>
         <module>weblib</module>
-        <module>mesken-core</module>
         <module>mesken-weblib</module>
-        <module>mesken-webapp</module>
-        <module>core</module>
-        <module>web</module>
     </modules>
 
     <reporting>
