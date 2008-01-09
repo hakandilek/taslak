@@ -24,7 +24,7 @@ import java.util.Set;
  *         by David Carter david@carter.net
  */
 @Entity
-@Table(name="app_user")
+@Table(name="TBL_USER")
 public class User extends BaseObject implements Serializable, UserDetails {
     private static final long serialVersionUID = 3832626162173359411L;
 
@@ -124,7 +124,7 @@ public class User extends BaseObject implements Serializable, UserDetails {
 
     @ManyToMany(fetch = FetchType.EAGER) 
     @JoinTable(
-            name="user_role",
+            name="TBL_USER_ROLE",
             joinColumns = { @JoinColumn( name="user_id") },
             inverseJoinColumns = @JoinColumn( name="role_id")
     )    
