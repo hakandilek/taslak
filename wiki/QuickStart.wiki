@@ -3,3 +3,5 @@
 2) \taslak\mesken-core>mvn hsql:start install
 
 3) \taslak>mvn hsql:start install
+
+4) \taslak>mvn hsql:start test
