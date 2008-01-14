@@ -5,3 +5,5 @@
 3) \taslak>mvn hsql:start install
 
 4) \taslak>mvn hsql:start test
+
+5) \taslak\web>mvn jetty:run-war -Dmaven.test.skip=true   : ? henüz çalışmadı.
