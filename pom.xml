@@ -229,6 +229,7 @@
     <modules>
         <module>corelib</module>
         <module>weblib</module>
+        <module>mesken-core</module>
         <module>mesken-weblib</module>
     </modules>
 
