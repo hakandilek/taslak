@@ -3,9 +3,10 @@ LIB.1) \taslak-SVN>mvn hsql:start install
 LIB.2) \taslak-SVN\mesken-core>mvn hsql:start install
 
 LIB.3) \taslak-SVN\mesken-weblib>mvn hsql:start install
-
-
+------------------------------
 SVN.1) \taslak-GEN>mvn hsql:start install
+        (java memory sorunu veriyor. -Dmaven.test.skip=true yazınca düzeliyor) 
+ 
 
 SVN.2) \taslak-GEN>mvn hsql:start test
 
