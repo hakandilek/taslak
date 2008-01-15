@@ -1,10 +1,12 @@
-1) \taslak-SVN>mvn hsql:start install 
+LIB.1) \taslak-SVN>mvn hsql:start install 
 
-2) \taslak-SVN\mesken-core>mvn hsql:start install
+LIB.2) \taslak-SVN\mesken-core>mvn hsql:start install
+
+LIB.3) \taslak-SVN\mesken-weblib>mvn hsql:start install
 
 
-3) \taslak-GEN>mvn hsql:start install
+SVN.1) \taslak-GEN>mvn hsql:start install
 
-4) \taslak-GEN>mvn hsql:start test
+SVN.2) \taslak-GEN>mvn hsql:start test
 
-5) \taslak-GEN\web>mvn jetty:run-war -Dmaven.test.skip=true   : ? henüz çalışmadı.
+SVN.3) \taslak-GEN\web>mvn jetty:run-war -Dmaven.test.skip=true   : ? henüz çalışmadı.
