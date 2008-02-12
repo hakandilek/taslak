@@ -175,34 +175,34 @@
     <!-- Dependencies calculated when running full-source plugin -->
     <dependencies>
         <dependency>
-            <groupId>${jdbc.groupId}</groupId>
-            <artifactId>${jdbc.artifactId}</artifactId>
-            <version>${jdbc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${pom.parent.groupId}</groupId>
-            <artifactId>ida-corelib</artifactId>
-            <version>${pom.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${pom.parent.groupId}</groupId>
-            <artifactId>ida-weblib</artifactId>
-            <version>${pom.parent.version}</version>
-        </dependency>
-        <dependency>
             <groupId>${pom.parent.groupId}</groupId>
             <artifactId>${pom.parent.artifactId}-core</artifactId>
             <version>${pom.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>${pom.parent.groupId}</groupId>
-            <artifactId>mesken-core</artifactId>
-            <version>${pom.parent.version}</version>
+            <groupId>${jdbc.groupId}</groupId>
+            <artifactId>${jdbc.artifactId}</artifactId>
+            <version>${jdbc.version}</version>
         </dependency>
         <dependency>
-            <groupId>${pom.parent.groupId}</groupId>
+            <groupId>org.xmdl.ida</groupId>
+            <artifactId>ida-corelib</artifactId>
+            <version>${ida.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xmdl.ida</groupId>
+            <artifactId>ida-weblib</artifactId>
+            <version>${ida.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xmdl.ida</groupId>
+            <artifactId>mesken-core</artifactId>
+            <version>${mesken.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xmdl.ida</groupId>
             <artifactId>mesken-weblib</artifactId>
-            <version>${pom.parent.version}</version>
+            <version>${mesken.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>

@@ -7,7 +7,7 @@
     <artifactId>ida</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
-    <name>Taslak Application</name>
+    <name>IDA Library</name>
     <url>http://taslak.googlecode.com/</url>
 
     <prerequisites>
@@ -231,6 +231,7 @@
         <module>weblib</module>
         <module>mesken-core</module>
         <module>mesken-weblib</module>
+        <module>mesken-webapp</module>
     </modules>
 
     <reporting>
