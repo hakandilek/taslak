@@ -1,17 +1,29 @@
 package org.xmdl.taslak.model.search;
 
 import org.xmdl.taslak.model.ProductType;
+import org.xmdl.taslak.model.Supplier;
 
 public class ProductSearch {
     private String name;
     private Double fromPrice;
     private Double toPrice;
     private ProductType productType;
+    private Supplier supplier;
 
     public ProductSearch() {
     }
 
-    public String getName() {
+    public ProductSearch(String name, Double fromPrice, Double toPrice,
+			ProductType productType, Supplier supplier) {
+		super();
+		this.name = name;
+		this.fromPrice = fromPrice;
+		this.toPrice = toPrice;
+		this.productType = productType;
+		this.supplier = supplier;
+	}
+
+	public String getName() {
         return name;
     }
 
@@ -42,4 +54,20 @@ public class ProductSearch {
     public void setProductType(ProductType productType) {
         this.productType = productType;
     }
+
+	/**
+	 * @return the supplier
+	 */
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	/**
+	 * @param supplier the supplier to set
+	 */
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+    
+    
 }

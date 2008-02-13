@@ -6,5 +6,6 @@
         <mapping class="org.xmdl.taslak.model.Product"/>
         <mapping class="org.xmdl.taslak.model.Order"/>
         <mapping class="org.xmdl.taslak.model.OrderElement"/>
+        <mapping class="org.xmdl.taslak.model.Supplier"/>
     </session-factory>
 </hibernate-configuration>
