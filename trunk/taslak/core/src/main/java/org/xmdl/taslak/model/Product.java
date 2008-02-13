@@ -18,6 +18,7 @@ public class Product extends BaseObject implements Serializable {
     private String name;
     private Double price;
 	private Set<OrderElement> orderElements = new HashSet<OrderElement>();
+	private Set<Supplier> suppliers = new HashSet<Supplier>();
 
     public Product() {
     }
@@ -60,7 +61,20 @@ public class Product extends BaseObject implements Serializable {
         this.orderElements = orderElements;
     }
 
-    public String toString() {
+    @ManyToMany(targetEntity = Supplier.class, cascade = {
+			CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "t_product_supplier", 
+			joinColumns = { @JoinColumn(name = "product_id") }, 
+			inverseJoinColumns = { @JoinColumn(name = "supplier_id") })
+	public Set<Supplier> getSuppliers() {
+		return suppliers;
+	}
+
+	public void setSuppliers(Set<Supplier> suppliers) {
+		this.suppliers = suppliers;
+	}
+
+	public String toString() {
         return MessageFormat.format("Product [id={0}][name={1}][price={2}]", id, name, price);
     }
 

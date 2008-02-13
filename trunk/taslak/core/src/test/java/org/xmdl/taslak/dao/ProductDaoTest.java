@@ -6,6 +6,8 @@ import org.springframework.dao.DataAccessException;
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.ProductType;
+import org.xmdl.taslak.model.Supplier;
+import org.xmdl.taslak.model.search.ProductSearch;
 
 public class ProductDaoTest extends BaseDaoTestCase {
     private ProductDao productDao = null;
@@ -44,7 +46,16 @@ public class ProductDaoTest extends BaseDaoTestCase {
     }
 
     public void testSearch() throws Exception {
-        Collection<Product> products = productDao.search("abcd",9d,11d,null);
+    	ProductSearch search = new ProductSearch("abcd",9d,11d,null, null);
+        Collection<Product> products = productDao.search(search);
+        assertTrue(products.size() > 0);
+    }
+
+    public void testSearchWithSupplier() throws Exception {
+    	Supplier supplier = new Supplier();
+    	supplier.setId(1L);
+		ProductSearch search = new ProductSearch(null,null,null,null, supplier);
+        Collection<Product> products = productDao.search(search);
         assertTrue(products.size() > 0);
     }
 

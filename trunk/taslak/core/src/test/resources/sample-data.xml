@@ -78,4 +78,47 @@
     </row>
     </table>
     <!--OrderElement-END-->
+    
+<!--Supplier-START-->
+<table name="t_supplier">
+	<column>id</column>
+    <column>name</column>
+    
+    <row>
+        <value description="id">1</value>
+        <value description="name">ABC AS</value>
+    </row>
+    <row>
+        <value description="id">2</value>
+        <value description="name">123 Ltd.</value>
+    </row>
+    <row>
+        <value description="id">3</value>
+        <value description="name">LayLay Nakliyat</value>
+    </row></table>
+<!--Supplier-END-->
+
+<!--Product - Supplier -START-->
+<table name="t_product_supplier">
+	<column>product_id</column>
+    <column>supplier_id</column>
+    
+    <row>
+        <value description="product_id">1</value>
+        <value description="supplier_id">1</value>
+    </row>
+    <row>
+        <value description="product_id">2</value>
+        <value description="supplier_id">1</value>
+    </row>
+    <row>
+        <value description="product_id">3</value>
+        <value description="supplier_id">1</value>
+    </row>
+    <row>
+        <value description="product_id">1</value>
+        <value description="supplier_id">2</value>
+    </row>
+</table>
+<!--Product - Supplier-END-->
 </dataset>
