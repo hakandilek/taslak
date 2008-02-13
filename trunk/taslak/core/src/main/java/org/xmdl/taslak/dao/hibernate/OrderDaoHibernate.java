@@ -17,8 +17,17 @@ public class OrderDaoHibernate extends GenericDaoHibernate<Order, Long> implemen
         super(Order.class);
     }
 
-    public Collection<Order> search(String name, Double fromPriceTotals, Double toPriceTotals, Date fromCreateDate, Date toCreateDate) {
+    @SuppressWarnings("unchecked")
+	public Collection<Order> search(OrderSearch orderSearch) {
+        if (orderSearch == null)
+            return new ArrayList<Order>();
 
+        String name = orderSearch.getName();
+        Double fromPriceTotals = orderSearch.getFromPriceTotals();
+        Double toPriceTotals = orderSearch.getToPriceTotals();
+        Date fromCreateDate = orderSearch.getFromCreateDate();
+        Date toCreateDate = orderSearch.getToCreateDate();
+        
         Criteria criteria = getSession().createCriteria(Order.class);
 
         if (name != null && !name.equals(""))
@@ -33,12 +42,5 @@ public class OrderDaoHibernate extends GenericDaoHibernate<Order, Long> implemen
             criteria.add(Restrictions.le("createDate", toCreateDate));
 
         return criteria.list();
-    }
-
-    public Collection<Order> search(OrderSearch orderSearch) {
-        if (orderSearch == null)
-            return new ArrayList<Order>();
-
-        return search(orderSearch.getName(), orderSearch.getFromPriceTotals(), orderSearch.getToPriceTotals(), orderSearch.getFromCreateDate(), orderSearch.getToCreateDate());
     }
 }
