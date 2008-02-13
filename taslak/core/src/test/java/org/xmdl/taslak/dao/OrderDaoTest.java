@@ -2,6 +2,7 @@ package org.xmdl.taslak.dao;
 
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.search.OrderSearch;
 import org.springframework.dao.DataAccessException;
 
 import java.util.Collection;
@@ -50,7 +51,8 @@ public class OrderDaoTest extends BaseDaoTestCase {
         Date yesterday = cal.getTime();
         cal.add(Calendar.DAY_OF_MONTH,2);
         Date tomorrow= cal.getTime();
-        Collection<Order> orders = orderDao.search("abcd",9d,11d,yesterday,tomorrow);
+        OrderSearch search = new OrderSearch("abcd",9d,11d,yesterday,tomorrow);
+        Collection<Order> orders = orderDao.search(search);
         assertTrue(orders.size() > 0);
     }
 

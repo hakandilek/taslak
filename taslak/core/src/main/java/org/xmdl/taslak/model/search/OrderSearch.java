@@ -13,7 +13,17 @@ public class OrderSearch {
     public OrderSearch() {
     }
 
-    public String getName() {
+    public OrderSearch(String name, Double fromPriceTotals,
+			Double toPriceTotals, Date fromCreateDate, Date toCreateDate) {
+		super();
+		this.name = name;
+		this.fromPriceTotals = fromPriceTotals;
+		this.toPriceTotals = toPriceTotals;
+		this.fromCreateDate = fromCreateDate;
+		this.toCreateDate = toCreateDate;
+	}
+
+	public String getName() {
         return name;
     }
 

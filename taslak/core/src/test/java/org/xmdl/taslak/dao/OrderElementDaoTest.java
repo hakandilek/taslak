@@ -1,7 +1,10 @@
 package org.xmdl.taslak.dao;
 
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
+import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.Product;
+import org.xmdl.taslak.model.search.OrderElementSearch;
 import org.springframework.dao.DataAccessException;
 
 import java.util.Collection;
@@ -52,7 +55,10 @@ public class OrderElementDaoTest extends BaseDaoTestCase {
     }
 
     public void testSearch() throws Exception {
-        Collection<OrderElement> orderElements = orderElementDao.search(14L,16L,orderDao.getAll().get(0), productDao.getAll().get(0));
+    	Order order = orderDao.getAll().get(0);
+		Product product = productDao.getAll().get(0);
+		OrderElementSearch search = new OrderElementSearch(14L,16L,order, product);
+        Collection<OrderElement> orderElements = orderElementDao.search(search);
         assertTrue(orderElements.size() > 0);
     }
 

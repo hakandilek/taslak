@@ -18,19 +18,20 @@ public class OrderElementDaoHibernate extends GenericDaoHibernate<OrderElement, 
         super(OrderElement.class);
     }
 
-    public Collection<OrderElement> search(OrderElementSearch orderElementSearch) {
+    @SuppressWarnings("unchecked")
+	public Collection<OrderElement> search(OrderElementSearch orderElementSearch) {
         if(orderElementSearch == null){
             return new ArrayList<OrderElement>();
         }
 
-        return search(orderElementSearch.getFromQuantity(), orderElementSearch.getToQuantity(), orderElementSearch.getOrder(), orderElementSearch.getProduct());
-    }
-
-    public Collection<OrderElement> search(Long fromQuantity, Long toQuantity, Order order, Product product) {
-
         Criteria criteria = getSession().createCriteria(OrderElement.class);
 
-        if (fromQuantity != null)
+        Long fromQuantity = orderElementSearch.getFromQuantity();
+        Long toQuantity = orderElementSearch.getToQuantity();
+        Order order = orderElementSearch.getOrder();
+        Product product = orderElementSearch.getProduct();
+        
+		if (fromQuantity  != null)
             criteria.add(Restrictions.ge("quantity", fromQuantity));
         if (toQuantity != null)
             criteria.add(Restrictions.le("quantity", toQuantity));

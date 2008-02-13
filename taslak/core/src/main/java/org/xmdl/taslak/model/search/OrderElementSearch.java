@@ -13,7 +13,18 @@ public class OrderElementSearch {
     public OrderElementSearch() {
     }
 
-    public Long getFromQuantity() {
+    
+    public OrderElementSearch(Long fromQuantity, Long toQuantity, Order order,
+			Product product) {
+		super();
+		this.fromQuantity = fromQuantity;
+		this.toQuantity = toQuantity;
+		this.order = order;
+		this.product = product;
+	}
+
+
+	public Long getFromQuantity() {
         return fromQuantity;
     }
 
