@@ -209,6 +209,11 @@
             <artifactId>commons-dbcp</artifactId>
             <version>${commons.dbcp.version}</version>
         </dependency>
+		<dependency>
+		    <groupId>org.ajaxtags</groupId>
+		    <artifactId>ajaxtags</artifactId>
+		    <version>${org.ajaxtags.version}</version>
+		</dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
