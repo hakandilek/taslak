@@ -13,6 +13,7 @@
                 <value>org.xmdl.taslak.model.Product</value>
                 <value>org.xmdl.taslak.model.Order</value>
                 <value>org.xmdl.taslak.model.OrderElement</value>
+                <value>org.xmdl.taslak.model.Supplier</value>
             </list>
         </property>
         <property name="hibernateProperties">
