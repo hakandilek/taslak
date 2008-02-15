@@ -74,4 +74,8 @@
     <bean id="orderElementManager" class="org.xmdl.taslak.service.impl.OrderElementManagerImpl">
         <constructor-arg ref="orderElementDao"/>
     </bean>
+
+    <bean id="supplierManager" class="org.xmdl.taslak.service.impl.SupplierManagerImpl">
+        <constructor-arg ref="supplierDao"/>
+    </bean>
 </beans>
