@@ -2,9 +2,9 @@
   <name>mesken-weblib</name>
   <comment/>
   <projects>
-    <project>mesken-core</project>
-    <project>ida-weblib</project>
     <project>ida-corelib</project>
+    <project>ida-weblib</project>
+    <project>mesken-core</project>
   </projects>
   <buildSpec>
     <buildCommand>
