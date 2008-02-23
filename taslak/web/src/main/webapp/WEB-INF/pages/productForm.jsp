@@ -6,7 +6,7 @@
 </head>
 
 <!--copy URL-->
-<s:url id="copyUrl" namespace="/Product" action="copyProduct.html" includeParams="false">
+<s:url id="copyUrl" namespace="/Product" action="copyProduct.do" includeParams="false">
     <s:param name="idToCopy">
         <s:property value="product.id"/>
     </s:param>

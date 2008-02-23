@@ -8,10 +8,10 @@
 
 <c:set var="buttons">
     <input type="button" style="margin-right: 5px" class="button"
-           onclick="location.href='<c:url value="/Product/editProduct.html"/>'"
+           onclick="location.href='<c:url value="/Product/editProduct.do"/>'"
            value="<fmt:message key="button.add"/>"/>
 
-    <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
+    <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.do"/>'"
            value="<fmt:message key="button.done"/>"/>
 </c:set>
 
@@ -39,10 +39,10 @@
         <display:column property="productType" sortable="true" titleKey="product.productType"/>
 
         <display:column media="html" titleKey="List.Edit" >
-            <a href="/Product/editProduct.html?id=<c:out value="${productList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
+            <a href="/Product/editProduct.do?id=<c:out value="${productList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
         </display:column>
         <display:column media="html" titleKey="button.copy">
-            <a href="/Product/copyProduct.html?idToCopy=<c:out value="${productList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
+            <a href="/Product/copyProduct.do?idToCopy=<c:out value="${productList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
 

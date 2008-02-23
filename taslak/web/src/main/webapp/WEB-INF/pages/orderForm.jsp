@@ -14,14 +14,14 @@
     <c:if test="${not empty order.id}">
 
         <!--order element list URL-->
-        <s:url id="url" namespace="/OrderElement" action="editOrderElement.html" includeParams="none">
+        <s:url id="url" namespace="/OrderElement" action="editOrderElement.do" includeParams="none">
             <s:param name="orderId">
                 <s:property value="order.id"/>
             </s:param>
         </s:url>
 
         <!--copy URL-->
-        <s:url id="copyUrl" namespace="/Order" action="copyOrder.html" includeParams="none">
+        <s:url id="copyUrl" namespace="/Order" action="copyOrder.do" includeParams="none">
             <s:param name="idToCopy">
                 <s:property value="order.id"/>
             </s:param>

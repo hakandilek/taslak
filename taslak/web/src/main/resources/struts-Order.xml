@@ -14,9 +14,9 @@
         </action>
         <action name="saveOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="save">
             <result name="input">/WEB-INF/pages/orderForm.jsp</result>
-            <result name="cancel" type="redirect">orders.html</result>
-            <result name="delete" type="redirect">orders.html</result>
-            <result name="success" type="redirect">orders.html</result>
+            <result name="cancel" type="redirect">orders.do</result>
+            <result name="delete" type="redirect">orders.do</result>
+            <result name="success" type="redirect">orders.do</result>
         </action>
         <action name="copyOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="copy">
             <result name="success">/WEB-INF/pages/orderForm.jsp</result>

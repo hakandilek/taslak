@@ -8,10 +8,10 @@
 
 <c:set var="buttons">
     <input type="button" style="margin-right: 5px" class="button"
-        onclick="location.href='<c:url value="/editOrderElement.html"/>'"
+        onclick="location.href='<c:url value="/editOrderElement.do"/>'"
         value="<fmt:message key="button.add"/>"/>
 
-    <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
+    <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.do"/>'"
         value="<fmt:message key="button.done"/>"/>
 </c:set>
 
@@ -38,17 +38,17 @@
         <display:column property="id" media="csv excel xml pdf" titleKey="orderElement.id"/>
         <display:column property="quantity" sortable="true" titleKey="orderElement.quantity"/>
         <display:column media="html" titleKey="orderElement.editOrder">
-            <a href="/editOrder.html?id=<c:out value="${orderElementList.order.id}"/>"><ida:base-url context="icon" path="edit_up.gif"/></a>
+            <a href="/editOrder.do?id=<c:out value="${orderElementList.order.id}"/>"><ida:base-url context="icon" path="edit_up.gif"/></a>
         </display:column>
         <display:column media="html" titleKey="orderElement.editProduct">
-            <a href="/editProduct.html?id=<c:out value="${orderElementList.product.id}"/>"><ida:base-url context="icon" path="edit_up.gif"/></a>
+            <a href="/editProduct.do?id=<c:out value="${orderElementList.product.id}"/>"><ida:base-url context="icon" path="edit_up.gif"/></a>
         </display:column>
 
         <display:column media="html" titleKey="List.Edit">
-            <a href="/editOrderElement.html?id=<c:out value="${orderElementList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
+            <a href="/editOrderElement.do?id=<c:out value="${orderElementList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
         </display:column>
         <display:column media="html" titleKey="button.copy" >
-            <a href="/copyOrderElement.html?idToCopy=<c:out value="${orderElementList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
+            <a href="/copyOrderElement.do?idToCopy=<c:out value="${orderElementList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
 
