@@ -71,10 +71,10 @@
             <value>
                 PATTERN_TYPE_APACHE_ANT
                 /admin/*=ROLE_ADMIN
-                /passwordHint.html*=ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER
-                /signup.html*=ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER
-                /a4j.res/*.html*=ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER <!-- APF-737, OK to remove if not using JSF -->
-                /**/*.html*=ROLE_ADMIN,ROLE_USER
+                /passwordHint.do*=ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER
+                /signup.do*=ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER
+                /a4j.res/*.do*=ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER <!-- APF-737, OK to remove if not using JSF -->
+                /**/*.do*=ROLE_ADMIN,ROLE_USER
             </value>
         </property>
     </bean>
@@ -149,9 +149,9 @@
                 /admin/**=REQUIRES_SECURE_CHANNEL
                 /login*=REQUIRES_SECURE_CHANNEL
                 /j_security_check*=REQUIRES_SECURE_CHANNEL
-                /editProfile.html*=REQUIRES_SECURE_CHANNEL
-                /signup.html*=REQUIRES_SECURE_CHANNEL
-                /saveUser.html*=REQUIRES_SECURE_CHANNEL
+                /editProfile.do*=REQUIRES_SECURE_CHANNEL
+                /signup.do*=REQUIRES_SECURE_CHANNEL
+                /saveUser.do*=REQUIRES_SECURE_CHANNEL
                 /**=REQUIRES_INSECURE_CHANNEL
             </value>
         </property>

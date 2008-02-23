@@ -6,7 +6,7 @@
     <!-- Constants -->
     <constant name="struts.devMode" value="false"/>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
-    <constant name="struts.action.extension" value="html"/>
+    <constant name="struts.action.extension" value="do"/>
     <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.custom.i18n.resources" value="ApplicationResources,errors"/>
     <constant name="struts.multipart.maxSize" value="2097152"/>
@@ -56,7 +56,7 @@
         </interceptors>
 
         <global-results>
-            <result name="mainMenu" type="redirect">mainMenu.html</result>
+            <result name="mainMenu" type="redirect">mainMenu.do</result>
             <result name="dataAccessFailure">/WEB-INF/pages/dataAccessFailure.jsp</result>
         </global-results>
 
@@ -76,7 +76,7 @@
 
         <action name="saveSignup" class="signupAction" method="save">
             <result name="input">/WEB-INF/pages/signup.jsp</result>
-            <result name="success" type="redirect">/mainMenu.html</result>
+            <result name="success" type="redirect">/mainMenu.do</result>
         </action>
 
         <action name="editUser" class="userAction" method="edit">
@@ -91,16 +91,16 @@
         </action>
 
         <action name="saveUser" class="userAction" method="save">
-            <result name="cancel" type="redirect">admin/users.html</result>
+            <result name="cancel" type="redirect">admin/users.do</result>
             <result name="input">/WEB-INF/pages/userForm.jsp</result>
-            <result name="success" type="redirect">admin/users.html</result>
+            <result name="success" type="redirect">admin/users.do</result>
         </action>
 
         <action name="uploadFile" class="org.xmdl.ida.lib.web.action.FileUploadAction">
             <interceptor-ref name="fileUploadStack"/>
             <result name="input">/WEB-INF/pages/uploadForm.jsp</result>
             <result name="success">/WEB-INF/pages/uploadDisplay.jsp</result>
-            <result name="cancel" type="redirect">mainMenu.html</result>
+            <result name="cancel" type="redirect">mainMenu.do</result>
         </action>
 
         <action name="passwordHint" class="passwordHintAction">

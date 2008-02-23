@@ -60,6 +60,19 @@ public class ProductAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
+    public String associate() {
+        if (log.isDebugEnabled()) log.debug("associate() <-");
+
+//        if(productTypeIds!=null){
+//            productSearch.setProductType(ProductType.fromInt(productTypeIds[0]));
+//        }
+//        products = productManager.search(productSearch);
+
+//        if (log.isDebugEnabled()) log.debug("listing items:" + products.size());
+        if (log.isDebugEnabled()) log.debug("associate() ->");
+        return SUCCESS;
+    }
+
     public void setId(Long id) {
         this. id = id;
     }

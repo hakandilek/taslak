@@ -9,12 +9,15 @@
 
         <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/${appConfig["csstheme"]}/theme.css'/>" />
         <link rel="stylesheet" type="text/css" media="print" href="<c:url value='/styles/${appConfig["csstheme"]}/print.css'/>" />
+		<link rel="stylesheet" type="text/css" media="all" href="<s:url value='/styles/main.css' encode='false' includeParams='none'/>" />
 
         <script type="text/javascript" src="<c:url value='/scripts/prototype.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/scripts/scriptaculous.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/scripts/global.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/scripts/common.js'/>"></script>
+
         <decorator:head/>
+		<s:head theme="ajax"/>
     </head>
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/><decorator:getProperty property="body.class" writeEntireProperty="true"/>>
 
@@ -42,9 +45,9 @@
             <div id="nav">
                 <div class="wrapper">
                     <h2 class="accessibility">Navigation</h2>
-                    <hr>
+                    <hr/>
                     <jsp:include page="/common/menu.jsp"/>
-                    <hr>
+                    <hr/>
                 </div>
                 <hr/>
             </div><!-- end nav -->

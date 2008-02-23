@@ -8,10 +8,10 @@
 
 <c:set var="buttons">
     <input type="button" style="margin-right: 5px" class="button"
-        onclick="location.href='<c:url value="/Order/editOrder.html"/>'"
+        onclick="location.href='<c:url value="/Order/editOrder.do"/>'"
         value="<fmt:message key="button.add"/>"/>
 
-    <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
+    <input type="button" class="button" onclick="location.href='<c:url value="/mainMenu.do"/>'"
         value="<fmt:message key="button.done"/>"/>
 </c:set>
 
@@ -41,14 +41,14 @@
         </display:column>
 
         <display:column media="html" titleKey="List.Edit">
-            <a href="/Order/editOrder.html?id=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
+            <a href="/Order/editOrder.do?id=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
         </display:column>
         <display:column media="html" titleKey="button.copy">
-            <a href="/Order/copyOrder.html?idToCopy=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
+            <a href="/Order/copyOrder.do?idToCopy=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="save.gif"/></a>
         </display:column>
         <display:column property="deleteCheckbox" media="html" title="${deleteChecks}"/>
         <display:column media="html" titleKey="orderList.orderElements">
-            <a href="/OrderElement/editOrderElement.html?orderId=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="edit_down.gif"/> </a>
+            <a href="/OrderElement/editOrderElement.do?orderId=<c:out value="${orderList.id}"/>"><ida:base-url context="icon" path="edit_down.gif"/> </a>
         </display:column>
 
 		<display:footer>

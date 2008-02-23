@@ -38,9 +38,9 @@
         <td></td>
         <td class="buttonBar">
             <input class="button" type="button" value="Done"
-                onclick="location.href='mainMenu.html'" />
+                onclick="location.href='mainMenu.do'" />
             <input class="button" type="button" style="width: 120px" value="Upload Another"
-                onclick="location.href='uploadFile!default.html'" />
+                onclick="location.href='uploadFile!default.do'" />
         </td>
     </tr>
 </table>

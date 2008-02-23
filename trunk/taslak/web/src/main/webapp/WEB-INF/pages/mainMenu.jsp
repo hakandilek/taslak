@@ -12,9 +12,9 @@
 
 <ul class="glassList">
     <li>
-        <a href="<c:url value='/editProfile.html'/>"><fmt:message key="menu.user"/></a>
+        <a href="<c:url value='/editProfile.do'/>"><fmt:message key="menu.user"/></a>
     </li>
     <li>
-        <a href="<c:url value='/uploadFile.html'/>"><fmt:message key="menu.selectFile"/></a>
+        <a href="<c:url value='/uploadFile.do'/>"><fmt:message key="menu.selectFile"/></a>
     </li>
 </ul>
