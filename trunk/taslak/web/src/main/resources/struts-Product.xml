@@ -21,8 +21,8 @@
         <action name="copyProduct" class="org.xmdl.taslak.webapp.action.ProductAction" method="copy">
             <result name="success">/WEB-INF/pages/productForm.jsp</result>
         </action>
-        <action name="associate" class="org.xmdl.taslak.webapp.action.ProductAction" method="associate">
-            <result name="success">/WEB-INF/pages/productAssociate.jsp</result>
+        <action name="ajaxList" class="org.xmdl.taslak.webapp.action.ProductAction" method="list">
+            <result name="success">/WEB-INF/pages/productListJson.jsp</result>
         </action>
     </package>
 </struts>
