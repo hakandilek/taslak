@@ -21,5 +21,8 @@
         <action name="copyOrderElement" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="copy">
             <result name="success">/WEB-INF/pages/orderElementForm.jsp</result>
         </action>
+        <action name="ajaxList" class="org.xmdl.taslak.webapp.action.OrderElementAction" method="list">
+            <result name="success">/WEB-INF/pages/orderElementListJson.jsp</result>
+        </action>
     </package>
 </struts>
