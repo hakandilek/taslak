@@ -14,9 +14,9 @@
         </action>
         <action name="saveSupplier" class="org.xmdl.taslak.webapp.action.SupplierAction" method="save">
             <result name="input">/WEB-INF/pages/supplierForm.jsp</result>
-            <result name="cancel" type="redirect">suppliers.html</result>
-            <result name="delete" type="redirect">suppliers.html</result>
-            <result name="success" type="redirect">suppliers.html</result>
+            <result name="cancel" type="redirect">suppliers.jsp</result>
+            <result name="delete" type="redirect">suppliers.jsp</result>
+            <result name="success" type="redirect">suppliers.jsp</result>
         </action>
         <action name="copySupplier" class="org.xmdl.taslak.webapp.action.SupplierAction" method="copy">
             <result name="success">/WEB-INF/pages/supplierForm.jsp</result>

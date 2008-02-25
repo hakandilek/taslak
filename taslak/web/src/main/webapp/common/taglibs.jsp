@@ -1,4 +1,3 @@
-<%@ page language="java" errorPage="/error.jsp" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://acegisecurity.org/authz" prefix="authz" %>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@ taglib uri="http://struts-menu.sf.net/tag-el" prefix="menu" %>
