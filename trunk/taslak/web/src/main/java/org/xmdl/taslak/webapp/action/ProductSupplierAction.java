@@ -17,7 +17,9 @@ public class ProductSupplierAction extends BaseAction implements Preparable {
     private ProductManager productManager;
     private Collection<Product> products;
     private Product product;
-    private Long productID;
+    private Long id;
+
+    private Long idToCopy;
 
     private ProductSearch productSearch = new ProductSearch();
 
@@ -32,8 +34,8 @@ public class ProductSupplierAction extends BaseAction implements Preparable {
     public void prepare() {
         if (getRequest().getMethod().equalsIgnoreCase("post")) {
             // prevent failures on new
-            if (productID != null) {
-                product = productManager.get((long) productID);
+            if (id != null) {
+                product = productManager.get((long) id);
             }else{
                 product = new Product();
             }
@@ -52,21 +54,8 @@ public class ProductSupplierAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
-    public String associate() {
-        if (log.isDebugEnabled()) log.debug("associate() <-");
-
-//        if(productTypeIds!=null){
-//            productSearch.setProductType(ProductType.fromInt(productTypeIds[0]));
-//        }
-//        products = productManager.search(productSearch);
-
-//        if (log.isDebugEnabled()) log.debug("listing items:" + products.size());
-        if (log.isDebugEnabled()) log.debug("associate() ->");
-        return SUCCESS;
-    }
-
-    public void setProductID(Long id) {
-        this. productID = id;
+    public void setId(Long id) {
+        this. id = id;
     }
 
     public Product getProduct() {
@@ -93,6 +82,10 @@ public class ProductSupplierAction extends BaseAction implements Preparable {
     public String copy() {
         if (log.isDebugEnabled()) log.debug("copy() <-");
 
+        if (idToCopy != null) {
+            product = productManager.get(idToCopy);
+        }
+
         if (log.isDebugEnabled()) log.debug("copying product: " + product);
 
         if (log.isDebugEnabled()) log.debug("copy() ->");
@@ -104,8 +97,8 @@ public class ProductSupplierAction extends BaseAction implements Preparable {
     public String edit() {
         if (log.isDebugEnabled()) log.debug("edit() <-");
 
-        if (productID != null) {
-            product = productManager.get(productID);
+        if (id != null) {
+            product = productManager.get(id);
         } else {
             product = new Product();
         }
@@ -186,6 +179,14 @@ public class ProductSupplierAction extends BaseAction implements Preparable {
 
     public void setProductSearch(ProductSearch productSearch) {
         this.productSearch = productSearch;
+    }
+
+    public Long getIdToCopy() {
+        return idToCopy;
+    }
+
+    public void setIdToCopy(Long idToCopy) {
+        this.idToCopy = idToCopy;
     }
 
     public ProductManager getProductManager() {
