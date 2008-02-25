@@ -1,4 +1,5 @@
 <%@ include file="/common/taglibs.jsp"%>
+<%@page contentType="text/json; charset=UTF-8" %>
 [
 <s:iterator value="orderElements" status="iteratorStatus">
 	"orderElement": {

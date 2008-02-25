@@ -12,6 +12,7 @@ import org.xmdl.taslak.service.ProductManager;
 
 import com.opensymphony.xwork2.Preparable;
 
+@SuppressWarnings("serial")
 public class ProductAction extends BaseAction implements Preparable {
 
     private ProductManager productManager;
@@ -29,7 +30,7 @@ public class ProductAction extends BaseAction implements Preparable {
         this.productManager = productManager;
     }
 
-    public Collection getProducts() {
+    public Collection<Product> getProducts() {
         return products;
     }
 

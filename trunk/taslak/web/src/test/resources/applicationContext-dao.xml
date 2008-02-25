@@ -58,7 +58,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="supplierDao" class="org.xmdl.taslak.dao.hibernate.Supplier">
+    <bean id="supplierDao" class="org.xmdl.taslak.dao.hibernate.SupplierDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

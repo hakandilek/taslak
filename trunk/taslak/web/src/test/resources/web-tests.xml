@@ -16,7 +16,8 @@
 	<target name="ApplicationTests"
         depends="OrderElementTests,
                  OrderTests,
-		         ProductTests"
+		         ProductTests,
+        		 SupplierTests"
 		description="Calls all application tests">
 	</target>
 
@@ -399,4 +400,132 @@
         </webtest>
     </target>
     <!--OrderElement-END-->
+	
+    <!--Supplier-START-->
+    <!-- runs supplier-related tests -->
+    <target name="SupplierTests" depends="SearchSuppliers,EditSupplier,SaveSupplier,AddSupplier,
+                    CopySupplier,DeleteSupplier,MassDeleteSupplier"
+            description="Call and executes all supplier test cases (targets)">
+        <echo>Successfully ran all Supplier UI tests!</echo>
+    </target>
+
+    <!-- Verify the suppliers list screen displays without errors -->
+    <target name="SearchSuppliers" description="Tests search for and displaying all suppliers">
+        <webtest name="searchSuppliers">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Supplier link" url="/Supplier/suppliers.html"/>
+                <verifytitle description="we should see the supplierList title"
+                             text=".*${supplierList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit supplier screen displays without errors -->
+    <target name="EditSupplier" description="Tests editing an existing Supplier's information">
+        <webtest name="editSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Supplier link" url="/Supplier/editSupplier.html?id=1"/>
+                <verifytitle description="we should see the supplierDetail title"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a supplier and then save -->
+    <target name="SaveSupplier" description="Tests editing and saving a supplier">
+        <webtest name="saveSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Supplier link" url="/Supplier/editSupplier.html?id=1"/>
+                <verifytitle description="we should see the supplierDetail title"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="supplier.name" value="SrOzBdQzGm"/>
+                <setInputField description="set price" name="supplier.price" value="10.2"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${supplier.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Supplier -->
+    <target name="AddSupplier" description="Adds a new Supplier">
+        <webtest name="addSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Supplier/editSupplier.html"/>
+                <verifytitle description="we should see the supplierDetail title"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="supplier.name" value="SrOzBdQzGm"/>
+                <setInputField description="set price" name="supplier.price" value="10.2"/>
+
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Supplier List appears if save successful"
+                             text=".*${supplierList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${supplier.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing supplier -->
+    <target name="CopySupplier" description="Copies existing Supplier">
+        <webtest name="copySupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Supplier Order link" url="/Supplier/copySupplier.html?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the supplier"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing supplier -->
+    <target name="DeleteSupplier" description="Deletes existing Supplier">
+        <webtest name="deleteSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Supplier link" url="/Supplier/editSupplier.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Supplier List" text=".*${supplierList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${supplier.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing suppliers -->
+    <target name="MassDeleteSupplier" description="Mass Delete Suppliers">
+        <webtest name="massDeleteSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Suppliers link" url="/Supplier/suppliers.html"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Suppliers List" text=".*${supplierList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Supplier.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Supplier-END-->
+
 </project>
