@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="ProductSupplier" namespace="/ProductSupplier" extends="struts-default">
+        <action name="associate" class="org.xmdl.taslak.webapp.action.ProductSupplierAction" method="associate">
+            <result>/WEB-INF/pages/productSupplierAssociate.jsp</result>
+        </action>
+    </package>
+</struts>

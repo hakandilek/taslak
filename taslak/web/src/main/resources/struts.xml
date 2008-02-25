@@ -137,5 +137,7 @@
     <include file="struts-Product.xml"/>
     <include file="struts-Order.xml"/>
     <include file="struts-OrderElement.xml"/>
+    <include file="struts-Supplier.xml"/>
+    <include file="struts-ProductSupplier.xml"/>
 
 </struts>
