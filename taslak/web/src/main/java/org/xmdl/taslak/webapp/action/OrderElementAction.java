@@ -27,8 +27,9 @@ public class OrderElementAction extends BaseAction implements Preparable {
     private Order order;
 
     private OrderElementSearch orderElementSearch = new OrderElementSearch();
+   private static final long serialVersionUID = -4307921647869600187L;
 
-    /**
+   /**
      * Grab the entity from the database before populating with request parameters
      */
     public void prepare() {
@@ -39,10 +40,14 @@ public class OrderElementAction extends BaseAction implements Preparable {
             if (id != null) {
                 orderElement = orderElementManager.get(id);
             } else {
+               if(orderId == null){
+                  orderId = Long.parseLong(getRequest().getParameter("orderElement.order.id"));
+               }
                 orderElement = new OrderElement();
                 if (orderId != null) {
                     order = orderManager.get(orderId);
-                    orderElements = order.getOrderElements();
+                    orderElementSearch.setOrder(order);
+                    orderElements = orderElementManager.search(orderElementSearch);
                 } else {
                     order = new Order();
                 }
@@ -271,5 +276,5 @@ public class OrderElementAction extends BaseAction implements Preparable {
     public void setOrderElement(OrderElement orderElement) {
         this.orderElement = orderElement;
     }
-    
+
 }
