@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.xmdl.db:DModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.xmdl.db="http://www.xmdl.org/xmdldb.ecore" name="taslak" xModel="platform:/resource/taslak/model/taslak.xmdl">
+  <xProject href="taslak.xmdl#/"/>
+  <dPackages name="org.xmdl.taslak">
+    <xPackage href="taslak.xmdl#//@packages.0"/>
+    <dTables name="TBL_ORDER">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.0"/>
+      <dFields name="F_NAME" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.0"/>
+      </dFields>
+      <dFields name="F_PRICETOTALS" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.1"/>
+      </dFields>
+      <dFields name="F_CREATEDATE" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.2"/>
+      </dFields>
+      <dFields name="F_ORDERELEMENTS_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.3"/>
+      </dFields>
+    </dTables>
+    <dTables name="TBL_PRODUCT">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.1"/>
+      <dFields name="F_NAME" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.0"/>
+      </dFields>
+      <dFields name="F_PRICE" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.1"/>
+      </dFields>
+      <dFields name="F_ORDERELEMENTS_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.2"/>
+      </dFields>
+    </dTables>
+    <dTables name="TBL_PRODUCT_SUPPLIER">
+      <dFields name="F_SUPPLIERS_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.3"/>
+      </dFields>
+      <dFields name="F_PRODUCTS_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.1"/>
+      </dFields>
+    </dTables>
+    <dTables name="TBL_SUPPLIER">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.2"/>
+      <dFields name="F_NAME" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.0"/>
+      </dFields>
+    </dTables>
+    <dTables name="TBL_ORDERELEMENT">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.3"/>
+      <dFields name="F_QUANTITY" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.0"/>
+      </dFields>
+      <dFields name="F_ORDER_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.1"/>
+      </dFields>
+      <dFields name="F_PRODUCT_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.2"/>
+      </dFields>
+    </dTables>
+  </dPackages>
+</org.xmdl.db:DModel>

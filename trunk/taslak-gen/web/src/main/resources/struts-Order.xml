@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="Order" namespace="/Order" extends="struts-default">
+        <action name="orders" class="org.xmdl.taslak.webapp.action.OrderAction" method="list">
+            <result name="input">/WEB-INF/pages/orderList.jsp</result>
+            <result>/WEB-INF/pages/orderList.jsp</result>
+        </action>
+        <action name="editOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="edit">
+            <result>/WEB-INF/pages/orderForm.jsp</result>
+            <result name="error">/WEB-INF/pages/orderList.jsp</result>
+        </action>
+        <action name="saveOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="save">
+            <result name="input">/WEB-INF/pages/orderForm.jsp</result>
+            <result name="cancel" type="redirect">orders.do</result>
+            <result name="delete" type="redirect">orders.do</result>
+            <result name="success" type="redirect">orders.do</result>
+        </action>
+        <action name="copyOrder" class="org.xmdl.taslak.webapp.action.OrderAction" method="copy">
+            <result name="success">/WEB-INF/pages/orderForm.jsp</result>
+        </action>
+        <action name="ajaxList" class="org.xmdl.taslak.webapp.action.OrderAction" method="list">
+            <result name="success">/WEB-INF/pages/orderListJson.jsp</result>
+        </action>
+    </package>
+</struts>

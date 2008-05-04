@@ -1,0 +1,524 @@
+<!DOCTYPE project [
+    <!ENTITY config SYSTEM "file:./config.xml">
+    <!ENTITY login SYSTEM "file:./login.xml">
+]>
+<project basedir="." default="run-all-tests">
+    <!-- Use i18n bundle, 2nd one listed is the default -->
+    <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources_${user.language}.properties"/>
+    <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources.properties"/>
+
+    <!-- runs all targets -->
+    <target name="run-all-tests"
+        depends="ApplicationTests"
+        description="Call and executes all test cases (targets)"/>
+
+    <!-- application specific tests grouped by each entity -->
+    <target name="ApplicationTests"
+        depends="OrderTests,ProductTests,SupplierTests,OrderElementTests"
+        description="Calls all application tests">
+    </target>
+
+    <!--Order-START-->
+    <!-- runs order-related tests -->
+    <target name="OrderTests" depends="SearchOrders,EditOrder,SaveOrder,AddOrder,
+                    CopyOrder,DeleteOrder,MassDeleteOrder"
+            description="Call and executes all order test cases (targets)">
+        <echo>Successfully ran all Order UI tests!</echo>
+    </target>
+
+    <!-- Verify the orders list screen displays without errors -->
+    <target name="SearchOrders" description="Tests search for and displaying all orders">
+        <webtest name="searchOrders">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Order link" url="/Order/orders.do"/>
+                <verifytitle description="we should see the orderList title"
+                             text=".*${orderList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit order screen displays without errors -->
+    <target name="EditOrder" description="Tests editing an existing Order's information">
+        <webtest name="editOrder">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Order link" url="/Order/editOrder.do?id=1"/>
+                <verifytitle description="we should see the orderDetail title"
+                             text=".*${orderDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a order and then save -->
+    <target name="SaveOrder" description="Tests editing and saving a order">
+        <webtest name="saveOrder">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Order link" url="/Order/editOrder.do?id=1"/>
+                <verifytitle description="we should see the orderDetail title"
+                             text=".*${orderDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="order.name" value="7nbkPsJxcur3A9K"/>
+                <setInputField description="set priceTotals" name="order.priceTotals" value="0.17859993342152025"/>
+                <setInputField description="set createDate" name="order.createDate" value="02/09/2001"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${orderDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${order.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Order -->
+    <target name="AddOrder" description="Adds a new Order">
+        <webtest name="addOrder">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Order/editOrder.do"/>
+                <verifytitle description="we should see the orderDetail title"
+                             text=".*${orderDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="order.name" value="7nbkPsJxcur3A9K"/>
+                <setInputField description="set priceTotals" name="order.priceTotals" value="0.17859993342152025"/>
+                <setInputField description="set createDate" name="order.createDate" value="02/09/2001"/>
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Order List appears if save successful"
+                             text=".*${orderList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${order.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing order -->
+    <target name="CopyOrder" description="Copies existing Order">
+        <webtest name="copyOrder">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Order Order link" url="/Order/copyOrder.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the order"
+                             text=".*${orderDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing order -->
+    <target name="DeleteOrder" description="Deletes existing Order">
+        <webtest name="deleteOrder">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Order link" url="/Order/editOrder.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Order List" text=".*${orderList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${order.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing orders -->
+    <target name="MassDeleteOrder" description="Mass Delete Orders">
+        <webtest name="massDeleteOrder">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Orders link" url="/Order/orders.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Orders List" text=".*${orderList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Order.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Order-END-->
+
+    <!--Product-START-->
+    <!-- runs product-related tests -->
+    <target name="ProductTests" depends="SearchProducts,EditProduct,SaveProduct,AddProduct,
+                    CopyProduct,DeleteProduct,MassDeleteProduct"
+            description="Call and executes all product test cases (targets)">
+        <echo>Successfully ran all Product UI tests!</echo>
+    </target>
+
+    <!-- Verify the products list screen displays without errors -->
+    <target name="SearchProducts" description="Tests search for and displaying all products">
+        <webtest name="searchProducts">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Product link" url="/Product/products.do"/>
+                <verifytitle description="we should see the productList title"
+                             text=".*${productList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit product screen displays without errors -->
+    <target name="EditProduct" description="Tests editing an existing Product's information">
+        <webtest name="editProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Product link" url="/Product/editProduct.do?id=1"/>
+                <verifytitle description="we should see the productDetail title"
+                             text=".*${productDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a product and then save -->
+    <target name="SaveProduct" description="Tests editing and saving a product">
+        <webtest name="saveProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Product link" url="/Product/editProduct.do?id=1"/>
+                <verifytitle description="we should see the productDetail title"
+                             text=".*${productDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="product.name" value="Bfvs6f5vgMBKh7V"/>
+                <setInputField description="set price" name="product.price" value="0.462246062829789"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${productDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${product.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Product -->
+    <target name="AddProduct" description="Adds a new Product">
+        <webtest name="addProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Product/editProduct.do"/>
+                <verifytitle description="we should see the productDetail title"
+                             text=".*${productDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="product.name" value="Bfvs6f5vgMBKh7V"/>
+                <setInputField description="set price" name="product.price" value="0.462246062829789"/>
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Product List appears if save successful"
+                             text=".*${productList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${product.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing product -->
+    <target name="CopyProduct" description="Copies existing Product">
+        <webtest name="copyProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Product Order link" url="/Product/copyProduct.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the product"
+                             text=".*${productDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing product -->
+    <target name="DeleteProduct" description="Deletes existing Product">
+        <webtest name="deleteProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Product link" url="/Product/editProduct.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Product List" text=".*${productList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${product.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing products -->
+    <target name="MassDeleteProduct" description="Mass Delete Products">
+        <webtest name="massDeleteProduct">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Products link" url="/Product/products.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Products List" text=".*${productList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Product.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Product-END-->
+
+    <!--Supplier-START-->
+    <!-- runs supplier-related tests -->
+    <target name="SupplierTests" depends="SearchSuppliers,EditSupplier,SaveSupplier,AddSupplier,
+                    CopySupplier,DeleteSupplier,MassDeleteSupplier"
+            description="Call and executes all supplier test cases (targets)">
+        <echo>Successfully ran all Supplier UI tests!</echo>
+    </target>
+
+    <!-- Verify the suppliers list screen displays without errors -->
+    <target name="SearchSuppliers" description="Tests search for and displaying all suppliers">
+        <webtest name="searchSuppliers">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Supplier link" url="/Supplier/suppliers.do"/>
+                <verifytitle description="we should see the supplierList title"
+                             text=".*${supplierList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit supplier screen displays without errors -->
+    <target name="EditSupplier" description="Tests editing an existing Supplier's information">
+        <webtest name="editSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Supplier link" url="/Supplier/editSupplier.do?id=1"/>
+                <verifytitle description="we should see the supplierDetail title"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a supplier and then save -->
+    <target name="SaveSupplier" description="Tests editing and saving a supplier">
+        <webtest name="saveSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Supplier link" url="/Supplier/editSupplier.do?id=1"/>
+                <verifytitle description="we should see the supplierDetail title"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="supplier.name" value="3zjaE6REs45XNSu"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${supplier.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Supplier -->
+    <target name="AddSupplier" description="Adds a new Supplier">
+        <webtest name="addSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Supplier/editSupplier.do"/>
+                <verifytitle description="we should see the supplierDetail title"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="supplier.name" value="3zjaE6REs45XNSu"/>
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Supplier List appears if save successful"
+                             text=".*${supplierList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${supplier.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing supplier -->
+    <target name="CopySupplier" description="Copies existing Supplier">
+        <webtest name="copySupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Supplier Order link" url="/Supplier/copySupplier.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the supplier"
+                             text=".*${supplierDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing supplier -->
+    <target name="DeleteSupplier" description="Deletes existing Supplier">
+        <webtest name="deleteSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Supplier link" url="/Supplier/editSupplier.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Supplier List" text=".*${supplierList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${supplier.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing suppliers -->
+    <target name="MassDeleteSupplier" description="Mass Delete Suppliers">
+        <webtest name="massDeleteSupplier">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Suppliers link" url="/Supplier/suppliers.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Suppliers List" text=".*${supplierList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Supplier.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Supplier-END-->
+
+    <!--OrderElement-START-->
+    <!-- runs orderElement-related tests -->
+    <target name="OrderElementTests" depends="SearchOrderElements,EditOrderElement,SaveOrderElement,AddOrderElement,
+                    CopyOrderElement,DeleteOrderElement,MassDeleteOrderElement"
+            description="Call and executes all orderElement test cases (targets)">
+        <echo>Successfully ran all OrderElement UI tests!</echo>
+    </target>
+
+    <!-- Verify the orderElements list screen displays without errors -->
+    <target name="SearchOrderElements" description="Tests search for and displaying all orderElements">
+        <webtest name="searchOrderElements">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View OrderElement link" url="/OrderElement/orderElements.do"/>
+                <verifytitle description="we should see the orderElementList title"
+                             text=".*${orderElementList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit orderElement screen displays without errors -->
+    <target name="EditOrderElement" description="Tests editing an existing OrderElement's information">
+        <webtest name="editOrderElement">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit OrderElement link" url="/OrderElement/editOrderElement.do?id=1"/>
+                <verifytitle description="we should see the orderElementDetail title"
+                             text=".*${orderElementDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a orderElement and then save -->
+    <target name="SaveOrderElement" description="Tests editing and saving a orderElement">
+        <webtest name="saveOrderElement">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit OrderElement link" url="/OrderElement/editOrderElement.do?id=1"/>
+                <verifytitle description="we should see the orderElementDetail title"
+                             text=".*${orderElementDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set quantity" name="orderElement.quantity" value="-2652431774880544494"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${orderElementDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${orderElement.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new OrderElement -->
+    <target name="AddOrderElement" description="Adds a new OrderElement">
+        <webtest name="addOrderElement">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/OrderElement/editOrderElement.do"/>
+                <verifytitle description="we should see the orderElementDetail title"
+                             text=".*${orderElementDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set quantity" name="orderElement.quantity" value="-2652431774880544494"/>
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="OrderElement List appears if save successful"
+                             text=".*${orderElementList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${orderElement.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing orderElement -->
+    <target name="CopyOrderElement" description="Copies existing OrderElement">
+        <webtest name="copyOrderElement">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click OrderElement Order link" url="/OrderElement/copyOrderElement.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the orderElement"
+                             text=".*${orderElementDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing orderElement -->
+    <target name="DeleteOrderElement" description="Deletes existing OrderElement">
+        <webtest name="deleteOrderElement">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit OrderElement link" url="/OrderElement/editOrderElement.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display OrderElement List" text=".*${orderElementList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${orderElement.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing orderElements -->
+    <target name="MassDeleteOrderElement" description="Mass Delete OrderElements">
+        <webtest name="massDeleteOrderElement">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List OrderElements link" url="/OrderElement/orderElements.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display OrderElements List" text=".*${orderElementList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${OrderElement.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--OrderElement-END-->
+
+
+</project>
