@@ -170,7 +170,6 @@ public class Order extends BaseObject implements Serializable {
         result = 31 * result + name.hashCode();
         result = 31 * result + priceTotals.hashCode();
         result = 31 * result + createDate.hashCode();
-        result = 31 * result + orderElements.hashCode();
         return result;
     }
 

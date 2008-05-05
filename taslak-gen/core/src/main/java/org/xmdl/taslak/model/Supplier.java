@@ -128,7 +128,6 @@ public class Supplier extends BaseObject implements Serializable {
         int result;
         result = id.hashCode();
         result = 31 * result + name.hashCode();
-        result = 31 * result + products.hashCode();
         return result;
     }
 

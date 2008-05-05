@@ -60,9 +60,9 @@ public class OrderActionTest extends BaseActionTestCase {
         Order order = new Order();
 
         // enter all required fields
-        order.setName("7nbkPsJxcur3A9K");
-        order.setPriceTotals(new Double(0.17859993342152025));
-        order.setCreateDate(new Date(981703378648L));
+        order.setName("fF2FjgG7CaQLemW");
+        order.setPriceTotals(new Double(0.4478909514018109));
+        order.setCreateDate(new Date(1042526075721L));
 
 
         orderManager.save(order);
