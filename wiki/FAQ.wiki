@@ -1,7 +1,7 @@
 #summary Frequently Asked Questions
 #labels Featured,Phase-Implementation
 
-Q1. I get the following error when I run integration tests, but everything seems to be fine.
+*Q1. I get the following error when I run integration tests, but everything seems to be fine.*
 {{{
 [INFO] ------------------------------------------------------------------------
 [ERROR] BUILD ERROR
