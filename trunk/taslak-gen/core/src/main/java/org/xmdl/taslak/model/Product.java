@@ -170,8 +170,6 @@ public class Product extends BaseObject implements Serializable {
         result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + price.hashCode();
-        result = 31 * result + orderElements.hashCode();
-        result = 31 * result + suppliers.hashCode();
         return result;
     }
 

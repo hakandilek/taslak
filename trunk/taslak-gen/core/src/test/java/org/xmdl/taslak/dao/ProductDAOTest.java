@@ -47,8 +47,8 @@ public class ProductDAOTest extends BaseDaoTestCase {
     public void testAddAndRemoveProduct() throws Exception {
         Product product = new Product();
 
-        product.setName("Bfvs6f5vgMBKh7V");
-        product.setPrice(new Double(0.462246062829789));
+        product.setName("FAPJP5zsxfbPh4k");
+        product.setPrice(new Double(0.37977096517272835));
 
         product = productDAO.save(product);
         flush();
@@ -56,8 +56,8 @@ public class ProductDAOTest extends BaseDaoTestCase {
         product = productDAO.get(product.getId());
 
         assertNotNull(product.getId());
-        assertEquals("Bfvs6f5vgMBKh7V", product.getName());
-        assertEquals(new Double(0.462246062829789), product.getPrice());
+        assertEquals("FAPJP5zsxfbPh4k", product.getName());
+        assertEquals(new Double(0.37977096517272835), product.getPrice());
 
         log.debug("removing product...");
         productDAO.remove(product.getId());
@@ -77,9 +77,9 @@ public class ProductDAOTest extends BaseDaoTestCase {
      */ 
     public void testSearch() throws Exception {
         ProductSearch search = new ProductSearch();
-        search.setName("Bfvs6f5vgMBKh7V");
-        search.setPriceMin(new Double(0.462246062829789));
-        search.setPriceMax(new Double(0.462246062829789));
+        search.setName("FAPJP5zsxfbPh4k");
+        search.setPriceMin(new Double(0.37977096517272835));
+        search.setPriceMax(new Double(0.37977096517272835));
         Collection<Product> products = productDAO.search(search);
         assertTrue(products.size() > 0);
     }
@@ -91,8 +91,8 @@ public class ProductDAOTest extends BaseDaoTestCase {
         super.onSetUpBeforeTransaction();
 
         Product product = new Product();
-        product.setName("Bfvs6f5vgMBKh7V");
-        product.setPrice(new Double(0.462246062829789));
+        product.setName("FAPJP5zsxfbPh4k");
+        product.setPrice(new Double(0.37977096517272835));
         productDAO.save(product);
     }
 
