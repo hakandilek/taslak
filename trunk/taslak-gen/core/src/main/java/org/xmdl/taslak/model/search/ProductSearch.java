@@ -138,16 +138,16 @@ public class ProductSearch implements Serializable {
      */
     public String toString() {
         return MessageFormat.format("ProductSearch "
-                + "[name={0}]"
-                + "[priceMin={1}]"
-                + "[priceMax={2}]"
-                + "[orderElements={3}]"
-                + "[suppliers={4}]"
-                , name
-                , priceMin
-                , priceMax
-                , orderElements
-                , suppliers
+            + "[name={0}]"
+            + "[priceMin={1}]"
+            + "[priceMax={2}]"
+            + "[orderElements={3}]"
+            + "[suppliers={4}]"
+            , name
+            , priceMin
+            , priceMax
+            , orderElements
+            , suppliers
         );
     }
 
@@ -156,11 +156,11 @@ public class ProductSearch implements Serializable {
      */
     public int hashCode() {
         int result = 1;
-                result = 31 * result + name.hashCode();
-                result = 31 * result + priceMin.hashCode();
-                result = 31 * result + priceMax.hashCode();
-                result = 31 * result + orderElements.hashCode();
-                result = 31 * result + suppliers.hashCode();
+            result = 31 * result + name.hashCode();
+            result = 31 * result + priceMin.hashCode();
+            result = 31 * result + priceMax.hashCode();
+            result = 31 * result + orderElements.hashCode();
+            result = 31 * result + suppliers.hashCode();
         return result;
     }
 

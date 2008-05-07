@@ -60,7 +60,7 @@ public class SupplierActionTest extends BaseActionTestCase {
         Supplier supplier = new Supplier();
 
         // enter all required fields
-        supplier.setName("aaSPaV4XCkkErz2");
+        supplier.setName("thjC9 SFaEz zQG ");
 
 
         supplierManager.save(supplier);

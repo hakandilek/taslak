@@ -63,9 +63,9 @@
                              text=".*${orderDetail.title}.*" regex="true"/>
 
                 <!-- update some of the required fields -->
-                <setInputField description="set name" name="order.name" value="fF2FjgG7CaQLemW"/>
-                <setInputField description="set priceTotals" name="order.priceTotals" value="0.4478909514018109"/>
-                <setInputField description="set createDate" name="order.createDate" value="01/14/2003"/>
+                <setInputField description="set name" name="order.name" value="GBaHRE3Q zHMcsB"/>
+                <setInputField description="set priceTotals" name="order.priceTotals" value="0.03335887159986095"/>
+                <setInputField description="set createDate" name="order.createDate" value="03/29/2009"/>
 
                 <clickbutton label="${button.update}" description="Click Update"/>
                 <verifytitle description="Page re-appears if save successful"
@@ -86,9 +86,9 @@
                              text=".*${orderDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set name" name="order.name" value="fF2FjgG7CaQLemW"/>
-                <setInputField description="set priceTotals" name="order.priceTotals" value="0.4478909514018109"/>
-                <setInputField description="set createDate" name="order.createDate" value="01/14/2003"/>
+                <setInputField description="set name" name="order.name" value="GBaHRE3Q zHMcsB"/>
+                <setInputField description="set priceTotals" name="order.priceTotals" value="0.03335887159986095"/>
+                <setInputField description="set createDate" name="order.createDate" value="03/29/2009"/>
 
                 <clickbutton label="${button.add}" description="Click button 'Add'"/>
                 <verifytitle description="Order List appears if save successful"
@@ -191,8 +191,8 @@
                              text=".*${productDetail.title}.*" regex="true"/>
 
                 <!-- update some of the required fields -->
-                <setInputField description="set name" name="product.name" value="FAPJP5zsxfbPh4k"/>
-                <setInputField description="set price" name="product.price" value="0.37977096517272835"/>
+                <setInputField description="set name" name="product.name" value="XzkZqt6L AMDCHF"/>
+                <setInputField description="set price" name="product.price" value="0.33639733721081966"/>
 
                 <clickbutton label="${button.update}" description="Click Update"/>
                 <verifytitle description="Page re-appears if save successful"
@@ -213,8 +213,8 @@
                              text=".*${productDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set name" name="product.name" value="FAPJP5zsxfbPh4k"/>
-                <setInputField description="set price" name="product.price" value="0.37977096517272835"/>
+                <setInputField description="set name" name="product.name" value="XzkZqt6L AMDCHF"/>
+                <setInputField description="set price" name="product.price" value="0.33639733721081966"/>
 
                 <clickbutton label="${button.add}" description="Click button 'Add'"/>
                 <verifytitle description="Product List appears if save successful"
@@ -317,7 +317,7 @@
                              text=".*${supplierDetail.title}.*" regex="true"/>
 
                 <!-- update some of the required fields -->
-                <setInputField description="set name" name="supplier.name" value="aaSPaV4XCkkErz2"/>
+                <setInputField description="set name" name="supplier.name" value="thjC9 SFaEz zQG "/>
 
                 <clickbutton label="${button.update}" description="Click Update"/>
                 <verifytitle description="Page re-appears if save successful"
@@ -338,7 +338,7 @@
                              text=".*${supplierDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set name" name="supplier.name" value="aaSPaV4XCkkErz2"/>
+                <setInputField description="set name" name="supplier.name" value="thjC9 SFaEz zQG "/>
 
                 <clickbutton label="${button.add}" description="Click button 'Add'"/>
                 <verifytitle description="Supplier List appears if save successful"
@@ -441,7 +441,7 @@
                              text=".*${orderElementDetail.title}.*" regex="true"/>
 
                 <!-- update some of the required fields -->
-                <setInputField description="set quantity" name="orderElement.quantity" value="5433242341224180537"/>
+                <setInputField description="set quantity" name="orderElement.quantity" value="-4183991868486197683"/>
 
                 <clickbutton label="${button.update}" description="Click Update"/>
                 <verifytitle description="Page re-appears if save successful"
@@ -462,7 +462,7 @@
                              text=".*${orderElementDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set quantity" name="orderElement.quantity" value="5433242341224180537"/>
+                <setInputField description="set quantity" name="orderElement.quantity" value="-4183991868486197683"/>
 
                 <clickbutton label="${button.add}" description="Click button 'Add'"/>
                 <verifytitle description="OrderElement List appears if save successful"

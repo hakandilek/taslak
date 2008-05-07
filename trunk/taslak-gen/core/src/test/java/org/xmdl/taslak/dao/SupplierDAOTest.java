@@ -47,7 +47,7 @@ public class SupplierDAOTest extends BaseDaoTestCase {
     public void testAddAndRemoveSupplier() throws Exception {
         Supplier supplier = new Supplier();
 
-        supplier.setName("aaSPaV4XCkkErz2");
+        supplier.setName("thjC9 SFaEz zQG ");
 
         supplier = supplierDAO.save(supplier);
         flush();
@@ -55,7 +55,7 @@ public class SupplierDAOTest extends BaseDaoTestCase {
         supplier = supplierDAO.get(supplier.getId());
 
         assertNotNull(supplier.getId());
-        assertEquals("aaSPaV4XCkkErz2", supplier.getName());
+        assertEquals("thjC9 SFaEz zQG ", supplier.getName());
 
         log.debug("removing supplier...");
         supplierDAO.remove(supplier.getId());
@@ -75,7 +75,7 @@ public class SupplierDAOTest extends BaseDaoTestCase {
      */ 
     public void testSearch() throws Exception {
         SupplierSearch search = new SupplierSearch();
-        search.setName("aaSPaV4XCkkErz2");
+        search.setName("thjC9 SFaEz zQG ");
         Collection<Supplier> suppliers = supplierDAO.search(search);
         assertTrue(suppliers.size() > 0);
     }
@@ -87,7 +87,7 @@ public class SupplierDAOTest extends BaseDaoTestCase {
         super.onSetUpBeforeTransaction();
 
         Supplier supplier = new Supplier();
-        supplier.setName("aaSPaV4XCkkErz2");
+        supplier.setName("thjC9 SFaEz zQG ");
         supplierDAO.save(supplier);
     }
 

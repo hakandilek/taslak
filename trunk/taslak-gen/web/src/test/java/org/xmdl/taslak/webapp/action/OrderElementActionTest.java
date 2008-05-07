@@ -60,7 +60,7 @@ public class OrderElementActionTest extends BaseActionTestCase {
         OrderElement orderElement = new OrderElement();
 
         // enter all required fields
-        orderElement.setQuantity(new Long(5433242341224180537L));
+        orderElement.setQuantity(new Long(-4183991868486197683L));
 
 
         orderElementManager.save(orderElement);
