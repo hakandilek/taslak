@@ -33,7 +33,7 @@ import org.xmdl.ida.lib.model.BaseObject;
  * @generated
  */ 
 @Entity (name=("TBL_ORDER"))
-public class Order extends BaseObject implements Serializable {
+public class Order extends BaseObject implements Serializable, Cloneable {
 
     /** 
      * Unique identifier
@@ -172,6 +172,21 @@ public class Order extends BaseObject implements Serializable {
         result = 31 * result + createDate.hashCode();
         return result;
     }
+
+    /** 
+     * @generated
+     */
+     public Order createClone() {
+     	try {
+     		return (Order) clone();
+        } catch (CloneNotSupportedException e) {
+            Order copy = new Order();
+            copy.name = this.name;
+            copy.priceTotals = this.priceTotals;
+            copy.createDate = this.createDate;
+            return copy;
+        }
+     }
 
 
 }

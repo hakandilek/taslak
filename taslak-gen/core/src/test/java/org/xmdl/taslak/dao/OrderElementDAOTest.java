@@ -1,23 +1,11 @@
-
 package org.xmdl.taslak.dao;
 
 
 import java.util.*;
-
 import org.springframework.dao.DataAccessException;
-
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
-
 import org.xmdl.taslak.model.*;
-
-import org.xmdl.taslak.model.search.*; 
-
-
-
-
-
-
-
+import org.xmdl.taslak.model.search.*;
 
 /**
  *
@@ -47,7 +35,7 @@ public class OrderElementDAOTest extends BaseDaoTestCase {
     public void testAddAndRemoveOrderElement() throws Exception {
         OrderElement orderElement = new OrderElement();
 
-        orderElement.setQuantity(new Long(5433242341224180537L));
+        orderElement.setQuantity(new Long(-4183991868486197683L));
 
         orderElement = orderElementDAO.save(orderElement);
         flush();
@@ -55,7 +43,7 @@ public class OrderElementDAOTest extends BaseDaoTestCase {
         orderElement = orderElementDAO.get(orderElement.getId());
 
         assertNotNull(orderElement.getId());
-        assertEquals(new Long(5433242341224180537L), orderElement.getQuantity());
+        assertEquals(new Long(-4183991868486197683L), orderElement.getQuantity());
 
         log.debug("removing orderElement...");
         orderElementDAO.remove(orderElement.getId());
@@ -75,8 +63,8 @@ public class OrderElementDAOTest extends BaseDaoTestCase {
      */ 
     public void testSearch() throws Exception {
         OrderElementSearch search = new OrderElementSearch();
-        search.setQuantityMin(new Long(5433242341224180537L));
-        search.setQuantityMax(new Long(5433242341224180537L));
+        search.setQuantityMin(new Long(-4183991868486197683L));
+        search.setQuantityMax(new Long(-4183991868486197683L));
         Collection<OrderElement> orderElements = orderElementDAO.search(search);
         assertTrue(orderElements.size() > 0);
     }
@@ -88,7 +76,7 @@ public class OrderElementDAOTest extends BaseDaoTestCase {
         super.onSetUpBeforeTransaction();
 
         OrderElement orderElement = new OrderElement();
-        orderElement.setQuantity(new Long(5433242341224180537L));
+        orderElement.setQuantity(new Long(-4183991868486197683L));
         orderElementDAO.save(orderElement);
     }
 

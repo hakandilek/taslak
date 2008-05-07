@@ -117,14 +117,14 @@ public class OrderElementSearch implements Serializable {
      */
     public String toString() {
         return MessageFormat.format("OrderElementSearch "
-                + "[quantityMin={0}]"
-                + "[quantityMax={1}]"
-                + "[order={2}]"
-                + "[product={3}]"
-                , quantityMin
-                , quantityMax
-                , order
-                , product
+            + "[quantityMin={0}]"
+            + "[quantityMax={1}]"
+            + "[order={2}]"
+            + "[product={3}]"
+            , quantityMin
+            , quantityMax
+            , order
+            , product
         );
     }
 
@@ -133,10 +133,10 @@ public class OrderElementSearch implements Serializable {
      */
     public int hashCode() {
         int result = 1;
-                result = 31 * result + quantityMin.hashCode();
-                result = 31 * result + quantityMax.hashCode();
-                result = 31 * result + order.hashCode();
-                result = 31 * result + product.hashCode();
+            result = 31 * result + quantityMin.hashCode();
+            result = 31 * result + quantityMax.hashCode();
+            result = 31 * result + order.hashCode();
+            result = 31 * result + product.hashCode();
         return result;
     }
 

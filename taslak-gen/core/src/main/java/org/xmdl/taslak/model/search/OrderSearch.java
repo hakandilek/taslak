@@ -157,18 +157,18 @@ public class OrderSearch implements Serializable {
      */
     public String toString() {
         return MessageFormat.format("OrderSearch "
-                + "[name={0}]"
-                + "[priceTotalsMin={1}]"
-                + "[priceTotalsMax={2}]"
-                + "[createDateMin={3}]"
-                + "[createDateMax={4}]"
-                + "[orderElements={5}]"
-                , name
-                , priceTotalsMin
-                , priceTotalsMax
-                , createDateMin
-                , createDateMax
-                , orderElements
+            + "[name={0}]"
+            + "[priceTotalsMin={1}]"
+            + "[priceTotalsMax={2}]"
+            + "[createDateMin={3}]"
+            + "[createDateMax={4}]"
+            + "[orderElements={5}]"
+            , name
+            , priceTotalsMin
+            , priceTotalsMax
+            , createDateMin
+            , createDateMax
+            , orderElements
         );
     }
 
@@ -177,12 +177,12 @@ public class OrderSearch implements Serializable {
      */
     public int hashCode() {
         int result = 1;
-                result = 31 * result + name.hashCode();
-                result = 31 * result + priceTotalsMin.hashCode();
-                result = 31 * result + priceTotalsMax.hashCode();
-                result = 31 * result + createDateMin.hashCode();
-                result = 31 * result + createDateMax.hashCode();
-                result = 31 * result + orderElements.hashCode();
+            result = 31 * result + name.hashCode();
+            result = 31 * result + priceTotalsMin.hashCode();
+            result = 31 * result + priceTotalsMax.hashCode();
+            result = 31 * result + createDateMin.hashCode();
+            result = 31 * result + createDateMax.hashCode();
+            result = 31 * result + orderElements.hashCode();
         return result;
     }
 

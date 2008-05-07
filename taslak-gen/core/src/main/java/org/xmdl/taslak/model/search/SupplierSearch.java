@@ -77,10 +77,10 @@ public class SupplierSearch implements Serializable {
      */
     public String toString() {
         return MessageFormat.format("SupplierSearch "
-                + "[name={0}]"
-                + "[products={1}]"
-                , name
-                , products
+            + "[name={0}]"
+            + "[products={1}]"
+            , name
+            , products
         );
     }
 
@@ -89,8 +89,8 @@ public class SupplierSearch implements Serializable {
      */
     public int hashCode() {
         int result = 1;
-                result = 31 * result + name.hashCode();
-                result = 31 * result + products.hashCode();
+            result = 31 * result + name.hashCode();
+            result = 31 * result + products.hashCode();
         return result;
     }
 

@@ -1,23 +1,11 @@
-
 package org.xmdl.taslak.dao;
 
 
 import java.util.*;
-
 import org.springframework.dao.DataAccessException;
-
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
-
 import org.xmdl.taslak.model.*;
-
-import org.xmdl.taslak.model.search.*; 
-
-
-
-
-
-
-
+import org.xmdl.taslak.model.search.*;
 
 /**
  *
@@ -47,8 +35,8 @@ public class ProductDAOTest extends BaseDaoTestCase {
     public void testAddAndRemoveProduct() throws Exception {
         Product product = new Product();
 
-        product.setName("FAPJP5zsxfbPh4k");
-        product.setPrice(new Double(0.37977096517272835));
+        product.setName("XzkZqt6L AMDCHF");
+        product.setPrice(new Double(0.33639733721081966));
 
         product = productDAO.save(product);
         flush();
@@ -56,8 +44,8 @@ public class ProductDAOTest extends BaseDaoTestCase {
         product = productDAO.get(product.getId());
 
         assertNotNull(product.getId());
-        assertEquals("FAPJP5zsxfbPh4k", product.getName());
-        assertEquals(new Double(0.37977096517272835), product.getPrice());
+        assertEquals("XzkZqt6L AMDCHF", product.getName());
+        assertEquals(new Double(0.33639733721081966), product.getPrice());
 
         log.debug("removing product...");
         productDAO.remove(product.getId());
@@ -77,9 +65,9 @@ public class ProductDAOTest extends BaseDaoTestCase {
      */ 
     public void testSearch() throws Exception {
         ProductSearch search = new ProductSearch();
-        search.setName("FAPJP5zsxfbPh4k");
-        search.setPriceMin(new Double(0.37977096517272835));
-        search.setPriceMax(new Double(0.37977096517272835));
+        search.setName("XzkZqt6L AMDCHF");
+        search.setPriceMin(new Double(0.33639733721081966));
+        search.setPriceMax(new Double(0.33639733721081966));
         Collection<Product> products = productDAO.search(search);
         assertTrue(products.size() > 0);
     }
@@ -91,8 +79,8 @@ public class ProductDAOTest extends BaseDaoTestCase {
         super.onSetUpBeforeTransaction();
 
         Product product = new Product();
-        product.setName("FAPJP5zsxfbPh4k");
-        product.setPrice(new Double(0.37977096517272835));
+        product.setName("XzkZqt6L AMDCHF");
+        product.setPrice(new Double(0.33639733721081966));
         productDAO.save(product);
     }
 

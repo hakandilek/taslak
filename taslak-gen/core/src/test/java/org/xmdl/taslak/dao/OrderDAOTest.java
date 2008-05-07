@@ -1,23 +1,11 @@
-
 package org.xmdl.taslak.dao;
 
 
 import java.util.*;
-
 import org.springframework.dao.DataAccessException;
-
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
-
 import org.xmdl.taslak.model.*;
-
-import org.xmdl.taslak.model.search.*; 
-
-
-
-
-
-
-
+import org.xmdl.taslak.model.search.*;
 
 /**
  *
@@ -47,9 +35,9 @@ public class OrderDAOTest extends BaseDaoTestCase {
     public void testAddAndRemoveOrder() throws Exception {
         Order order = new Order();
 
-        order.setName("fF2FjgG7CaQLemW");
-        order.setPriceTotals(new Double(0.4478909514018109));
-        order.setCreateDate(new Date(1042526075721L));
+        order.setName("GBaHRE3Q zHMcsB");
+        order.setPriceTotals(new Double(0.03335887159986095));
+        order.setCreateDate(new Date(1238308770894L));
 
         order = orderDAO.save(order);
         flush();
@@ -57,9 +45,9 @@ public class OrderDAOTest extends BaseDaoTestCase {
         order = orderDAO.get(order.getId());
 
         assertNotNull(order.getId());
-        assertEquals("fF2FjgG7CaQLemW", order.getName());
-        assertEquals(new Double(0.4478909514018109), order.getPriceTotals());
-        assertEquals(new Date(1042526075721L), order.getCreateDate());
+        assertEquals("GBaHRE3Q zHMcsB", order.getName());
+        assertEquals(new Double(0.03335887159986095), order.getPriceTotals());
+        assertEquals(new Date(1238308770894L), order.getCreateDate());
 
         log.debug("removing order...");
         orderDAO.remove(order.getId());
@@ -79,11 +67,11 @@ public class OrderDAOTest extends BaseDaoTestCase {
      */ 
     public void testSearch() throws Exception {
         OrderSearch search = new OrderSearch();
-        search.setName("fF2FjgG7CaQLemW");
-        search.setPriceTotalsMin(new Double(0.4478909514018109));
-        search.setPriceTotalsMax(new Double(0.4478909514018109));
-        search.setCreateDateMin(new Date(1042526075721L));
-        search.setCreateDateMax(new Date(1042526075721L));
+        search.setName("GBaHRE3Q zHMcsB");
+        search.setPriceTotalsMin(new Double(0.03335887159986095));
+        search.setPriceTotalsMax(new Double(0.03335887159986095));
+        search.setCreateDateMin(new Date(1238308770894L));
+        search.setCreateDateMax(new Date(1238308770894L));
         Collection<Order> orders = orderDAO.search(search);
         assertTrue(orders.size() > 0);
     }
@@ -95,9 +83,9 @@ public class OrderDAOTest extends BaseDaoTestCase {
         super.onSetUpBeforeTransaction();
 
         Order order = new Order();
-        order.setName("fF2FjgG7CaQLemW");
-        order.setPriceTotals(new Double(0.4478909514018109));
-        order.setCreateDate(new Date(1042526075721L));
+        order.setName("GBaHRE3Q zHMcsB");
+        order.setPriceTotals(new Double(0.03335887159986095));
+        order.setCreateDate(new Date(1238308770894L));
         orderDAO.save(order);
     }
 
