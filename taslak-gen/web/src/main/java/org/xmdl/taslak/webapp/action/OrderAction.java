@@ -101,7 +101,7 @@ public class OrderAction extends BaseAction implements Preparable {
 
         orders = orderManager.search(orderSearch);
 
-        if (log.isDebugEnabled()) log.debug("listing items:" + orders.size());
+        if (log.isDebugEnabled()) log.debug("listing items:" + orders == null ? null : orders.size());
         if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }

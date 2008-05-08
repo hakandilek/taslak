@@ -101,7 +101,7 @@ public class SupplierAction extends BaseAction implements Preparable {
 
         suppliers = supplierManager.search(supplierSearch);
 
-        if (log.isDebugEnabled()) log.debug("listing items:" + suppliers.size());
+        if (log.isDebugEnabled()) log.debug("listing items:" + suppliers == null ? null : suppliers.size());
         if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }

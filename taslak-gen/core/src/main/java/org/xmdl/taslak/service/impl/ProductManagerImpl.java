@@ -35,7 +35,7 @@ public class ProductManagerImpl extends GenericManagerImpl<Product, Long> implem
     /**
      * @generated
      */ 
-    ProductDAO productDAO;
+    private final ProductDAO productDAO;
 
     /**
      * @generated

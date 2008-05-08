@@ -35,7 +35,7 @@ public class OrderElementManagerImpl extends GenericManagerImpl<OrderElement, Lo
     /**
      * @generated
      */ 
-    OrderElementDAO orderElementDAO;
+    private final OrderElementDAO orderElementDAO;
 
     /**
      * @generated
@@ -50,6 +50,21 @@ public class OrderElementManagerImpl extends GenericManagerImpl<OrderElement, Lo
      */ 
     public Collection<OrderElement> search(OrderElementSearch orderElementSearch) {
         return orderElementDAO.search(orderElementSearch);
+    }
+
+    /**
+     * @generated
+     */ 
+    public void copyFrom(Order source, Order destination) {
+        OrderElementSearch search = new OrderElementSearch();
+        search.setOrder(source);
+
+        Collection<OrderElement> children = orderElementDAO.search(search);
+        for (OrderElement child : children) {
+            OrderElement copy = child.createClone();
+            copy.setOrder(destination);
+            save(copy);
+        }
     }
 
 }

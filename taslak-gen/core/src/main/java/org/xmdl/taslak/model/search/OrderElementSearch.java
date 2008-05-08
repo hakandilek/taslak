@@ -115,6 +115,7 @@ public class OrderElementSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public String toString() {
         return MessageFormat.format("OrderElementSearch "
             + "[quantityMin={0}]"
@@ -131,13 +132,20 @@ public class OrderElementSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public int hashCode() {
         int result = 1;
-            result = 31 * result + quantityMin.hashCode();
-            result = 31 * result + quantityMax.hashCode();
-            result = 31 * result + order.hashCode();
-            result = 31 * result + product.hashCode();
+        if (quantityMin != null) result = 31 * result + quantityMin.hashCode();
+        if (quantityMax != null) result = 31 * result + quantityMax.hashCode();
+        if (order != null) result = 31 * result + order.hashCode();
+        if (product != null) result = 31 * result + product.hashCode();
         return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        return hashCode() == obj.hashCode();
     }
 
 

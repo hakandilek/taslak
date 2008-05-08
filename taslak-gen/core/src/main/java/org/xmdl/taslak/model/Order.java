@@ -165,11 +165,11 @@ public class Order extends BaseObject implements Serializable, Cloneable {
      * @generated
      */
     public int hashCode() {
-        int result;
-        result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + priceTotals.hashCode();
-        result = 31 * result + createDate.hashCode();
+        int result = 1;
+        if (id != null) result = 31 * result + id.hashCode();
+        if (name != null) result = 31 * result + name.hashCode();
+        if (priceTotals != null) result = 31 * result + priceTotals.hashCode();
+        if (createDate != null) result = 31 * result + createDate.hashCode();
         return result;
     }
 

@@ -147,9 +147,9 @@ public class OrderElement extends BaseObject implements Serializable, Cloneable 
      * @generated
      */
     public int hashCode() {
-        int result;
-        result = id.hashCode();
-        result = 31 * result + quantity.hashCode();
+        int result = 1;
+        if (id != null) result = 31 * result + id.hashCode();
+        if (quantity != null) result = 31 * result + quantity.hashCode();
         return result;
     }
 

@@ -101,7 +101,7 @@ public class ProductAction extends BaseAction implements Preparable {
 
         products = productManager.search(productSearch);
 
-        if (log.isDebugEnabled()) log.debug("listing items:" + products.size());
+        if (log.isDebugEnabled()) log.debug("listing items:" + products == null ? null : products.size());
         if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }
