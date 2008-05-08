@@ -35,7 +35,7 @@ public class SupplierManagerImpl extends GenericManagerImpl<Supplier, Long> impl
     /**
      * @generated
      */ 
-    SupplierDAO supplierDAO;
+    private final SupplierDAO supplierDAO;
 
     /**
      * @generated

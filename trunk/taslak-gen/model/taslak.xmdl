@@ -11,7 +11,7 @@
       <attributes name="createDate">
         <type xsi:type="org.xmdl:XClass" href="platform:/plugin/org.xmdl.model/model/types.xmdl#//@packages.2/@classes.0"/>
       </attributes>
-      <attributes name="orderElements" type="//@packages.0/@classes.3" associationType="OneToMany" opposite="//@packages.0/@classes.3/@attributes.1"/>
+      <attributes name="orderElements" type="//@packages.0/@classes.3" associationType="OneToMany" associationBehaviour="composition" opposite="//@packages.0/@classes.3/@attributes.1"/>
     </classes>
     <classes name="Product" className="org.xmdl.taslak.Product">
       <attributes name="name">

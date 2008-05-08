@@ -155,6 +155,7 @@ public class OrderSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public String toString() {
         return MessageFormat.format("OrderSearch "
             + "[name={0}]"
@@ -175,15 +176,22 @@ public class OrderSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public int hashCode() {
         int result = 1;
-            result = 31 * result + name.hashCode();
-            result = 31 * result + priceTotalsMin.hashCode();
-            result = 31 * result + priceTotalsMax.hashCode();
-            result = 31 * result + createDateMin.hashCode();
-            result = 31 * result + createDateMax.hashCode();
-            result = 31 * result + orderElements.hashCode();
+        if (name != null) result = 31 * result + name.hashCode();
+        if (priceTotalsMin != null) result = 31 * result + priceTotalsMin.hashCode();
+        if (priceTotalsMax != null) result = 31 * result + priceTotalsMax.hashCode();
+        if (createDateMin != null) result = 31 * result + createDateMin.hashCode();
+        if (createDateMax != null) result = 31 * result + createDateMax.hashCode();
+        if (orderElements != null) result = 31 * result + orderElements.hashCode();
         return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        return hashCode() == obj.hashCode();
     }
 
 

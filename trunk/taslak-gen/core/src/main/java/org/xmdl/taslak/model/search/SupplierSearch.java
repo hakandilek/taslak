@@ -75,6 +75,7 @@ public class SupplierSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public String toString() {
         return MessageFormat.format("SupplierSearch "
             + "[name={0}]"
@@ -87,11 +88,18 @@ public class SupplierSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public int hashCode() {
         int result = 1;
-            result = 31 * result + name.hashCode();
-            result = 31 * result + products.hashCode();
+        if (name != null) result = 31 * result + name.hashCode();
+        if (products != null) result = 31 * result + products.hashCode();
         return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        return hashCode() == obj.hashCode();
     }
 
 

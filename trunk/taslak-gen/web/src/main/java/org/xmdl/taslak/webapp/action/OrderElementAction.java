@@ -39,6 +39,11 @@ public class OrderElementAction extends BaseAction implements Preparable {
     /**
      * @generated
      */
+    private OrderManager orderManager;
+
+    /**
+     * @generated
+     */
     private Collection<OrderElement> orderElements;
 
     /**
@@ -65,6 +70,16 @@ public class OrderElementAction extends BaseAction implements Preparable {
     /**
      * @generated
      */
+     private Order order;
+
+    /**
+     * @generated
+     */
+     private Long orderID;
+
+    /**
+     * @generated
+     */
     public void setOrderElementManager(OrderElementManager orderElementManager) {
         this.orderElementManager = orderElementManager;
     }
@@ -86,6 +101,22 @@ public class OrderElementAction extends BaseAction implements Preparable {
                 orderElement = orderElementManager.get((long) id);
             }else{
                 orderElement = new OrderElement();
+               	if (orderID == null) {
+                    try {
+               			String parameter = getRequest().getParameter("orderElement.order.id");
+                		orderID = Long.parseLong(parameter);
+                    } catch (NumberFormatException e) {
+                        log.info("no id");
+                    }
+                }
+                
+                if (orderID != null) {
+                    order = orderManager.get(orderID);
+                   	orderElementSearch.setOrder(order);
+                    orderElements = orderElementManager.search(orderElementSearch);
+                } else {
+                	order = new Order();
+            	}
             }
         }
 
@@ -101,7 +132,7 @@ public class OrderElementAction extends BaseAction implements Preparable {
 
         orderElements = orderElementManager.search(orderElementSearch);
 
-        if (log.isDebugEnabled()) log.debug("listing items:" + orderElements.size());
+        if (log.isDebugEnabled()) log.debug("listing items:" + orderElements == null ? null : orderElements.size());
         if (log.isDebugEnabled()) log.debug("list() ->");
         return SUCCESS;
     }

@@ -125,9 +125,9 @@ public class Supplier extends BaseObject implements Serializable, Cloneable {
      * @generated
      */
     public int hashCode() {
-        int result;
-        result = id.hashCode();
-        result = 31 * result + name.hashCode();
+        int result = 1;
+        if (id != null) result = 31 * result + id.hashCode();
+        if (name != null) result = 31 * result + name.hashCode();
         return result;
     }
 

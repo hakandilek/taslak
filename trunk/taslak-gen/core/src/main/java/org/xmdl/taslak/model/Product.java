@@ -166,10 +166,10 @@ public class Product extends BaseObject implements Serializable, Cloneable {
      * @generated
      */
     public int hashCode() {
-        int result;
-        result = id.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + price.hashCode();
+        int result = 1;
+        if (id != null) result = 31 * result + id.hashCode();
+        if (name != null) result = 31 * result + name.hashCode();
+        if (price != null) result = 31 * result + price.hashCode();
         return result;
     }
 

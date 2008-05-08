@@ -35,7 +35,7 @@ public class OrderManagerImpl extends GenericManagerImpl<Order, Long> implements
     /**
      * @generated
      */ 
-    OrderDAO orderDAO;
+    private final OrderDAO orderDAO;
 
     /**
      * @generated

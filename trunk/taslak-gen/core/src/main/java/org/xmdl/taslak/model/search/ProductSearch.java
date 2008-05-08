@@ -136,6 +136,7 @@ public class ProductSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public String toString() {
         return MessageFormat.format("ProductSearch "
             + "[name={0}]"
@@ -154,14 +155,21 @@ public class ProductSearch implements Serializable {
     /** 
      * @generated
      */
+    @Override
     public int hashCode() {
         int result = 1;
-            result = 31 * result + name.hashCode();
-            result = 31 * result + priceMin.hashCode();
-            result = 31 * result + priceMax.hashCode();
-            result = 31 * result + orderElements.hashCode();
-            result = 31 * result + suppliers.hashCode();
+        if (name != null) result = 31 * result + name.hashCode();
+        if (priceMin != null) result = 31 * result + priceMin.hashCode();
+        if (priceMax != null) result = 31 * result + priceMax.hashCode();
+        if (orderElements != null) result = 31 * result + orderElements.hashCode();
+        if (suppliers != null) result = 31 * result + suppliers.hashCode();
         return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        return hashCode() == obj.hashCode();
     }
 
 
