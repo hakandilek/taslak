@@ -449,7 +449,7 @@
         <oscache.version>2.3</oscache.version>
         <sitemesh.version>2.2.1</sitemesh.version>
         <struts.menu.version>2.4.3</struts.menu.version>
-        <struts.version>2.0.11</struts.version>
+        <struts.version>2.0.11.1</struts.version>
         <urlrewrite.version>3.0.4</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>
