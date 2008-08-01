@@ -8,10 +8,13 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
+		        <value>org.xmdl.mesken.model.User</value>
+		        <value>org.xmdl.mesken.model.Role</value>
 				<value>org.xmdl.taslak.model.Product</value>
 				<value>org.xmdl.taslak.model.Order</value>
 				<value>org.xmdl.taslak.model.OrderElement</value>
 				<value>org.xmdl.taslak.model.Supplier</value>
+				<value>org.xmdl.taslak.model.Profile</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -38,6 +41,12 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!-- Mesken DAO classes -->
+    <bean id="userDao" class="org.xmdl.mesken.dao.hibernate.UserDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- Taslak DAO classes -->
     <bean id="productDao" class="org.xmdl.taslak.dao.hibernate.ProductDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -51,6 +60,10 @@
     </bean>
 
     <bean id="supplierDao" class="org.xmdl.taslak.dao.hibernate.SupplierDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="profileDao" class="org.xmdl.taslak.dao.hibernate.ProfileDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
