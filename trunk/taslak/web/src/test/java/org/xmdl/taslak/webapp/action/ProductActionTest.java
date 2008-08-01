@@ -22,7 +22,6 @@ public class ProductActionTest extends BaseActionTestCase {
     };
 
     @Override
-    @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new ProductAction();

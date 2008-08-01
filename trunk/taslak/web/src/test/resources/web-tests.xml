@@ -1,6 +1,6 @@
 <!DOCTYPE project [
-    <!ENTITY config SYSTEM "file:./config.xml">
-    <!ENTITY login SYSTEM "file:./login.xml">
+    <!ENTITY config SYSTEM "./config.xml">
+    <!ENTITY login SYSTEM "./login.xml">
 ]>
 <project basedir="." default="run-all-tests">
     <!-- Use i18n bundle, 2nd one listed is the default -->
@@ -528,4 +528,131 @@
     </target>
     <!--Supplier-END-->
 
+    <!--Profile-START-->
+    <!-- runs profile-related tests -->
+    <target name="ProfileTests" depends="SearchProfiles,EditProfile,SaveProfile,AddProfile,
+                    CopyProfile,DeleteProfile,MassDeleteProfile"
+            description="Call and executes all profile test cases (targets)">
+        <echo>Successfully ran all Profile UI tests!</echo>
+    </target>
+
+    <!-- Verify the profiles list screen displays without errors -->
+    <target name="SearchProfiles" description="Tests search for and displaying all profiles">
+        <webtest name="searchProfiles">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Profile link" url="/Profile/profiles.do"/>
+                <verifytitle description="we should see the profileList title"
+                             text=".*${profileList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit profile screen displays without errors -->
+    <target name="EditProfile" description="Tests editing an existing Profile's information">
+        <webtest name="editProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/Profile/editProfile.do?id=1"/>
+                <verifytitle description="we should see the profileDetail title"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a profile and then save -->
+    <target name="SaveProfile" description="Tests editing and saving a profile">
+        <webtest name="saveProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/Profile/editProfile.do?id=1"/>
+                <verifytitle description="we should see the profileDetail title"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set name" name="profile.name" value="SrOzBdQzGm"/>
+                <setInputField description="set price" name="profile.price" value="10.2"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${profile.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Profile -->
+    <target name="AddProfile" description="Adds a new Profile">
+        <webtest name="addProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Profile/editProfile.do"/>
+                <verifytitle description="we should see the profileDetail title"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set name" name="profile.name" value="SrOzBdQzGm"/>
+                <setInputField description="set price" name="profile.price" value="10.2"/>
+
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Profile List appears if save successful"
+                             text=".*${profileList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${profile.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing profile -->
+    <target name="CopyProfile" description="Copies existing Profile">
+        <webtest name="copyProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Profile Order link" url="/Profile/copyProfile.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the profile"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing profile -->
+    <target name="DeleteProfile" description="Deletes existing Profile">
+        <webtest name="deleteProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/Profile/editProfile.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Profile List" text=".*${profileList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${profile.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing profiles -->
+    <target name="MassDeleteProfile" description="Mass Delete Profiles">
+        <webtest name="massDeleteProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Profiles link" url="/Profile/profiles.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Profiles List" text=".*${profileList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Profile.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Profile-END-->
+	
 </project>

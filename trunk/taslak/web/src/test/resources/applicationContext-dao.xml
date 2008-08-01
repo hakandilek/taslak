@@ -16,6 +16,7 @@
 				<value>org.xmdl.taslak.model.Order</value>
 				<value>org.xmdl.taslak.model.OrderElement</value>
 				<value>org.xmdl.taslak.model.Supplier</value>
+				<value>org.xmdl.taslak.model.Profile</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -59,6 +60,10 @@
     </bean>
 
     <bean id="supplierDao" class="org.xmdl.taslak.dao.hibernate.SupplierDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="profileDao" class="org.xmdl.taslak.dao.hibernate.ProfileDaoHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

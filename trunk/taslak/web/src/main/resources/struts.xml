@@ -85,14 +85,20 @@
             <result name="input">/WEB-INF/pages/admin/userList.jsp</result>
         </action>
 
-        <action name="editProfile" class="userAction" method="edit">
-            <result name="success">/WEB-INF/pages/userForm.jsp</result>
-            <result name="error">/WEB-INF/pages/mainMenu.jsp</result>
-        </action>
-
         <action name="saveUser" class="userAction" method="save">
             <result name="cancel" type="redirect">admin/users.do</result>
             <result name="input">/WEB-INF/pages/userForm.jsp</result>
+            <result name="success" type="redirect">admin/users.do</result>
+        </action>
+
+        <action name="editProfile" class="org.xmdl.taslak.webapp.action.ProfileAction" method="edit">
+            <result name="success">/WEB-INF/pages/profileForm.jsp</result>
+            <result name="error">/WEB-INF/pages/mainMenu.jsp</result>
+        </action>
+
+        <action name="saveProfile" class="org.xmdl.taslak.webapp.action.ProfileAction" method="save">
+            <result name="cancel" type="redirect">admin/users.do</result>
+            <result name="input">/WEB-INF/pages/profileForm.jsp</result>
             <result name="success" type="redirect">admin/users.do</result>
         </action>
 
