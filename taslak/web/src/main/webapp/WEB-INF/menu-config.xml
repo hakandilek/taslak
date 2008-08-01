@@ -6,7 +6,7 @@
     </Displayers>
     <Menus>
         <Menu name="MainMenu" title="mainMenu.title" page="/mainMenu.do" roles="ROLE_ADMIN,ROLE_USER"/>
-        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/editProfile.do" roles="ROLE_ADMIN,ROLE_USER"/>
+        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/Profile/editProfile.do" roles="ROLE_ADMIN,ROLE_USER"/>
         <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" width="120" page="/admin/users.do">
             <Item name="ViewUsers" title="menu.admin.users" page="/admin/users.do"/>
             <Item name="ActiveUsers" title="mainMenu.activeUsers" page="/admin/activeUsers.do"/>

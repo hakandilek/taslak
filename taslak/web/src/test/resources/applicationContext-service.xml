@@ -78,4 +78,8 @@
     <bean id="supplierManager" class="org.xmdl.taslak.service.impl.SupplierManagerImpl">
         <constructor-arg ref="supplierDao"/>
     </bean>
+
+    <bean id="profileManager" class="org.xmdl.taslak.service.impl.ProfileManagerImpl">
+        <constructor-arg ref="profileDao"/>
+    </bean>
 </beans>

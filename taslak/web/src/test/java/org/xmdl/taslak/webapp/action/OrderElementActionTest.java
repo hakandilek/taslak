@@ -13,7 +13,6 @@ import org.springframework.mock.web.MockHttpServletRequest;
 public class OrderElementActionTest extends BaseActionTestCase {
     private OrderElementAction action;
 
-    @Override @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new OrderElementAction();

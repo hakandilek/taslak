@@ -1,24 +1,19 @@
 package org.xmdl.taslak.webapp.action;
 
-import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.xmdl.ida.lib.web.test.BaseActionTestCase;
-import org.xmdl.taslak.service.SupplierManager;
 import org.xmdl.taslak.model.Supplier;
 import org.xmdl.taslak.model.search.SupplierSearch;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.hibernate.exception.ConstraintViolationException;
+import org.xmdl.taslak.service.SupplierManager;
 
-import java.util.List;
-import java.util.ArrayList;
+import com.opensymphony.xwork2.ActionSupport;
 
 public class SupplierActionTest extends BaseActionTestCase {
     private SupplierAction action;
 
 
     @Override
-    @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new SupplierAction();

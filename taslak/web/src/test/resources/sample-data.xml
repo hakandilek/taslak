@@ -1,29 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-        <!--Product-START-->
+    <table name="TBL_USER">
+        <column>id</column>
+        <column>username</column>
+        <column>password</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <column>address</column>
+        <column>city</column>
+        <column>country</column>
+        <column>email</column>
+        <column>phone_number</column>
+        <column>postal_code</column>
+        <column>province</column>
+        <column>website</column>
+        <column>password_hint</column>
+        <column>version</column>
+        <column>account_enabled</column>
+        <column>account_expired</column>
+        <column>account_locked</column>
+        <column>credentials_expired</column>
+        <row>
+            <value description="id">1</value>
+            <value description="username">user</value>
+            <value description="password">12dea96fec20593566ab75692c9949596833adc9</value>
+            <value description="first_name">Tomcat</value>
+            <value description="last_name">User</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt_raible@yahoo.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://tomcat.apache.org</value>
+            <value description="password_hint"><![CDATA[The same as your username.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">2</value>
+            <value description="username">admin</value>
+            <value description="password">d033e22ae348aeb5660fc2140aec35850c4da997</value>
+            <value description="first_name">Matt</value>
+            <value description="last_name">Raible</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt@raibledesigns.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://raibledesigns.com</value>
+            <value description="password_hint"><![CDATA[The same as your username.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+    </table>
+    <table name="TBL_ROLE">
+        <column>id</column>
+        <column>name</column>
+        <column>description</column>
+        <row>
+            <value description="id">1</value>
+            <value description="name">ROLE_ADMIN</value>
+            <value description="description"><![CDATA[Administrator role (can edit Users)]]></value>
+        </row>
+        <row>
+            <value description="id">2</value>
+            <value description="name">ROLE_USER</value>
+            <value description="description"><![CDATA[Default role for all Users]]></value>
+        </row>
+    </table>
+    <table name="TBL_USER_ROLE">
+        <column>user_id</column>
+        <column>role_id</column>
+        <row>
+            <value description="user_id">1</value>
+            <value description="role_id">2</value>
+        </row>
+        <row>
+            <value description="user_id">2</value>
+            <value description="role_id">1</value>
+        </row>
+    </table>
+
+<!--Product-START-->
     <table name="t_product">
         <column>id</column>
         <column>name</column>
         <column>price</column>
         <column>productType</column>
-    <row>
-        <value description="id">1</value>
-        <value description="name">FjKvDlNpDw</value>
-        <value description="price">10.5</value>
-        <value description="productType">1</value>
-    </row>
-    <row>
-        <value description="id">2</value>
-        <value description="name">MxLwBxUfKd</value>
-        <value description="price">20.5</value>
-        <value description="productType">2</value>
-    </row>
-    <row>
-        <value description="id">3</value>
-        <value description="name">WuLfBwKnWa</value>
-        <value description="price">30.6</value>
-        <value description="productType">3</value>
-    </row>
+	    <row>
+	        <value description="id">1</value>
+	        <value description="name">FjKvDlNpDw</value>
+	        <value description="price">10.5</value>
+	        <value description="productType">1</value>
+	    </row>
+	    <row>
+	        <value description="id">2</value>
+	        <value description="name">MxLwBxUfKd</value>
+	        <value description="price">20.5</value>
+	        <value description="productType">2</value>
+	    </row>
+	    <row>
+	        <value description="id">3</value>
+	        <value description="name">WuLfBwKnWa</value>
+	        <value description="price">30.6</value>
+	        <value description="productType">3</value>
+	    </row>
     </table>
     <!--Product-END-->
     <!--Order-START-->
@@ -32,24 +123,24 @@
         <column>name</column>
         <column>pricetotals</column>
         <column>createdate</column>
-    <row>
-        <value description="id">1</value>
-        <value description="name">BqDaDtJzCf</value>
-        <value description="pricetotals">100.3</value>
-        <value description="createdate">2007-09-20</value>
-    </row>
-    <row>
-        <value description="id">2</value>
-        <value description="name">VwTdCpEfKe</value>
-        <value description="pricetotals">200.3</value>
-        <value description="createdate">2007-09-20</value>
-    </row>
-    <row>
-        <value description="id">3</value>
-        <value description="name">GxPxUrDjLf</value>
-        <value description="pricetotals">300.4</value>
-        <value description="createdate">2007-09-20</value>
-    </row>
+	    <row>
+	        <value description="id">1</value>
+	        <value description="name">BqDaDtJzCf</value>
+	        <value description="pricetotals">100.3</value>
+	        <value description="createdate">2007-09-20</value>
+	    </row>
+	    <row>
+	        <value description="id">2</value>
+	        <value description="name">VwTdCpEfKe</value>
+	        <value description="pricetotals">200.3</value>
+	        <value description="createdate">2007-09-20</value>
+	    </row>
+	    <row>
+	        <value description="id">3</value>
+	        <value description="name">GxPxUrDjLf</value>
+	        <value description="pricetotals">300.4</value>
+	        <value description="createdate">2007-09-20</value>
+	    </row>
     </table>
     <!--Order-END-->
     <!--OrderElement-START-->
@@ -58,67 +149,83 @@
         <column>quantity</column>
         <column>orderId</column>
         <column>productId</column>
-    <row>
-        <value description="id">1</value>
-        <value description="quantity">6024683510166235136</value>
-        <value description="orderId">1</value>
-        <value description="productId">1</value>
-    </row>
-    <row>
-        <value description="id">2</value>
-        <value description="quantity">10</value>
-        <value description="orderId">2</value>
-        <value description="productId">2</value>
-    </row>
-    <row>
-        <value description="id">3</value>
-        <value description="quantity">20</value>
-        <value description="orderId">3</value>
-        <value description="productId">3</value>
-    </row>
+	    <row>
+	        <value description="id">1</value>
+	        <value description="quantity">6024683510166235136</value>
+	        <value description="orderId">1</value>
+	        <value description="productId">1</value>
+	    </row>
+	    <row>
+	        <value description="id">2</value>
+	        <value description="quantity">10</value>
+	        <value description="orderId">2</value>
+	        <value description="productId">2</value>
+	    </row>
+	    <row>
+	        <value description="id">3</value>
+	        <value description="quantity">20</value>
+	        <value description="orderId">3</value>
+	        <value description="productId">3</value>
+	    </row>
     </table>
     <!--OrderElement-END-->
 <!--Supplier-START-->
-<table name="t_supplier">
-	<column>id</column>
-    <column>name</column>
-    
-    <row>
-        <value description="id">1</value>
-        <value description="name">ABC AS</value>
-    </row>
-    <row>
-        <value description="id">2</value>
-        <value description="name">123 Ltd.</value>
-    </row>
-    <row>
-        <value description="id">3</value>
-        <value description="name">LayLay Nakliyat</value>
-    </row></table>
+	<table name="t_supplier">
+		<column>id</column>
+	    <column>name</column>
+	    
+	    <row>
+	        <value description="id">1</value>
+	        <value description="name">ABC AS</value>
+	    </row>
+	    <row>
+	        <value description="id">2</value>
+	        <value description="name">123 Ltd.</value>
+	    </row>
+	    <row>
+	        <value description="id">3</value>
+	        <value description="name">LayLay Nakliyat</value>
+	    </row>
+	</table>
 <!--Supplier-END-->
     
     <!--Product - Supplier -START-->
-<table name="t_product_supplier">
-	<column>product_id</column>
-    <column>supplier_id</column>
-    
-    <row>
-        <value description="product_id">1</value>
-        <value description="supplier_id">1</value>
-    </row>
-    <row>
-        <value description="product_id">2</value>
-        <value description="supplier_id">1</value>
-    </row>
-    <row>
-        <value description="product_id">3</value>
-        <value description="supplier_id">1</value>
-    </row>
-    <row>
-        <value description="product_id">1</value>
-        <value description="supplier_id">2</value>
-    </row>
-</table>
+	<table name="t_product_supplier">
+		<column>product_id</column>
+	    <column>supplier_id</column>
+	    
+	    <row>
+	        <value description="product_id">1</value>
+	        <value description="supplier_id">1</value>
+	    </row>
+	    <row>
+	        <value description="product_id">2</value>
+	        <value description="supplier_id">1</value>
+	    </row>
+	    <row>
+	        <value description="product_id">3</value>
+	        <value description="supplier_id">1</value>
+	    </row>
+	    <row>
+	        <value description="product_id">1</value>
+	        <value description="supplier_id">2</value>
+	    </row>
+	</table>
 <!--Product - Supplier-END-->
+    
+<!--Profile-START-->
+	<table name="t_profile">
+	    <column>id</column>
+	    <column>privatePhone</column>
+		<row>
+		    <value description="id">1</value>
+		    <value description="privatePhone">00001</value>
+		</row>
+		<row>
+		    <value description="id">2</value>
+		    <value description="privatePhone">00002</value>
+		</row>
+	</table>
+<!--Profile-END-->
     
 </dataset>

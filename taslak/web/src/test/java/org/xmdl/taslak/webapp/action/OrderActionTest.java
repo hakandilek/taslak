@@ -1,24 +1,23 @@
 package org.xmdl.taslak.webapp.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.ServletActionContext;
-import org.xmdl.ida.lib.web.test.BaseActionTestCase;
-import org.xmdl.taslak.service.OrderManager;
-import org.xmdl.taslak.model.Order;
-import org.xmdl.taslak.model.Product;
-import org.xmdl.taslak.model.search.OrderSearch;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.hibernate.exception.ConstraintViolationException;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
+import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.xmdl.ida.lib.web.test.BaseActionTestCase;
+import org.xmdl.taslak.model.Order;
+import org.xmdl.taslak.model.search.OrderSearch;
+import org.xmdl.taslak.service.OrderManager;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 public class OrderActionTest extends BaseActionTestCase {
     private OrderAction action;
 
     @Override
-    @SuppressWarnings("unchecked")
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
         action = new OrderAction();
