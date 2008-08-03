@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 @Entity (name=("t_order"))
 public class Order extends BaseObject implements Serializable  {
 

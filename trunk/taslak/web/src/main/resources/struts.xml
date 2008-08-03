@@ -91,10 +91,6 @@
             <result name="success" type="redirect">admin/users.do</result>
         </action>
 
-        <action name="editProfile" class="org.xmdl.taslak.webapp.action.ProfileAction" method="edit">
-            <result name="success">/WEB-INF/pages/profileForm.jsp</result>
-            <result name="error">/WEB-INF/pages/mainMenu.jsp</result>
-        </action>
 
         <action name="saveProfile" class="org.xmdl.taslak.webapp.action.ProfileAction" method="save">
             <result name="cancel" type="redirect">admin/users.do</result>
@@ -145,5 +141,6 @@
     <include file="struts-OrderElement.xml"/>
     <include file="struts-Supplier.xml"/>
     <include file="struts-ProductSupplier.xml"/>
+    <include file="struts-Profile.xml"/>
 
 </struts>

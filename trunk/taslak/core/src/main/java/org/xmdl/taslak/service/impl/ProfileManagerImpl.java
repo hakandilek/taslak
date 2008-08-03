@@ -54,4 +54,11 @@ public class ProfileManagerImpl extends GenericManagerImpl<Profile, Long>
 		return savedProfile;
 	}
 
+	public Profile getProfileByUsername(String username) {
+		Profile profile = profileDao.getProfileByUsername(username);
+		if (log.isDebugEnabled())
+			log.debug("profile : " + profile);
+		return profile;
+	}
+
 }

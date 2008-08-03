@@ -7,6 +7,7 @@ import org.xmdl.ida.lib.model.BaseObject;
 import java.io.Serializable;
 import java.text.MessageFormat;
 
+@SuppressWarnings("serial")
 @Entity (name=("t_orderElement"))
 public class OrderElement extends BaseObject implements Serializable  {
 

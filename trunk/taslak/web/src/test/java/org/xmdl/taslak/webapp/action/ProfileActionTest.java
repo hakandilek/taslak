@@ -2,13 +2,16 @@ package org.xmdl.taslak.webapp.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.xmdl.ida.lib.web.test.BaseActionTestCase;
+import org.xmdl.mesken.MeskenConstants;
 import org.xmdl.mesken.model.Address;
+import org.xmdl.mesken.model.Role;
 import org.xmdl.mesken.model.User;
 import org.xmdl.taslak.model.Profile;
 import org.xmdl.taslak.model.search.ProfileSearch;
@@ -66,12 +69,60 @@ public class ProfileActionTest extends BaseActionTestCase {
         assertNull(action.getProfile().getId());
     }
 
-    public void testEdit() throws Exception {
-        log.debug("testing edit...");
+    public void testEditWithID() throws Exception {
+        log.debug("testing edit with id...");
         action.setId(1L);
         assertNull(action.getProfile());
         assertEquals("success", action.edit());
         assertNotNull(action.getProfile());
+        assertFalse(action.hasActionErrors());
+    }
+
+    public void testEditWithRequestUser() throws Exception {
+        log.debug("testing edit with request user...");
+        
+        // so request.getRequestURL() doesn't fail
+        MockHttpServletRequest request = new MockHttpServletRequest("GET", "/editProfile.do");
+        request.setRemoteUser("user");
+        ServletActionContext.setRequest(request);
+
+        Profile profile = action.getProfile();
+		assertNull(profile);
+        
+		assertEquals("success", action.edit());
+        profile = action.getProfile();
+        assertNotNull(profile);
+		User user = profile.getUser();
+		assertNotNull(user);
+		assertEquals("user", user.getUsername());
+        assertFalse(action.hasActionErrors());
+    }
+
+    public void testEditWithNothing() throws Exception {
+        log.debug("testing edit with request user...");
+        
+        // so request.getRequestURL() doesn't fail
+        MockHttpServletRequest request = new MockHttpServletRequest("GET", "/editPoo");
+        request.setRemoteUser("user");
+        ServletActionContext.setRequest(request);
+
+        Profile profile = action.getProfile();
+		assertNull(profile);
+        
+		assertEquals("success", action.edit());
+        profile = action.getProfile();
+        assertNotNull(profile);
+		User user = profile.getUser();
+		assertNotNull(user);
+		Set<Role> roles = user.getRoles();
+		assertNotNull(roles);
+		assertEquals(1, roles.size());
+		Role role = null;
+		for (Role r : roles) {
+			if (MeskenConstants.USER_ROLE.equals(r.getName()))
+				role = r;
+		}
+		assertNotNull(role);
         assertFalse(action.hasActionErrors());
     }
 

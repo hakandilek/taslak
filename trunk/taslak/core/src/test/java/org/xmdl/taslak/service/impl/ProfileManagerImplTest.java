@@ -99,4 +99,26 @@ public class ProfileManagerImplTest extends BaseManagerMockTestCase {
 
 		manager.remove(id);
 	}
+	
+    public void testGetProfileByUsername() throws Exception {
+		profile = new Profile();
+		User user = new User();
+		profile.setUser(user);
+		user.setUsername("testuser");
+		user.setId(11L);
+		profile.setId(11L);
+
+		// set expected behavior on profileDao
+		profileDao.expects(once()).method("getProfileByUsername").with(same("testuser")).will(
+				returnValue(profile));
+
+		Profile newProfile = manager.getProfileByUsername("testuser");
+		assertNotNull(newProfile);
+		User newUser = newProfile.getUser();
+		assertNotNull(newUser);
+		assertNotNull("testuser", newUser.getUsername());
+		assertEquals(new Long(11L), newProfile.getId());
+		assertEquals(new Long(11L), newUser.getId());
+    }
+
 }

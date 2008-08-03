@@ -11,6 +11,7 @@ import java.text.MessageFormat;
 import java.util.HashSet;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 @Entity(name = ("t_product"))
 public class Product extends BaseObject implements Serializable {
 

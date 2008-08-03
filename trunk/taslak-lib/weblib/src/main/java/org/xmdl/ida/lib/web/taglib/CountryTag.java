@@ -179,7 +179,6 @@ public class CountryTag extends TagSupport {
          *
          * @return The value returned by comparing the localized labels.
          */
-        @SuppressWarnings("unchecked")
         public final int compare(Object o1, Object o2) {
             LabelValue lhs = (LabelValue) o1;
             LabelValue rhs = (LabelValue) o2;

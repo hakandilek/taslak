@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 
 import org.xmdl.ida.lib.model.BaseObject;
 
+@SuppressWarnings("serial")
 @Entity(name = ("t_supplier"))
 public class Supplier extends BaseObject implements Serializable {
 
