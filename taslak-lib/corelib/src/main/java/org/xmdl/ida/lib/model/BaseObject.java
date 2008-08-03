@@ -9,6 +9,7 @@ import java.io.Serializable;
  * 
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
+@SuppressWarnings("serial")
 public abstract class BaseObject implements Serializable {    
 
     /**

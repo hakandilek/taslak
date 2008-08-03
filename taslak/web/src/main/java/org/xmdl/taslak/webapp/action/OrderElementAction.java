@@ -7,6 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.xmdl.ida.lib.web.action.BaseAction;
 import org.xmdl.taslak.model.Order;
 import org.xmdl.taslak.model.OrderElement;
+import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.search.OrderElementSearch;
 import org.xmdl.taslak.service.OrderElementManager;
 import org.xmdl.taslak.service.OrderManager;
@@ -199,13 +200,13 @@ public class OrderElementAction extends BaseAction implements Preparable {
         }
     }
 
-    private List productList;
+    private List<Product> productList;
 
-    public List getProductList() {
+    public List<Product> getProductList() {
         return productList;
     }
 
-    public void setProductList(List productList) {
+    public void setProductList(List<Product> productList) {
         this.productList = productList;
     }
 

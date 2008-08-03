@@ -64,6 +64,15 @@ public class ProfileDaoTest extends BaseDaoTestCase {
         assertTrue(profiles.size() > 0);
     }
 
+    public void testGetProfileByUsername() throws Exception {
+    	Profile profile = profileDao.getProfileByUsername("user");
+    	assertNotNull(profile);
+    	User user = profile.getUser();
+    	assertNotNull(user);
+    	assertEquals("user", user.getUsername());
+    	assertEquals("00001", profile.getPrivatePhone());
+    }
+
     protected void onSetUpBeforeTransaction() throws Exception {
         super.onSetUpBeforeTransaction();
 

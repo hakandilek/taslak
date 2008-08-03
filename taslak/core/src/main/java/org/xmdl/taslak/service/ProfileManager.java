@@ -8,4 +8,6 @@ import java.util.Collection;
 
 public interface ProfileManager extends GenericManager<Profile,Long>{
     Collection<Profile> search(ProfileSearch profileSearch);
+
+	Profile getProfileByUsername(String username);
 }

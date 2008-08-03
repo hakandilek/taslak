@@ -13,7 +13,7 @@
     </s:param>
 </s:url>
 
-<s:form id="profileForm"  action="saveProfile" method="post" validate="true">
+<s:form id="profileForm" action="saveProfile" method="post" validate="true">
     <li style="display: none">
         <s:hidden key="profile.user.id"/>
         <s:hidden key="profile.user.version"/>
@@ -28,18 +28,17 @@
             <input type="hidden" name="encryptPass" value="true" />
         </s:if>
     </li>
-    <li class="buttonBar right">
-        <c:set var="buttons">
-            <s:submit key="button.save" method="save" onclick="onFormSubmit(this.form)"/>
-            
-        <c:if test="${param.from == 'list' and not empty profile.user.id}">
-            <s:submit key="button.delete" method="delete" onclick="return confirmDelete('profile')"/>
-        </c:if>
+
+    <c:set var="buttons">
+        <s:submit key="button.save" method="save" onclick="onFormSubmit(this.form)"/>
         
-            <s:submit key="button.cancel" method="cancel"/>
-        </c:set>
-        <c:out value="${buttons}" escapeXml="false"/>
-    </li>
+    <c:if test="${param.from == 'list' and not empty profile.user.id}">
+        <s:submit key="button.delete" method="delete" onclick="return confirmDelete('profile')"/>
+    </c:if>
+    
+        <s:submit key="button.cancel" method="cancel"/>
+    </c:set>
+   	<c:out value="${buttons}" escapeXml="false"/>
     <li class="info">
         <c:choose>
             <c:when test="${param.from == 'list'}">
@@ -51,91 +50,47 @@
         </c:choose>
     </li>
 
+    <s:textfield key="profile.privatePhone" cssClass="text large" required="true"/>
     <s:textfield key="profile.user.username" cssClass="text large" required="true"/>
 
     <c:if test="${cookieLogin != 'true'}">
-    <li>
-        <div>
-            <div class="left">
-                <s:password key="profile.user.password" showPassword="true" theme="xhtml" required="true" 
-                    cssClass="text medium" onchange="passwordChanged(this)"/>
-            </div>
-            <div>
-                <s:password key="profile.user.confirmPassword" theme="xhtml" required="true" 
-                    showPassword="true" cssClass="text medium" onchange="passwordChanged(this)"/>
-            </div>
-        </div>
-    </li>
+       <s:password key="profile.user.password" showPassword="true" theme="xhtml" required="true" 
+           cssClass="text medium" onchange="passwordChanged(this)"/>
+       <s:password key="profile.user.confirmPassword" theme="xhtml" required="true" 
+           showPassword="true" cssClass="text medium" onchange="passwordChanged(this)"/>
     </c:if>
 
     <s:textfield key="profile.user.passwordHint" required="true" cssClass="text large"/>
-
-    <li>
-        <div>
-            <div class="left">
-                <s:textfield key="profile.user.firstName" theme="xhtml" required="true" cssClass="text medium"/>
-            </div>
-            <div>
-                <s:textfield key="profile.user.lastName" theme="xhtml" required="true" cssClass="text medium"/>
-            </div>
-        </div>
-    </li>
-
-    <li>
-        <div>
-            <div class="left">
-                <s:textfield key="profile.user.email" theme="xhtml" required="true" cssClass="text medium"/>
-            </div>
-            <div>
-                <s:textfield key="profile.user.phoneNumber" theme="xhtml" cssClass="text medium"/>
-            </div>
-        </div>
-    </li>
-
+    <s:textfield key="profile.user.firstName" theme="xhtml" required="true" cssClass="text medium"/>
+    <s:textfield key="profile.user.lastName" theme="xhtml" required="true" cssClass="text medium"/>
+    <s:textfield key="profile.user.email" theme="xhtml" required="true" cssClass="text medium"/>
+    <s:textfield key="profile.user.phoneNumber" theme="xhtml" cssClass="text medium"/>
     <s:textfield key="profile.user.website" required="true" cssClass="text large"/>
 
-    <li>
-        
-        <div class="group">
-            <div class="left">
-			<tr>
-		    <td class="tdLabel"><label class="desc"><fmt:message key="profile.user.address.address"/></label></td>
-		    <td></td>
-			</tr>
-
-            <div>
-                <s:textfield key="profile.user.address.address" theme="xhtml" cssClass="text large" labelposition="bottom"/>
-            </div>
-            <div class="left">
-                <s:textfield key="profile.user.address.city" theme="xhtml" required="true" cssClass="text medium" 
-                    labelposition="bottom"/>
-            </div>
-            <div>
-                <s:textfield key="profile.user.address.province" theme="xhtml" required="true" cssClass="text state" 
-                    labelposition="bottom"/>
-            </div>
-            <div class="left">
-                <s:textfield key="profile.user.address.postalCode" theme="xhtml" required="true" cssClass="text medium" 
-                    labelposition="bottom"/>
-            </div>
-            <div>
-            	<tr>
-    			<td class="tdLabel">
-	                <label for="profileForm_profile_user_address_country" class="label">
-	                    <fmt:message key="profile.user.address.country"/> <span class="required">*</span>:
-	                </label>
-                </td>
-    			<td>
-                <s:set name="country" value="profile.user.address.country" scope="page"/>
-                <ida:country name="profile.user.address.country" prompt="" default="${country}"/>
-                </td>
-				</tr>
-            </div>
-        </div>
-    </li>
+	<tr>
+	   <td class="tdLabel"><label class="desc"><fmt:message key="profile.user.address.address"/></label></td>
+	   <td></td>
+	</tr>
+   	<s:textfield key="profile.user.address.address" theme="xhtml" cssClass="text large" labelposition="bottom"/>
+    <s:textfield key="profile.user.address.city" theme="xhtml" required="true" cssClass="text medium" 
+        labelposition="bottom"/>
+    <s:textfield key="profile.user.address.province" theme="xhtml" required="true" cssClass="text state" 
+        labelposition="bottom"/>
+    <s:textfield key="profile.user.address.postalCode" theme="xhtml" required="true" cssClass="text medium" 
+        labelposition="bottom"/>
+  	<tr>
+		<td class="tdLabel">
+			<label for="profileForm_profile_user_address_country" class="label">
+			    <fmt:message key="profile.user.address.country"/> <span class="required">*</span>:
+			</label>
+		</td>
+		<td>
+			<s:set name="country" value="profile.user.address.country" scope="page"/>
+			<ida:country name="profile.user.address.country" prompt="" default="${country}"/>
+		</td>
+	</tr>
 <c:choose>
     <c:when test="${param.from == 'list'}">
-    <li>
         <fieldset>
             <legend><fmt:message key="userProfile.accountSettings"/></legend>
             <s:checkbox key="profile.user.enabled" id="profile.user.enabled" fieldValue="true" theme="simple"/>
@@ -150,8 +105,6 @@
             <s:checkbox key="profile.user.credentialsExpired" id="profile.user.credentialsExpired" fieldValue="true" theme="simple"/>
             <label for="profile.user.credentialsExpired" class="choice"><fmt:message key="profile.user.credentialsExpired"/></label>
         </fieldset>
-    </li>
-    <li>
         <fieldset>
             <legend><fmt:message key="userProfile.assignRoles"/></legend>
             <table class="pickList">
@@ -173,25 +126,28 @@
                 </c:import>
             </table>
         </fieldset>
-    </li>
     </c:when>
     <c:otherwise>
-    <li>
-        <strong><fmt:message key="profile.user.roles"/>:</strong>
-        <s:iterator value="profile.user.roleList" status="status">
-          <s:property value="label"/><s:if test="!#status.last">,</s:if>
-          <input type="hidden" name="userRoles" value="<s:property value="value"/>"/>
-        </s:iterator>
-        <s:hidden name="profile.user.enabled" value="%{profile.user.enabled}"/>
+		<tr>
+		    <td class="tdLabel" colspan="2"><label class="desc"><fmt:message key="profile.user.roles"/></label></td>
+		</tr>
+		<tr>
+		    <td class="tdLabel" colspan="2">
+	        <s:iterator value="profile.user.roleList" status="status">
+	          <s:property value="label"/><s:if test="!#status.last">,</s:if>
+	          <input type="hidden" name="userRoles" value="<s:property value="value"/>"/>
+	        </s:iterator>
+			</td>
+		</tr>		        
+		<s:hidden name="profile.user.enabled" value="%{profile.user.enabled}"/>
         <s:hidden name="profile.user.accountExpired" value="%{profile.user.accountExpired}"/>
         <s:hidden name="profile.user.accountLocked" value="%{profile.user.accountLocked}"/>
         <s:hidden name="profile.user.credentialsExpired" value="%{profile.user.credentialsExpired}"/>
-    </li>
     </c:otherwise>
 </c:choose>
-    <li class="buttonBar bottom">
-        <c:out value="${buttons}" escapeXml="false"/>
-    </li>
+
+	<c:out value="${buttons}" escapeXml="false"/>
+
 </s:form>
 
 <script type="text/javascript">

@@ -1,10 +1,18 @@
 package org.xmdl.taslak.webapp.action;
 
+import java.io.IOException;
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.xmdl.ida.lib.web.action.BaseAction;
+import org.xmdl.mesken.MeskenConstants;
+import org.xmdl.mesken.model.Role;
+import org.xmdl.mesken.model.User;
 import org.xmdl.taslak.model.Profile;
 import org.xmdl.taslak.model.search.ProfileSearch;
 import org.xmdl.taslak.service.ProfileManager;
@@ -95,15 +103,38 @@ public class ProfileAction extends BaseAction implements Preparable {
         return SUCCESS;
     }
 
-    public String edit() {
+    public String edit() throws IOException {
         if (log.isDebugEnabled()) log.debug("edit() <-");
 
-        if (id != null) {
-            profile = profileManager.get(id);
-        } else {
-            profile = new Profile();
+        HttpServletRequest request = getRequest();
+        boolean editProfile = (request.getRequestURI().indexOf("editProfile") > -1);
+
+        // if URL is "editProfile" - make sure it's the current user
+        if (editProfile) {
+            // reject if id passed in or "list" parameter passed in
+            // someone that is trying this probably knows the AppFuse code
+            // but it's a legitimate bug, so I'll fix it. ;-)
+            if ((request.getParameter("id") != null) || (request.getParameter("from") != null)) {
+                ServletActionContext.getResponse().sendError(HttpServletResponse.SC_FORBIDDEN);
+                log.warn("User '" + request.getRemoteUser() + "' is trying to edit user '" 
+                         + request.getParameter("id") + "'");
+
+                return null;
+            }
         }
 
+		if (id != null) {
+            profile = profileManager.get(id);
+        } else if (editProfile) {
+            String username = request.getRemoteUser();
+			profile = profileManager.getProfileByUsername(username);
+        } else {
+            profile = new Profile();
+            User user  = new User();
+            profile.setUser(user);
+            user.addRole(new Role(MeskenConstants.USER_ROLE));
+        }
+		
         if (log.isDebugEnabled()) log.debug("editing profile: " + profile);
         if (log.isDebugEnabled()) log.debug("edit() ->");
 

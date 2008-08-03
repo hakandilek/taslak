@@ -12,6 +12,7 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import java.util.Collection;
 
+@SuppressWarnings("serial")
 public class OrderAction extends BaseAction implements Preparable {
     private OrderManager orderManager;
     private Collection<Order> orders;
