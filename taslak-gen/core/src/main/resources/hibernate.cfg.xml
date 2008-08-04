@@ -9,5 +9,6 @@
         <mapping class="org.xmdl.taslak.model.Product"/>
         <mapping class="org.xmdl.taslak.model.Supplier"/>
         <mapping class="org.xmdl.taslak.model.OrderElement"/>
+        <mapping class="org.xmdl.taslak.model.Profile"/>
     </session-factory>
 </hibernate-configuration>

@@ -14,7 +14,7 @@
 
     <!-- application specific tests grouped by each entity -->
     <target name="ApplicationTests"
-        depends="OrderTests,ProductTests,SupplierTests,OrderElementTests"
+        depends="OrderTests,ProductTests,SupplierTests,OrderElementTests,ProfileTests,ContactTests,UserTests"
         description="Calls all application tests">
     </target>
 
@@ -519,6 +519,378 @@
         </webtest>
     </target>
     <!--OrderElement-END-->
+
+    <!--Profile-START-->
+    <!-- runs profile-related tests -->
+    <target name="ProfileTests" depends="SearchProfiles,EditProfile,SaveProfile,AddProfile,
+                    CopyProfile,DeleteProfile,MassDeleteProfile"
+            description="Call and executes all profile test cases (targets)">
+        <echo>Successfully ran all Profile UI tests!</echo>
+    </target>
+
+    <!-- Verify the profiles list screen displays without errors -->
+    <target name="SearchProfiles" description="Tests search for and displaying all profiles">
+        <webtest name="searchProfiles">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Profile link" url="/Profile/profiles.do"/>
+                <verifytitle description="we should see the profileList title"
+                             text=".*${profileList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit profile screen displays without errors -->
+    <target name="EditProfile" description="Tests editing an existing Profile's information">
+        <webtest name="editProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/Profile/editProfile.do?id=1"/>
+                <verifytitle description="we should see the profileDetail title"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a profile and then save -->
+    <target name="SaveProfile" description="Tests editing and saving a profile">
+        <webtest name="saveProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/Profile/editProfile.do?id=1"/>
+                <verifytitle description="we should see the profileDetail title"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set privatePhone" name="profile.privatePhone" value="HMrrM6nArUp SJc"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${profile.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Profile -->
+    <target name="AddProfile" description="Adds a new Profile">
+        <webtest name="addProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Profile/editProfile.do"/>
+                <verifytitle description="we should see the profileDetail title"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set privatePhone" name="profile.privatePhone" value="HMrrM6nArUp SJc"/>
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Profile List appears if save successful"
+                             text=".*${profileList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${profile.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing profile -->
+    <target name="CopyProfile" description="Copies existing Profile">
+        <webtest name="copyProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Profile Order link" url="/Profile/copyProfile.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the profile"
+                             text=".*${profileDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing profile -->
+    <target name="DeleteProfile" description="Deletes existing Profile">
+        <webtest name="deleteProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/Profile/editProfile.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Profile List" text=".*${profileList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${profile.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing profiles -->
+    <target name="MassDeleteProfile" description="Mass Delete Profiles">
+        <webtest name="massDeleteProfile">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Profiles link" url="/Profile/profiles.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Profiles List" text=".*${profileList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Profile.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Profile-END-->
+
+    <!--Contact-START-->
+    <!-- runs contact-related tests -->
+    <target name="ContactTests" depends="SearchContacts,EditContact,SaveContact,AddContact,
+                    CopyContact,DeleteContact,MassDeleteContact"
+            description="Call and executes all contact test cases (targets)">
+        <echo>Successfully ran all Contact UI tests!</echo>
+    </target>
+
+    <!-- Verify the contacts list screen displays without errors -->
+    <target name="SearchContacts" description="Tests search for and displaying all contacts">
+        <webtest name="searchContacts">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Contact link" url="/Contact/contacts.do"/>
+                <verifytitle description="we should see the contactList title"
+                             text=".*${contactList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit contact screen displays without errors -->
+    <target name="EditContact" description="Tests editing an existing Contact's information">
+        <webtest name="editContact">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Contact link" url="/Contact/editContact.do?id=1"/>
+                <verifytitle description="we should see the contactDetail title"
+                             text=".*${contactDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a contact and then save -->
+    <target name="SaveContact" description="Tests editing and saving a contact">
+        <webtest name="saveContact">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Contact link" url="/Contact/editContact.do?id=1"/>
+                <verifytitle description="we should see the contactDetail title"
+                             text=".*${contactDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set fullname" name="contact.fullname" value="Mcq8f tB2bRjD W"/>
+                <setInputField description="set phone" name="contact.phone" value="2PVdCPmFbaDy6 Y"/>
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${contactDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${contact.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Contact -->
+    <target name="AddContact" description="Adds a new Contact">
+        <webtest name="addContact">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/Contact/editContact.do"/>
+                <verifytitle description="we should see the contactDetail title"
+                             text=".*${contactDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set fullname" name="contact.fullname" value="Mcq8f tB2bRjD W"/>
+                <setInputField description="set phone" name="contact.phone" value="2PVdCPmFbaDy6 Y"/>
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="Contact List appears if save successful"
+                             text=".*${contactList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${contact.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing contact -->
+    <target name="CopyContact" description="Copies existing Contact">
+        <webtest name="copyContact">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Contact Order link" url="/Contact/copyContact.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the contact"
+                             text=".*${contactDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing contact -->
+    <target name="DeleteContact" description="Deletes existing Contact">
+        <webtest name="deleteContact">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Contact link" url="/Contact/editContact.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Contact List" text=".*${contactList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${contact.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing contacts -->
+    <target name="MassDeleteContact" description="Mass Delete Contacts">
+        <webtest name="massDeleteContact">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Contacts link" url="/Contact/contacts.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Contacts List" text=".*${contactList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${Contact.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--Contact-END-->
+
+    <!--User-START-->
+    <!-- runs user-related tests -->
+    <target name="UserTests" depends="SearchUsers,EditUser,SaveUser,AddUser,
+                    CopyUser,DeleteUser,MassDeleteUser"
+            description="Call and executes all user test cases (targets)">
+        <echo>Successfully ran all User UI tests!</echo>
+    </target>
+
+    <!-- Verify the users list screen displays without errors -->
+    <target name="SearchUsers" description="Tests search for and displaying all users">
+        <webtest name="searchUsers">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View User link" url="/User/users.do"/>
+                <verifytitle description="we should see the userList title"
+                             text=".*${userList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit user screen displays without errors -->
+    <target name="EditUser" description="Tests editing an existing User's information">
+        <webtest name="editUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit User link" url="/User/editUser.do?id=1"/>
+                <verifytitle description="we should see the userDetail title"
+                             text=".*${userDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a user and then save -->
+    <target name="SaveUser" description="Tests editing and saving a user">
+        <webtest name="saveUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit User link" url="/User/editUser.do?id=1"/>
+                <verifytitle description="we should see the userDetail title"
+                             text=".*${userDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+
+                <clickbutton label="${button.update}" description="Click Update"/>
+                <verifytitle description="Page re-appears if save successful"
+                             text=".*${userDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${user.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new User -->
+    <target name="AddUser" description="Adds a new User">
+        <webtest name="addUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/User/editUser.do"/>
+                <verifytitle description="we should see the userDetail title"
+                             text=".*${userDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+
+                <clickbutton label="${button.add}" description="Click button 'Add'"/>
+                <verifytitle description="User List appears if save successful"
+                             text=".*${userList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${user.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Copy existing user -->
+    <target name="CopyUser" description="Copies existing User">
+        <webtest name="copyUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click User Order link" url="/User/copyUser.do?idToCopy=1"/>
+                <verifytitle description="Values filled by the properties of the user"
+                             text=".*${userDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+
+    <!-- Delete existing user -->
+    <target name="DeleteUser" description="Deletes existing User">
+        <webtest name="deleteUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit User link" url="/User/editUser.do?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display User List" text=".*${userList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${user.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Mass Delete existing users -->
+    <target name="MassDeleteUser" description="Mass Delete Users">
+        <webtest name="massDeleteUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click List Users link" url="/User/users.do"/>
+                <setCheckbox description="clicks the select all checkbox" name="allbox"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Users List" text=".*${userList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${User.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--User-END-->
 
 
 </project>

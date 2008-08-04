@@ -28,6 +28,7 @@
         <type xsi:type="org.xmdl:XClass" href="platform:/plugin/org.xmdl.model/model/types.xmdl#//@packages.0/@classes.0"/>
       </attributes>
       <attributes name="products" type="//@packages.0/@classes.1" associationType="ManyToMany" opposite="//@packages.0/@classes.1/@attributes.3"/>
+      <attributes name="contact" type="//@packages.0/@classes.5" associationBehaviour="composition" navigable="true"/>
     </classes>
     <classes name="OrderElement" className="org.xmdl.taslak.OrderElement">
       <attributes name="quantity">
@@ -36,11 +37,28 @@
       <attributes name="order" type="//@packages.0/@classes.0" associationType="ManyToOne" opposite="//@packages.0/@classes.0/@attributes.3"/>
       <attributes name="product" type="//@packages.0/@classes.1" associationType="ManyToOne" opposite="//@packages.0/@classes.1/@attributes.2"/>
     </classes>
+    <classes name="Profile" className="org.xmdl.taslak.Profile">
+      <attributes name="privatePhone">
+        <type xsi:type="org.xmdl:XClass" href="platform:/plugin/org.xmdl.model/model/types.xmdl#//@packages.0/@classes.0"/>
+      </attributes>
+      <attributes name="user" type="//@packages.1/@classes.0" navigable="true"/>
+    </classes>
+    <classes name="Contact" className="org.xmdl.taslak.Contact" behavior="EMBEDDABLE">
+      <attributes name="fullname">
+        <type xsi:type="org.xmdl:XClass" href="platform:/plugin/org.xmdl.model/model/types.xmdl#//@packages.0/@classes.0"/>
+      </attributes>
+      <attributes name="phone">
+        <type xsi:type="org.xmdl:XClass" href="platform:/plugin/org.xmdl.model/model/types.xmdl#//@packages.0/@classes.0"/>
+      </attributes>
+    </classes>
     <enumerations name="ProductType" className="org.xmdl.taslak.ProductType">
       <literals name="RAWMATERIAL" value="1"/>
       <literals name="INTERMEDIATEPRODUCT" value="2"/>
       <literals name="PRODUCT" value="3"/>
       <literals name="SERVICE" value="4"/>
     </enumerations>
+  </packages>
+  <packages name="org.xmdl.mesken.model">
+    <classes name="User" className="org.xmdl.mesken.model.User" behavior="VIRTUAL"/>
   </packages>
 </org.xmdl:XProject>

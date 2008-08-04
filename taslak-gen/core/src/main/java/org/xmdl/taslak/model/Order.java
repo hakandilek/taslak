@@ -13,7 +13,8 @@ import javax.persistence.*;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 
-import org.xmdl.ida.lib.model.BaseObject; 
+import org.xmdl.ida.lib.model.BaseObject;
+import org.xmdl.mesken.model.User; 
 
 
 

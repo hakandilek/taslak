@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.text.MessageFormat;
 
 import java.util.*;
+import org.xmdl.mesken.model.User;
 import org.xmdl.taslak.model.*; 
 
 
