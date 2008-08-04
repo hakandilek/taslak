@@ -63,7 +63,7 @@ public class Supplier extends BaseObject implements Serializable, Cloneable {
      * @generated
      */
     @Embedded
-    private Contact contact;
+    private Contact contact = new Contact();
 
 
     /** 
