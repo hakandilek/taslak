@@ -689,7 +689,7 @@
                              text=".*${contactDetail.title}.*" regex="true"/>
 
                 <!-- update some of the required fields -->
-                <setInputField description="set fullname" name="contact.fullname" value="Mcq8f tB2bRjD W"/>
+                <setInputField description="set fullname" name="contact.fullname" value="LbcXF AgaGtXG2C"/>
                 <setInputField description="set phone" name="contact.phone" value="2PVdCPmFbaDy6 Y"/>
 
                 <clickbutton label="${button.update}" description="Click Update"/>
@@ -711,7 +711,7 @@
                              text=".*${contactDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set fullname" name="contact.fullname" value="Mcq8f tB2bRjD W"/>
+                <setInputField description="set fullname" name="contact.fullname" value="LbcXF AgaGtXG2C"/>
                 <setInputField description="set phone" name="contact.phone" value="2PVdCPmFbaDy6 Y"/>
 
                 <clickbutton label="${button.add}" description="Click button 'Add'"/>
