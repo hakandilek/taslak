@@ -15,6 +15,7 @@
 
     <classpathentry kind="var" path="M2_REPO/org/xmdl/ida/ida-corelib/0.1-SNAPSHOT/ida-corelib-0.1-SNAPSHOT.jar"/>
     <classpathentry kind="var" path="M2_REPO/org/xmdl/ida/ida-weblib/0.1-SNAPSHOT/ida-weblib-0.1-SNAPSHOT.jar"/>
+    <classpathentry kind="var" path="M2_REPO/org/xmdl/ida/mesken-core/0.1-SNAPSHOT/mesken-core-0.1-SNAPSHOT.jar"/>
 
     <classpathentry kind="var" path="M2_REPO/org/springframework/spring/2.0.7/spring-2.0.7.jar" sourcepath="M2_REPO/org/springframework/spring/2.0.7/spring-2.0.7-sources.jar"/>
     <classpathentry kind="var" path="M2_REPO/org/codehaus/xfire/xfire-core/1.2.6/xfire-core-1.2.6.jar" sourcepath="M2_REPO/org/codehaus/xfire/xfire-core/1.2.6/xfire-core-1.2.6-sources.jar"/>

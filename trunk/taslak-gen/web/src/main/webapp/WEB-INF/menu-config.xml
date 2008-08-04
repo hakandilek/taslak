@@ -33,6 +33,20 @@
                 <Item name="OrderElementEdit"   title="menu.edit.OrderElement"   page="/OrderElement/editOrderElement.do"/>
                 <Item name="OrderElementSearch" title="menu.search.OrderElement" page="/OrderElement/orderElements.do"/>
             </Item>
+            <Item name="ProfileMenu"       title="menu.title.Profile"  page="/Profile/editProfile.do">
+                <Item name="ProfileEdit"   title="menu.edit.Profile"   page="/Profile/editProfile.do"/>
+                <Item name="ProfileSearch" title="menu.search.Profile" page="/Profile/profiles.do"/>
+            </Item>
+            <Item name="ContactMenu"       title="menu.title.Contact"  page="/Contact/editContact.do">
+                <Item name="ContactEdit"   title="menu.edit.Contact"   page="/Contact/editContact.do"/>
+                <Item name="ContactSearch" title="menu.search.Contact" page="/Contact/contacts.do"/>
+            </Item>
+        </Menu>
+        <Menu name="org.xmdl.mesken.modelMenu" title="menu.title.org.xmdl.mesken.model" description="org.xmdl.mesken.model" roles="ROLE_ADMIN,ROLE_USER">
+            <Item name="UserMenu"       title="menu.title.User"  page="/User/editUser.do">
+                <Item name="UserEdit"   title="menu.edit.User"   page="/User/editUser.do"/>
+                <Item name="UserSearch" title="menu.search.User" page="/User/users.do"/>
+            </Item>
         </Menu>
 
         <Menu name="Logout" title="user.logout" page="/logout.jsp" roles="ROLE_ADMIN,ROLE_USER"/>

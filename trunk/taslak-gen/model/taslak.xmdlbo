@@ -15,5 +15,17 @@
     <services name="OrderElementService">
       <xClass href="taslak.xmdl#//@packages.0/@classes.3"/>
     </services>
+    <services name="ProfileService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.4"/>
+    </services>
+    <services name="ContactService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.5"/>
+    </services>
+  </bPackages>
+  <bPackages name="org.xmdl.mesken.model">
+    <xPackage href="taslak.xmdl#//@packages.1"/>
+    <services name="UserService">
+      <xClass href="taslak.xmdl#//@packages.1/@classes.0"/>
+    </services>
   </bPackages>
 </org.xmdl.bo:BModel>

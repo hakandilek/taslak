@@ -37,6 +37,7 @@
             classpath*:org/xmdl/ida/lib/applicationContext*.xml
             classpath*:org/xmdl/mesken/applicationContext*.xml
             classpath*:org/xmdl/taslak/applicationContext*.xml
+            classpath*:org/xmdl/mesken/model/applicationContext*.xml
             /WEB-INF/applicationContext*.xml
             /WEB-INF/xfire-servlet.xml
             /WEB-INF/security.xml

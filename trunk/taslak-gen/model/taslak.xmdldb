@@ -43,6 +43,9 @@
       <dFields name="F_NAME" length="15">
         <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.0"/>
       </dFields>
+      <dFields name="F_CONTACT_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.2"/>
+      </dFields>
     </dTables>
     <dTables name="TBL_ORDERELEMENT">
       <xClass href="taslak.xmdl#//@packages.0/@classes.3"/>
@@ -55,6 +58,33 @@
       <dFields name="F_PRODUCT_ID" length="15">
         <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.2"/>
       </dFields>
+    </dTables>
+    <dTables name="TBL_PROFILE">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.4"/>
+      <dFields name="F_PRIVATEPHONE" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.4/@attributes.0"/>
+      </dFields>
+      <dFields name="F_USER_ID" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.4/@attributes.1"/>
+      </dFields>
+    </dTables>
+    <dTables name="TBL_CONTACT">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.5"/>
+      <dFields name="F_FULLNAME" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.5/@attributes.0"/>
+      </dFields>
+      <dFields name="F_PHONE" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.5/@attributes.1"/>
+      </dFields>
+      <dFields name="F_PHONE" length="15">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.5/@attributes.2"/>
+      </dFields>
+    </dTables>
+  </dPackages>
+  <dPackages name="org.xmdl.mesken.model">
+    <xPackage href="taslak.xmdl#//@packages.1"/>
+    <dTables name="TBL_USER">
+      <xClass href="taslak.xmdl#//@packages.1/@classes.0"/>
     </dTables>
   </dPackages>
 </org.xmdl.db:DModel>

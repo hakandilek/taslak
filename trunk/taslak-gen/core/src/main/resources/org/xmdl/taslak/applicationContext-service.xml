@@ -53,6 +53,9 @@
     <bean id="orderElementManager" class="org.xmdl.taslak.service.impl.OrderElementManagerImpl">
         <constructor-arg ref="orderElementDAO"/>
     </bean>
+    <bean id="profileManager" class="org.xmdl.taslak.service.impl.ProfileManagerImpl">
+        <constructor-arg ref="profileDAO"/>
+    </bean>
 
 </beans>
 

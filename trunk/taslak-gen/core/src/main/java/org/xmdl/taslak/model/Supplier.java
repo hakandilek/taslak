@@ -13,7 +13,8 @@ import javax.persistence.*;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 
-import org.xmdl.ida.lib.model.BaseObject; 
+import org.xmdl.ida.lib.model.BaseObject;
+import org.xmdl.mesken.model.User; 
 
 
 
@@ -57,6 +58,13 @@ public class Supplier extends BaseObject implements Serializable, Cloneable {
     @ManyToMany(cascade = { CascadeType.PERSIST,CascadeType.MERGE },mappedBy = "suppliers", targetEntity = Product.class)
     private Set<Product> products;
     
+
+    /** 
+     * @generated
+     */
+    @Embedded
+    private Contact contact;
+
 
     /** 
      * @generated
@@ -106,6 +114,20 @@ public class Supplier extends BaseObject implements Serializable, Cloneable {
         this.products = products;
     }
 
+
+    /** 
+     * @generated
+     */
+    public Contact getContact() {
+        return contact;
+    }
+
+    /** 
+     * @generated
+     */
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
 
     /** 
      * @generated

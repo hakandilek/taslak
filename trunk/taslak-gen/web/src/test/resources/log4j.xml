@@ -39,6 +39,10 @@
         <level value="DEBUG"/>
     </logger>
 
+    <logger name="org.xmdl.mesken.model.webapp">
+        <level value="DEBUG"/>
+    </logger>
+
 
     <root>
         <level value="WARN"/>

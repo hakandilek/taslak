@@ -66,18 +66,17 @@
     <bean id="orderManager" class="org.xmdl.taslak.service.impl.OrderManagerImpl">
         <constructor-arg ref="orderDAO"/>
     </bean>
-
     <bean id="productManager" class="org.xmdl.taslak.service.impl.ProductManagerImpl">
         <constructor-arg ref="productDAO"/>
     </bean>
-
     <bean id="supplierManager" class="org.xmdl.taslak.service.impl.SupplierManagerImpl">
         <constructor-arg ref="supplierDAO"/>
     </bean>
-
     <bean id="orderElementManager" class="org.xmdl.taslak.service.impl.OrderElementManagerImpl">
         <constructor-arg ref="orderElementDAO"/>
     </bean>
-
+    <bean id="profileManager" class="org.xmdl.taslak.service.impl.ProfileManagerImpl">
+        <constructor-arg ref="profileDAO"/>
+    </bean>
 
 </beans>

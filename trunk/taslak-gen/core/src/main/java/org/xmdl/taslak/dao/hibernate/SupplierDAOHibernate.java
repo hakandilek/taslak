@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 
 import org.xmdl.ida.lib.dao.hibernate.GenericDaoHibernate;
 
+import org.xmdl.mesken.model.User;
 import org.xmdl.taslak.dao.*;
 
 import org.xmdl.taslak.model.*;
