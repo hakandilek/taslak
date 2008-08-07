@@ -31,6 +31,8 @@
 
         <display:column property="id" media="csv excel xml pdf" titleKey="supplier.id"/>
         <display:column property="name" sortable="true" titleKey="supplier.name"/>
+		<display:column property="contact.fullname" sortable="true" titleKey="supplier.contact.fullname"/>
+		<display:column property="contact.phone" sortable="true" titleKey="supplier.contact.phone"/>
 
         <display:column media="html" titleKey="List.Edit" >
             <a href="/Supplier/editSupplier.do?id=<c:out value="${supplierList.id}"/>"><ida:base-url context="icon" path="edit.gif"/></a>
