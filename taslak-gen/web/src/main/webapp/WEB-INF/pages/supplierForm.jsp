@@ -17,6 +17,11 @@
         <s:hidden key="supplier.id"/>
     </li>
         <s:textfield key="supplier.name" required="false" cssClass="text medium" labelposition="left"/>
+		<tr>
+	   		<td class="tdLabel" colspan="2"><label class="desc"><fmt:message key="supplier.contact"/></label></td>
+		</tr>
+        <s:textfield key="supplier.contact.fullname" required="false" cssClass="text medium" labelposition="left"/>
+        <s:textfield key="supplier.contact.phone" required="false" cssClass="text medium" labelposition="left"/>
 
     <li class="buttonBar bottom">
         <c:if test="${empty supplier.id}">
