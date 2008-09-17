@@ -1,105 +1,136 @@
-<!-- hd --><#rt/>
+<#if parameters.readonly?default(false)>
+<label <#rt/>
+ id="${parameters.id?html}" <#rt/>
+    <#if parameters.cssClass?exists>
+ class="${parameters.cssClass?html}"<#rt/>
+    </#if>
+><#rt/>
+<@s.property value="parameters.amount"/><#rt/>
+</label>
+<label<#rt/>
+        <#if parameters.id?exists>
+ id="${parameters.id?html}_currency"<#rt/>
+        </#if>
+<#rt/>
+        <#if parameters.currencyCssClass?exists>
+ class="${parameters.currencyCssClass?html}"<#rt/>
+        <#else>
+ class="currency"<#rt/>
+        </#if>
+><#rt/>
+<#rt/>
+        <#if parameters.currency?exists>
+<@s.property value="parameters.currency"/><#rt/>
+        </#if>
+</label>
+<#rt/>
+<#else>
+<#rt/>
 <input type="text"<#rt/>
  name="${parameters.name?default("")?html}"<#rt/>
-<#if parameters.get("size")?exists>
+    <#if parameters.get("size")?exists>
  size="${parameters.get("size")?html}"<#rt/>
-</#if>
-<#if parameters.maxlength?exists>
+    </#if>
+
+    <#if parameters.maxlength?exists>
  maxlength="${parameters.maxlength?html}"<#rt/>
-</#if>
-<#if parameters.amount?exists>
+    </#if>
+
+    <#if parameters.amount?exists>
  value="<@s.property value="parameters.amount"/>"<#rt/>
-</#if>
-<#if parameters.disabled?default(false)>
+    </#if>
+
+    <#if parameters.disabled?default(false)>
  disabled="disabled"<#rt/>
-</#if>
-<#if parameters.readonly?default(false)>
+    </#if>
+
+    <#if parameters.readonly?default(false)>
  readonly="readonly"<#rt/>
-</#if>
-<#if parameters.tabindex?exists>
+    </#if>
+
+    <#if parameters.tabindex?exists>
  tabindex="${parameters.tabindex?html}"<#rt/>
-</#if>
-<#if parameters.id?exists>
+    </#if>
+
+    <#if parameters.id?exists>
  id="${parameters.id?html}"<#rt/>
-</#if>
-<#if parameters.cssClass?exists>
+    </#if>
+
+    <#if parameters.cssClass?exists>
  class="${parameters.cssClass?html}"<#rt/>
-</#if>
-<#if parameters.cssStyle?exists>
+    </#if>
+
+    <#if parameters.cssStyle?exists>
  style="${parameters.cssStyle?html}"<#rt/>
-</#if>
-<#if parameters.title?exists>
+    </#if>
+
+    <#if parameters.title?exists>
  title="${parameters.title?html}"<#rt/>
-</#if>
-<#include "/${parameters.templateDir}/simple/scripting-events.ftl" />
-<#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
+    </#if>
+
+    <#include "/${parameters.templateDir}/simple/scripting-events.ftl" />
+    <#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
 />
-<#if parameters.readonly?default(false)>
-<label<#rt/>
-<#if parameters.id?exists>
- id="${parameters.id?html}_currency"<#rt/>
-</#if>
-<#if parameters.currencyCssClass?exists>
- class="${parameters.currencyCssClass?html}"<#rt/>
-<#else>
- class="currency"<#rt/>
-</#if>
-><#rt/>
-<#if parameters.currency?exists>
-<@s.property value="parameters.currency"/><#rt/>
-</#if>
-</label>
-<#else>
+
 <select<#rt/>
  name="${parameters.name?default("")?html}_currency"<#rt/>
-<#if parameters.currencyCssClass?exists>
+    <#if parameters.currencyCssClass?exists>
  class="${parameters.currencyCssClass?html}"<#rt/>
-<#else>
+    <#else>
  class="desc"<#rt/>
-</#if>
-<#if parameters.disabled?default(false)>
+    </#if>
+
+    <#if parameters.disabled?default(false)>
  disabled="disabled"<#rt/>
-</#if>
-<#if parameters.id?exists>
+    </#if>
+
+    <#if parameters.id?exists>
  id="${parameters.id?html}_currency"<#rt/>
-</#if>
-<#if parameters.cssClass?exists>
+    </#if>
+
+    <#if parameters.cssClass?exists>
  class="${parameters.cssClass?html}"<#rt/>
-</#if>
-<#if parameters.cssStyle?exists>
+    </#if>
+
+    <#if parameters.cssStyle?exists>
  style="${parameters.cssStyle?html}"<#rt/>
-</#if>
-<#if parameters.title?exists>
+    </#if>
+
+    <#if parameters.title?exists>
  title="${parameters.title?html}"<#rt/>
-</#if>
-<#include "/${parameters.templateDir}/simple/scripting-events.ftl" />
-<#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
+    </#if>
+
+    <#include "/${parameters.templateDir}/simple/scripting-events.ftl" />
+    <#include "/${parameters.templateDir}/simple/common-attributes.ftl" />
 >
-<#if parameters.emptyOption?default(false)>
+    <#if parameters.emptyOption?default(false)>
     <option value=""></option>
-</#if>
+    </#if>
 <@s.iterator value="parameters.currencyList">
-        <#if parameters.currencyListKey?exists>
-            <#if stack.findString(parameters.currencyListKey)?exists>
+    <#if parameters.currencyListKey?exists>
+        <#if stack.findString(parameters.currencyListKey)?exists>
               <#assign itemKey = stack.findString(parameters.currencyListKey).toString()/>
-            <#else>
+        <#else>
               <#assign itemKey = ''/>
-            </#if>
-        <#else>
-            <#assign itemKey = stack.findValue('top').toString()/>
         </#if>
-        <#if parameters.currencyListValue?exists>
-            <#if stack.findString(parameters.currencyListValue)?exists>
+    <#else>
+        <#assign itemKey = stack.findValue('top').toString()/>
+    </#if>
+
+    <#if parameters.currencyListValue?exists>
+        <#if stack.findString(parameters.currencyListValue)?exists>
               <#assign itemValue = stack.findString(parameters.currencyListValue)/>
-            <#else>
-              <#assign itemValue = ''/>
-            </#if>
         <#else>
-            <#assign itemValue = stack.findString('top')/>
+              <#assign itemValue = ''/>
         </#if>
+    <#else>
+        <#assign itemValue = stack.findString('top')/>
+    </#if>
     <option value="${itemKey?html}"<#rt/>
     >${itemValue?html}</option><#lt/>
 </@s.iterator>
-<#include "/${parameters.templateDir}/simple/optgroup.ftl" />
+
+    <#include "/${parameters.templateDir}/simple/optgroup.ftl" />
 </select>
+<#rt/>
 </#if>
