@@ -17,7 +17,7 @@ public class Product extends BaseObject implements Serializable {
 
     private Long id;
     private String name;
-    private Double price;
+    private Money price;
 	private Set<OrderElement> orderElements = new HashSet<OrderElement>();
 	private Set<Supplier> suppliers = new HashSet<Supplier>();
 
@@ -44,12 +44,13 @@ public class Product extends BaseObject implements Serializable {
         this.name = name;
     }
 
-    @Column(name = ("price"), nullable = true)
-    public Double getPrice() {
-        return price;
-    }
+    @Embedded
+	@AttributeOverrides( { @AttributeOverride(name = "amount", column = @Column(name = ("price"), nullable = true)) })
+	public Money getPrice() {
+		return price;
+	}
 
-    public void setPrice(Double price) {
+    public void setPrice(Money price) {
         this.price = price;
     }
 
