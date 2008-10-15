@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.dao.DataAccessException;
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
+import org.xmdl.taslak.model.Money;
 import org.xmdl.taslak.model.Product;
 import org.xmdl.taslak.model.ProductType;
 import org.xmdl.taslak.model.Supplier;
@@ -19,7 +20,7 @@ public class ProductDaoTest extends BaseDaoTestCase {
     public void testAddAndRemoveProduct() throws Exception {
         Product product = new Product();
         product.setName("abcd");
-        product.setPrice(10d);
+        product.setPrice(new Money(10d));
         product.setProductType(ProductType.PRODUCT);
 
         product = productDao.save(product);
@@ -64,7 +65,7 @@ public class ProductDaoTest extends BaseDaoTestCase {
 
         Product product = new Product();
         product.setName("abcd");
-        product.setPrice(10d);
+        product.setPrice(new Money(10d));
         productDao.save(product);
     }
 }

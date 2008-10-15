@@ -50,9 +50,9 @@ public class ProductDaoHibernate extends GenericDaoHibernate<Product, Long> impl
 	        if (name != null && !name.equals(""))
 	            criteria.add(Restrictions.like("name", "%" + name + "%"));
 	        if (fromPrice != null)
-	            criteria.add(Restrictions.ge("price", fromPrice));
+	            criteria.add(Restrictions.ge("price.amount", fromPrice));
 	        if (toPrice != null)
-	            criteria.add(Restrictions.le("price", toPrice));
+	            criteria.add(Restrictions.le("price.amount", toPrice));
 	        if (productType != null){
 	            criteria.add(Restrictions.eq("productType", productType));
 	        }
