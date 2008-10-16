@@ -17,7 +17,7 @@ public class Product extends BaseObject implements Serializable {
 
     private Long id;
     private String name;
-    private Money price;
+    private Money price = new Money();
 	private Set<OrderElement> orderElements = new HashSet<OrderElement>();
 	private Set<Supplier> suppliers = new HashSet<Supplier>();
 
@@ -45,7 +45,7 @@ public class Product extends BaseObject implements Serializable {
     }
 
     @Embedded
-	@AttributeOverrides( { @AttributeOverride(name = "amount", column = @Column(name = ("price"), nullable = true)) })
+	@AttributeOverrides( { @AttributeOverride(name = "amount", column = @Column(name = ("price"))) })
 	public Money getPrice() {
 		return price;
 	}
