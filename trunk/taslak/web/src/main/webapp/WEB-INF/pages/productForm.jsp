@@ -18,7 +18,7 @@
         <s:hidden key="product.id"/>
     </li>
     <s:textfield key="product.name" required="true" cssClass="text medium" labelposition="left"/>
-    <s:textfield key="product.price" required="false" cssClass="text medium" labelposition="left"/>
+    <ida:money key="product.price" required="false" cssClass="text medium" labelposition="left"/>
     <s:select name="productTypeIds" value="product.productType.value" listKey="value" key="product.productType"
               list="productTypes" labelposition="left"/>
 
