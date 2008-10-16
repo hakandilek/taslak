@@ -5,17 +5,20 @@ import java.text.MessageFormat;
 import java.util.Currency;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
 import org.xmdl.ida.lib.model.BaseObject;
 import org.xmdl.ida.lib.model.MoneyType;
 
+@Embeddable
 public class Money extends BaseObject implements Serializable, Cloneable, MoneyType {
 
     /** serial id */
 	private static final long serialVersionUID = -7961698215037632696L;
 
     /** the money currency */
-    private transient Currency currency = Currency.getInstance("TRY");
+    private Currency currency = Currency.getInstance("TRY");
 
     @Column(name = ("F_AMOUNT"), length = 15)
     private Double amount;
@@ -71,6 +74,7 @@ public class Money extends BaseObject implements Serializable, Cloneable, MoneyT
         }
      }
 
+     @Transient
      public Currency getCurrency() {
     	 return currency;
      }

@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.dao.DataAccessException;
 import org.xmdl.ida.lib.test.BaseDaoTestCase;
 import org.xmdl.mesken.dao.UserDao;
+import org.xmdl.mesken.model.Address;
 import org.xmdl.mesken.model.User;
 import org.xmdl.taslak.model.Profile;
 import org.xmdl.taslak.model.search.ProfileSearch;
@@ -65,11 +66,11 @@ public class ProfileDaoTest extends BaseDaoTestCase {
     }
 
     public void testGetProfileByUsername() throws Exception {
-    	Profile profile = profileDao.getProfileByUsername("user");
+    	Profile profile = profileDao.getProfileByUsername("test_user");
     	assertNotNull(profile);
     	User user = profile.getUser();
     	assertNotNull(user);
-    	assertEquals("user", user.getUsername());
+    	assertEquals("test_user", user.getUsername());
     	assertEquals("00001", profile.getPrivatePhone());
     }
 
