@@ -27,7 +27,7 @@
 <#else>
 <#rt/>
 <input type="text"<#rt/>
- name="${parameters.name?default("")?html}"<#rt/>
+ name="${parameters.name?default("")?html}.amount"<#rt/>
     <#if parameters.get("size")?exists>
  size="${parameters.get("size")?html}"<#rt/>
     </#if>
@@ -73,7 +73,7 @@
 />
 
 <select<#rt/>
- name="${parameters.name?default("")?html}_currency"<#rt/>
+ name="${parameters.name?default("")?html}.currency"<#rt/>
     <#if parameters.currencyCssClass?exists>
  class="${parameters.currencyCssClass?html}"<#rt/>
     <#else>

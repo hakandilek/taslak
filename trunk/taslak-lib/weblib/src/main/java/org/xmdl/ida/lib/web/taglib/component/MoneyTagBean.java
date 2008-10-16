@@ -83,6 +83,9 @@ public class MoneyTagBean extends TextField {
     	if (log.isDebugEnabled()) log.debug("evaluateParams() <-");
 		super.evaluateParams();
 		
+		Double amount = null;
+		Currency currency = null;
+
         // see if the value was specified as a parameter already
         if (parameters.containsKey("value")) {
         	if (log.isDebugEnabled()) log.debug("params.value = " + parameters.get("value"));
@@ -104,10 +107,46 @@ public class MoneyTagBean extends TextField {
                             expr = "%{" + expr + "}";
                         }
                         Object findValue = findValue(expr, valueClazz);
-                    	if (log.isDebugEnabled()) log.debug("2. expr = " + expr);
-                    	if (log.isDebugEnabled()) log.debug("2. findValue = " + findValue);
-                    	if (log.isDebugEnabled()) log.debug("2. findValue.class = " + (findValue == null ? null : findValue.getClass()));
-
+                    	if (log.isDebugEnabled()) log.debug("2.1 expr = " + expr);
+                    	if (log.isDebugEnabled()) log.debug("2.1 findValue = " + findValue);
+                    	if (log.isDebugEnabled()) log.debug("2.1 findValue.class = " 
+                    			+ (findValue == null ? null : findValue.getClass()));
+                    	if (findValue != null && findValue.getClass().equals(String.class) 
+                    			&& "ognl.NoConversionPossible".equals(findValue)) {
+                    		//if the value is not recognized as MoneyType, then it should be String to be converted.
+                    		String val = findValue(expr)+"";
+                        	if (log.isDebugEnabled()) log.debug("val = " + val);
+                        	
+                        	//---
+                        	if (log.isDebugEnabled()) log.debug("stack = " + stack);
+                        	if (log.isDebugEnabled()) log.debug("stack.size = " + stack.size());
+                        	if (log.isDebugEnabled()) log.debug("parameters = " + parameters);
+                        	//---
+                        	
+                    		try {
+								amount = Double.parseDouble(val);
+							} catch (NumberFormatException e) {
+		                    	if (log.isDebugEnabled()) log.debug("this value can not be parsed.", e);
+							}
+	                    	if (log.isDebugEnabled()) log.debug("amount = " + amount);
+							
+                        	String currExpr = name + "_currency";
+                            if (altSyntax()) {
+                            	currExpr = "%{" + currExpr + "}";
+                            }
+                    		String currVal = findValue(currExpr)+"";
+                        	if (log.isDebugEnabled()) log.debug("currVal = " + currVal);
+							try {
+								currency = Currency.getInstance(currVal);
+							} catch (Exception e) {
+		                    	if (log.isDebugEnabled()) log.debug("currency can not be parsed.", e);
+							}
+	                    	if (log.isDebugEnabled()) log.debug("currency = " + currency);
+							
+                    	}
+                    	
+                    	if (log.isDebugEnabled()) log.debug("2.2 findValue = " + findValue);
+                    	if (log.isDebugEnabled()) log.debug("2.2 findValue.class = " + (findValue == null ? null : findValue.getClass()));
 						addParameter("nameValue", findValue);
                     }
                 } else {
@@ -132,8 +171,14 @@ public class MoneyTagBean extends TextField {
 		if (nv != null && nv instanceof MoneyType) {
 			MoneyType money = (MoneyType) nv;
 	    	if (log.isDebugEnabled()) log.debug("money = " + money);
-			Double amount = money.getAmount();
-			Currency currency = money.getCurrency();
+			amount = money.getAmount();
+			currency = money.getCurrency();
+			addParameter("amount", amount);
+			addParameter("currency", currency);
+	    	if (log.isDebugEnabled()) log.debug("amount = " + amount);
+	    	if (log.isDebugEnabled()) log.debug("currency = " + currency);
+		} else if (amount != null && currency != null) {
+	    	if (log.isDebugEnabled()) log.debug("amount and currency available");
 			addParameter("amount", amount);
 			addParameter("currency", currency);
 	    	if (log.isDebugEnabled()) log.debug("amount = " + amount);
