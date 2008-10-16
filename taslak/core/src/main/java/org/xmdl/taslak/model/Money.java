@@ -18,7 +18,7 @@ public class Money extends BaseObject implements Serializable, Cloneable, MoneyT
 	private static final long serialVersionUID = -7961698215037632696L;
 
     /** the money currency */
-    private Currency currency = Currency.getInstance("TRY");
+    private Currency currency;
 
     @Column(name = ("F_AMOUNT"), length = 15)
     private Double amount;
@@ -50,7 +50,7 @@ public class Money extends BaseObject implements Serializable, Cloneable, MoneyT
 
 
     public String toString() {
-        return MessageFormat.format("Money [amount={1}]", amount);
+        return MessageFormat.format("Money [{1} {2}]", amount, currency);
     }
 
     public boolean equals(Object o) {
@@ -78,4 +78,13 @@ public class Money extends BaseObject implements Serializable, Cloneable, MoneyT
      public Currency getCurrency() {
     	 return currency;
      }
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+     
+	public void setCurrency(String currencyCode) {
+		this.currency = Currency.getInstance(currencyCode);
+	}
+     
 }
