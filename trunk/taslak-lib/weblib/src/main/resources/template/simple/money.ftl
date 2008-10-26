@@ -9,7 +9,7 @@
 </label>
 <label<#rt/>
         <#if parameters.id?exists>
- id="${parameters.id?html}_currency"<#rt/>
+ id="${parameters.id?html}.currency"<#rt/>
         </#if>
 <#rt/>
         <#if parameters.currencyCssClass?exists>
@@ -85,7 +85,7 @@
     </#if>
 
     <#if parameters.id?exists>
- id="${parameters.id?html}_currency"<#rt/>
+ id="${parameters.id?html}.currency"<#rt/>
     </#if>
 
     <#if parameters.cssClass?exists>
