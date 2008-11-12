@@ -104,7 +104,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click Order Order link" url="/Order/copyOrder.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/Order/copyOrder.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the order"
                              text=".*${orderDetail.title}.*" regex="true"/>
             </steps>
@@ -230,7 +230,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click Product Order link" url="/Product/copyProduct.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/Product/copyProduct.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the product"
                              text=".*${productDetail.title}.*" regex="true"/>
             </steps>
@@ -354,7 +354,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click Supplier Order link" url="/Supplier/copySupplier.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/Supplier/copySupplier.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the supplier"
                              text=".*${supplierDetail.title}.*" regex="true"/>
             </steps>
@@ -478,7 +478,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click OrderElement Order link" url="/OrderElement/copyOrderElement.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/OrderElement/copyOrderElement.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the orderElement"
                              text=".*${orderElementDetail.title}.*" regex="true"/>
             </steps>
@@ -602,7 +602,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click Profile Order link" url="/Profile/copyProfile.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/Profile/copyProfile.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the profile"
                              text=".*${profileDetail.title}.*" regex="true"/>
             </steps>
@@ -728,7 +728,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click Contact Order link" url="/Contact/copyContact.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/Contact/copyContact.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the contact"
                              text=".*${contactDetail.title}.*" regex="true"/>
             </steps>
@@ -850,7 +850,7 @@
             &config;
             <steps>
                 &login;
-                <invoke description="click User Order link" url="/User/copyUser.do?idToCopy=1"/>
+                <invoke description="click Entity link" url="/User/copyUser.do?idToCopy=1"/>
                 <verifytitle description="Values filled by the properties of the user"
                              text=".*${userDetail.title}.*" regex="true"/>
             </steps>
