@@ -60,7 +60,7 @@ public class ProfileActionTest extends BaseActionTestCase {
         Profile profile = new Profile();
 
         // enter all required fields
-        profile.setPrivatePhone("HMrrM6nArUp SJc");
+        profile.setPrivatePhone("4E4PkxyYQZy KJd");
 
 
         profileManager.save(profile);

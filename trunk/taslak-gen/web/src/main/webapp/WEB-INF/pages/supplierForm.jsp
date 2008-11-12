@@ -23,7 +23,8 @@
         <s:textfield key="supplier.contact.fullname" required="false" cssClass="text medium" labelposition="left"/>
         <s:textfield key="supplier.contact.phone" required="false" cssClass="text medium" labelposition="left"/>
 
-    <li class="buttonBar bottom">
+    <tr>
+		<td class="buttonBar bottom" colspan="2">
         <c:if test="${empty supplier.id}">
             <s:submit cssClass="button" method="save" key="button.add" theme="simple"/>
         </c:if>
@@ -34,7 +35,8 @@
             <s:a href="%{copyUrl}"><fmt:message key="button.copy"/></s:a>
         </c:if>
         <s:submit cssClass="button" method="cancel" key="button.cancel" theme="simple"/>
-    </li>
+        </td>
+	</tr>
 </s:form>
 
 <script type="text/javascript">

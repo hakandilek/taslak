@@ -6,9 +6,9 @@
     <classpathentry kind="src" path="core/src/test/resources" output="target/test-classes" excluding="**/*.java" />
     <classpathentry kind="src" path="web/src/main/java"/>
     <classpathentry kind="src" path="web/src/main/resources" excluding="ApplicationResources_de.properties|ApplicationResources_fr.properties|ApplicationResources_ko.properties|ApplicationResources_nl.properties|ApplicationResources_no.properties|ApplicationResources_pt*.properties|ApplicationResources_tr.properties|ApplicationResources_zh*.properties|applicationContext-resources.xml|struts.xml|**/*.java"/>
+    <classpathentry kind="src" path="web/src/main/webapp"/>
     <classpathentry kind="src" path="web/src/test/java" output="target/test-classes"/>
     <classpathentry kind="src" path="web/src/test/resources" excluding="**/*.java" output="target/test-classes"/>
-    <classpathentry kind="src" path="web/target/classes" excluding="**/*.java"/>
     <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
     
     <classpathentry kind="output" path="target/classes"/>
@@ -80,4 +80,5 @@
     <classpathentry kind="var" path="M2_REPO/struts-menu/struts-menu/2.4.3/struts-menu-2.4.3.jar" sourcepath="M2_REPO/struts-menu/struts-menu/2.4.3/struts-menu-2.4.3-sources.jar"/>
     <classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-codebehind-plugin/2.0.11/struts2-codebehind-plugin-2.0.11.jar"/>
 	<classpathentry kind="var" path="M2_REPO/displaytag/displaytag/1.1.1/displaytag-1.1.1.jar" sourcepath="/M2_REPO/displaytag/displaytag/1.1.1/displaytag-1.1.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/opensymphony/ognl/2.6.11/ognl-2.6.11.jar" sourcepath="M2_REPO/opensymphony/ognl/2.6.11/ognl-2.6.11-sources.jar"/>
 </classpath>

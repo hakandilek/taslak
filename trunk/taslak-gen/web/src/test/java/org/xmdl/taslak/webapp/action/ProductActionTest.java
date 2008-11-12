@@ -60,8 +60,8 @@ public class ProductActionTest extends BaseActionTestCase {
         Product product = new Product();
 
         // enter all required fields
-        product.setName("XzkZqt6L AMDCHF");
-        product.setPrice(new Double(0.33639733721081966));
+        product.setName("45Lv DqCPpSa f3");
+        product.setPrice(new Double(0.4674775750379313));
 
 
         productManager.save(product);

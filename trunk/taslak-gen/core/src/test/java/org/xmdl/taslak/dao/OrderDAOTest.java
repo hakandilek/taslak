@@ -35,9 +35,9 @@ public class OrderDAOTest extends BaseDaoTestCase {
     public void testAddAndRemoveOrder() throws Exception {
         Order order = new Order();
 
-        order.setName("GBaHRE3Q zHMcsB");
-        order.setPriceTotals(new Double(0.03335887159986095));
-        order.setCreateDate(new Date(1238308770894L));
+        order.setName("3zfM Nt9XXmKC8L");
+        order.setPriceTotals(new Double(0.7989230725893522));
+        order.setCreateDate(new Date(1123068212088L));
 
         order = orderDAO.save(order);
         flush();
@@ -45,9 +45,9 @@ public class OrderDAOTest extends BaseDaoTestCase {
         order = orderDAO.get(order.getId());
 
         assertNotNull(order.getId());
-        assertEquals("GBaHRE3Q zHMcsB", order.getName());
-        assertEquals(new Double(0.03335887159986095), order.getPriceTotals());
-        assertEquals(new Date(1238308770894L), order.getCreateDate());
+        assertEquals("3zfM Nt9XXmKC8L", order.getName());
+        assertEquals(new Double(0.7989230725893522), order.getPriceTotals());
+        assertEquals(new Date(1123068212088L), order.getCreateDate());
 
         log.debug("removing order...");
         orderDAO.remove(order.getId());
@@ -67,11 +67,11 @@ public class OrderDAOTest extends BaseDaoTestCase {
      */ 
     public void testSearch() throws Exception {
         OrderSearch search = new OrderSearch();
-        search.setName("GBaHRE3Q zHMcsB");
-        search.setPriceTotalsMin(new Double(0.03335887159986095));
-        search.setPriceTotalsMax(new Double(0.03335887159986095));
-        search.setCreateDateMin(new Date(1238308770894L));
-        search.setCreateDateMax(new Date(1238308770894L));
+        search.setName("3zfM Nt9XXmKC8L");
+        search.setPriceTotalsMin(new Double(0.7989230725893522));
+        search.setPriceTotalsMax(new Double(0.7989230725893522));
+        search.setCreateDateMin(new Date(1123068212088L));
+        search.setCreateDateMax(new Date(1123068212088L));
         Collection<Order> orders = orderDAO.search(search);
         assertTrue(orders.size() > 0);
     }
@@ -83,9 +83,9 @@ public class OrderDAOTest extends BaseDaoTestCase {
         super.onSetUpBeforeTransaction();
 
         Order order = new Order();
-        order.setName("GBaHRE3Q zHMcsB");
-        order.setPriceTotals(new Double(0.03335887159986095));
-        order.setCreateDate(new Date(1238308770894L));
+        order.setName("3zfM Nt9XXmKC8L");
+        order.setPriceTotals(new Double(0.7989230725893522));
+        order.setCreateDate(new Date(1123068212088L));
         orderDAO.save(order);
     }
 

@@ -10,7 +10,6 @@
     <menu:displayMenu name="Logout"/>
 
     <menu:displayMenu name="org.xmdl.taslakMenu"/>
-    <menu:displayMenu name="org.xmdl.mesken.modelMenu"/>
 
 </ul>
 
