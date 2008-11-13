@@ -1,8 +1,10 @@
 package org.xmdl.taslak;
 
-import org.xmdl.mojo.meta.Id;
-import org.xmdl.mojo.meta.ManyToOne;
+import org.xmdl.mojo.annotation.Id;
+import org.xmdl.mojo.annotation.ManyToOne;
+import org.xmdl.mojo.annotation.Mojo;
 
+@Mojo
 public class OrderElement {
 	@Id
 	Long id;

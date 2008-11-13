@@ -1,5 +1,8 @@
 package org.xmdl.taslak;
 
+import org.xmdl.mojo.annotation.Mojo;
+
+@Mojo
 public enum ProductType {
 
     RAWMATERIAL(1),

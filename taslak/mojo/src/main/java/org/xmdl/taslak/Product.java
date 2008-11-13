@@ -2,10 +2,12 @@ package org.xmdl.taslak;
 
 import java.util.Set;
 
-import org.xmdl.mojo.meta.Id;
-import org.xmdl.mojo.meta.ManyToMany;
-import org.xmdl.mojo.meta.OneToMany;
+import org.xmdl.mojo.annotation.Id;
+import org.xmdl.mojo.annotation.ManyToMany;
+import org.xmdl.mojo.annotation.Mojo;
+import org.xmdl.mojo.annotation.OneToMany;
 
+@Mojo
 public class Product {
 	@Id
 	Long id;

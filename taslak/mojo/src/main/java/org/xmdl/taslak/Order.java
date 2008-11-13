@@ -3,10 +3,12 @@ package org.xmdl.taslak;
 import java.util.Date;
 import java.util.Set;
 
-import org.xmdl.mojo.meta.AssociationBehaviour;
-import org.xmdl.mojo.meta.Id;
-import org.xmdl.mojo.meta.OneToMany;
+import org.xmdl.mojo.annotation.AssociationBehaviour;
+import org.xmdl.mojo.annotation.Id;
+import org.xmdl.mojo.annotation.Mojo;
+import org.xmdl.mojo.annotation.OneToMany;
 
+@Mojo
 public class Order {
 	@Id
 	Long id;
