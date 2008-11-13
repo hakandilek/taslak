@@ -65,7 +65,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/javax/transaction/jta/1.0.1B/jta-1.0.1B.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/ida-corelib/0.1-SNAPSHOT/ida-corelib-0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="var" path="M2_REPO/xfire/xfire-jsr181-api/1.0-M1/xfire-jsr181-api-1.0-M1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-collections/commons-collections/3.2/commons-collections-3.2.jar" sourcepath="M2_REPO/commons-collections/commons-collections/3.2/commons-collections-3.2-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/codehaus/xfire/xfire-xmlbeans/1.2.6/xfire-xmlbeans-1.2.6.jar" sourcepath="M2_REPO/org/codehaus/xfire/xfire-xmlbeans/1.2.6/xfire-xmlbeans-1.2.6-sources.jar">
@@ -137,7 +136,7 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Documents and Settings/addiha5/.m2/repository/org/subethamail/subethasmtp-smtp/1.2/subethasmtp-smtp-1.2-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/ida-corelib"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mesken-core"/>
+	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/ida-corelib/0.1-SNAPSHOT/ida-corelib-0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/mesken-core/0.1-SNAPSHOT/mesken-core-0.1-SNAPSHOT.jar" />
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
