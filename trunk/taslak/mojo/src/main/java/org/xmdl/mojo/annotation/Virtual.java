@@ -1,21 +1,21 @@
 /**
  * 
  */
-package org.xmdl.mojo.meta;
+package org.xmdl.mojo.annotation;
 
-import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Specifies the primary key property or field of an entity.
+ * Specifies virtual type.
  * 
  * @author Hakan Dilek
  */
-@Target(FIELD)
+@Target(ElementType.TYPE)
 @Retention(RUNTIME)
-public @interface Id {
+public @interface Virtual {
 
 }

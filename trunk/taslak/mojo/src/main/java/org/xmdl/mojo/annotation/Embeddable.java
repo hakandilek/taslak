@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.xmdl.mojo.meta;
+package org.xmdl.mojo.annotation;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
