@@ -18,7 +18,8 @@
     </li>
         <s:textfield key="order.name" required="false" cssClass="text medium" labelposition="left"/>
         <s:textfield key="order.priceTotals" required="false" cssClass="text medium" labelposition="left"/>
-        <s:textfield key="order.createDate" required="false" cssClass="text medium" labelposition="left"/>
+        <s:datetimepicker key="order.createDate" required="false" cssClass="text medium" labelposition="left"
+        	displayFormat="%{datePattern}" />
 
     <tr>
 		<td class="buttonBar bottom" colspan="2">
