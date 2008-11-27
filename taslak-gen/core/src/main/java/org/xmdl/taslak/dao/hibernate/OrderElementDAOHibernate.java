@@ -4,6 +4,7 @@ package org.xmdl.taslak.dao.hibernate;
 
 import java.util.*;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 

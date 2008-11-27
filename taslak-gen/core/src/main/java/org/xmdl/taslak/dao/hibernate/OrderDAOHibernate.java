@@ -4,6 +4,7 @@ package org.xmdl.taslak.dao.hibernate;
 
 import java.util.*;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -78,7 +79,7 @@ public class OrderDAOHibernate extends GenericDaoHibernate<Order, Long> implemen
 
                 Session session = getSession();
                 Criteria criteria = session.createCriteria(Order.class);
-            if (name != null)
+            if (!StringUtils.isEmpty(name))
                 criteria.add(Restrictions.eq("name", name));
             if (minPriceTotals != null)
                 criteria.add(Restrictions.ge("priceTotals", minPriceTotals));

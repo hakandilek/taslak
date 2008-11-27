@@ -4,6 +4,7 @@ package org.xmdl.taslak.dao.hibernate;
 
 import java.util.*;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -72,7 +73,7 @@ public class ProfileDAOHibernate extends GenericDaoHibernate<Profile, Long> impl
 
                 Session session = getSession();
                 Criteria criteria = session.createCriteria(Profile.class);
-            if (privatePhone != null)
+            if (!StringUtils.isEmpty(privatePhone))
                 criteria.add(Restrictions.eq("privatePhone", privatePhone));
             if (user != null){
                 Criteria subCriteria = criteria.createCriteria("user");

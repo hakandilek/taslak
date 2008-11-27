@@ -4,6 +4,7 @@ package org.xmdl.taslak.dao.hibernate;
 
 import java.util.*;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -70,7 +71,7 @@ public class SupplierDAOHibernate extends GenericDaoHibernate<Supplier, Long> im
 
                 Session session = getSession();
                 Criteria criteria = session.createCriteria(Supplier.class);
-            if (name != null)
+            if (!StringUtils.isEmpty(name))
                 criteria.add(Restrictions.eq("name", name));
             if (products != null){
                 Criteria subCriteria = criteria.createCriteria("products");
