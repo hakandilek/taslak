@@ -99,4 +99,13 @@ public final class StringUtil {
             throw new RuntimeException(de.getMessage(), de.getCause());
         }
     }
+    
+    /**
+     * @param str string to check
+     * @return true if the given string is null or empty
+     */
+    public static boolean isEmpty(String str)
+    {
+    	return str == null || "".equals(str);
+    }
 }
