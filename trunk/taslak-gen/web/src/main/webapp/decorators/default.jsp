@@ -14,6 +14,7 @@
         <script type="text/javascript" src="<c:url value='/scripts/scriptaculous.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/scripts/global.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/scripts/common.js'/>"></script>
+  		<s:head debug="true"/>
         <decorator:head/>
     </head>
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/><decorator:getProperty property="body.class" writeEntireProperty="true"/>>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mark generationTime="2008-11-27T16:48:07.907+01:00">
+<mark generationTime="2008-11-27T17:25:07.958+01:00">
     <platform version="0.1.0" name="IDA" id="org.xmdl.ida"/>
     <files>
         <file fileType="OTHER" outputType="GENERATE" name="/taslak/.classpath"/>
@@ -197,26 +197,17 @@
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/404.jpg"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/aquadot.jpg"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/arrow-down.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/arrow.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/arrow_down.png"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/arrow_off.png"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/arrow_up.png"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/asc.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/common/edit.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/common/edit_down.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/common/edit_up.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/common/save.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/desc.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/favicon.ico"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/fieldbg.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/ico_file_csv.png"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/ico_file_excel.png"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/ico_file_pdf.png"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/ico_file_xml.png"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/iconCalendar.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/iconEmail.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/iconHelp.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/iconInformation.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/iconWarning.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/indicator.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/images/logo.gif"/>
@@ -229,7 +220,6 @@
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/login.jsp"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/logout.jsp"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/README.txt"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/builder.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/calendar/calendar-setup.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/calendar/calendar.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/calendar/lang/calendar-af.js"/>
@@ -275,17 +265,9 @@
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/calendar/lang/calendar-tr.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/calendar/lang/calendar-zh.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/calendar/lang/cn_utf8.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/common.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/controls.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/dojo/test.html"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/dragdrop.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/effects.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/global.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/login.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/prototype.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/scriptaculous.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/selectbox.js"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/scripts/slider.js"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/andreas01/images/bg.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/andreas01/images/fieldbg.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/andreas01/images/front.jpg"/>
@@ -304,12 +286,8 @@
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/calendar-aqua/normal-bg.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/calendar-aqua/rowhover-bg.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/calendar-aqua/status-bg.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/calendar-aqua/theme.css"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/calendar-aqua/title-bg.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/calendar-aqua/today-bg.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/displaytag.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/forms.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/messages.css"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/puzzlewithstyle/images/bodybackground.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/puzzlewithstyle/images/headerbackground.gif"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/puzzlewithstyle/layout-1col.css"/>
@@ -325,15 +303,6 @@
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/puzzlewithstyle/theme.css"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/puzzlewithstyle/tools.css"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/puzzlewithstyle/typo.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/images/background.gif"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/layout-1col.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/layout-navtop-subright.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/layout.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/nav-horizontal.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/print.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/theme.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/tools.css"/>
-        <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/main/webapp/styles/simplicity/typo.css"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/test/resources/applicationContext-mail.xml"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/test/resources/config.xml"/>
         <file fileType="OTHER" outputType="COPY" name="/taslak/web/src/test/resources/jdbc.properties"/>
