@@ -288,6 +288,19 @@
 
         <!-- ================= Database Profiles ================= -->
         <profile>
+            <id>mysql</id>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.MySQLInnoDBDialect</hibernate.dialect>
+                <jdbc.groupId>mysql</jdbc.groupId>
+                <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+                <jdbc.version>5.0.3</jdbc.version>
+                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+                <jdbc.url><![CDATA[jdbc:mysql://localhost/taslak?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+                <jdbc.username>taslak</jdbc.username>
+                <jdbc.password>taslakbu</jdbc.password>
+            </properties>
+        </profile>
+        <profile>
             <id>derby</id>
             <properties>
                 <hibernate.dialect>org.hibernate.dialect.DerbyDialect</hibernate.dialect>
