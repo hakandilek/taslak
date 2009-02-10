@@ -116,6 +116,12 @@
             <id>appfuse</id>
             <url>http://static.appfuse.org/repository</url>
         </repository>
+        <repository>
+            <id>jboss</id>
+            <url>http://repository.jboss.com/maven2</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -153,6 +159,21 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jmxtools</artifactId>
+                    <groupId>com.sun.jdmk</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jmxri</artifactId>
+                    <groupId>com.sun.jmx</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.acegisecurity</groupId>
@@ -188,7 +209,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-mock</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-mock.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -400,7 +421,7 @@
 
     <properties>
         <!-- Application settings -->
-        <copyright.year>2007</copyright.year>
+        <copyright.year>2007-2009</copyright.year>
         <dao.framework>hibernate</dao.framework>
         <web.framework>struts</web.framework>
         <amp.genericCore>true</amp.genericCore>
@@ -408,12 +429,13 @@
         
         <!-- Framework dependency versions -->
         <appfuse.version>2.0</appfuse.version>
-        <spring.version>2.0.7</spring.version>
+        <spring.version>2.5.6</spring.version>
+        <spring-mock.version>2.0.8</spring-mock.version>
 
         <!-- Testing dependency versions -->
-        <jmock.version>1.1.0</jmock.version>
+        <jmock.version>1.2.0</jmock.version>
         <jsp.version>2.0</jsp.version>
-        <junit.version>4.4</junit.version>
+        <junit.version>4.5</junit.version>
         <servlet.version>2.4</servlet.version>
         <wiser.version>1.2</wiser.version>
 
@@ -444,29 +466,33 @@
 	<jdbc.password></jdbc.password>
 	
         <!-- Properties calculated by AppFuse when running full-source plugin -->
-        <acegi.version>1.0.5</acegi.version>
-        <aspectj.version>1.5.3</aspectj.version>
+        <acegi.version>1.0.7</acegi.version>
+        <aspectj.version>1.6.2</aspectj.version>
         <clickstream.version>1.0.2</clickstream.version>
-        <commons.beanutils.version>1.7.0</commons.beanutils.version>
-        <commons.collections.version>3.2</commons.collections.version>
+        <commons.beanutils.version>1.8.0</commons.beanutils.version>
+        <commons.collections.version>3.2.1</commons.collections.version>
         <commons.dbcp.version>1.2.2</commons.dbcp.version>
-        <commons.fileupload.version>1.1.1</commons.fileupload.version>
-        <commons.io.version>1.3.2</commons.io.version>
-        <commons.lang.version>2.3</commons.lang.version>
-        <displaytag.version>1.1.1</displaytag.version>
-        <dwr.version>2.0.1</dwr.version>
-        <ehcache.version>1.3.0</ehcache.version>
-        <hibernate.annotations.version>3.3.0.ga</hibernate.annotations.version>
-        <hibernate.version>3.2.5.ga</hibernate.version>
-        <javamail.version>1.4</javamail.version>
+        <commons.fileupload.version>1.2.1</commons.fileupload.version>
+        <commons.io.version>1.4</commons.io.version>
+        <commons.lang.version>2.4</commons.lang.version>
+        <displaytag.version>1.2</displaytag.version>
+        <dwr.version>2.0.3</dwr.version>
+        <ehcache.version>1.5.0</ehcache.version>
+        <hibernate.version>3.3.1.GA</hibernate.version>
+        <hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
+        <hibernate.commons.annotations.version>3.3.0.ga</hibernate.commons.annotations.version>
+        <hibernate.entitymanager.version>3.4.0.GA</hibernate.entitymanager.version>
+        <javassist.version>3.9.0.GA</javassist.version>
+        <javamail.version>1.4.1</javamail.version>
         <jpa.version>1.0</jpa.version>
         <jstl.version>1.1.2</jstl.version>
-        <log4j.version>1.2.13</log4j.version>
-        <oscache.version>2.3</oscache.version>
-        <sitemesh.version>2.2.1</sitemesh.version>
+        <log4j.version>1.2.15</log4j.version>
+        <slf4j.version>1.5.2</slf4j.version>
+        <oscache.version>2.4</oscache.version>
+        <sitemesh.version>2.3</sitemesh.version>
         <struts.menu.version>2.4.3</struts.menu.version>
-        <struts.version>2.0.11</struts.version>
-        <urlrewrite.version>3.0.4</urlrewrite.version>
+        <struts.version>2.0.14</struts.version>
+        <urlrewrite.version>3.1.0</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>
     </properties>
