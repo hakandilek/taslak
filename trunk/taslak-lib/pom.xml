@@ -64,7 +64,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>1.5</source>
                     <target>1.5</target>
@@ -72,7 +72,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.4</version>
+                <version>${maven-eclipse-plugin.version}</version>
                 <configuration>
                     <additionalProjectnatures>
                         <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
@@ -87,7 +87,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-idea-plugin</artifactId>
-                <version>2.1</version>
+                <version>${maven-idea-plugin.version}</version>
                 <configuration>
                     <downloadSources>true</downloadSources>
                     <downloadJavadocs>true</downloadJavadocs>
@@ -95,15 +95,20 @@
                     <useFullNames>false</useFullNames>
                 </configuration>
             </plugin>
-	    <plugin>
-		    <groupId>org.javagen.revgen</groupId>
-		    <artifactId>maven-hsql-plugin</artifactId>
-		    <version>1.0-beta2</version>
-		    <configuration>
-			    <database>${hsql.dbfile}</database>
-			    <dbname>${hsql.dbname}</dbname>
-		    </configuration>
-	    </plugin>
+            <plugin>
+                    <groupId>org.javagen.revgen</groupId>
+                    <artifactId>maven-hsql-plugin</artifactId>
+                    <version>${maven-hsql-plugin.version}</version>
+                    <configuration>
+                            <database>${hsql.dbfile}</database>
+                            <dbname>${hsql.dbname}</dbname>
+                    </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -129,11 +134,11 @@
             <id>appfuse</id>
             <url>http://static.appfuse.org/repository</url>
         </pluginRepository>
-	<pluginRepository>
-		<id>javagen</id>
-		<url>http://www.javagen.com/maven</url>
-	</pluginRepository>
-	
+        <pluginRepository>
+            <id>javagen</id>
+            <url>http://www.javagen.com/maven</url>
+        </pluginRepository>
+        
     </pluginRepositories>
 
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
@@ -169,6 +174,11 @@
                     <groupId>com.sun.jmx</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -282,7 +292,7 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-surefire-report-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
         </plugins>
     </reporting>
@@ -431,7 +441,20 @@
         <appfuse.version>2.0</appfuse.version>
         <spring.version>2.5.6</spring.version>
         <spring-mock.version>2.0.8</spring-mock.version>
-
+        
+        <!-- Maven plugin versions -->
+        <maven-compiler-plugin.version>2.0.2</maven-compiler-plugin.version>
+        <maven-eclipse-plugin.version>2.5.1</maven-eclipse-plugin.version>
+        <maven-idea-plugin.version>2.2</maven-idea-plugin.version>
+        <maven-hsql-plugin.version>1.0-beta2</maven-hsql-plugin.version>
+        <aspectj-maven-plugin.version>1.1</aspectj-maven-plugin.version>
+        <hibernate3-maven-plugin.version>2.1</hibernate3-maven-plugin.version>
+        <dbunit-maven-plugin.version>1.0-beta-1</dbunit-maven-plugin.version>
+        <maven-jetty-plugin.version>6.1.14</maven-jetty-plugin.version>
+        <maven-war-plugin.version>2.0.2</maven-war-plugin.version>
+        <native2ascii-maven-plugin.version>1.0-alpha-1</native2ascii-maven-plugin.version>
+        <maven-surefire-plugin.version>2.4.3</maven-surefire-plugin.version>
+        
         <!-- Testing dependency versions -->
         <jmock.version>1.2.0</jmock.version>
         <jsp.version>2.0</jsp.version>
@@ -452,19 +475,19 @@
                 
         <!-- Database settings -->
         
-	<hsql.dbname>taslak</hsql.dbname>
-	<hsql.dbfile>${user.home}/taslakdb</hsql.dbfile>
-	<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
-	<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>
-	<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
-	<jdbc.groupId>hsqldb</jdbc.groupId>
-	<jdbc.artifactId>hsqldb</jdbc.artifactId>
-	<jdbc.version>1.8.0.7</jdbc.version>
-	<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
-	<jdbc.url><![CDATA[jdbc:hsqldb:hsql://localhost/${hsql.dbname}]]></jdbc.url>
-	<jdbc.username>sa</jdbc.username>
-	<jdbc.password></jdbc.password>
-	
+        <hsql.dbname>taslak</hsql.dbname>
+        <hsql.dbfile>${user.home}/taslakdb</hsql.dbfile>
+        <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+        <dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>
+        <hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
+        <jdbc.groupId>hsqldb</jdbc.groupId>
+        <jdbc.artifactId>hsqldb</jdbc.artifactId>
+        <jdbc.version>1.8.0.7</jdbc.version>
+        <jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
+        <jdbc.url><![CDATA[jdbc:hsqldb:hsql://localhost/${hsql.dbname}]]></jdbc.url>
+        <jdbc.username>sa</jdbc.username>
+        <jdbc.password></jdbc.password>
+        
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <acegi.version>1.0.7</acegi.version>
         <aspectj.version>1.6.2</aspectj.version>
