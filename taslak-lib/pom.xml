@@ -81,8 +81,7 @@
                         <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
                     </additionalBuildcommands>
                     <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                    <wtpversion>1.5</wtpversion>
+                    <downloadJavadocs>false</downloadJavadocs>
                 </configuration>
             </plugin>
             <plugin>
