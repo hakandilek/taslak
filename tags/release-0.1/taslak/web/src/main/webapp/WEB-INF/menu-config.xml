@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuConfig>
+    <Displayers>
+        <Displayer name="CoolMenu" type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+        <Displayer name="Velocity" type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    </Displayers>
+    <Menus>
+        <Menu name="MainMenu" title="mainMenu.title" page="/mainMenu.do" roles="ROLE_ADMIN,ROLE_USER"/>
+        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/Profile/editProfile.do" roles="ROLE_ADMIN,ROLE_USER"/>
+        <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" width="120" page="/admin/users.do">
+            <Item name="ViewUsers" title="menu.admin.users" page="/admin/users.do"/>
+            <Item name="ActiveUsers" title="mainMenu.activeUsers" page="/admin/activeUsers.do"/>
+            <Element name="ReloadContext" title="menu.admin.reload" page="/admin/reload.do"/>
+            <Item name="FileUpload" title="menu.selectFile" page="/uploadFile.do"/>
+            <Item name="FlushCache" title="menu.flushCache" page="/admin/flushCache.do"/>
+            <Item name="Clickstream" title="menu.clickstream" page="/admin/clickstreams.jsp"/>
+        </Menu>
+
+        <Menu name="SalesMenu" title="Sales.menu.title" description="Sales" roles="ROLE_ADMIN,ROLE_USER"  page="/Order/orders.do">
+            <Item name="OrderMenu" title="Order.menu.title" page="/Order/editOrder.do">
+                <Item name="OrderEdit" title="Order.menu.edit" page="/Order/editOrder.do"/>
+                <Item name="OrderSearch"  title="Order.menu.search" page="/Order/orders.do"/>
+            </Item>
+        </Menu>
+        <Menu name="WarehouseMenu" title="Warehouse.menu.title" description="Warehouse Data" roles="ROLE_ADMIN,ROLE_USER"  page="/Product/products.do">
+            <Item name="ProductMenu"  title="Product.menu.title" page="/Product/products.do">
+<!--                
+            <Item name="Edit" width="60"  title="Product.menu.edit" page="/Product/editProduct.do"/>
+            <Item name="Search" width="60"  title="Product.menu.search" page="/Product/products.do"/>
+-->
+            </Item>
+        </Menu>
+        <Menu name="Logout" title="user.logout" page="/logout.jsp" roles="ROLE_ADMIN,ROLE_USER"/>
+    </Menus>
+</MenuConfig>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="ProductSupplier" namespace="/ProductSupplier" extends="struts-default">
+        <action name="productSuppliers" class="org.xmdl.taslak.webapp.action.ProductSupplierAction" method="list">
+            <result name="input">/WEB-INF/pages/productSupplierList.jsp</result>
+            <result>/WEB-INF/pages/productSupplierList.jsp</result>
+        </action>
+        <action name="editProductSupplier" class="org.xmdl.taslak.webapp.action.ProductSupplierAction" method="edit">
+            <result>/WEB-INF/pages/productSupplierForm.jsp</result>
+            <result name="error">/WEB-INF/pages/productSupplierList.jsp</result>
+        </action>
+        <action name="saveProductSupplier" class="org.xmdl.taslak.webapp.action.ProductSupplierAction" method="save">
+            <result name="input">/WEB-INF/pages/productSupplierForm.jsp</result>
+            <result name="cancel" type="redirect">productSuppliers.jsp</result>
+            <result name="delete" type="redirect">productSuppliers.jsp</result>
+            <result name="success" type="redirect">productSuppliers.jsp</result>
+        </action>
+        <action name="copyProductSupplier" class="org.xmdl.taslak.webapp.action.ProductSupplierAction" method="copy">
+            <result name="success">/WEB-INF/pages/productSupplierForm.jsp</result>
+        </action>
+        <action name="ajaxList" class="org.xmdl.taslak.webapp.action.ProductSupplierAction" method="list">
+            <result name="success">/WEB-INF/pages/productSupplierListJson.jsp</result>
+        </action>
+    </package>
+</struts>

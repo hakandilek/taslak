@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.xmdl.xmdlgen:GModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.xmdl.xmdlgen="http://www.xmdl.org/xmdlgen.ecore" name="taslak" xModel="platform:/resource/taslak/model/taslak.xmdl">
+  <xProject href="taslak.xmdl#/"/>
+  <gPackages name="org.xmdl.taslak">
+    <xPackage href="taslak.xmdl#//@packages.0"/>
+    <gClasses name="Order">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.0"/>
+      <gAttributes name="name">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.0"/>
+      </gAttributes>
+      <gAttributes name="priceTotals">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.1"/>
+      </gAttributes>
+      <gAttributes name="createDate">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.2"/>
+      </gAttributes>
+      <gAttributes name="orderElements">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.0/@attributes.3"/>
+      </gAttributes>
+    </gClasses>
+    <gClasses name="Product">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.1"/>
+      <gAttributes name="name">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.0"/>
+      </gAttributes>
+      <gAttributes name="price">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.1"/>
+      </gAttributes>
+      <gAttributes name="orderElements">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.2"/>
+      </gAttributes>
+      <gAttributes name="suppliers">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.1/@attributes.3"/>
+      </gAttributes>
+    </gClasses>
+    <gClasses name="Supplier">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.2"/>
+      <gAttributes name="name">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.0"/>
+      </gAttributes>
+      <gAttributes name="products">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.1"/>
+      </gAttributes>
+      <gAttributes name="contact">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.2/@attributes.2"/>
+      </gAttributes>
+    </gClasses>
+    <gClasses name="OrderElement">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.3"/>
+      <gAttributes name="quantity">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.0"/>
+      </gAttributes>
+      <gAttributes name="order">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.1"/>
+      </gAttributes>
+      <gAttributes name="product">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.3/@attributes.2"/>
+      </gAttributes>
+    </gClasses>
+    <gClasses name="Profile">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.4"/>
+      <gAttributes name="privatePhone">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.4/@attributes.0"/>
+      </gAttributes>
+      <gAttributes name="user">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.4/@attributes.1"/>
+      </gAttributes>
+    </gClasses>
+    <gClasses name="Contact">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.5"/>
+      <gAttributes name="name">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.5/@attributes.0"/>
+      </gAttributes>
+      <gAttributes name="surname">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.5/@attributes.1"/>
+      </gAttributes>
+      <gAttributes name="phone">
+        <xAttribute href="taslak.xmdl#//@packages.0/@classes.5/@attributes.2"/>
+      </gAttributes>
+    </gClasses>
+  </gPackages>
+  <gPackages name="org.xmdl.mesken.model">
+    <xPackage href="taslak.xmdl#//@packages.1"/>
+    <gClasses name="User">
+      <xClass href="taslak.xmdl#//@packages.1/@classes.0"/>
+    </gClasses>
+  </gPackages>
+</org.xmdl.xmdlgen:GModel>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+       default-lazy-init="true">
+
+    <!-- =================================================================== -->
+    <!-- AOP: Configuration and Aspects                                      -->
+    <!-- =================================================================== -->
+    <aop:config>
+        <aop:advisor id="userManagerTx" advice-ref="userManagerTxAdvice" pointcut="execution(* *..service.UserManager.*(..))" order="0"/>        
+        <aop:advisor id="userManagerSecurity" advice-ref="userSecurityAdvice" pointcut="execution(* *..service.UserManager.saveUser(..))" order="1"/>
+        <aop:advisor id="managerTx" advice-ref="txAdvice" pointcut="execution(* *..service.*Manager.*(..))" order="2"/>
+    </aop:config>
+    
+    <!-- Enable @Transactional support -->
+    <tx:annotation-driven/>
+    
+    <!-- Fix bug in Spring 2.0.6: http://issues.appfuse.org/browse/APF-887 -->
+    <bean class="org.springframework.transaction.aspectj.AnnotationTransactionAspect" factory-method="aspectOf" dependency-check="none" lazy-init="false">
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+    
+    <!-- Enable @AspectJ support -->
+    <aop:aspectj-autoproxy/>
+
+    <!-- Enable @Configured support -->
+    <aop:spring-configured/>
+    
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <!-- Read-only commented out to make things easier for end-users -->
+            <!-- http://issues.appfuse.org/browse/APF-556 -->
+            <!--tx:method name="get*" read-only="true"/-->
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <!-- Fix bug in Spring 2.0.6: http://issues.appfuse.org/browse/APF-887 -->
+    <bean class="org.springframework.transaction.aspectj.AnnotationTransactionAspect" factory-method="aspectOf" dependency-check="none" lazy-init="false">
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+    
+    <tx:advice id="userManagerTxAdvice">
+        <tx:attributes>
+            <tx:method name="save*" rollback-for="UserExistsException"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <bean id="userSecurityAdvice" class="org.xmdl.mesken.service.UserSecurityAdvice"/>
+    
+    <!-- =================================================================== -->
+    <!-- Managers: For accessing DAOs                                        -->
+    <!-- =================================================================== -->
+    
+    <bean id="manager" class="org.xmdl.ida.lib.service.impl.UniversalManagerImpl">
+        <property name="dao" ref="universalDao"/>
+    </bean>
+
+    <bean id="lookupManager" class="org.xmdl.mesken.service.impl.LookupManagerImpl">
+        <property name="lookupDao" ref="lookupDao"/>
+    </bean>
+
+    <bean id="orderManager" class="org.xmdl.taslak.service.impl.OrderManagerImpl">
+        <constructor-arg ref="orderDAO"/>
+    </bean>
+    <bean id="productManager" class="org.xmdl.taslak.service.impl.ProductManagerImpl">
+        <constructor-arg ref="productDAO"/>
+    </bean>
+    <bean id="supplierManager" class="org.xmdl.taslak.service.impl.SupplierManagerImpl">
+        <constructor-arg ref="supplierDAO"/>
+    </bean>
+    <bean id="orderElementManager" class="org.xmdl.taslak.service.impl.OrderElementManagerImpl">
+        <constructor-arg ref="orderElementDAO"/>
+    </bean>
+    <bean id="profileManager" class="org.xmdl.taslak.service.impl.ProfileManagerImpl">
+        <constructor-arg ref="profileDAO"/>
+    </bean>
+
+</beans>

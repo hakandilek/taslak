@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.xmdl.bo:BModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.xmdl.bo="http://www.xmdl.org/xmdlbo.ecore" name="taslak" xModel="platform:/resource/taslak/model/taslak.xmdl">
+  <xProject href="taslak.xmdl#/"/>
+  <bPackages name="org.xmdl.taslak">
+    <xPackage href="taslak.xmdl#//@packages.0"/>
+    <services name="OrderService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.0"/>
+    </services>
+    <services name="ProductService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.1"/>
+    </services>
+    <services name="SupplierService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.2"/>
+    </services>
+    <services name="OrderElementService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.3"/>
+    </services>
+    <services name="ProfileService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.4"/>
+    </services>
+    <services name="ContactService">
+      <xClass href="taslak.xmdl#//@packages.0/@classes.5"/>
+    </services>
+  </bPackages>
+  <bPackages name="org.xmdl.mesken.model">
+    <xPackage href="taslak.xmdl#//@packages.1"/>
+    <services name="UserService">
+      <xClass href="taslak.xmdl#//@packages.1/@classes.0"/>
+    </services>
+  </bPackages>
+</org.xmdl.bo:BModel>

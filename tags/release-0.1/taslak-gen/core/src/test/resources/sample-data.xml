@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+    <table name="TBL_USER">
+        <column>id</column>
+        <column>username</column>
+        <column>password</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <column>address</column>
+        <column>city</column>
+        <column>country</column>
+        <column>email</column>
+        <column>phone_number</column>
+        <column>postal_code</column>
+        <column>province</column>
+        <column>website</column>
+        <column>password_hint</column>
+        <column>version</column>
+        <column>account_enabled</column>
+        <column>account_expired</column>
+        <column>account_locked</column>
+        <column>credentials_expired</column>
+        <row>
+            <value description="id">1</value>
+            <value description="username">user</value>
+            <value description="password">12dea96fec20593566ab75692c9949596833adc9</value>
+            <value description="first_name">Tomcat</value>
+            <value description="last_name">User</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">devel@xmdl.org</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://code.google.com/p/taslak/</value>
+            <value description="password_hint"><![CDATA[A male kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">2</value>
+            <value description="username">admin</value>
+            <value description="password">d033e22ae348aeb5660fc2140aec35850c4da997</value>
+            <value description="first_name">Admin</value>
+            <value description="last_name">Admin</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">dev@xmdl.org</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://code.google.com/p/taslak/</value>
+            <value description="password_hint"><![CDATA[Not a female kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+    </table>
+    <table name="TBL_ROLE">
+        <column>id</column>
+        <column>name</column>
+        <column>description</column>
+        <row>
+            <value description="id">1</value>
+            <value description="name">ROLE_ADMIN</value>
+            <value description="description"><![CDATA[Administrator role (can edit Users)]]></value>
+        </row>
+        <row>
+            <value description="id">2</value>
+            <value description="name">ROLE_USER</value>
+            <value description="description"><![CDATA[Default role for all Users]]></value>
+        </row>
+    </table>
+    <table name="TBL_USER_ROLE">
+        <column>user_id</column>
+        <column>role_id</column>
+        <row>
+            <value description="user_id">1</value>
+            <value description="role_id">2</value>
+        </row>
+        <row>
+            <value description="user_id">2</value>
+            <value description="role_id">1</value>
+        </row>
+    </table>
+
+
+    <!--org.xmdl.taslak.Order-START-->
+    <table name="TBL_ORDER">
+        <column>id</column>
+        <column>F_NAME</column>
+        <column>F_PRICETOTALS</column>
+        <column>F_CREATEDATE</column>
+
+        <row>
+            <value description="id">1</value>
+            <value description="F_NAME">3zfM Nt9XXmKC8L</value>
+            <value description="F_PRICETOTALS">0.7989230725893522</value>
+            <value description="F_CREATEDATE">2005-08-03</value>
+        </row>
+
+        <row>
+            <value description="id">2</value>
+            <value description="F_NAME">XDgQq VpRZMa HE</value>
+            <value description="F_PRICETOTALS">0.5298959626849444</value>
+            <value description="F_CREATEDATE">2006-09-09</value>
+        </row>
+
+        <row>
+            <value description="id">3</value>
+            <value description="F_NAME">kgCZ gDU9xzuZy </value>
+            <value description="F_PRICETOTALS">0.5486281647285377</value>
+            <value description="F_CREATEDATE">2009-02-24</value>
+        </row>
+
+    </table>
+    
+    
+    <!--org.xmdl.taslak.Order-END-->
+    <!--org.xmdl.taslak.Product-START-->
+    <table name="TBL_PRODUCT">
+        <column>id</column>
+        <column>F_NAME</column>
+        <column>F_PRICE</column>
+
+        <row>
+            <value description="id">1</value>
+            <value description="F_NAME">45Lv DqCPpSa f3</value>
+            <value description="F_PRICE">0.4674775750379313</value>
+        </row>
+
+        <row>
+            <value description="id">2</value>
+            <value description="F_NAME">ccSnpP8d 5dk9hf</value>
+            <value description="F_PRICE">0.9295741826061696</value>
+        </row>
+
+        <row>
+            <value description="id">3</value>
+            <value description="F_NAME">aLVwafed7eHJ4 h</value>
+            <value description="F_PRICE">0.5330066961878662</value>
+        </row>
+
+    </table>
+    
+    
+    <!--org.xmdl.taslak.Product-END-->
+    <!--org.xmdl.taslak.Supplier-START-->
+    <table name="TBL_SUPPLIER">
+        <column>id</column>
+        <column>F_NAME</column>
+		<column>F_FULLNAME</column>
+		<column>F_PHONE</column>
+
+        <row>
+            <value description="id">1</value>
+            <value description="F_NAME">WcDfbVfHYrv PQf</value>
+			<value description="F_FULLNAME">2jnLZE WGG24QzW</value>
+			<value description="F_PHONE">VZEwM7Nxu ykb P</value>
+        </row>
+
+        <row>
+            <value description="id">2</value>
+            <value description="F_NAME">57msPf VnXs xRC</value>
+			<value description="F_FULLNAME">6erBHSczvSz V7s</value>
+			<value description="F_PHONE">ctkaDbFvaT sfMV</value>
+        </row>
+
+        <row>
+            <value description="id">3</value>
+            <value description="F_NAME">SwCtpZBQ Yz6 sY</value>
+			<value description="F_FULLNAME">WkaFCMm uFQC25 </value>
+			<value description="F_PHONE">Sgrs946Zhb5cX g</value>
+        </row>
+
+    </table>
+    
+    
+    <!--org.xmdl.taslak.Supplier-END-->
+    <!--org.xmdl.taslak.OrderElement-START-->
+    <table name="TBL_ORDERELEMENT">
+        <column>id</column>
+        <column>F_QUANTITY</column>
+        <column>F_ORDER_ID</column>
+        <column>F_PRODUCT_ID</column>
+
+        <row>
+            <value description="id">1</value>
+            <value description="F_QUANTITY">5178411341324860787</value>
+            <value description="F_ORDER_ID">1</value>
+            <value description="F_PRODUCT_ID">1</value>
+        </row>
+
+        <row>
+            <value description="id">2</value>
+            <value description="F_QUANTITY">3894272399855602471</value>
+            <value description="F_ORDER_ID">2</value>
+            <value description="F_PRODUCT_ID">2</value>
+        </row>
+
+        <row>
+            <value description="id">3</value>
+            <value description="F_QUANTITY">-4459301816396909588</value>
+            <value description="F_ORDER_ID">3</value>
+            <value description="F_PRODUCT_ID">3</value>
+        </row>
+
+    </table>
+    
+    
+    <!--org.xmdl.taslak.OrderElement-END-->
+    <!--org.xmdl.taslak.Profile-START-->
+    <table name="TBL_PROFILE">
+        <column>id</column>
+        <column>F_PRIVATEPHONE</column>
+
+        <row>
+            <value description="id">1</value>
+            <value description="F_PRIVATEPHONE">4E4PkxyYQZy KJd</value>
+        </row>
+
+        <row>
+            <value description="id">2</value>
+            <value description="F_PRIVATEPHONE">dXpLKGecg aCMT5</value>
+        </row>
+
+        <row>
+            <value description="id">3</value>
+            <value description="F_PRIVATEPHONE">Ne5M7jcrf5q fdh</value>
+        </row>
+
+    </table>
+    
+    
+    <!--org.xmdl.taslak.Profile-END-->
+</dataset>
