@@ -6,7 +6,7 @@
     <groupId>org.xmdl.ida</groupId>
     <artifactId>ida</artifactId>
     <packaging>pom</packaging>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <name>IDA Library</name>
     <url>http://taslak.googlecode.com/</url>
 
@@ -16,28 +16,28 @@
 
     <licenses>
         <license>
-            <name></name>
-            <url></url>
+            <name>LGPL-3</name>
+            <url>http://www.gnu.org/licenses/lgpl.html</url>
         </license>
     </licenses>
 
     <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
+        <connection>scm:svn:http://taslak.googlecode.com/svn/trunk/</connection>
+        <developerConnection>scm:svn:https://taslak.googlecode.com/svn/trunk/</developerConnection>
+        <url>http://code.google.com/p/taslak/source/browse/</url>
     </scm>
 
     <issueManagement>
-        <system></system>
-        <url></url>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/taslak/issues/list</url>
     </issueManagement>
 
     <developers>
         <developer>
-            <id></id>
-            <name></name>
-            <email></email>
-            <timezone></timezone>
+            <id>hakandilek</id>
+            <name>Hakan Dilek</name>
+            <email>hakan@xmdl.org</email>
+            <timezone>GMT+1</timezone>
         </developer>
     </developers>
     
