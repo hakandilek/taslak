@@ -14,6 +14,16 @@
     <constant name="struts.codebehind.pathPrefix" value="/WEB-INF/pages/"/>
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
 
+	<!--
+		Since 2.1.3: These settings need to be added to struts.xml to make the
+		REST plugin work with the Codebehind plugin
+	-->
+	<constant name="struts.codebehind.classSuffix" value="Controller"/>
+	<constant name="struts.codebehind.action.checkImplementsAction" value="false"/>
+	<constant name="struts.codebehind.action.checkAnnotation" value="false"/>
+	<constant name="struts.codebehind.action.defaultMethodName" value="index"/>
+	<constant name="struts.configuration.classpath.defaultParentPackage" value="default" />
+
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         <interceptors>
@@ -23,17 +33,17 @@
             <interceptor-stack name="defaultStack">
                 <interceptor-ref name="exception"/>
                 <interceptor-ref name="alias"/>
-                <interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="servletConfig"/>
                 <interceptor-ref name="prepare"/>
                 <interceptor-ref name="i18n"/>
                 <interceptor-ref name="chain"/>
                 <interceptor-ref name="debugging"/>
                 <interceptor-ref name="profiling"/>
-                <interceptor-ref name="scoped-model-driven"/>
-                <interceptor-ref name="model-driven"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
                 <interceptor-ref name="fileUpload"/>
                 <interceptor-ref name="checkbox"/>
-                <interceptor-ref name="static-params"/>
+                <interceptor-ref name="staticParams"/>
                 <interceptor-ref name="params">
                     <param name="excludeParams">dojo\..*</param>
                 </interceptor-ref>

@@ -1,9 +1,7 @@
 <projectDescription>
   <name>taslak-webapp</name>
   <comment/>
-  <projects>
-    <project>taslak-core</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

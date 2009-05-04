@@ -9,6 +9,7 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib uri="/struts-dojo-tags" prefix="sx" %>
 <%@ taglib uri="http://xmdl.org/tags/ida" prefix="ida"%>
 <%@ taglib uri="http://taslak.googlecode.com/tags" prefix="taslak" %>
 
