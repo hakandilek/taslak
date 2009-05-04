@@ -69,10 +69,9 @@ public class UserAction extends BaseMeskenAction implements Preparable {
      */
     public String delete() {
         userManager.removeUser(user.getId().toString());
-        List<String> args = new ArrayList<String>();
+        List<Object> args = new ArrayList<Object>();
         args.add(user.getFullName());
         saveMessage(getText("user.deleted", args));
-
         return SUCCESS;
     }
 
@@ -193,7 +192,7 @@ public class UserAction extends BaseMeskenAction implements Preparable {
             getResponse().sendError(HttpServletResponse.SC_FORBIDDEN);
             return null;
         } catch (UserExistsException e) {
-            List<String> args = new ArrayList<String>();
+            List<Object> args = new ArrayList<Object>();
             args.add(user.getUsername());
             args.add(user.getEmail());
             addActionError(getText("errors.existing.user", args));
@@ -211,7 +210,7 @@ public class UserAction extends BaseMeskenAction implements Preparable {
             return "mainMenu";
         } else {
             // add success messages
-            List<String> args = new ArrayList<String>();
+            List<Object> args = new ArrayList<Object>();
             args.add(user.getFullName());
             if (isNew) {
                 saveMessage(getText("user.added", args));
