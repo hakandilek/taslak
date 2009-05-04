@@ -36,7 +36,7 @@
 
         <display:column property="id" media="csv excel xml pdf" titleKey="product.id"/>
         <display:column property="name" sortable="true" titleKey="product.name"/>
-        <display:column property="price" sortable="true" titleKey="product.price"/>
+        <display:column property="price" sortable="true" titleKey="product.price" decorator="org.xmdl.ida.lib.web.decorator.MoneyDecorator"/>
         <display:column property="productType" sortable="true" titleKey="product.productType"/>
 
         <display:column media="html" titleKey="List.Edit" >
