@@ -58,7 +58,7 @@
   <classpathentry kind="var" path="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2.jar" sourcepath="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/java/dev/stax-utils/stax-utils/20040917/stax-utils-20040917.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.0.14/struts2-core-2.0.14.jar" sourcepath="M2_REPO/org/apache/struts/struts2-core/2.0.14/struts2-core-2.0.14-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.1.6/struts2-core-2.1.6.jar" sourcepath="M2_REPO/org/apache/struts/struts2-core/2.1.6/struts2-core-2.1.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/subethamail/subethasmtp-smtp/1.2/subethasmtp-smtp-1.2.jar" sourcepath="M2_REPO/org/subethamail/subethasmtp-smtp/1.2/subethasmtp-smtp-1.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2.jar" sourcepath="M2_REPO/org/subethamail/subethasmtp-wiser/1.2/subethasmtp-wiser-1.2-sources.jar"/>
   <classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_02/lib/tools.jar"/>
@@ -76,5 +76,5 @@
   <classpathentry kind="var" path="M2_REPO/org/codehaus/xfire/xfire-spring/1.2.6/xfire-spring-1.2.6.jar" sourcepath="M2_REPO/org/codehaus/xfire/xfire-spring/1.2.6/xfire-spring-1.2.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/xfire/xfire-xmlbeans/1.2.6/xfire-xmlbeans-1.2.6.jar" sourcepath="M2_REPO/org/codehaus/xfire/xfire-xmlbeans/1.2.6/xfire-xmlbeans-1.2.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar" sourcepath="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/opensymphony/xwork/2.0.7/xwork-2.0.7.jar" sourcepath="M2_REPO/com/opensymphony/xwork/2.0.7/xwork-2.0.7-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/opensymphony/xwork/2.1.2/xwork-2.1.2.jar" sourcepath="M2_REPO/com/opensymphony/xwork/2.1.2/xwork-2.1.2-sources.jar"/>
 </classpath>

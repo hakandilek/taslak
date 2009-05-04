@@ -1,13 +1,14 @@
 package org.xmdl.ida.lib.web.util;
 
 import java.text.ParseException;
-import java.util.Map;
 import java.util.Date;
+import java.util.Map;
 
 import org.apache.struts2.util.StrutsTypeConverter;
 import org.xmdl.ida.lib.util.DateUtil;
 
-import com.opensymphony.xwork2.util.TypeConversionException;
+import com.opensymphony.xwork2.conversion.TypeConversionException;
+
 
 public class DateConverter extends StrutsTypeConverter {
 

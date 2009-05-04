@@ -103,7 +103,7 @@ public class SignupAction extends BaseMeskenAction {
             return null; 
         } catch (UserExistsException e) {
             log.warn(e.getMessage());
-            List<String> args = new ArrayList<String>();
+            List<Object> args = new ArrayList<Object>();
             args.add(user.getUsername());
             args.add(user.getEmail());
             addActionError(getText("errors.existing.user", args));

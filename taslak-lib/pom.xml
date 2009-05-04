@@ -6,7 +6,7 @@
     <groupId>org.xmdl.ida</groupId>
     <artifactId>ida</artifactId>
     <packaging>pom</packaging>
-    <version>0.1</version>
+    <version>0.1.1</version>
     <name>IDA Library</name>
     <url>http://taslak.googlecode.com/</url>
 
@@ -513,7 +513,7 @@
         <oscache.version>2.4</oscache.version>
         <sitemesh.version>2.3</sitemesh.version>
         <struts.menu.version>2.4.3</struts.menu.version>
-        <struts.version>2.0.14</struts.version>
+        <struts.version>2.1.6</struts.version>
         <urlrewrite.version>3.1.0</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>
