@@ -16,8 +16,8 @@
         <script type="text/javascript" src="<c:url value='/scripts/global.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/scripts/common.js'/>"></script>
 
+    	<s:head theme="xhtml" />
         <decorator:head/>
-		<s:head theme="ajax"/>
     </head>
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/><decorator:getProperty property="body.class" writeEntireProperty="true"/>>
 

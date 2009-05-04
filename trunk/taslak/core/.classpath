@@ -136,7 +136,7 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Documents and Settings/addiha5/.m2/repository/org/subethamail/subethasmtp-smtp/1.2/subethasmtp-smtp-1.2-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/ida-corelib/0.1-SNAPSHOT/ida-corelib-0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/mesken-core/0.1-SNAPSHOT/mesken-core-0.1-SNAPSHOT.jar" />
+	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/ida-corelib/0.1/ida-corelib-0.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/xmdl/ida/mesken-core/0.1/mesken-core-0.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
