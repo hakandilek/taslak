@@ -17,3 +17,5 @@ sha1sum ida/mesken-weblib/0.1/mesken-weblib-0.1.jar       > ida/mesken-weblib/0.
 sha1sum ida/mesken-weblib/0.1/mesken-weblib-0.1.pom       > ida/mesken-weblib/0.1/mesken-weblib-0.1.pom.sha1        
 sha1sum ida/mesken-weblib/0.1.1/mesken-weblib-0.1.1.jar   > ida/mesken-weblib/0.1.1/mesken-weblib-0.1.1.jar.sha1    
 sha1sum ida/mesken-weblib/0.1.1/mesken-weblib-0.1.1.pom   > ida/mesken-weblib/0.1.1/mesken-weblib-0.1.1.pom.sha1    
+sha1sum wdl/org.xmdl.wdl.ida-archetype/0.1/org.xmdl.wdl.ida-archetype-0.1.jar   > wdl/org.xmdl.wdl.ida-archetype/0.1/org.xmdl.wdl.ida-archetype-0.1.jar.sha1
+sha1sum wdl/org.xmdl.wdl.ida-archetype/0.1/org.xmdl.wdl.ida-archetype-0.1.pom   > wdl/org.xmdl.wdl.ida-archetype/0.1/org.xmdl.wdl.ida-archetype-0.1.pom.sha1
