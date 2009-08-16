@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><archetype-catalog>
+  <archetypes>
+    <archetype>
+      <groupId>org.xmdl.wdl</groupId>
+      <artifactId>org.xmdl.wdl.ida-archetype</artifactId>
+      <version>0.1</version>
+      <description>ida-archetype</description>
+    </archetype>
+  </archetypes>
+</archetype-catalog>
