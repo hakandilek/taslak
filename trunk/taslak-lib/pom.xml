@@ -6,7 +6,7 @@
     <groupId>org.xmdl.ida</groupId>
     <artifactId>ida</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <name>IDA Library</name>
     <url>http://taslak.googlecode.com/</url>
 
@@ -125,6 +125,17 @@
             <url>http://repository.jboss.com/maven2</url>
             <releases><enabled>true</enabled></releases>
             <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>openqa-releases</id>
+            <name>OpenQA Releases</name>
+            <url>http://nexus.openqa.org/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
@@ -517,5 +528,7 @@
         <urlrewrite.version>3.1.0</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>
+        <webdriver.version>0.6.1039</webdriver.version>
+        <htmlunit.version>2.5</htmlunit.version>
     </properties>
 </project>
