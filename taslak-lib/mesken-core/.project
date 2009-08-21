@@ -1,9 +1,7 @@
 <projectDescription>
   <name>mesken-core</name>
   <comment/>
-  <projects>
-    <project>ida-corelib</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>
