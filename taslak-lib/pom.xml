@@ -6,7 +6,7 @@
     <groupId>org.xmdl.ida</groupId>
     <artifactId>ida</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.2</version>
+    <version>0.1.2-SNAPSHOT</version>
     <name>IDA Library</name>
     <url>http://taslak.googlecode.com/</url>
 
